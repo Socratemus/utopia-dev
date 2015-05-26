@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @author Corneliu Iancu <corneliu.iancu27@gmail.com>
+ * @Date Dec 21, 2014
+ * @copyright (c) 2014, Corneliu Iancu
+ */
+$viewPath = getcwd() . '/view';
+
+return array(
+    'view_manager' => array(
+        'display_not_found_reason' => true,
+        'display_exceptions' => true,
+        'doctype' => 'HTML5',
+        'not_found_template' => 'error/404',
+        'exception_template' => 'error/index',
+        'template_map' => array(
+            'layout/layout' => $viewPath . '/layout/layout.phtml',
+            'error/404' => $viewPath . '/layout/404.phtml',
+            'error/index' => $viewPath . '/layout/index.phtml',
+            'application/index/index' => $viewPath . '/application/index/index.phtml',
+        ),
+        'template_path_stack' => array(
+            $viewPath,
+        ),
+    ),
+    'module_layouts' => array(
+        'ZfcUser'            =>      'layout/layout/layout_main.phtml',
+        'Engine'             =>      'layout/layout/layout_main.phtml',
+//        'BjyAuthorize'       =>      'layout/layout/layout_main.phtml',
+        'Admin'              =>      'layout/layout/admin_layout.phtml' 
+    ),
+);
