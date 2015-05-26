@@ -12,7 +12,7 @@
     <body>
 
         <header>
-            <?php echo $this->partial('layout/header.phtml')?>
+            <?php echo $this->render('layout/header.phtml')?>
         </header>
 
         <main data-role="main">
@@ -25,7 +25,7 @@
             <?php echo $this->partial('layout/footer.phtml')?>
         </footer>
         
-        <?php echo $this->partial('layout/scripts.phtml')?>
+        <?php echo $this->render('layout/scripts.phtml')?>
         <?php echo $this->inlineScript();?>
     </body>
 </html>
