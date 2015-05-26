@@ -1,0 +1,31 @@
+<?php echo $this->doctype(); ?>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <?php echo $this->partial('layout/head.phtml')?>
+        <?php echo $this->headScript(); ?>
+
+    </head>
+
+    <body>
+
+        <header>
+            <?php echo $this->partial('layout/header.phtml')?>
+        </header>
+
+        <main data-role="main">
+
+            <?php echo $this->content; ?>
+
+        </main>
+    
+        <footer>
+            <?php echo $this->partial('layout/footer.phtml')?>
+        </footer>
+        
+        <?php echo $this->partial('layout/scripts.phtml')?>
+        <?php echo $this->inlineScript();?>
+    </body>
+</html>
