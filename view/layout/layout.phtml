@@ -10,22 +10,33 @@
     </head>
 
     <body>
+        
+        <header class="hdr">
 
-        <header>
             <?php echo $this->render('layout/header.phtml')?>
+            
         </header>
 
-        <main data-role="main">
-
-            <?php echo $this->content; ?>
-
+        <main data-role="main" class="main">
+            
+            <div class="col-md-12">      
+                <?php echo $this->content; ?>
+            </div>
+            <div class="clearfix"></div>
+            
         </main>
     
-        <footer>
-            <?php echo $this->partial('layout/footer.phtml')?>
+        <footer class="ftr">
+            
+            <div class="col-md-12">  
+                <?php echo $this->partial('layout/footer.phtml')?>
+            </div>
+            <div class="clearfix"></div>
+            
         </footer>
         
         <?php echo $this->render('layout/scripts.phtml')?>
         <?php echo $this->inlineScript();?>
+        
     </body>
 </html>
