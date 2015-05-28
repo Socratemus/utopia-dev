@@ -7,7 +7,12 @@ var application = application || {} ;
 
 application.global = {
   
+    menuDependency : function(){
+      
+    },
+   
     initialize : function(){
+        this.menuDependency()
         console.info('Application was initialized');
     }
 };
