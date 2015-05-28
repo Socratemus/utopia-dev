@@ -68,7 +68,7 @@ body {
     color : #34353e;
 }
 .main-nav li a {
-    padding : 10px; 
+    padding : 20px; 
     padding-left : 12px;
     padding-right : 12px;
     display : block;
@@ -139,13 +139,40 @@ body {
 .dropdown:hover .dropdown-menu {
     display: block;
  }
- 
+.dropdown-menu > li a{
+    padding-top : 7px;
+    padding-bottom : 7px;
+} 
+.dropdown-menu > li > a:hover{
+    background-color : transparent;
+}
 .dropdown-menu > li {float : none;
     border-bottom : 1px solid #ccc;
 }
 
 .dropdown-menu > li:last-child {
     border-bottom : 0px;
+}
+
+.search-form{
+    padding-top : 13px;
+}
+.search-form > input[type=text]{
+    width : 90px;
+    -webkit-transition: width .25s; /* Safari */
+    transition: width .25s;
+}
+
+.search-form > .extended{
+    width : 150px !important;
+}
+
+.search-form > button{
+    position : absolute;
+    top : 13px;
+    right : 0;
+    padding: 5px 6px;
+    font-size: 14px;
 }
 
 .main{

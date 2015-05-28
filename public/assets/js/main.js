@@ -10,9 +10,19 @@ application.global = {
     menuDependency : function(){
       
     },
-   
+    searchDependency : function(){
+        
+        $(document).on('click' , '.search-form input' , function(){
+            $(this).addClass('extended');      
+        });
+        
+        $(document).on('blur' , '.search-form input' , function(){
+            $(this).removeClass('extended');      
+        });
+    },
     initialize : function(){
-        this.menuDependency()
+        this.menuDependency();
+        this.searchDependency();
         console.info('Application was initialized');
     }
 };
