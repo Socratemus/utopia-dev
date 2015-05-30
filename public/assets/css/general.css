@@ -58,10 +58,15 @@ select {
     
 }
 
+.light-clr {
+  color: #a6a6a6;
+}
+
 [class*='col-md-'].extended{
     padding-left : 0;
     padding-right : 0;
 }
+
 .container.extended{
     padding-left : 0;
     padding-right : 0;

@@ -99,4 +99,20 @@ return array(
             ),
         ),
     ),
+    
+    //Doctine config
+    //Load doctrine entities
+    'doctrine' => array(
+        'driver' => array(
+            'app_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'paths' => __DIR__ . '/../src/Application/Entity',
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Application\Entity' => 'app_entities',
+                ),
+            ),
+        ),
+    )
 );
