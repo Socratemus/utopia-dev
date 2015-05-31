@@ -11,15 +11,31 @@ return array(
     'router' => array(
         'routes' => array(
             'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/',
+                    'route' => '/:lang[/]',
+                    'constraints' => array (
+                        'lang' => '[a-z]{2}',
+                    ),
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
+                        'lang'       => 'en'
+                    ),
+                ),
+                
+            ),
+            'home_redirect' => array (
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array (
+                    'route' => '/',
+                    'defaults' => array (
+                    'controller' => 'Application\Controller\Intl',
+                    'action' => 'index',
                     ),
                 ),
             ),
+            
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -73,7 +89,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Intl' => 'Application\Controller\IntlController',
         ),
     ),
     'view_manager' => array(

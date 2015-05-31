@@ -220,6 +220,22 @@ select {
     margin-right : 50px;
 }
 
+.pt5{
+    padding-top : 5px;
+}
+
+.pb5{
+    
+}
+
+.pl5{
+    
+}
+
+.pr5{
+    
+}
+
 .fa.small {
     font-size : 16px;
 }
