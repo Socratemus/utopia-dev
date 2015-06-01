@@ -4,7 +4,6 @@ return array(
     'modules' => array(
         'Application',
         
-        
         /****************/
         /**REQUIREMENTS**/
         'DoctrineModule',
@@ -15,6 +14,7 @@ return array(
         'BjyAuthorize',
         //'ZendDeveloperTools',
         //'UserModule'
+        'UserModule',
         /****************/
         /****************/
     ),
