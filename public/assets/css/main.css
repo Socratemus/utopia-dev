@@ -13,8 +13,9 @@
  LightGrayText : #999
 
 */
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 body {
     font-family: 'Lato', Arial , sans-serif;
     font-size: 13px;
@@ -300,11 +301,74 @@ color: #34353e;
     font-size: 11px;
 }
 
+.menu-toggler{
+    padding-bottom : 3px;
+    margin-top : 11px;
+    margin-bottom : 9px;
+    -webkit-box-shadow: 0 2px 0 #009ea9;
+    -moz-box-shadow: 0 2px 0 #009ea9;
+    box-shadow: 0 2px 0 #009ea9;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    background-color: #00becc;
+    background-image: -moz-linear-gradient(top,#00becc,#00becc);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#00becc),to(#00becc));
+    background-image: -webkit-linear-gradient(top,#00becc,#00becc);
+    background-image: -o-linear-gradient(top,#00becc,#00becc);
+    background-image: linear-gradient(to bottom,#00becc,#00becc);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF#00becc', endColorstr='#FF#00becc', GradientType=0);
+    border-color: #00becc #00becc #007780;
+    border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+}
+
+.menu-toggler:hover{
+    background-color: #00b5c2;
+}
+
 .main{
     padding-top : 5px;
     padding-bottom : 5px;
     min-height : 300px;
     border-bottom : 1px solid #e0e0e0;
+}
+
+.push-up.over-sld{
+    min-height : 100px;
+    background : #FFF;
+    margin-top : -50px;
+    border-radius : 7px 7px 0px 0px;
+    padding-top : 15px;
+    padding-bottom : 15px;
+    
+}
+
+.offer {
+    border : 1px solid #e0e0e0;
+    /*padding : 10px;*/
+    /*min-height : 50px;*/
+    /*border-radius : 5px;*/
+    /*background: #666666;;*/
+    font-size: 18px;
+    letter-spacing: -.05em;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+.offer span.title{
+    display : block;
+    text-align : center;
+}
+
+.offer a { 
+    display : block;
+    color : #FFF;
+    margin : 5px;
+    padding : 10px 0px;
+    text-align : center;
+    background : #666666;
+}
+.offer.hot a{
+    background: #7da337;
 }
 
 .ftr{
@@ -314,3 +378,43 @@ color: #34353e;
     color : #F6F6F6;
     
 }
+
+/****************************************************/
+/**************** PRODUCT CSS ***********************/
+/****************************************************/
+
+.pcw {
+    overflow : hidden;
+    height : 150px;
+}
+
+.pr{
+    padding-top : 15px;
+    padding-bottom : 15px;
+    /*border : 1px solid #e0e0e0;*/
+}
+
+.pri{
+    min-height : 100px;
+    /*border-bottom : 1px solid #e0e0e0;*/
+    margin-bottom : 10px;
+}
+
+.pri img{ width : 80%; }
+
+.prp{
+    margin-bottom : 20px;
+}
+
+.prp h4.title {
+    margin-bottom : 0;
+    font-size : 20px;
+      color: #34353e;
+  line-height: 1.2;
+  letter-spacing: -.05em;
+}
+
+/****************************************************/
+/**************** END PRODUCT CSS *******************/
+/****************************************************/
+

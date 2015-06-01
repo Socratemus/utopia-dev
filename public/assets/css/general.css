@@ -1,5 +1,7 @@
+
+
 body {
-    color : #1F1F1F;
+      color: #727272;
 }
 
 small {
@@ -62,6 +64,10 @@ select {
     color: #a6a6a6;
 }
 
+.light {
+    font-weight : 400;
+}
+
 [class*='col-md-'].extended{
     padding-left : 0;
     padding-right : 0;
@@ -74,6 +80,10 @@ select {
 
 .relative{
     position : relative;
+}
+
+.no-margin {
+    margin : 0;
 }
 
 .mt5{

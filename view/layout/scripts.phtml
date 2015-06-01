@@ -1,7 +1,8 @@
 <?php
 
 $this->inlineScript()
+        ->prependFile($this->basePath() . '/assets/js/main.js')
         ->prependFile($this->basePath() . '/assets/js/adds/bootstrap/bootstrap.min.js')
         ->prependFile($this->basePath() . '/assets/js/adds/jquery/jquery-2.1.1.min.js')
-        ->appendFile($this->basePath() . '/assets/js/main.js');
+    ;
 ?>
