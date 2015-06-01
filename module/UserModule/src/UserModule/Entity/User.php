@@ -37,31 +37,13 @@ class User implements UserInterface, ProviderInterface
      * @var $email
      * @ORM\Column(type="string", unique=true,  length=255)
      * 
-     * @Annotation\Name("email")
-     * @Annotation\Attributes({"type":"Zend\Form\Element\Email"})
-     * @Annotation\Validator({"name":"StringLength","options":{"min":4,"max":128}})
-     * @Annotation\Validator({"name":"EmailAddress","options":{"domain":true}})
-     * @Annotation\Attributes({"class":"form-control"})
-     * @Annotation\Required(true)
      */
     protected $email;
     
-    /**
-     * @var string
-     * @ORM\Column(type="string",  length=255)
-     * @Annotation\Exclude()
-     */
-    protected $Type;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=50, nullable=true)
-     * 
-     * @Annotation\Name("FirstName")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Validator({"name":"StringLength","options":{"min":2,"max":64}})
-     * @Annotation\Attributes({"class":"form-control"})
-     * @Annotation\Required(true)
      */
     protected $FirstName;
     
@@ -69,11 +51,6 @@ class User implements UserInterface, ProviderInterface
      * @var string
      * @ORM\Column(type="string", length=50, nullable=true)
      * 
-     * @Annotation\Name("LastName")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Validator({"name":"StringLength","options":{"min":2,"max":64}})
-     * @Annotation\Attributes({"class":"form-control"})
-     * @Annotation\Required(true)
      */
     protected $LastName;
 
@@ -83,12 +60,6 @@ class User implements UserInterface, ProviderInterface
      * @Annotation\Exclude()
      */
     protected $Password;
-    
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=128, nullable = true)
-     * @Annotation\Exclude()
-     */
 
     /**
      * @var \DateTime
@@ -124,25 +95,11 @@ class User implements UserInterface, ProviderInterface
      */
     protected $roles;
     
-    /**
-     * @ORM\OneToMany(targetEntity="Engine\Entity\SpecificationCategory", mappedBy="Category", cascade={"persist"})
-     * @Annotation\Exclude()
-     */
-    private $SpecificationCategories;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="UserAddress", mappedBy="User")
-     **/
-    private $UserAddresses;
-    
     public function __construct()
     {
         $this->roles = new ArrayCollection();
-        $this->UserAddresses = new ArrayCollection();
-        $this->setType(0);
         $this->setCreatedAt(new \DateTime('now'));
         $this->setUpdatedAt(new \DateTime('now'));
-        $this->SpecificationCategories = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -155,23 +112,11 @@ class User implements UserInterface, ProviderInterface
         return $this->state;
     }
 
-    /**
-     * Set state.
-     *
-     * @param int $state
-     *
-     * @return void
-     */
     public function setState($state)
     {
         $this->state = $state;
     }
 
-    /**
-     * Get role.
-     *
-     * @return array
-     */
     public function getRoles()
     {
         return $this->roles->getValues();
@@ -182,13 +127,6 @@ class User implements UserInterface, ProviderInterface
         return $this->roles;
     }
     
-    /**
-     * Add a role to the user.
-     *
-     * @param Role $role
-     *
-     * @return void
-     */
     public function addRole($role)
     {
         $this->roles[] = $role;
@@ -269,21 +207,6 @@ class User implements UserInterface, ProviderInterface
         $this->UpdatedAt = $UpdatedAt;
     }
     
-    public function getArrayCopy() {
-        return get_object_vars($this);
-    }
-
-    public function exchangeArray($Data) {
-        
-        $this->FirstName = isset($Data['FirstName']) ? $Data['FirstName'] : null;
-        $this->LastName = isset($Data['LastName']) ? $Data['LastName'] : null;
-        $this->Email = isset($Data['Email']) ? $Data['Email'] : null;
-//        $this->CreatedAt = isset($Data['CreatedAt']) ? $Data['Name'] : null;
-        $this->UpdatedAt = isset($Data['UpdatedAt']) ? $Data['UpdatedAt'] : new \DateTime('now');
-        $this->Type = isset($Data['Type']) ? $Data['Type'] : null;
-    }
-
-    
     public function getUsername() {
         ;
     }
@@ -300,23 +223,4 @@ class User implements UserInterface, ProviderInterface
         ;
     }
     
-    public function getSpecificationCategories() {
-        return $this->SpecificationCategories;
-    }
-
-    public function getUserAddresses() {
-        return $this->UserAddresses;
-    }
-
-    public function setSpecificationCategories($SpecificationCategories) {
-        $this->SpecificationCategories = $SpecificationCategories;
-        return $this;
-    }
-
-    public function setUserAddresses($UserAddresses) {
-        $this->UserAddresses = $UserAddresses;
-        return $this;
-    }
-
-
 }

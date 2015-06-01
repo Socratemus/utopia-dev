@@ -60,13 +60,3 @@ return array(
         ),
     )
 );
-/*
-'DoctrineModule\Validator\UniqueObject' => function ($sm){
-                $uniqueObject = new DoctrineModule\Validator\NoObjectExists(array(
-                    'fields' => 'email',
-                    'object_repository' => $sm->get('Doctrine\ORM\EntityManager')->getRepository('UserModule\Entity\User'),
-                    'object_manager' => $sm->get('Doctrine\ORM\EntityManager'),
-                ));
-                return $uniqueObject;
-            }
- *  */

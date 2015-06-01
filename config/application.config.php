@@ -12,8 +12,7 @@ return array(
         'ZfcUser',
         'ZfcUserDoctrineORM',
         'BjyAuthorize',
-        //'ZendDeveloperTools',
-        //'UserModule'
+        'ZendDeveloperTools',
         'UserModule',
         /****************/
         /****************/

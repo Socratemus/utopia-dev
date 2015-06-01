@@ -48,6 +48,12 @@ h6 {
 
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #34353e;
+  line-height: 1.2;
+  letter-spacing: -.05em;
+}
+
 ul {
     list-style : none;
 }
@@ -365,3 +371,24 @@ select {
 .fa.large {
     font-size : 26px;
 }
+
+/***********************************************************************/
+/* GENERAL ELEMENTS */
+.stripe{
+    margin-top : -5px;
+    background: #7e9399;
+    background: -moz-radial-gradient(40% 30%, circle farthest-side, #9aabb0, #7e9399), #7e9399;
+    background: -webkit-radial-gradient(40% 30%, circle farthest-side, #9aabb0, #7e9399), #7e9399;
+    background: radial-gradient(40% 30%, circle farthest-side, #9aabb0, #7e9399), #7e9399;
+    padding: 8px 0;
+    overflow: hidden;
+    min-height: 60px;
+}
+
+.breadcrumb {background : none;}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+/***********************************************************************/
