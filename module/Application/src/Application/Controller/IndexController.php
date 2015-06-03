@@ -16,13 +16,20 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        //$em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+        //$categoryService = $this->getServiceLocator()->get('CategoryService');
+        
+        //$categoryService->test();
+        
+        //exit();
+        
+        //$cache = $this->getServiceLocator()->get('Cache');
+        //$cache->getCache()->setItem('mykey' , 'myvalue');
         
         //$category = new \Application\Entity\Category();
-        //$category->setName('Test cat...');
-        //$em->persist($category);
-        //$em->flush();
-        
+        // $category->setName('Test cat...');
+        // $em->persist($category);
+        // $em->flush();
+        //exit('aaa');
         return new ViewModel();
     }
     

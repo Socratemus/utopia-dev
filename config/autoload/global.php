@@ -13,4 +13,11 @@
 
 return array(
     // ...
+   'service_manager' => array(
+        'invokables' => array(
+            //'ApplicationServiceErrorHandler' => 'Engine\Service\ApplicationErrorHandlerService',
+            'CategoryService' => 'Application\Service\CategoryService',
+            
+        ),
+    ),
 );

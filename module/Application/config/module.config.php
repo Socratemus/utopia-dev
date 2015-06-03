@@ -41,10 +41,11 @@ return array(
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
             'application' => array(
-                'type'    => 'Literal',
+                'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/:lang/application',
                     'defaults' => array(
+                        'lang' => '[a-z]{2}',
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
@@ -74,7 +75,8 @@ return array(
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'aliases' => array(
-            'translator' => 'MvcTranslator',
+            'translator'    => 'MvcTranslator',
+            'entitymanager' => 'doctrine.entitymanager.orm_default'
         ),
     ),
     'translator' => array(
@@ -89,8 +91,12 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Intl' => 'Application\Controller\IntlController',
+            //'Application\Controller\Cart'           =>      'Application\Controller\CartController',
+            //'Application\Controller\Category'       =>      'Application\Controller\CategoryController',
+            'Application\Controller\Index'          =>      'Application\Controller\IndexController',
+            'Application\Controller\Intl'           =>      'Application\Controller\IntlController',
+            //'Application\Controller\Item'           =>      'Application\Controller\ItemController',
+            //'Application\Controller\Order'          =>      'Application\Controller\OrderController'
         ),
     ),
     'view_manager' => array(

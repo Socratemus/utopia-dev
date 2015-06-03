@@ -5,6 +5,8 @@ return array(
         'Application',
         
         /****************/
+        'Cache',
+        
         /**REQUIREMENTS**/
         'DoctrineModule',
         'DoctrineORMModule',

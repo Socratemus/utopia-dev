@@ -10,62 +10,45 @@ namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
+use Application\Entity\AbstractEntity as AbstractEntity;
+
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="category")
- * @Annotation\Name("category")
  */
-class Category {
+class Category implements AbstractEntity {
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * 
-     * @Annotation\Attributes({"type":"hidden"})
      */
-    protected $Id;
+    protected $CategoryId;
 
     /** 
      * @ORM\Column(type="string") 
      * 
-     * @Annotation\Name("Name")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"Category name:"})
-     * @Annotation\Validator({"name":"StringLength","options":{"min":2,"max":64}})
-     * @Annotation\Required(true)
      */
     protected $Name;
 
     /**
      * @ORM\Column(type="datetime")
-     * 
-     * @Annotation\Exclude()
      */
-    protected $CreatedAt;
+    protected $Created;
 
     /**
      * @ORM\Column(type="datetime")
-     * 
-     * @Annotation\Exclude()
      */
-    protected $UpdatedAt;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="Parent")
-     * 
-     * @Annotation\Exclude()
-     */
-    
+    protected $Updated;
     
     public function __construct() {
-        $this->CreatedAt = new \DateTime('now');
-        $this->UpdatedAt = new \DateTime('now');
+        $this->Created = new \DateTime('now');
+        $this->Updated = new \DateTime('now');
     }
 
-    public function getId() {
-        return $this->Id;
+    public function getCategoryId() {
+        return $this->CategoryId;
     }
 
     public function getName() {
@@ -80,8 +63,8 @@ class Category {
         return $this->UpdatedAt;
     }
 
-    public function setId($Id) {
-        $this->Id = $Id;
+    public function SetCategoryId($CategoryId) {
+        $this->CategoryId = $Id;
     }
 
     public function setName($Name) {
@@ -94,6 +77,10 @@ class Category {
 
     public function setUpdatedAt($UpdatedAt) {
         $this->UpdatedAt = $UpdatedAt;
+    }
+    
+    public function toJSON(){
+        return array();
     }
 
 }
