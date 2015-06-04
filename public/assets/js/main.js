@@ -8,7 +8,13 @@ var application = application || {} ;
 application.global = {
   
     menuDependency : function(){
-      
+        $('.cart-container').on('mouseover' , function(){
+           console.log('hovering...'); 
+           $(this).addClass('active');
+        });
+        $('.open-cart').on('mouseleave' , function(){
+            $('.cart-container').removeClass('active')
+        });
     },
     searchDependency : function(){
         

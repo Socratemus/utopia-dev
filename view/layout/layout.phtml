@@ -11,15 +11,11 @@
 
     <body>
         
-        <?php echo $this->render('layout/misc/facebook.phtml') ?>
-        
         <header class="hdr">
 
             <?php echo $this->render('layout/header.phtml')?>
             
         </header>
-
-        <?php echo $this->render('layout/misc/navigation.phtml')?>
 
         <main data-role="main" class="main">
             
@@ -31,12 +27,9 @@
         </main>
     
         <footer class="ftr">
-            
-            <div class="col-md-12">  
-                <?php echo $this->partial('layout/footer.phtml')?>
-            </div>
-            <div class="clearfix"></div>
-            
+           
+            <?php echo $this->partial('layout/footer.phtml')?>
+          
         </footer>
         
         <?php echo $this->render('layout/scripts.phtml')?>

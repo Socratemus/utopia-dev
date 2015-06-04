@@ -57,6 +57,7 @@ application.application = {
                 width : '100'
             }
         });
+        
     },
     
     initialize : function(){
