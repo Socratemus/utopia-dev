@@ -11,22 +11,21 @@
 
     <body>
         
-        <header class="hdr">
+        <header class="hdr container-fluid">
 
             <?php echo $this->render('layout/header.phtml')?>
             
         </header>
 
-        <main data-role="main" class="main">
+        <main data-role="main" class="main container-fluid">
             
-             
-            <?php echo $this->content; ?>
-            
-            <div class="clearfix"></div>
+            <div class="container">
+                <?php echo $this->content; ?>    
+            </div>
             
         </main>
     
-        <footer class="ftr">
+        <footer class="ftr container-fluid">
            
             <?php echo $this->partial('layout/footer.phtml')?>
           

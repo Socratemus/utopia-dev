@@ -6,18 +6,18 @@ return array(
             // overriding zfc-user-doctrine-orm's config
             'zfcuser_entity' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'paths' => __DIR__ . '/../src/UserModule/Entity',
+                'paths' => __DIR__ . '/../src/User/Entity',
             ),
             'orm_default' => array(
                 'drivers' => array(
-                    'UserModule\Entity' => 'zfcuser_entity',
+                    'User\Entity' => 'zfcuser_entity',
                 ),
             ),
         ),
     ),
     'zfcuser' => array(
         // telling ZfcUser to use our own class
-        'user_entity_class' => 'UserModule\Entity\User',
+        'user_entity_class' => 'User\Entity\User',
         // telling ZfcUserDoctrineORM to skip the entities it defines
         'enable_default_entities' => false,
     ),
@@ -28,7 +28,7 @@ return array(
             // using an object repository (entity repository) to load all roles into our ACL
             'BjyAuthorize\Provider\Role\ObjectRepositoryProvider' => array(
                 'object_manager' => 'doctrine.entity_manager.orm_default',
-                'role_entity_class' => 'UserModule\Entity\Role',
+                'role_entity_class' => 'User\Entity\Role',
             ),
         ),
     ),
@@ -49,14 +49,14 @@ return array(
                     
     'controllers' => array(
         'invokables' => array(
-            'UserModule\Controller\Index' => 'UserModule\Controller\IndexController',
-            'UserModule\Controller\Address' => 'UserModule\Controller\AddressController',
+            'User\Controller\Index' => 'User\Controller\IndexController',
+            'User\Controller\Address' => 'User\Controller\AddressController',
         ),
     ),
                     
     'service_manager' => array(
         'invokables' => array(
-            'UserService' => 'UserModule\Service\UserService'
+            'UserService' => 'User\Service\UserService'
         ),
     )
 );

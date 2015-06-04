@@ -1,6 +1,6 @@
 <?php
 
-namespace UserModule;
+namespace User;
 
 use Zend\Mvc\MvcEvent;
 
@@ -43,7 +43,6 @@ class Module {
         );
 
         // custom form fields
-
         $em->attach(
                 'ZfcUser\Form\Register', 'init', function($e) {
             /* @var $form \ZfcUser\Form\Register */
@@ -77,11 +76,11 @@ class Module {
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
         $zfcServiceEvents->attach('register', function($e) use ($sm) {
             $form = $e->getParam('form');
-            /* @var $user \UserModule\Entity\User */
+            /* @var $user \User\Entity\User */
             $user = $e->getParam('user');
 
             $em = $sm->get('Doctrine\ORM\EntityManager');
-            $guestRole = $em->getRepository('UserModule\Entity\Role')->findBy(array('roleId' => 'guest'));
+            $guestRole = $em->getRepository('User\Entity\Role')->findBy(array('roleId' => 'guest'));
             $user->addRole($guestRole[0]);
         });
 

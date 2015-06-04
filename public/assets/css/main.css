@@ -1,0 +1,14 @@
+.hdr {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.main{
+    padding-top : 5px;
+    padding-bottom : 5px;
+}
+
+.ftr{
+    color: #ffffff;
+    background-color: #1d1f24;
+}

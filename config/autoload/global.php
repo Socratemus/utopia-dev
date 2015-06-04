@@ -40,10 +40,10 @@ return array(
            'item'       => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/:lang/p/:id',
+                    'route'    => '/:lang/p/:slug',
                     'defaults' => array(
                         'lang' => '[a-z]{2}',
-                        'id' => '[0-9]*',
+                        'slug' => '.*',
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Item',
                         'action'        => 'index',
@@ -63,6 +63,48 @@ return array(
                         'action'        => 'index',
                     ),
                 ),
+            ),
+            
+            'order'     => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/:lang/o[/:action[/:slug]]',
+                    'defaults' => array(
+                        'lang' => '[a-z]{2}',
+                        'slug' => '.*',
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller'    => 'Order',
+                        'action'        => 'index',
+                    ),
+                ),    
+            ),
+            
+            'cart'      => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/:lang/cart[/:action]',
+                    'defaults' => array(
+                        'lang' => '[a-z]{2}',
+                        'slug' => '.*',
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller'    => 'Cart',
+                        'action'        => 'index',
+                    ),
+                ),  
+            ),
+            
+            'user'      => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/:lang/account',
+                    'defaults' => array(
+                        'lang' => '[a-z]{2}',
+                        'slug' => '.*',
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'Index',
+                        'action'        => 'index',
+                    ),
+                ),    
             ),
             
             //Other Routes!

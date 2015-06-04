@@ -8,79 +8,88 @@
 
 namespace Application\Entity;
 
+//use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Zend\Form\Annotation;
-use Application\Entity\AbstractEntity as AbstractEntity;
-
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="category")
+ * @Gedmo\Tree(type="nested")
+ * @ORM\Table(name="categories")
+ * use repository for handy tree functions
+ * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\NestedTreeRepository")
  */
-class Category implements AbstractEntity {
-
+class Category
+{
     /**
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      */
-    protected $CategoryId;
-
-    /** 
-     * @ORM\Column(type="string") 
-     * 
-     */
-    protected $Name;
+    private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="title", type="string", length=64)
      */
-    protected $Created;
+    private $title;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @Gedmo\TreeLeft
+     * @ORM\Column(name="lft", type="integer")
      */
-    protected $Updated;
-    
-    public function __construct() {
-        $this->Created = new \DateTime('now');
-        $this->Updated = new \DateTime('now');
+    private $lft;
+
+    /**
+     * @Gedmo\TreeLevel
+     * @ORM\Column(name="lvl", type="integer")
+     */
+    private $lvl;
+
+    /**
+     * @Gedmo\TreeRight
+     * @ORM\Column(name="rgt", type="integer")
+     */
+    private $rgt;
+
+    /**
+     * @Gedmo\TreeRoot
+     * @ORM\Column(name="root", type="integer", nullable=true)
+     */
+    private $root;
+
+    /**
+     * @Gedmo\TreeParent
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+     * @ORM\OrderBy({"lft" = "ASC"})
+     */
+    private $children;
+
+    public function getId()
+    {
+        return $this->id;
     }
 
-    public function getCategoryId() {
-        return $this->CategoryId;
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
-    public function getName() {
-        return $this->Name;
+    public function getTitle()
+    {
+        return $this->title;
     }
 
-       public function getCreatedAt() {
-        return $this->CreatedAt;
+    public function setParent(Category $parent = null)
+    {
+        $this->parent = $parent;
     }
 
-    public function getUpdatedAt() {
-        return $this->UpdatedAt;
+    public function getParent()
+    {
+        return $this->parent;
     }
-
-    public function SetCategoryId($CategoryId) {
-        $this->CategoryId = $Id;
-    }
-
-    public function setName($Name) {
-        $this->Name = $Name;
-    }
-
-    public function setCreatedAt($CreatedAt) {
-        $this->CreatedAt = $CreatedAt;
-    }
-
-    public function setUpdatedAt($UpdatedAt) {
-        $this->UpdatedAt = $UpdatedAt;
-    }
-    
-    public function toJSON(){
-        return array();
-    }
-
 }

@@ -6,7 +6,7 @@
  * @license http://framework.zend.com/license/new-bsd New BSD License
  */
  
-namespace UserModule\Entity;
+namespace User\Entity;
 
 use BjyAuthorize\Provider\Role\ProviderInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -83,14 +83,14 @@ class User implements UserInterface, ProviderInterface
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ORM\ManyToMany(targetEntity="UserModule\Entity\Role" )
+     * @ORM\ManyToMany(targetEntity="User\Entity\Role" )
      * @ORM\JoinTable(name="user_role",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="Id", onDelete = "cascade" )},
      *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")})
      * 
      * @Annotation\Name("roles")
      * @Annotation\Type("DoctrineORMModule\Form\Element\EntityRadio")
-     * @Annotation\Options({"target_class":"UserModule\Entity\Role"})
+     * @Annotation\Options({"target_class":"User\Entity\Role"})
      * @Annotation\Attributes({"class":"form-control"})
      */
     protected $roles;

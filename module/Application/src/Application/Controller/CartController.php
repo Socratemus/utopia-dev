@@ -12,6 +12,17 @@ class CartController extends AbstractActionController
         /* @TODO */
     }
     
+    public function removeAction(){
+        /* @TODO */
+    }
+    
+    public function addAction(){
+        /* @TODO */
+    }
+    
+    public function removeAllAction(){
+        /* @TODO */
+    }
 }
 
 ?>

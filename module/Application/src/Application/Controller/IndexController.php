@@ -25,7 +25,7 @@ class IndexController extends AbstractActionController
         //$cache = $this->getServiceLocator()->get('Cache');
         //$cache->getCache()->setItem('mykey' , 'myvalue');
         
-        //$category = new \Application\Entity\Category();
+        $category = new \Application\Entity\Category();
         // $category->setName('Test cat...');
         // $em->persist($category);
         // $em->flush();
