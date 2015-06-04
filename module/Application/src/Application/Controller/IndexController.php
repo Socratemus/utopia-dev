@@ -12,6 +12,8 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+use Application\Entity\Category;
+
 class IndexController extends AbstractActionController
 {
     public function indexAction()
@@ -24,12 +26,14 @@ class IndexController extends AbstractActionController
         
         //$cache = $this->getServiceLocator()->get('Cache');
         //$cache->getCache()->setItem('mykey' , 'myvalue');
+        $em = $this->getServiceLocator()->get('entitymanager');
+       
+        $food = new Category();
+        $food->setTitle('Food');
         
-        $category = new \Application\Entity\Category();
-        // $category->setName('Test cat...');
-        // $em->persist($category);
-        // $em->flush();
-        //exit('aaa');
+        $em->persist($food);
+        $em->flush();
+        exit('aaa');
         return new ViewModel();
     }
     

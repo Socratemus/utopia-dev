@@ -8,88 +8,62 @@
 
 namespace Application\Entity;
 
-//use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Form\Annotation;
 
 /**
- * @Gedmo\Tree(type="nested")
- * @ORM\Table(name="categories")
- * use repository for handy tree functions
- * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\NestedTreeRepository")
+ * @ORM\Entity
+ * @ORM\Table(name="category")
  */
-class Category
-{
-    /**
-     * @ORM\Column(name="id", type="integer")
+class Category {
+    
+     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
-    private $id;
-
+    protected $CategoryId;
+    
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $Title;
+    
     /**
-     * @ORM\Column(name="title", type="string", length=64)
+     * @ORM\Column(type="datetime")
      */
-    private $title;
-
+    protected $Created;
+    
     /**
-     * @Gedmo\TreeLeft
-     * @ORM\Column(name="lft", type="integer")
+     * @ORM\Column(type="datetime")
      */
-    private $lft;
-
-    /**
-     * @Gedmo\TreeLevel
-     * @ORM\Column(name="lvl", type="integer")
-     */
-    private $lvl;
-
-    /**
-     * @Gedmo\TreeRight
-     * @ORM\Column(name="rgt", type="integer")
-     */
-    private $rgt;
-
-    /**
-     * @Gedmo\TreeRoot
-     * @ORM\Column(name="root", type="integer", nullable=true)
-     */
-    private $root;
-
-    /**
-     * @Gedmo\TreeParent
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
-     */
-    private $parent;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
-     * @ORM\OrderBy({"lft" = "ASC"})
-     */
-    private $children;
-
-    public function getId()
-    {
-        return $this->id;
+    protected $Updated;
+    
+    public function __construct(){
+        $this->Created = new \DateTime('now');
+        $this->Updated = new \DateTime('now');
     }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
+    
+    public function getTitle(){
+        return $this->Title;
     }
-
-    public function getTitle()
-    {
-        return $this->title;
+    public function getCreated(){
+        return $this->Created;
     }
-
-    public function setParent(Category $parent = null)
-    {
-        $this->parent = $parent;
+    public function getUpdated(){
+        return $this->Updated;
     }
-
-    public function getParent()
-    {
-        return $this->parent;
+    public function setTitle($Title){
+        $this->Title = $Title;
     }
+    public function setCreated($Created){
+        $this->Created = $Created;
+    }
+    public function setUpdated($Updated){
+        $this->Updated = $Updated;
+    }
+    
+    
+    
+    
 }
