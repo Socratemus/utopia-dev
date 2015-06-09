@@ -7,10 +7,22 @@ var application = application || {} ;
 
 application.global = {
   
+    enableMenu : function(){
+        
+        $('.root-categories > li > a').mouseenter(function(){
+            $('.root-categories > li').removeClass('open');
+            $(this).parent().addClass('open');
+        });
+          
+        $('.open-cat').mouseleave(function(){
+            $(this).parent().removeClass('open');
+        });
+    },
+  
     initialize : function(){
-    
-        console.info('Application was initialized');
-    }
+        this.enableMenu();
+    console.info('Application was initialized');
+}
 };
 
 $().ready(function(){

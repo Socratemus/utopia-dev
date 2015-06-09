@@ -11,10 +11,10 @@ class CategoryController extends AbstractActionController
      * The category page, 
      * listing all products from a category
      */
-    // public function IndexAction()
-    // {
-    //     /* @TODO */
-    // }
+    public function IndexAction()
+    {
+        /* @TODO */
+    }
     
 }
 

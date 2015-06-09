@@ -16,7 +16,8 @@
         "zf-commons/zfc-user-doctrine-orm": "0.1.*",
         "bjyoungblood/bjy-authorize": "1.2.*",
         "imagine/Imagine": "dev-master",
-        "zendframework/zendsearch": "0.1"
+        "zendframework/zendsearch": "0.1",
+        "webino/webino-image-thumb" : "dev-develop"
     },
     "repositories": [
         {

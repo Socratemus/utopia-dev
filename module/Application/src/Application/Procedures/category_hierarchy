@@ -1,0 +1,82 @@
+begin
+
+declare v_done tinyint unsigned default 0;
+declare v_depth smallint unsigned default 0;
+
+CREATE temporary table hier(
+     id_parent smallint unsigned, 
+     id_category smallint unsigned, 
+     depth smallint unsigned default 0
+)engine = memory;
+
+insert into hier select ParentId, CategoryId, v_depth from category where CategoryId = p_id_category;
+
+CREATE temporary table tmp engine=memory select * from hier;
+
+while not v_done do
+
+    if exists( select 1 from category p inner join hier on p.ParentId = hier.id_category and hier.depth = v_depth) then
+
+        insert into hier 
+            select p.ParentId, p.CategoryId, v_depth + 1 from category p 
+            inner join tmp on p.ParentId = tmp.id_category and tmp.depth = v_depth;
+
+        set v_depth = v_depth + 1;          
+
+        truncate table tmp;
+        insert into tmp select * from hier where depth = v_depth;
+
+    else
+        set v_done = 1;
+    end if;
+
+end while;
+
+if(max_depth<0) 
+
+then
+
+select 
+    p.CategoryId,
+    p.Title as category_name,
+    b.CategoryId as id_parent,
+    b.Title as parent_category_name,
+    hier.depth
+from 
+   hier
+inner join 
+    category p on hier.id_category = p.CategoryId
+left outer join 
+    category b on hier.id_parent = b.CategoryId
+order by
+    hier.depth, hier.id_category;
+
+ 
+else
+
+select 
+    p.CategoryId,
+    p.Title as Title,
+    p.Slug as Slug,
+    p.CREATEd as CREATEd,
+    p.Updated as Updated,
+    p.Status as Status,
+    b.CategoryID as Parent,
+    b.Title as ParentTitle,
+    hier.depth
+from 
+ hier
+inner join category p on hier.id_category = p.CategoryId
+left outer join category b on hier.id_parent = b.CategoryId
+where hier.depth<=max_depth
+order by
+ hier.depth, hier.id_category;
+
+ 
+end if;
+
+
+drop temporary table if exists hier;
+drop temporary table if exists tmp;
+
+end

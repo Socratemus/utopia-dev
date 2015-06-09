@@ -18,23 +18,15 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        //$categoryService = $this->getServiceLocator()->get('CategoryService');
+        $ctSrv = $this->getServiceLocator()->get('CategoryService');
+        $cts = $ctSrv->getRootCategories();
         
-        //$categoryService->test();
-        
-        //exit();
-        
-        //$cache = $this->getServiceLocator()->get('Cache');
-        //$cache->getCache()->setItem('mykey' , 'myvalue');
-        $em = $this->getServiceLocator()->get('entitymanager');
+        $vm = new ViewModel();
+        $vm->setVariables(array(
+            'categories' => $cts
+        ));
        
-        $food = new Category();
-        $food->setTitle('Food');
-        
-        $em->persist($food);
-        $em->flush();
-        exit('aaa');
-        return new ViewModel();
+        return $vm;
     }
     
     public function redirectAction(){
