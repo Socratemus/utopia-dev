@@ -11,30 +11,20 @@
 
     <body>
         
-        <header class="hdr container-fluid">
+        <header class="container-fluid">
 
-            <?php echo $this->render('layout/misc/header-top.phtml')?>    
+            <?php echo $this->render('layout/header.phtml')?>    
             
         </header>
         
-        <header class="hdr-midd conteiner-fluid">
-            <?php echo $this->render('layout/misc/header-middle.phtml')?>    
-        </header>
-        
-        <div class="top-nav container-fluid">
-            <?php echo $this->render('layout/misc/navigation.phtml');?>
-        </div>
-        
 
-        <main data-role="main" class="main container-fluid">
+        <main class="container-fluid">
             
-            <div class="container">
                 <?php echo $this->content; ?>    
-            </div>
             
         </main>
     
-        <footer class="ftr container-fluid">
+        <footer class="container-fluid">
            
             <?php echo $this->partial('layout/footer.phtml')?>
           
