@@ -21,6 +21,22 @@ class IndexController extends AbstractActionController
         $ctSrv = $this->getServiceLocator()->get('CategoryService');
         $cts = $ctSrv->getRootCategories();
         
+        $catsKey = 'categorizKEY';
+
+        $cache = $this->getServiceLocator()->get('Zend\Cache\Storage\Filesystem');
+
+        // if($cache->hasItem($catsKey)){
+        //     $cts = $cache->getItem($catsKey);
+        //     var_dump($cts);
+        //     exit('o are');
+        // } else {
+        //     //var_dump($cacheService);exit();
+        //     $cache->setItem($catsKey , $cts);
+        //     exit('nu o are');
+        // }
+
+        // exit('doing it!');
+
         $vm = new ViewModel();
         $vm->setVariables(array(
             'categories' => $cts

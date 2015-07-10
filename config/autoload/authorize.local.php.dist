@@ -1,0 +1,24 @@
+<?php
+
+return array(
+    'bjyauthorize' => array(
+        'guards' => array(
+            'BjyAuthorize\Guard\Controller' => array(
+
+                array('controller' => 'zfcuser', 'action' => 'index', 'roles' => array('guest')),
+                array('controller' => 'zfcuser', 'action' => 'login', 'roles' => array('guest')),
+                array('controller' => 'zfcuser', 'action' => 'logout', 'roles' => array('guest')),
+                array('controller' => 'zfcuser', 'action' => 'register', 'roles' => array('guest')),
+                
+                /***********************************************************************************/
+                /********************************API CONTROLLERS************************************/
+                 array('controller' => 'Application\Controller\Index', 'roles' => array('guest')),
+             
+                /***********************************************************************************/
+                /***********************************************************************************/
+                
+            ),
+        ),
+        'template' => 'layout/error/403'
+    ),
+);
