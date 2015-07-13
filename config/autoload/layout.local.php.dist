@@ -16,8 +16,8 @@ return array(
         'exception_template' => 'error/index',
         'template_map' => array(
             'layout/layout' => $viewPath . '/layout/layout.phtml',
-            'error/404' => $viewPath . '/layout/404.phtml',
-            'error/index' => $viewPath . '/layout/index.phtml',
+            'error/404' => $viewPath . '/error/404.phtml',
+            'error/index' => $viewPath . '/error/index.phtml',
             'application/index/index' => $viewPath . '/application/index/index.phtml',
         ),
         'template_path_stack' => array(

@@ -11,20 +11,21 @@
 
     <body>
         
-        <header class="container-fluid">
+        <header class="">
 
             <?php echo $this->render('layout/header.phtml')?>    
             
         </header>
         
 
-        <main class="container-fluid">
-            
-                <?php echo $this->content; ?>    
-            
+        <main class="">
+            <div id="Main" class="">
+                <div class="container">
+                    <?php echo $this->content; ?>    
+                </div>
         </main>
     
-        <footer class="container-fluid">
+        <footer class="">
            
             <?php echo $this->partial('layout/footer.phtml')?>
           
