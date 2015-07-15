@@ -18,12 +18,12 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        //throw new \Exception('Test exception.');
         $ctSrv = $this->getServiceLocator()->get('CategoryService');
         $cts = $ctSrv->getRootCategories();
-        
+        //var_dump($cts[0]->toJson());exit;
         $catsKey = 'categorizKEY';
-       
-        $cache = $this->getServiceLocator()->get('Zend\Cache\Storage\Filesystem');
+        //$cache = $this->getServiceLocator()->get('Zend\Cache\Storage\Filesystem');
 
         $vm = new ViewModel();
         $vm->setVariables(array(

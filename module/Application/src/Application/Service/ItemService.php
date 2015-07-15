@@ -9,7 +9,30 @@ class ItemService extends ModelService {
     }
     
     /**************************************************************************/
-    //All business methods for category will be stored in here.
+    //All business methods for item will be stored in here.
+    
+    /**
+     * 
+     */
+    public function getAll(){
+        
+    }
+    
+    /**
+     * Return item by id
+     */
+    public function getItemById($Id)
+    {
+        
+    }
+    
+    /**
+     * 
+     */
+    public function getItemBySlug($Slug)
+    {
+        
+    }
     
     /**************************************************************************/
     

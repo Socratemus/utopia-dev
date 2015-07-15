@@ -28,6 +28,6 @@ return array(
         'ZfcUser'            =>      'layout/layout/layout_main.phtml',
         'Engine'             =>      'layout/layout/layout_main.phtml',
 //        'BjyAuthorize'       =>      'layout/layout/layout_main.phtml',
-        'Admin'              =>      'layout/layout/admin_layout.phtml' 
+        'Admin'              =>      'layout/admin.phtml' 
     ),
 );

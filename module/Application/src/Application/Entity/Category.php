@@ -15,7 +15,7 @@ use Zend\Form\Annotation;
  * @ORM\Entity
  * @ORM\Table(name="category")
  */
-class Category {
+class Category implements AbstractEntity {
     
      /**
      * @ORM\Id
@@ -72,8 +72,14 @@ class Category {
         $this->Updated = new \DateTime('now');
     }
     
+    public function getCategoryId(){
+        return $this->CategoryId;
+    }
     public function getTitle(){
         return $this->Title;
+    }
+    public function getSlug(){
+        return $this->Slug;
     }
     public function getCreated(){
         return $this->Created;
@@ -105,4 +111,24 @@ class Category {
         $this->Depth = $Depth;
     }
     
+    public function toJson(){
+        
+        $jsonArr  = $this->toArray();
+        
+        return json_encode($jsonArr);
+    }
+    
+    public function toArray(){
+        
+        $array  = array(
+            'CategoryId' => $this->getCategoryId(),
+            'Title' => $this->getTitle(),
+            'Slug' => $this->getSlug(),
+            'Created' => $this->getCreated()->format('Y-m-d H:i:s'),
+            'Updated' => $this->getUpdated()->format('Y-m-d H:i:s'),
+            'Status'  => $this->getStatus()
+        );
+        
+        return $array;
+    }
 }

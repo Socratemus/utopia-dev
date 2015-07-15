@@ -1,0 +1,48 @@
+<?php echo $this->doctype(); ?>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge'); 
+        
+        echo $this->headLink(
+        array('rel' => 'shortcut icon',
+            'type' => 'image/vnd.microsoft.icon', 
+            'href' => $this->basePath() . '/assets/img/favicon.ico'
+            ))
+        ->prependStylesheet($this->basePath() . '/app/css/main.css')
+        ->prependStylesheet($this->basePath() . '/app/css/general.css')
+        ->prependStylesheet($this->basePath() . '/assets/css/adds/bootstrap/bootstrap.min.css')
+        ->prependStylesheet($this->basePath() . '/assets/css/adds/font-awesome/font-awesome.min.css');
+        
+        ?>
+        <script type="text/javascript">
+             var ASSETS_PATH = "<?php echo $this->basePath() ?>/app/";
+             var APP_PATH = 'http://192.168.1.15/~corneliu_iancu/trip-admin/api.php'; 
+        </script>
+        <?php echo $this->headScript(); ?>
+
+    </head>
+
+    <body>
+        
+        <header class=""></header>
+        
+        <main>
+            
+            <?php echo $this->content; ?>   
+            
+        </main>
+        
+        <footer></footer>
+        
+        <?php //echo $this->render('layout/scripts.phtml')?>
+        <?php echo $this->inlineScript();?>
+        
+    </body>
+    
+</html>

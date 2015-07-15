@@ -15,12 +15,17 @@ return array(
     // ...
      'controllers' => array(
         'invokables' => array(
+            /* Application module */
+            
             'Application\Controller\Cart'           =>      'Application\Controller\CartController',
             'Application\Controller\Category'       =>      'Application\Controller\CategoryController',
             'Application\Controller\Index'          =>      'Application\Controller\IndexController',
             'Application\Controller\Intl'           =>      'Application\Controller\IntlController',
             'Application\Controller\Item'           =>      'Application\Controller\ItemController',
-            'Application\Controller\Order'          =>      'Application\Controller\OrderController'
+            'Application\Controller\Order'          =>      'Application\Controller\OrderController',
+            
+            /* Admin module */
+            'Admin\Controller\Index'          =>      'Admin\Controller\IndexController'
         ),
     ),
     
@@ -36,6 +41,18 @@ return array(
     
     'router' => array(
         'routes' => array(
+            'admin'       => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin[/:controller[/:action]]',
+                    'defaults' => array(
+                        'lang' => '[a-z]{2}',
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Index',
+                        'action'        => 'index',
+                    ),
+                ),
+            ),
             
            'item'       => array(
                 'type'    => 'segment',
@@ -45,7 +62,7 @@ return array(
                         'lang' => '[a-z]{2}',
                         'slug' => '.*',
                         '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Item',
+                        'controller'    => 'Admin\Controller\Index',
                         'action'        => 'index',
                     ),
                 ),

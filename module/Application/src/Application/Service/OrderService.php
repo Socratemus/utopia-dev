@@ -9,7 +9,31 @@ class OrderService extends ModelService {
     }
     
     /**************************************************************************/
-    //All business methods for category will be stored in here.
+    //All business methods for order will be stored in here.
+    
+    /**
+     * Returns paged orders
+     */
+    public function getPaged(){
+        
+    }
+    
+    /**
+     * Adds a new order
+     */
+    public function addOrder(){
+        
+    }
+    
+    /**
+     * 
+     * 
+     */
+    public function cancelOrder(){
+        
+    }
+    
+    
     
     /**************************************************************************/
     
