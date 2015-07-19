@@ -9,6 +9,7 @@ return array(
         'Cache',
         'Log',
         'Utils',
+        'Cli',
         
         /**REQUIREMENTS**/
         'DoctrineModule',

@@ -1,1 +1,122 @@
-<h3>the content of category page</h3>
+<div class="row">
+
+    <div class="col-md-3 extended">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+            <div class="_smh" style="border-radius: 5px;">
+                <i class="fa fa-align-justify"></i> All Departments
+            </div>
+        </a>
+
+        <ul class="dropdown-menu" id="SdMn">
+            <li><a href="#">Computer Cases &amp; Accessories</a></li>
+            <li><a href="#">CPUs, Processors</a></li>
+            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
+            <li><a href="#">Graphics, Video Cards</a></li>
+            <li><a href="#">Interface, Add-On Cards</a></li>
+            <li><a href="#">Laptop Replacement Parts</a></li>
+            <li><a href="#">Memory (RAM)</a></li>
+            <li><a href="#">Motherboards</a></li>
+            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
+            <li><a href="#">Motherboard Components</a></li>
+        </ul>
+
+
+    </div>
+    <div class="col-md-9 extended" id="BcR">
+        <ul class="" >
+            <li><a href="#">Computer Cases &amp; Accessories</a></li>
+            <li><a href="#">CPUs, Processors</a></li>
+            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="row mt25">
+
+    <div class="col-md-3 sidebar">
+        <div class="widget">
+            <h1>Product Filters</h1>
+            <div class="body bordered">
+                <?php for ($i = 5; $i < 10; $i ++) : ?>
+                    <div class="category-filter filter">
+                        <h2>Brands</h2>
+                        <hr />
+                        <ul>
+                            <li>
+                                <input class="custom-checkbox" id="ckb1" type="checkbox">
+                                <label for="ckb1">Samsung</label> 
+                                <span class="pull-right">(2)</span>
+                            </li>
+                            <li>
+                                <input class="custom-checkbox" id="ckb2"  type="checkbox">
+                                <label for="ckb2">Toshiba</label> 
+                                <span class="pull-right">(2)</span>
+                            </li>
+                            <li>
+                                <input class="custom-checkbox" id="ckb3"  type="checkbox">
+                                <label for="ckb3">Alcatel</label> 
+                                <span class="pull-right">(2)</span>
+                            </li>
+                            <li>
+                                <input class="custom-checkbox" id="ckb4"  type="checkbox">
+                                <label for="ckb4">Apple</label> 
+                                <span class="pull-right">(2)</span>
+                            </li>
+                        </ul>
+                        <hr />
+                    </div><!-- /.category-filter -->
+                <?php endfor; ?>
+                <div class="price-filter mt10 filter">
+                    <h2>Price</h2>
+                    <hr>
+                    <div class="price-range-holder">
+
+                        <span class="min-max">
+                            Price: $89 - $2899
+                        </span>
+<!--                        <span class="filter-button">
+                            <a href="#">Filter</a>
+                        </span>-->
+                    </div>
+                </div><!-- /.price-filter -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="control-bar col-md-12 ">
+            <div class="col-md-6">
+                <select class="">
+                    <option value="1">24 per page</option>
+                    <option value="2">48 per page</option>
+                    <option value="3">32 per page</option>
+                </select>
+            </div>
+            <div class="col-md-4 pull-right display-toggler">
+                <ul>
+                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
+                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="tab-content">
+            <div id="grid-view" class="products-grid fade tab-pane in active">
+                PRODUCT GRID VIEW
+                
+            </div><!-- /.products-grid #grid-view -->
+
+            <div id="list-view" class="products-grid fade tab-pane ">
+                LIST VIEW
+
+            </div><!-- /.products-grid #list-view -->
+
+        </div>
+
+    </div>
+
+</div>

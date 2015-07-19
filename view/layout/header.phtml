@@ -118,103 +118,66 @@
                 </form>
             </div>
         </div>
+
         <div class="col-md-3 cart-container extended ">
 
-            <div class="top-cart-row-container">
-                <div class="wishlist-compare-holder">
-                    <div class="wishlist ">
-                        <a href="index.php?page=wishlist"><i class="fa fa-heart"></i> wishlist <span class="value">(21)</span> </a>
-                    </div>
+            <div class="col-md-5 ">
+                <a href=""><i class="fa fa-heart-o"></i> Wishlist</a>
+            </div>
+            <div class="col-md-7 extended">
+
+                <div class="col-md-4">
+                    <img src="<?php echo $this->basePath(); ?>/assets/img/icon-cart.png" alt="" />
+                    <span class="hide">3</span>
+                </div>
+                <div class="col-md-8">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span>Your cart:</span>
+                    </a>
+                    <span class="total-price">
+                        <span class="sign">$</span><span class="value">3219,00</span>
+                    </span>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <div class="basket-item">
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                        <div class="thumb">
+                                            <img alt="" src="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 no-margin">
+                                        <div class="title">Blueberry</div>
+                                        <div class="price">$270.00</div>
+                                    </div>
+                                </div>
+                                <a class="close-btn" href="#"></a>
+                            </div>
+                        </li>
+
+                        
+
+                        <li class="checkout">
+                            <div class="basket-item">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <a href="index.php?page=cart" class="le-button inverse">View cart</a>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <a href="index.php?page=checkout" class="le-button">Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
 
-                <div class="top-cart-holder dropdown animate-dropdown">
-
-                    <div class="basket">
-
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <div class="basket-item-count">
-                                <span class="count">3</span>
-                                <img src="<?php echo $this->basePath()?>/assets/img/icon-cart.png" alt="">
-                            </div>
-
-                            <div class="total-price-basket"> 
-                                <span class="lbl">your cart:</span>
-                                <span class="total-price">
-                                    <span class="sign">$</span><span class="value">3219,00</span>
-                                </span>
-                            </div>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="basket-item">
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                            <div class="thumb">
-                                                <img alt="" src="assets/images/products/product-small-01.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 no-margin">
-                                            <div class="title">Blueberry</div>
-                                            <div class="price">$270.00</div>
-                                        </div>
-                                    </div>
-                                    <a class="close-btn" href="#"></a>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="basket-item">
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                            <div class="thumb">
-                                                <img alt="" src="assets/images/products/product-small-01.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 no-margin">
-                                            <div class="title">Blueberry</div>
-                                            <div class="price">$270.00</div>
-                                        </div>
-                                    </div>
-                                    <a class="close-btn" href="#"></a>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="basket-item">
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                            <div class="thumb">
-                                                <img alt="" src="assets/images/products/product-small-01.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 no-margin">
-                                            <div class="title">Blueberry</div>
-                                            <div class="price">$270.00</div>
-                                        </div>
-                                    </div>
-                                    <a class="close-btn" href="#"></a>
-                                </div>
-                            </li>
 
 
-                            <li class="checkout">
-                                <div class="basket-item">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-6">
-                                            <a href="index.php?page=cart" class="le-button inverse">View cart</a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6">
-                                            <a href="index.php?page=checkout" class="le-button">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div><!-- /.basket -->
-                </div><!-- /.top-cart-holder -->
             </div>
+
 
         </div>
 
