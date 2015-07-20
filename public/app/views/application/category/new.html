@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="email" class="form-control"  placeholder="Title">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Slug</label>
+            <input type="text" class="form-control" placeholder="Slug">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Parent</label>
+            <select class="form-control">
+              <option>- Select parent -</option>
+              
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="">Created</label>
+            <input type="text" class="form-control" placeholder="Created">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Updated</label>
+            <input type="text" class="form-control" placeholder="Updated">
+        </div>
+        
+        <div class="form-group form-inline">
+            <div class="radio">
+              <label>
+                <input type="radio" name="Status" value="1" checked>
+                Active
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="Status" value="777">
+                Disabled
+              </label>
+            </div>
+            <div class="radio disabled">
+              <label>
+                <input type="radio" name="Status" value="101" disabled>
+                Removed
+              </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

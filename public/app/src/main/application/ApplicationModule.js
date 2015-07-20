@@ -22,6 +22,8 @@
             
             
             'application/controllers/MainController',
+            'application/controllers/CategoryController',
+            
             'application/controllers/ModalController',
             'application/controllers/ModalInstanceController'
         ],
@@ -31,7 +33,7 @@
     
             /* ReservationStatuses, */
         
-            MainController, ModalController , ModalInstanceCtrl)
+            MainController, CategoryController,  ModalController , ModalInstanceCtrl)
         {
            
             //$log.debug('Start loading application module');
@@ -45,6 +47,8 @@
                 /*.directive(     "reservationStatuses"  ,    ReservationStatuses )*/
                 
                 .controller(    "MainCtrl"             ,    MainController      )
+                .controller(    "CategoryCtrl"         ,    CategoryController  )
+                
                 .controller(    "ModalCtrl"            ,    ModalController     )
                 .controller(    "ModalInstanceCtrl"    ,    ModalInstanceCtrl   )
            
