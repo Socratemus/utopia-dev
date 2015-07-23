@@ -4,26 +4,60 @@
     
     <ul class="navigation">
         <li>
-            <a href=""><span class="iconb"><i class="fa fa-home"></i></span>Home</a>
+            <span>
+              <a href="#/home"><span class="iconb"><i class="fa fa-home"></i></span>Home</a>
+            </span>
         </li>
-        <li>
+        <li class="hide">
             <a href=""><span class="iconb"><i class="fa fa-th-large"></i></span>Modules</a>
         </li>
         <li>
            <span class="dropdown" dropdown on-toggle="toggled(open)">
               <a href class="dropdown-toggle" dropdown-toggle>
-                <i class="fa fa-th-large"></i></span>Modules
+                <i class="fa fa-th-large"></i>Modules
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="">Choice 1</a>
+                  <a href="#/c/all"><i class="fa fa-envelope"></i>Mailer</a>
                 </li>  
                 <li>
-                  <a href="">Choice 2</a>
+                  <a href=""><i class="fa fa-laptop"></i>SEO</a>
                 </li>  
                 <li> 
-                  <a href="">Choice 3</a>
+                  <a href=""><i class="fa fa-th-large"></i>City Discover</a>
                 </li>
+              </ul>
+            </span>
+        </li>
+        <li>
+           <span class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="fa fa-th-large"></i>Categories
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#/c/all"><i class="fa fa-list-ul"></i>List all</a>
+                </li>  
+                <li>
+                  <a href="#/c/n"><i class="fa fa-sitemap"></i>Create</a>
+                </li>  
+                
+              </ul>
+            </span>
+        </li>
+        <li>
+           <span class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="fa fa-desktop"></i>Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#/p/all"><i class="fa fa-list-ul"></i>List all</a>
+                </li>  
+                <li>
+                  <a href="#/p/n"><i class="fa fa-sitemap"></i>Create</a>
+                </li>  
+                
               </ul>
             </span>
         </li>
@@ -33,6 +67,9 @@
 </header>
 
 <div class="container-fluid content">
+    
+    <div class="_ntf" ng-class="{show: notification}">Successfully saved.</div>
+    
     <div ng:view class="viewport container-fluid"></div>    
 </div>
 

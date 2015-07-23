@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <!--<form>-->
+    <div class="col-md-12 mb0 extended form-title mb0">
+        <div class="col-md-8">
+          
+            <h3 class="_ft">Category listing</h3>
+          
+        </div>
+        <div class="col-md-4">
+          <div class="_abw text-right">
+            <!--<button class="btn custom" ng-disabled="cfrm.$invalid" ng-click="save()">Save</button>-->
+            <button class="btn custom">Back</button>
+          </div>
+          
+        </div>
+    </div>
+    <div class="col-md-12 extended listing-body">
+        <table class="table">
+            
+            <thead>
+                <tr>
+                    <th><input type="checkbox" /></th>
+                    <th align="center">
+                       <a href=""> Info </a>
+                    </th>
+                    <th align="center">
+                        <a href=""> Id </a>
+                    </th>
+                    <th width="25%">
+                        <a href=""> Title </a>
+                    </th>
+                    <th>
+                        <a href=""> Slug </a>
+                    </th>
+                    <th>
+                        <a href=""> Created </a>
+                    </th>
+                    <th>
+                        <a href=""> Status </a>
+                    </th>
+                    <th align="right" style="text-align : right;">
+                        <a href=""> Actions </a>
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr ng-repeat="category in categories">
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>
+                        <i class="fa fa-info-circle"></i>
+                    </td>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        {{category.Title}}
+                    </td>
+                    <td>
+                        {{category.Slug}}
+                    </td>
+                    <td>
+                         {{category.Created}}
+                    </td>
+                    <td>
+                        <span ng-class="{'label-success' : category.Status == 200 , 'label-warning' : category.Status == 107 , 'label-danger' : category.Status == 500 , 'label-default' : category.Status == 307 }" class="label">{{getStatus(category.Status).Name}}</span>
+                    </td>
+                    <td align="right">
+                        <span class="dropdown" dropdown on-toggle="toggled(open)">
+                          <a href class="dropdown-toggle" dropdown-toggle>
+                               <button class="btn custom"><i class="fa fa-gear"></i></button>
+                          </a>
+                          <ul class="dropdown-menu action-dropdown">
+                            <li>
+                              <a href>Enable</a>
+                              <a href>Disable</a>
+                            </li>
+                          </ul>
+                        </span>
+                        
+                        <a href="#/c/e/{{category.CategoryId}}" class="btn custom"><i class="fa fa-pencil"></i> Edit</a>
+                    </td>
+                </tr>            
+            </tbody>
+            
+            
+        </table>
+    </div>
+    
+    <!--</form>-->
+</div>

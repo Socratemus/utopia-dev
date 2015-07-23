@@ -176,12 +176,34 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
+    public function getCategoryId()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategoryId', array());
+
+        return parent::getCategoryId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getTitle()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', array());
 
         return parent::getTitle();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSlug()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
+
+        return parent::getSlug();
     }
 
     /**
@@ -215,6 +237,17 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', array());
 
         return parent::getStatus();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getParent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', array());
+
+        return parent::getParent();
     }
 
     /**
@@ -275,12 +308,45 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
+    public function setParent($Parent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', array($Parent));
+
+        return parent::setParent($Parent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setDepth($Depth)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDepth', array($Depth));
 
         return parent::setDepth($Depth);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function toJson()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'toJson', array());
+
+        return parent::toJson();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function toArray()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'toArray', array());
+
+        return parent::toArray();
     }
 
 }

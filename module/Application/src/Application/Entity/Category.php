@@ -15,7 +15,7 @@ use Zend\Form\Annotation;
  * @ORM\Entity
  * @ORM\Table(name="category")
  */
-class Category implements AbstractEntity {
+class Category extends Entity implements AbstractEntity {
     
      /**
      * @ORM\Id
@@ -90,6 +90,9 @@ class Category implements AbstractEntity {
     public function getStatus(){
         return $this->Status;
     }
+    public function getParent(){
+        return $this->Parent;
+    }
     public function getDepth(){
         return $this->Depth;
     }
@@ -105,6 +108,10 @@ class Category implements AbstractEntity {
     }
     public function setStatus($Status){
         $this->Status = $Status;
+    }
+    
+    public function setParent($Parent){
+        $this->Parent = $Parent;
     }
     
     public function setDepth($Depth){

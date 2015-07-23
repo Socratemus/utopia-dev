@@ -28,6 +28,12 @@
                         templateUrl : ASSETS_PATH + 'views/application/category/edit.html',
                         controller  : 'CategoryCtrl'
                     })
+                    
+                    .when( '/p/all', {
+                        templateUrl : ASSETS_PATH + 'views/application/product/landing.html',
+                        controller  : 'ProductsCtrl'
+                    })
+                    
                     .when( '/test', {
                         templateUrl : ASSETS_PATH + 'views/application/test.html',
                         //controller  : 'MainController'

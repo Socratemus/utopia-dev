@@ -1,0 +1,152 @@
+2015-07-22T07:01:15+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.236.110"}
+2015-07-22T07:02:16+00:00 INFO (6): Create category request
+2015-07-22T07:02:16+00:00 INFO (6): {"Title":"this is the title in here","Slug":"hello","Parent":1,"Status":200}
+2015-07-22T07:14:00+00:00 CRIT (2): exception 'Zend\ServiceManager\Exception\ServiceNotFoundException' with message 'Zend\Mvc\Controller\ControllerManager::createFromInvokable: failed retrieving "testcontrollerindex(alias: Test\Controller\Index)" via invokable class "Test\Controller\IndexController"; class does not exist' in /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/AbstractPluginManager.php:195
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(642): Zend\ServiceManager\AbstractPluginManager->createFromInvokable('testcontrolleri...', 'Test\Controller...')
+#1 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(598): Zend\ServiceManager\ServiceManager->doCreate('Test\Controller...', 'testcontrolleri...')
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(530): Zend\ServiceManager\ServiceManager->create(Array)
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/AbstractPluginManager.php(116): Zend\ServiceManager\ServiceManager->get('Test\Controller...', false)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/ControllerManager.php(137): Zend\ServiceManager\AbstractPluginManager->get('Test\Controller...', Array, false)
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(76): Zend\Mvc\Controller\ControllerManager->get('Test\Controller...')
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-22T07:24:35+00:00 INFO (6): Create category request
+2015-07-22T07:24:35+00:00 INFO (6): {"Title":"this is a test","Slug":"some slug","Parent":1,"Status":107}
+2015-07-22T07:31:51+00:00 INFO (6): Create category request
+2015-07-22T07:31:51+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","ParentId":5,"Status":200}
+2015-07-22T07:55:40+00:00 INFO (6): Create category request
+2015-07-22T07:55:40+00:00 INFO (6): {"Title":"qqwe","Slug":"","Status":200}
+2015-07-22T07:56:03+00:00 INFO (6): Create category request
+2015-07-22T07:56:03+00:00 INFO (6): {"Title":"sdfsdfwerwer","Slug":""}
+2015-07-22T07:56:17+00:00 INFO (6): Create category request
+2015-07-22T07:56:17+00:00 INFO (6): {"Title":"asd","Slug":""}
+2015-07-22T07:56:21+00:00 INFO (6): Create category request
+2015-07-22T07:56:21+00:00 INFO (6): {"Title":"asd","Slug":""}
+2015-07-22T07:58:22+00:00 INFO (6): Create category request
+2015-07-22T07:58:22+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":107}
+2015-07-22T08:00:15+00:00 INFO (6): Create category request
+2015-07-22T08:00:15+00:00 INFO (6): {"Title":"qwe","Slug":""}
+2015-07-22T08:01:24+00:00 INFO (6): Create category request
+2015-07-22T08:01:24+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":200}
+2015-07-22T08:01:42+00:00 INFO (6): Create category request
+2015-07-22T08:01:42+00:00 INFO (6): {"Title":"qwe","Slug":""}
+2015-07-22T08:07:51+00:00 INFO (6): Create category request
+2015-07-22T08:07:51+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":200}
+2015-07-22T08:07:55+00:00 INFO (6): Create category request
+2015-07-22T08:07:55+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":107}
+2015-07-22T08:08:21+00:00 INFO (6): Create category request
+2015-07-22T08:08:21+00:00 INFO (6): {"Title":"hello","Slug":"qwe","Status":200}
+2015-07-22T08:08:25+00:00 INFO (6): Create category request
+2015-07-22T08:08:25+00:00 INFO (6): {"Title":"hello","Slug":"qwe"}
+2015-07-22T08:08:44+00:00 INFO (6): Create category request
+2015-07-22T08:08:44+00:00 INFO (6): {"Title":"hello","Slug":"qwe"}
+2015-07-22T08:08:53+00:00 INFO (6): Create category request
+2015-07-22T08:08:53+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":200}
+2015-07-22T08:08:55+00:00 INFO (6): Create category request
+2015-07-22T08:08:55+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":200}
+2015-07-22T08:09:00+00:00 INFO (6): Create category request
+2015-07-22T08:09:00+00:00 INFO (6): {"Title":"qwe","Slug":""}
+2015-07-22T08:09:04+00:00 INFO (6): Create category request
+2015-07-22T08:09:04+00:00 INFO (6): {"Title":"qwe","Slug":""}
+2015-07-22T08:09:07+00:00 INFO (6): Create category request
+2015-07-22T08:09:07+00:00 INFO (6): {"Title":"qwe","Slug":""}
+2015-07-22T08:13:16+00:00 INFO (6): Create category request
+2015-07-22T08:13:16+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":{"Id":200,"Name":"Active"}}
+2015-07-22T08:14:18+00:00 INFO (6): Create category request
+2015-07-22T08:14:18+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":998}
+2015-07-22T08:14:22+00:00 INFO (6): Create category request
+2015-07-22T08:14:22+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":"200"}
+2015-07-22T08:14:27+00:00 INFO (6): Create category request
+2015-07-22T08:14:27+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":"107"}
+2015-07-22T08:29:47+00:00 INFO (6): Create category request
+2015-07-22T08:29:47+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":"998"}
+2015-07-22T08:29:50+00:00 INFO (6): Create category request
+2015-07-22T08:29:50+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":"200"}
+2015-07-22T08:29:55+00:00 INFO (6): Create category request
+2015-07-22T08:29:55+00:00 INFO (6): {"Title":"qwe","Slug":"asd","Status":"200"}
+2015-07-22T08:30:33+00:00 INFO (6): Create category request
+2015-07-22T08:30:33+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","Status":"998"}
+2015-07-22T08:48:14+00:00 INFO (6): Create category request
+2015-07-22T08:48:14+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","Status":"998"}
+2015-07-22T08:48:50+00:00 INFO (6): Create category request
+2015-07-22T08:48:50+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","Status":"998"}
+2015-07-22T08:49:33+00:00 INFO (6): Create category request
+2015-07-22T08:49:33+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","Status":"998","ParentId":5}
+2015-07-22T09:15:31+00:00 INFO (6): Create category request
+2015-07-22T09:15:31+00:00 INFO (6): {"Title":"qweqwe","Slug":"qweqwe","Status":"998","ParentId":5}
+2015-07-22T09:15:42+00:00 INFO (6): Create category request
+2015-07-22T09:15:42+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":"998"}
+2015-07-22T09:17:44+00:00 INFO (6): Create category request
+2015-07-22T09:17:44+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:17:56+00:00 INFO (6): Create category request
+2015-07-22T09:17:57+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:18:07+00:00 INFO (6): Create category request
+2015-07-22T09:18:07+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:18:47+00:00 INFO (6): Create category request
+2015-07-22T09:18:47+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:19:24+00:00 INFO (6): Create category request
+2015-07-22T09:19:24+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:20:33+00:00 INFO (6): Create category request
+2015-07-22T09:20:33+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":"998"}
+2015-07-22T09:21:05+00:00 INFO (6): Create category request
+2015-07-22T09:21:05+00:00 INFO (6): {"Title":"qweasd","Slug":"qweaasd","Status":"200"}
+2015-07-22T09:21:14+00:00 INFO (6): Create category request
+2015-07-22T09:21:14+00:00 INFO (6): {"Title":"qweasd","Slug":"qweaasd","Status":"997"}
+2015-07-22T09:21:35+00:00 INFO (6): Create category request
+2015-07-22T09:21:35+00:00 INFO (6): {"Title":"qweasd","Slug":"qweaasd","Status":"997","ParentId":5}
+2015-07-22T09:49:38+00:00 INFO (6): Create category request
+2015-07-22T09:49:38+00:00 INFO (6): {"Title":"qweasd","Slug":"qweaasd","Status":"997","ParentId":5}
+2015-07-22T09:49:56+00:00 INFO (6): Create category request
+2015-07-22T09:49:56+00:00 INFO (6): {"Title":"qweasd","Slug":"qweaasd","Status":"997","ParentId":1}
+2015-07-22T09:50:31+00:00 INFO (6): Create category request
+2015-07-22T09:50:31+00:00 INFO (6): {"Title":"Custom category","Slug":"custom-category","Status":"200","ParentId":1}
+2015-07-22T09:50:35+00:00 INFO (6): Create category request
+2015-07-22T09:50:35+00:00 INFO (6): {"Title":"Custom category","Slug":"custom-category","Status":"200","ParentId":1}
+2015-07-22T10:18:56+00:00 INFO (6): Create category request
+2015-07-22T10:18:56+00:00 INFO (6): {"Title":"hello worlds","Slug":"heelooo","Status":"107"}
+2015-07-22T10:19:27+00:00 INFO (6): Create category request
+2015-07-22T10:19:27+00:00 INFO (6): {"Title":"hello wolrds","Slug":"qwe","Status":"998"}
+2015-07-22T11:53:38+00:00 INFO (6): Create category request
+2015-07-22T11:53:38+00:00 INFO (6): {"Title":"asd","Slug":"","Status":"998"}
+2015-07-22T11:53:50+00:00 INFO (6): Create category request
+2015-07-22T11:53:50+00:00 INFO (6): {"Title":"asd","Slug":"qwe","Status":"998"}
+2015-07-22T11:58:41+00:00 INFO (6): Create category request
+2015-07-22T11:58:41+00:00 INFO (6): {"Title":"hello","Slug":"worlds","Status":"998"}
+2015-07-22T12:31:07+00:00 INFO (6): Create category request
+2015-07-22T12:31:07+00:00 INFO (6): {"Title":"text","Slug":"text","Status":"998"}
+2015-07-22T12:31:28+00:00 INFO (6): Create category request
+2015-07-22T12:31:28+00:00 INFO (6): {"Title":"tex","Slug":"texttt","Status":"998"}
+2015-07-22T12:32:21+00:00 INFO (6): Create category request
+2015-07-22T12:32:21+00:00 INFO (6): {"Title":"text","Slug":"text","Status":"998"}
+2015-07-22T12:36:49+00:00 INFO (6): Create category request
+2015-07-22T12:36:49+00:00 INFO (6): {"Title":"text","Slug":"text","Status":"998"}
+2015-07-22T12:38:54+00:00 INFO (6): Create category request
+2015-07-22T12:38:54+00:00 INFO (6): {"Title":"sometext","Slug":"testing-around","Status":"200","ParentId":5}
+2015-07-22T12:39:45+00:00 INFO (6): Create category request
+2015-07-22T12:39:45+00:00 INFO (6): {"Title":"test","Slug":"test","Status":"998"}
+2015-07-22T12:39:56+00:00 INFO (6): Create category request
+2015-07-22T12:39:56+00:00 INFO (6): {"Title":"ttttttttttttttt","Slug":"ttttttttttttttttttt","Status":"998"}
+2015-07-22T12:40:26+00:00 INFO (6): Create category request
+2015-07-22T12:40:26+00:00 INFO (6): {"Title":"text","Slug":"text","Status":"998"}
+2015-07-22T12:41:37+00:00 INFO (6): Create category request
+2015-07-22T12:41:37+00:00 INFO (6): {"Title":"qweqq","Slug":"ewqweqs","Status":"998"}
+2015-07-22T12:42:00+00:00 INFO (6): Create category request
+2015-07-22T12:42:00+00:00 INFO (6): {"Title":"qwe","Slug":"sad","Status":"998"}

@@ -46,6 +46,10 @@ class CategoryService extends ModelService {
         return $categories;
         
     }
+    
+    public function getById($CategoryId){
+        return $this->getRepository()->find($CategoryId);
+    }
 
     /**************************************************************************/
     

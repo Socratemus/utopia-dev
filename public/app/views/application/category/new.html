@@ -1,54 +1,114 @@
 <div class="container-fluid">
-    <form>
-        <div class="form-group">
-            <label for="">Title</label>
-            <input type="email" class="form-control"  placeholder="Title">
-        </div>
-        
-        <div class="form-group">
-            <label for="">Slug</label>
-            <input type="text" class="form-control" placeholder="Slug">
-        </div>
-        
-        <div class="form-group">
-            <label for="">Parent</label>
-            <select class="form-control">
-              <option>- Select parent -</option>
+    <form class="" name="cfrm" novalidate>
+      
+        <div class="col-md-12 extended form-title">
+            <div class="col-md-8">
               
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="">Created</label>
-            <input type="text" class="form-control" placeholder="Created">
-        </div>
-        
-        <div class="form-group">
-            <label for="">Updated</label>
-            <input type="text" class="form-control" placeholder="Updated">
-        </div>
-        
-        <div class="form-group form-inline">
-            <div class="radio">
-              <label>
-                <input type="radio" name="Status" value="1" checked>
-                Active
-              </label>
+                <h3 class="_ft">Add a new category</h3>
+              
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="Status" value="777">
-                Disabled
-              </label>
-            </div>
-            <div class="radio disabled">
-              <label>
-                <input type="radio" name="Status" value="101" disabled>
-                Removed
-              </label>
+            <div class="col-md-4">
+              <div class="_abw text-right">
+                <button class="btn custom" ng-disabled="cfrm.$invalid" ng-click="save()">Save</button>
+                <button class="btn custom">Close</button>
+              </div>
+              
             </div>
         </div>
         
-        <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-content col-md-12 extended">
+            
+            <legend><span>New category</span></legend>
+            
+            
+            <div class="clearfix"></div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Title</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="category.Title" name="Title" required placeholder="Title">
+                    <div ng-show="cfrm.Title.$error.required">
+                        <span class="alert alert-danger">Please provide category name.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Slug</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="category.Slug" name="Slug" placeholder="Slug">
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Parent</label>    
+                </div>
+                <div class="col-md-9">
+                    <select ng-model="category._parent" class="form-control fw" ng-options="category.Title for category in categories track by category.Title"></select>
+                    <!--<select class="form-control fw" ng-model="category.Parent" name="Parent"></select>-->
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Created</label>    
+                </div>
+                <div class="col-md-9">
+                    <p class="input-group">
+                      <input type="date" class="form-control" disabled datepicker-popup ng-model="dta" is-open="openeda" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Updated</label>    
+                </div>
+                <div class="col-md-9">
+                    
+                    <p class="input-group">
+                      <input type="date" class="form-control" disabled datepicker-popup datepicker-options="dateOptions" ng-model="dt" is-open="opened" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                      
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Status</label>    
+                </div>
+                <div class="col-md-9">
+                    <select ng-model="category.Status" class="form-control fw">
+                        <option ng-repeat="status in statuses" ng-selected="status.Id == category.Status" value="{{status.Id}}">{{status.Name}}</option>
+                    </select>
+                    <!--<select ng-model="category._status" ng-init="category._status = statuses[0]" class="form-control fw" ng-options="status.Id as status.Name for status in statuses track by status.Id"></select>-->
+                    
+                </div>
+                
+            </div>
+            
+            
+            <div class="clearfix"></div></div>
+          
+        </div>
+        
+        <div class="clearfix"></div>
+
     </form>
 </div>

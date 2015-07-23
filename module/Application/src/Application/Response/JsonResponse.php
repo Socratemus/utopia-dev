@@ -9,14 +9,15 @@ use Application\Utils\Object as AppObject;
 
 class JsonResponse extends JsonModel
 {
-     protected $__container;
+    protected $__container;
 
     public function __construct($variables = null, $options = null) {
-        $this->__container = array('data');
+        //$this->__container = array('data');
         parent::__construct($variables, $options);
+        $this->setVariable('Object', array());
         $this->setVariable('Status', 1, true);
-        $this->setVariable('Success', 0, true);
-        $this->setVariable('Error', 0, true);
+        $this->setVariable('Succeded', 0, true);
+        $this->setVariable('Failed', 0, true);
         $this->setVariable('Message', 'Default message');
     }
 
@@ -30,11 +31,12 @@ class JsonResponse extends JsonModel
     
     public function setFailed(){
         $this->setVariable('Status', 2, true);
-        $this->setVariable('Error', 1,true);
+        $this->setVariable('Failed', 1,true);
+        $this->setVariable('Succeded', 0,true);
     }
     
     public function setSucceed(){
-        $this->setVariable('Success', 1,true);
+        $this->setVariable('Succeded', 1,true);
     }
     
     public function setMessage($Message){

@@ -1,0 +1,168 @@
+2015-07-21T08:38:15+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.239.133"}
+2015-07-21T15:22:07+00:00 INFO (6): Create category request
+2015-07-21T15:22:07+00:00 INFO (6): {"Title":"qwe","Slug":"qwe","Status":1,"_parent":{"CategoryId":1,"Title":"Electronics","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":1},"Parent":1}
+2015-07-21T17:23:12+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.0.34"}
+2015-07-21T17:25:14+00:00 INFO (6): Create category request
+2015-07-21T17:25:14+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":1,"_parent":{"CategoryId":1,"Title":"Electronics","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":1},"Parent":1}
+2015-07-21T17:25:18+00:00 INFO (6): Create category request
+2015-07-21T17:25:18+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":1,"_parent":{"CategoryId":1,"Title":"Electronics","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":1},"Parent":1}
+2015-07-21T17:25:30+00:00 INFO (6): Create category request
+2015-07-21T17:25:30+00:00 INFO (6): {"Title":"qwe","Slug":"","Status":1,"_parent":{"CategoryId":1,"Title":"Electronics","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":1},"Parent":1}
+2015-07-21T17:35:22+00:00 INFO (6): Create category request
+2015-07-21T17:35:22+00:00 INFO (6): {"Title":"asd","Slug":"","Status":1,"_parent":{"CategoryId":1,"Title":"Electronics","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":1},"Parent":1}
+2015-07-21T17:36:20+00:00 INFO (6): Create category request
+2015-07-21T17:36:20+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":1}
+2015-07-21T17:36:30+00:00 INFO (6): Create category request
+2015-07-21T17:36:30+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:07:17+00:00 INFO (6): Create category request
+2015-07-21T18:07:17+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:07:59+00:00 INFO (6): Create category request
+2015-07-21T18:07:59+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:11:18+00:00 INFO (6): Create category request
+2015-07-21T18:11:18+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:11:39+00:00 INFO (6): Create category request
+2015-07-21T18:11:39+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:13:49+00:00 INFO (6): Create category request
+2015-07-21T18:13:49+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:17:19+00:00 INFO (6): Create category request
+2015-07-21T18:17:19+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:17:46+00:00 INFO (6): Create category request
+2015-07-21T18:17:47+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:18:03+00:00 INFO (6): Create category request
+2015-07-21T18:18:03+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:18:43+00:00 INFO (6): Create category request
+2015-07-21T18:18:43+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:18:56+00:00 INFO (6): Create category request
+2015-07-21T18:18:56+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:19:37+00:00 INFO (6): Create category request
+2015-07-21T18:19:37+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:20:01+00:00 INFO (6): Create category request
+2015-07-21T18:20:01+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:22:58+00:00 INFO (6): Create category request
+2015-07-21T18:22:58+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:23:37+00:00 INFO (6): Create category request
+2015-07-21T18:23:37+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:24:00+00:00 INFO (6): Create category request
+2015-07-21T18:24:00+00:00 INFO (6): {"Title":"hello","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:24:37+00:00 INFO (6): Create category request
+2015-07-21T18:24:37+00:00 INFO (6): {"Title":"hello worlds this is it","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:24:44+00:00 INFO (6): Create category request
+2015-07-21T18:24:44+00:00 INFO (6): {"Title":"hello worlds this is it wow not now?","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:25:17+00:00 INFO (6): Create category request
+2015-07-21T18:25:17+00:00 INFO (6): {"Title":"hello worlds this is it wow n","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:26:11+00:00 INFO (6): Create category request
+2015-07-21T18:26:11+00:00 INFO (6): {"Title":"hello worlds this is it wow n","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:27:22+00:00 INFO (6): Create category request
+2015-07-21T18:27:22+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:27:52+00:00 INFO (6): Create category request
+2015-07-21T18:27:52+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:28:28+00:00 INFO (6): Create category request
+2015-07-21T18:28:28+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worls","Status":1,"Parent":5}
+2015-07-21T18:28:50+00:00 INFO (6): Create category request
+2015-07-21T18:28:50+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:29:08+00:00 INFO (6): Create category request
+2015-07-21T18:29:08+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:30:00+00:00 INFO (6): Create category request
+2015-07-21T18:30:00+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:30:52+00:00 INFO (6): Create category request
+2015-07-21T18:30:52+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:34:05+00:00 INFO (6): Create category request
+2015-07-21T18:34:05+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:36:08+00:00 INFO (6): Create category request
+2015-07-21T18:36:08+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:37:17+00:00 INFO (6): Create category request
+2015-07-21T18:37:17+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:37:57+00:00 INFO (6): Create category request
+2015-07-21T18:37:57+00:00 INFO (6): {"Title":"hello worlds this is it wow","Slug":"worlszzz","Status":1,"Parent":5}
+2015-07-21T18:40:12+00:00 INFO (6): Create category request
+2015-07-21T18:40:12+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:40:53+00:00 INFO (6): Create category request
+2015-07-21T18:40:53+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:41:18+00:00 INFO (6): Create category request
+2015-07-21T18:41:18+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:42:32+00:00 INFO (6): Create category request
+2015-07-21T18:42:32+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:42:49+00:00 INFO (6): Create category request
+2015-07-21T18:42:49+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:43:30+00:00 INFO (6): Create category request
+2015-07-21T18:43:31+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:43:44+00:00 INFO (6): Create category request
+2015-07-21T18:43:44+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:44:02+00:00 INFO (6): Create category request
+2015-07-21T18:44:02+00:00 INFO (6): {"Title":"qweqwe qwe qweqwe qwe q","Slug":"qweqweqw eqweq","Status":{"Id":997,"Name":"Removed"},"Parent":1}
+2015-07-21T18:44:59+00:00 INFO (6): Create category request
+2015-07-21T18:45:00+00:00 INFO (6): {"Title":"hello woeasjkda","Slug":"sdjf","Status":{"Id":997,"Name":"Removed"}}
+2015-07-21T18:45:16+00:00 INFO (6): Create category request
+2015-07-21T18:45:16+00:00 INFO (6): {"Title":"hello woeasjkdaqwe","Slug":"sdjf","Status":{"Id":997,"Name":"Removed"}}
+2015-07-21T18:45:24+00:00 INFO (6): Create category request
+2015-07-21T18:45:24+00:00 INFO (6): {"Title":"hello woeasjkdaqwe e qweqwe","Slug":"sdjf","Status":{"Id":997,"Name":"Removed"}}
+2015-07-21T18:45:36+00:00 INFO (6): Create category request
+2015-07-21T18:45:36+00:00 INFO (6): {"Title":"hello woeasjkdaqwe e qweqwe","Slug":"sdjf","Status":{"Id":997,"Name":"Removed"}}
+2015-07-21T18:45:48+00:00 INFO (6): Create category request
+2015-07-21T18:45:48+00:00 INFO (6): {"Title":"qwe ewq eqweqweqw qweqweqweqw","Slug":"asdasdas","Status":997,"Parent":5}
+2015-07-21T18:46:02+00:00 INFO (6): Create category request
+2015-07-21T18:46:02+00:00 INFO (6): {"Title":"qwe ewq eqweqweqw qweqweqweqw","Slug":"asdasdas","Status":997,"Parent":5}
+2015-07-21T18:46:43+00:00 INFO (6): Create category request
+2015-07-21T18:46:43+00:00 INFO (6): {"Title":"qwe ewq eqweqweqw qweqweqweqw","Slug":"asdasdas","Status":997,"Parent":5}
+2015-07-21T18:47:05+00:00 INFO (6): Create category request
+2015-07-21T18:47:05+00:00 INFO (6): {"Title":"qwe ewq eqweqweqw qweqweqweqw","Slug":"asdasdas","Status":997,"Parent":5}
+2015-07-21T18:47:50+00:00 INFO (6): Create category request
+2015-07-21T18:47:50+00:00 INFO (6): {"Title":"this is the title of the category","Slug":"","Status":1}
+2015-07-21T18:48:00+00:00 INFO (6): Create category request
+2015-07-21T18:48:00+00:00 INFO (6): {"Title":"this is the title of the category","Slug":"","Status":"Active"}
+2015-07-21T18:48:54+00:00 INFO (6): Create category request
+2015-07-21T18:48:54+00:00 INFO (6): {"Title":"The title is required right?!?!","Slug":"","Status":1}
+2015-07-21T18:50:11+00:00 INFO (6): Create category request
+2015-07-21T18:50:11+00:00 INFO (6): {"Title":"hellohellohellohellohellohellohellohello","Slug":"","Status":"Active"}
+2015-07-21T18:50:52+00:00 INFO (6): Create category request
+2015-07-21T18:50:52+00:00 INFO (6): {"Title":"_status_status_status_status_status","Slug":"qweqweqw","Status":107}
+2015-07-21T18:51:06+00:00 INFO (6): Create category request
+2015-07-21T18:51:07+00:00 INFO (6): {"Title":"_status_status_status_status_status","Slug":"qweqweqw","Status":107,"Parent":5}
+2015-07-21T18:51:32+00:00 INFO (6): Create category request
+2015-07-21T18:51:32+00:00 INFO (6): {"Title":"_status_status_status_status_","Slug":"qweqweqw","Status":107,"Parent":5}
+2015-07-21T18:52:45+00:00 INFO (6): Create category request
+2015-07-21T18:52:45+00:00 INFO (6): {"Title":"_status_status_status_status_","Slug":"qweqweqw","Status":107,"Parent":5}
+2015-07-21T18:53:02+00:00 INFO (6): Create category request
+2015-07-21T18:53:02+00:00 INFO (6): {"Title":"_status_status_status_status_","Slug":"qweqweqw","Status":107,"Parent":1}
+2015-07-21T18:53:06+00:00 INFO (6): Create category request
+2015-07-21T18:53:06+00:00 INFO (6): {"Title":"_status_status_status_status_","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:53:10+00:00 INFO (6): Create category request
+2015-07-21T18:53:10+00:00 INFO (6): {"Title":"_status_status_status_status_","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:55:48+00:00 INFO (6): Create category request
+2015-07-21T18:55:48+00:00 INFO (6): {"Title":"_status_status_status_status_qweqweqwea","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:55:56+00:00 INFO (6): Create category request
+2015-07-21T18:55:56+00:00 INFO (6): {"Title":"_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:56:26+00:00 INFO (6): Create category request
+2015-07-21T18:56:26+00:00 INFO (6): {"Title":"_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:57:08+00:00 INFO (6): Create category request
+2015-07-21T18:57:08+00:00 INFO (6): {"Title":"_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe_status_status_status_status_qweqweqweaeqweqweqweqwe","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:57:33+00:00 INFO (6): Create category request
+2015-07-21T18:57:33+00:00 INFO (6): {"Title":"its a new category","Slug":"qweqweqw","Status":200,"Parent":1}
+2015-07-21T18:58:00+00:00 INFO (6): Create category request
+2015-07-21T18:58:00+00:00 INFO (6): {"Title":"its a new category","Slug":"qweqweqw","Status":200,"Parent":1}

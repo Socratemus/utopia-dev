@@ -22,7 +22,7 @@
         ?>
         <script type="text/javascript">
              var ASSETS_PATH = "<?php echo $this->basePath() ?>/app/";
-             var APP_PATH = 'http://192.168.1.15/~corneliu_iancu/trip-admin/api.php'; 
+             var APP_PATH = '<?php echo $this->url("api"); ?>'; 
         </script>
         <?php echo $this->headScript(); ?>
 

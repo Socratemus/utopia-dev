@@ -35,4 +35,26 @@ class AbstractActionController extends ZFAbstractActionController
         }
         return $this->Logger;
     }
+    
+    public function getPayload(){
+        $raw = $this->getRequest()->getContent();
+        $data = json_decode($raw , 1);
+        foreach($data as $key => $value) {
+            if($key[0] == '_') {
+                unset($data[$key]);
+            }
+        }
+        /**
+         * @TODO
+         * Iterate through array properties and remove the ones starting with underscore.
+         */
+        return $data;
+    }
 }
+
+
+
+
+
+
+

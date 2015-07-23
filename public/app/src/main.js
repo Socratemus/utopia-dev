@@ -11,11 +11,12 @@
             'utils/logger/LogDecorator',
             
             'application/RouteManager',
+            'application/services/ControllService',
             'application/ApplicationModule',
             
         ],
         function ($log, LogDecorator,
-            MainRouteManager,
+            MainRouteManager, ControllSrv ,
             ApplicationModule
 
             )
@@ -48,10 +49,11 @@
                     .config( MainRouteManager   )
                     ;
             
-            // app.run(["$rootScope", "ControllService",function($rootScope, ControllService){
-            //     ControllService.apiListeners();
+            app.run(["$rootScope", "ControllService",function($rootScope, ControllSrv){
+                ControllSrv.apiListeners();
+                ControllSrv.appStatuses();
                 
-            // }]);
+            }]);
             
             angular.bootstrap( document.getElementsByTagName("body")[0], [ appName ]);
             

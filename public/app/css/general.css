@@ -1,7 +1,77 @@
 /**
  * General css file for admin.
  */
- 
+label, input, select, textarea, li , table {
+  font-size: 12px;
+  color: #999;
+  line-height: 22px;
+}
+
+*:focus {
+    outline: none;
+}
+.btn.focus, .btn:focus, .btn:hover{
+     outline: none;
+}
+
+.label {
+    font-size : 85%;
+}
+
+input[type=text], input[type=email],input[type=date], textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    font-size: 12px!important;
+    color: #858585;
+    box-shadow: 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 #fff;
+    padding: 6px 7px;
+    border: 1px solid #d7d7d7;
+    display: inline-block;
+    background: #FFF;
+    height: 26px; 
+}
+
+input[type=text].fw, input[type=email].fw,input[type=date].fw, textarea.fw{
+    width : 220px;
+}
+select.form-control {
+    height: 26px; padding : 0;padding-left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    font-size: 12px!important;
+    color: #858585;
+    box-shadow: 0 1px 0 #fff;
+}
+select.form-control.fw{
+    width : 220px;
+}
+
+input.form-control:focus{
+    box-shadow : none;
+}
+
+span.input-group-btn button {
+    padding-top : 2px;padding-bottom : 2px;
+}
+
+span.alert{
+    padding : 0px;padding-left : 2px; padding-right : 2px;
+    font-size: 11px;
+    font-style: italic;
+    display : inline-block;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.custom-dpk{
+    padding : 3px; padding-top : 0; margin-top : -2px;
+}
+
 [class*='col-md-'].extended{
     padding-left : 0;
     padding-right : 0;
@@ -330,4 +400,58 @@ a {
   text-decoration: none;
   color: #CCC;
   font-size: 12px;
+}
+a:hover {
+  text-decoration: none;
+  color: #999;
+}
+._ntf{
+    visibility : hidden;
+    opacity : 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 185px;
+    margin: auto;
+    width: 150px;
+    font-size: 11px;
+    /* border: 1px solid #FFFFFF; */
+    text-align: center;
+    border-radius: 4px;
+    z-index: 3;
+    background-color: rgba(98, 203, 99, 0.68);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.27);
+    padding: 2px;
+    color: rgb(63, 54, 54);
+}
+._ntf.show{
+    visibility : visible; opacity : 1;
+}
+
+.table th, .table td {
+  border-left: 1px solid #DFDFDF;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #FFF!important;
+  border-bottom: 1px solid #DFDFDF;
+  padding: 8px 5px 3px 5px;
+  vertical-align : middle !important;
+}
+
+ul.action-dropdown{
+    min-width: 60px;
+    right: 3px;
+    left: initial;
+    padding: 0;
+    border-radius: 0;
+    top: 20px;
+}
+
+ul.action-dropdown > li > a {font-size : 11px;}
+
+.label-success, .badge-success {
+  background-color: #468847;
+}
+
+.label-warning, .badge-warning {
+  background-color: #f89406;
 }

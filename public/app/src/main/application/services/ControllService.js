@@ -6,7 +6,7 @@
      */
     define([], function() {
 
-        var Controll = function($rootScope, $log) {
+        var Controll = function($rootScope, $log , $timeout , $location , $routeParams) {
             
             var _instance = {
                 
@@ -38,7 +38,30 @@
                     
                     $rootScope.$on('ON_ERROR_API_CREATE', function(evt,args){ return that._on_error_api_create( evt , args ) ; });
                 },
-                
+                appStatuses : function(){
+                    /* Initialize application global statuses. */
+                    $rootScope.statuses = [
+                        { Id: 200, Name: 'Active' },
+                        { Id: 307, Name: 'Disabled' },
+                        { Id: 107, Name: 'Pending' },
+                        { Id: 500, Name: 'Removed' }
+                    ];
+                    
+                    $rootScope.getStatus = function(Code){ 
+                        
+                        var ret = null;
+                        angular.forEach($rootScope.statuses, function(value, key) {
+                            if(parseInt(Code) == value.Id){
+                                ret = value;
+                            }
+                        });
+                        return ret;
+                        
+                    };
+                    
+                    //console.log($rootScope);  
+                },
+ 
                 _before_api_get : function( evt , args ){
                     //console.log(args);
                     if(args.loader == true){
@@ -79,7 +102,6 @@
                     
                 },
                 
-                
                 _before_api_create : function ( evt , args ) 
                 {
                     
@@ -91,6 +113,28 @@
                 _on_error_api_create : function ( evt , args ) 
                 {
                     
+                },
+                
+                /**
+                 * Shows a notification message
+                 * Type : info , success, error
+                 */
+                notification : function( Type , Message ){
+                    $rootScope.notification = true;
+                    $timeout(function(){
+                        $rootScope.notification = false;
+                    },2000);
+                } ,
+                redirect : function( Path ) {
+                    console.log( Path);
+                    $location.path( "/" + Path );
+                } , 
+                getParam : function ( Id ) {
+                    if($routeParams[Id] != undefined){
+                        return $routeParams[Id];
+                    } else {
+                        return null;
+                    }
                 }
                 
             };
@@ -99,7 +143,7 @@
 
         };
 
-        return ["$rootScope", "$log", Controll];
+        return ["$rootScope", "$log" , "$timeout", "$location" , "$routeParams", Controll];
 
     });
 
