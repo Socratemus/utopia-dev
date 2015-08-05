@@ -19,5 +19,13 @@ echo $this->headLink(
         ->appendStylesheet($this->basePath() . '/assets/css/general.css')
         ->prependStylesheet($this->basePath() . '/assets/css/adds/bootstrap/bootstrap.min.css')
         ->prependStylesheet($this->basePath() . '/assets/css/adds/font-awesome/font-awesome.min.css');
+        
+
+
+$this->headScript()
+        ->prependFile($this->basePath() . '/assets/js/main.js')
+        ->prependFile($this->basePath() . '/assets/js/adds/bootstrap/bootstrap.min.js')
+        ->prependFile($this->basePath() . '/assets/js/adds/jquery/jquery-2.1.1.min.js')
+    ;
 ?>
       

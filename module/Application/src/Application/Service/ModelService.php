@@ -27,4 +27,12 @@ class ModelService implements ServiceLocatorAwareInterface
         return $this->EntityManager;
     }
     
+    protected function getBaseUri(){
+        $request = $this->getServiceLocator()->get('Request');
+        $uri = $request->getUri();
+        $scheme = $uri->getScheme();
+        $host = $uri->getHost();
+        $base = sprintf('%s://%s', $scheme, $host);
+        return $base;
+    }
 }

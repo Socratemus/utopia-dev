@@ -33,6 +33,19 @@
                         templateUrl : ASSETS_PATH + 'views/application/product/landing.html',
                         controller  : 'ProductsCtrl'
                     })
+                    .when( '/p/n', {
+                        templateUrl : ASSETS_PATH + 'views/application/product/new.html',
+                        controller  : 'ProductCtrl'
+                    })
+                    .when( '/p/e/:id', {
+                        templateUrl : ASSETS_PATH + 'views/application/product/edit.html',
+                        controller  : 'ProductCtrl'
+                    })
+                    
+                    .when( '/file-manager', {
+                        templateUrl : ASSETS_PATH + 'views/application/filemanager/landing.html',
+                        controller  : 'FilemanagerCtrl'
+                    })
                     
                     .when( '/test', {
                         templateUrl : ASSETS_PATH + 'views/application/test.html',

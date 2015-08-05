@@ -15,5 +15,84 @@
         </div>
     </div>
     <div class="col-md-12 extended listing-body">
+        
+        <table class="table">
+            
+            <thead>
+                <tr>
+                    <th><input type="checkbox" /></th>
+                    <th align="center">
+                       <a href=""> Info </a>
+                    </th>
+                    <th align="center">
+                        <a href=""> Id </a>
+                    </th>
+                    <th width="25%">
+                        <a href=""> Title </a>
+                    </th>
+                    <th>
+                        <a href=""> Slug </a>
+                    </th>
+                    <th>
+                        <a href=""> Created </a>
+                    </th>
+                    <th>
+                        <a href=""> Status </a>
+                    </th>
+                    <th align="right" style="text-align : right;">
+                        <a href=""> Actions </a>
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr ng-repeat="item in items">
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>
+                        <i class="fa fa-info-circle"></i>
+                    </td>
+                    <td>
+                        {{item.ItemId}}
+                    </td>
+                    <td>
+                        {{item.Title}}
+                    </td>
+                    <td>
+                        {{item.Slug}}
+                    </td>
+                    <td>
+                         {{item.Created}}
+                    </td>
+                    <td>
+                        <span ng-class="{'label-success' : item.Status == 200 , 'label-warning' : item.Status == 107 , 'label-danger' : item.Status == 500 , 'label-default' : item.Status == 307 }" class="label">{{getStatus(item.Status).Name}}</span>
+                    </td>
+                    <td align="right">
+                        <span class="dropdown" dropdown on-toggle="toggled(open)">
+                          <a href class="dropdown-toggle" dropdown-toggle>
+                               <button class="btn custom"><i class="fa fa-gear"></i></button>
+                          </a>
+                          <ul class="dropdown-menu action-dropdown">
+                            <li>
+                              <a href>Enable</a>
+                              <a href>Disable</a>
+                            </li>
+                          </ul>
+                        </span>
+                        
+                        <a href="#/p/e/{{item.ItemId}}" class="btn custom"><i class="fa fa-pencil"></i> Edit</a>
+                    </td>
+                </tr>   
+                
+            </tbody>
+            
+        </table>
+        
+        <div class="pull-right">
+            <pagination total-items="totalItems" items-per-page="perPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
+        
     </div>
 </div>

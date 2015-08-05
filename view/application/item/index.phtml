@@ -1,1 +1,320 @@
-<h3>the content of item page</h3>
+<?php 
+    $cover = $this->item->getCover();
+    $galeryItem = array(
+        'small' => 'https://utopia-dev-socratemus.c9.io/data/Filemanager/ProductImages/Televizor-smart-android-3d-led-sony-164-cm-65X9305C-ultra-hd_c4a5d3ff074d5d389b65487328903713/small_c4a5d3ff074d5d389b65487328903713.png',
+        'medium' => 'https://utopia-dev-socratemus.c9.io/data/Filemanager/ProductImages/Televizor-smart-android-3d-led-sony-164-cm-65X9305C-ultra-hd_c4a5d3ff074d5d389b65487328903713/medium_c4a5d3ff074d5d389b65487328903713.png',
+        'huge' => 'https://utopia-dev-socratemus.c9.io/data/Filemanager/ProductImages/Televizor-smart-android-3d-led-sony-164-cm-65X9305C-ultra-hd_c4a5d3ff074d5d389b65487328903713/huge_c4a5d3ff074d5d389b65487328903713.png'
+    );
+?>
+
+
+<style>
+   
+    .cloudzoom-lens + div{ visibility : hidden !important; }
+   
+    
+</style>
+
+<div class="row">
+    
+    <div class="col-md-5" style="border : 0px solid lightgray;">
+        
+        <div style="border : 1px solid lightgray; padding : 5px">
+           <!-- Create a Cloud Zoom in the usual way. -->
+            <img src="<?php echo $cover->getMedium();?>" width="100%" id = "zoom1" class = "cloudzoom"
+                 data-cloudzoom = "zoomImage: '<?php echo $cover->getHuge();?>' , zoomPosition: 'inside', autoInside: true" />
+                 
+             
+        
+        </div> 
+        
+        <div class="mt15 _pr_gall_wp" style="border : 1px solid lightgray; min-height : 60px;">
+            
+            <a  href="#" class="cloudzoom-gallery"
+                data-cloudzoom =
+                     "useZoom: '#zoom1', image: '<?php echo $cover->getMedium();?>', zoomImage: '<?php echo $cover->getHuge();?>'">
+                <img src="<?php echo $cover->getSmall();?>" width="60" alt="Orig">
+            </a>
+            
+            <a  href="#" class="cloudzoom-gallery"
+                data-cloudzoom =
+                     "useZoom: '#zoom1', image: '<?php echo $galeryItem['medium'];?>', zoomImage: '<?php echo $galeryItem['huge'];?>'">
+                <img src="<?php echo $galeryItem['small'];?>" width="60" alt="Orig2">
+            </a>
+            
+            
+
+            
+            
+        </div>
+    </div>
+    
+    
+    <div class="col-md-7">
+        <div style="border : 0px solid gray; min-height : 325px; padding : 0 10px">
+            
+            <!-- STARS AND AVAILABILITY ZONE -->
+            <div>
+                
+                <span class="_pr_stars mr25"> 
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </span>
+                
+                <small><strong><span>Avaiability:</span> <span>In Stock</span></strong></small>
+                    
+            </div>
+            
+            <!-- PRODUCT TITLE ZONE -->
+            <div>
+                <h2 class="mt0" style="margin-top : 0;margin-bottom : -10px;">VAIO fit laptop - windows 8 SVF14322CXW</h2>
+                <small><small>SONY</small></small>
+                <hr class="mt5 mb0 pb5" />
+            </div>
+            
+            <!-- SHARE ZONE -->
+            <div style="min-height : 25px;"> 
+                
+                <!--<div class="share-btn-holder">-->
+                <!--    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>    -->
+                <!--</div>-->
+                
+                
+                <!--<div class="share-btn-holder">-->
+                <!--    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>-->
+                <!--    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    -->
+                <!--</div>-->
+                
+                <!--<div class="share-btn-holder">-->
+                <!--    <div class="g-plus" data-action="share"></div>-->
+                <!--</div>-->
+                
+                <!--<hr class="mt5 mb0 pb5" />-->
+            </div>
+            
+            <!-- TEXT DESCRIPTION ZONE -->
+            <div>
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare turpis non risus semper dapibus. Quisque eu vehicula turpis. Donec sodales lacinia eros, sit amet auctor tellus volutpat non. - See more at: http://transvelo.in/demo/html/media-center/index.php?page=single-product#sthash.9GsAh9u2.dpuf</p>    -->
+                <a href="#"><i class="fa fa-heart-o"></i> Add to Favorites</a>                
+            </div>
+            
+            <!-- PRICE ZONE -->
+            <div class="prices">
+                <div class="price-current">$1740.00</div>
+                <div class="price-prev"><span>$2199.00</span> Discount 20%</div>
+            </div>
+            
+            <!-- QUANTITY & ADD BTN ZONE -->
+            <div class="qt-wp">
+                <div class="qnt">
+                    <form>
+                        <a class="minus" href="#reduce"></a>
+                        <input name="quantity" readonly="readonly" type="text" value="1">
+                        <a class="plus" href="#add"></a>
+                    </form>
+                </div>
+                <a id="AddToCart" href="" class="btn btn-danger">add to cart</a>
+            </div>
+            
+        </div> 
+    </div>
+    
+    <!-- ADDITIONAL INFO AREA -->
+    <div class="col-md-12 mt15">
+        <div style="border : 0px solid gray; min-height : 250px;">
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+                <li><a href="#aditional-description" data-toggle="tab">Additional Information</a></li>
+                <li><a href="#reviews" data-toggle="tab">Reviews(3)</a></li>
+            </ul>
+    
+            <div class="tab-content" style="border : 1px solid #E0E0E0;margin-top : 1px; padding : 20px;">
+                
+                <div class="tab-pane" id="description">
+    
+                    <?php echo $this->item->getDescription();?>
+    
+                </div>
+    
+                <div class="tab-pane active" id="aditional-description">
+                    
+                    
+                    <div class="col-md-6 spc-wp">
+                        <div class="col-md-12 extended">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Audio</th   >
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Iesire sunet (RMS):</td>
+                                        <td>2 x 10 W</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Caracteristici superioare sunet:</td>
+                                        <td>Clear Phase Speaker
+                                            S-Master
+                                            Dolby Digital
+                                            Dolby Digital Plus
+                                            Dolby Digital Pulse
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="col-md-12 extended">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Iesire sunet (RMS):</td>
+                                        <td>2 x 10 W</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Caracteristici superioare sunet:</td>
+                                        <td>Clear Phase Speaker
+                                            S-Master
+                                            Dolby Digital
+                                            Dolby Digital Plus
+                                            Dolby Digital Pulse
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Iesire sunet (RMS):</td>
+                                        <td>2 x 10 W</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="col-md-12 extended">
+                             <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-6 spc-wp">
+                        
+                        <div class="col-md-12 extended">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-md-12 extended">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Iesire sunet (RMS):</td>
+                                        <td>2 x 10 W</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Caracteristici superioare sunet:</td>
+                                        <td>Clear Phase Speaker
+                                            S-Master
+                                            Dolby Digital
+                                            Dolby Digital Plus
+                                            Dolby Digital Pulse
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sistem audio:</td>
+                                        <td>NICAM/A2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Iesire sunet (RMS):</td>
+                                        <td>2 x 10 W</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+
+                    <div class="clearfix"></div>
+                    
+                </div>
+    
+                <div class="tab-pane" id="reviews">
+                    Reviews
+                </div>
+                
+            </div>
+        
+        </div>
+    </div>
+    
+</div>
+
+
+<?php 
+    $this->headLink()->appendStylesheet($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.css'));
+    $this->inlineScript()->appendFile($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.js'));
+    
+    $this->inlineScript()->appendScript(        <<<START
+    
+    $().ready(function(){
+        CloudZoom.quickStart();
+    });
+        
+START
+);
+
+?>

@@ -5,9 +5,9 @@ return array(
             'orm_default' => array(
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
                 'params' => array(
-                    'host' => '127.0.0.1',
+                    'host' => getenv('IP'),
                     'port' => '3306',
-                    'user' => 'root',
+                    'user' => getenv('C9_USER'),
                     'password' => '',
                     'dbname' => 'dev_utopia',
                 )

@@ -88,35 +88,118 @@
     <div class="col-md-9">
 
         <div class="control-bar col-md-12 ">
-            <div class="col-md-6">
-                <select class="">
+            <div class="col-md-3 extended custom-select">
+                <select class="form-control">
                     <option value="1">24 per page</option>
                     <option value="2">48 per page</option>
                     <option value="3">32 per page</option>
                 </select>
+                <span></span>
             </div>
             <div class="col-md-4 pull-right display-toggler">
                 <ul>
-                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
-                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
+                    <li class="grid-list-button-item "><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
+                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
                 </ul>
             </div>
 
         </div>
+        <div class="clearfix"></div>
 
         <div class="tab-content">
-            <div id="grid-view" class="products-grid fade tab-pane in active">
-                PRODUCT GRID VIEW
+            <div id="grid-view" class="products-grid fade tab-pane">
+               <div class="pr-wp c-pr-wp">
+                   <?php for($i = 0 ; $i < 8 ; $i++) :?>
+                   <div class="col-sm-4 col-md-4 prd-hero extended">
+                        <div class="_pr">
+                            <div class="ribbon red"><span>sale</span></div>
+                            <div class="image">
+                                <img alt="" src="/public/assets/img/product-01.jpg">
+                            </div>
+                            <div class="body">
+                                <div class="label-discount green">-50% sale</div>
+                                <div class="title">
+                                    <a href="index.php?page=single-product">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
+                                </div>
+                                <div class="brand">sony</div>
+                            </div>
+                            <div class="prices">
+                                <div class="price-prev">$1399.00</div>
+                                <div class="price-current pull-right">$1199.00</div>
+                            </div>
+                        </div>
+                    </div>
+                   <?php endfor;?>
+                   <div class="clearfix"></div>
+               </div>
                 
             </div><!-- /.products-grid #grid-view -->
 
-            <div id="list-view" class="products-grid fade tab-pane ">
-                LIST VIEW
+            <div id="list-view" class="products-grid fade tab-pane in active">
+               
+               <div class="pr-wp c-pr-wp">
+                   
+                   <?php for($i = 0 ; $i < 8 ; $i++) :?>
+                   <div class="col-sm-12 col-md-12 prd-hero extended list-item">
+                        <div class="_pr list-item">
+                            <div class="ribbon red"><span>sale</span></div>
+                            
+                            <div class="image col-md-3">
+                                <img alt="" src="/public/assets/img/product-02.jpg">
+                            </div>
+                            
+                            <div class="body col-md-6 no-margin pt5">
+                                <div class="label-discount green">-50% sale</div>
+                                <div class="title">
+                                    <a href="<?php echo $this->url('item' , array( 'lang' => 'en' , 'slug' => 'pwla'));?>">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
+                                </div>
+                                <div class="brand">sony</div>
+                                <hr class="mt5 mb5" />
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis euismod erat sit amet porta. Etiam venenatis ac diam ac tristique. Morbi accumsan consectetur odio ut tincidunt. - See more at: http://transvelo.in/demo/html/media-center/index.php?page=category-grid&style=alt2#sthash.mMkTLTtS.dpuf</p>
+                                
+                            </div>
+                            
+                            <div class="prices col-md-3">
+                                <div class="price-current">$1199.00</div> 
+                                <div class="price-prev mt10 mb10 block">$1399.00</div>
+                                <button class="btn btn-danger btn-block">Add to cart</button>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                   <?php endfor;?>
+                   
+               </div> 
+               
+                
 
             </div><!-- /.products-grid #list-view -->
 
         </div>
-
+        <nav>
+            <ul class="pagination products-pagination">
+                <li class="disabled">
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="active">
+                    <a href="#">1</a>
+                </li>
+               
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 </div>

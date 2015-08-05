@@ -15,7 +15,13 @@ use Zend\Form\Annotation;
  * @ORM\Entity
  * @ORM\Table(name="image")
  */
-class Image {
+class Image extends Entity implements AbstractEntity {
+    
+    public static $DIMENTIONS = array(
+        HUGE => array('width' => '1600', 'height' => '1400'),
+        MEDIUM => array('width' => '800', 'height' => '700'),
+        SMALL => array('width' => 440 , 'height' => 360),
+    );
     
      /**
      * @ORM\Id
@@ -24,20 +30,75 @@ class Image {
      */
     protected $ImageId;
     
-    protected $Src;
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $GUID;
     
-    protected $Thumb;
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $Folder;
     
-    protected $Created;
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $Small;
     
-    protected $Updated;
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $Medium;
     
-    protected $Status;
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $Huge;
     
     public function __construct(){
+        parent::__construct();
+    }
+    
+    /************************************************************************/
+    public function getSmall(){
+        return $this->Small;
+    }
+    public function getMedium(){
+        return $this->Medium;
+    }
+    public function getHuge(){
+        return $this->Huge;
+    }
+    public function getGUID(){
+        return $this->GUID;
+    }
+    public function getFolder(){
+        return $this->Folder;
+    }
+    
+    public function setSmall($Small){
+        $this->Small = $Small;
+    }
+    public function setMedium($Medium){
+        $this->Medium = $Medium;   
+    }
+    public function setHuge($Huge){
+        $this->Huge = $Huge;
+    }
+    public function setGUID($GUID){
+        $this->GUID = $GUID;
+    }
+    public function setFolder($Folder){
+       $this->Folder = $Folder;
+    }
+    /************************************************************************/
+    
+    /************************************************************************/
+    public function toJSON(){
         
     }
     
-    
-    
+    public function toArray(){
+        
+    }
 }

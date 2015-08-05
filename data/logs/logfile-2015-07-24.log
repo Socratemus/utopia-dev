@@ -1,0 +1,462 @@
+2015-07-24T08:20:46+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.0.34"}
+2015-07-24T09:30:24+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Created' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO item (Title, Slug, Description, Created, Updated, Status) VALUES (?, ?, ?, ?, ?, ?)' with params ["Laptop Acer E15", "laptop-acer-e15", "default description here", null, null, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Created' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO ite...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T09:31:30+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:31:30", "2015-07-24 09:31:30", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-24T09:31:44+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:31:44", "2015-07-24 09:31:44", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.236.110"}
+2015-07-24T09:32:11+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:32:11", "2015-07-24 09:32:11", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T09:32:19+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:32:19", "2015-07-24 09:32:19", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Price' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T09:32:32+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Stock' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:32:32", "2015-07-24 09:32:32", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Stock' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T09:32:39+00:00 CRIT (2): exception 'Doctrine\Common\Annotations\AnnotationException' with message '[Syntax Error] Expected Doctrine\Common\Annotations\DocLexer::T_CLOSE_PARENTHESIS, got 'nullable' at position 54 in property Application\Entity\Product::$Stock.' in /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php:42
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(424): Doctrine\Common\Annotations\AnnotationException::syntaxError('Expected Doctri...')
+#1 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(372): Doctrine\Common\Annotations\DocParser->syntaxError('Doctrine\Common...')
+#2 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(836): Doctrine\Common\Annotations\DocParser->match(103)
+#3 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(744): Doctrine\Common\Annotations\DocParser->MethodCall()
+#4 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(641): Doctrine\Common\Annotations\DocParser->Annotation()
+#5 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(334): Doctrine\Common\Annotations\DocParser->Annotations()
+#6 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php(226): Doctrine\Common\Annotations\DocParser->parse('/**?     * @ORM...', 'property Applic...')
+#7 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/IndexedReader.php(92): Doctrine\Common\Annotations\AnnotationReader->getPropertyAnnotations(Object(ReflectionProperty))
+#8 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/CachedReader.php(117): Doctrine\Common\Annotations\IndexedReader->getPropertyAnnotations(Object(ReflectionProperty))
+#9 /home/ubuntu/workspace/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/CachedReader.php(129): Doctrine\Common\Annotations\CachedReader->getPropertyAnnotations(Object(ReflectionProperty))
+#10 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/AnnotationDriver.php(253): Doctrine\Common\Annotations\CachedReader->getPropertyAnnotation(Object(ReflectionProperty), 'Doctrine\ORM\Ma...')
+#11 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/Driver/MappingDriverChain.php(103): Doctrine\ORM\Mapping\Driver\AnnotationDriver->loadMetadataForClass('Application\Ent...', Object(Doctrine\ORM\Mapping\ClassMetadata))
+#12 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php(117): Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain->loadMetadataForClass('Application\Ent...', Object(Doctrine\ORM\Mapping\ClassMetadata))
+#13 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(318): Doctrine\ORM\Mapping\ClassMetadataFactory->doLoadMetadata(Object(Doctrine\ORM\Mapping\ClassMetadata), NULL, false, Array)
+#14 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(211): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->loadMetadata('Application\Ent...')
+#15 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(265): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getMetadataFor('Application\Ent...')
+#16 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(1610): Doctrine\ORM\EntityManager->getClassMetadata('Application\Ent...')
+#17 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2224): Doctrine\ORM\UnitOfWork->doPersist(Object(Application\Entity\Product), Array)
+#18 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(1645): Doctrine\ORM\UnitOfWork->cascadePersist(Object(Application\Entity\Item), Array)
+#19 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(1583): Doctrine\ORM\UnitOfWork->doPersist(Object(Application\Entity\Item), Array)
+#20 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(546): Doctrine\ORM\UnitOfWork->persist(Object(Application\Entity\Item))
+#21 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(24): Doctrine\ORM\EntityManager->persist(Object(Application\Entity\Item))
+#22 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#23 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#24 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#25 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#26 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#27 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#28 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#29 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#30 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#31 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#32 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#33 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T09:32:52+00:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ItemId' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO product (Price, Stock, Created, Updated, Status, ItemId) VALUES (?, ?, ?, ?, ?, ?)' with params [null, null, "2015-07-24 09:32:52", "2015-07-24 09:32:52", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ItemId' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO pro...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(25): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-24T11:40:29+00:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'Unknown Entity namespace alias 'Entity'.' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:236
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Configuration.php(194): Doctrine\ORM\ORMException::unknownEntityNamespace('Entity')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php(554): Doctrine\ORM\Configuration->getEntityNamespace('Entity')
+#2 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(194): Doctrine\ORM\Mapping\ClassMetadataFactory->getFqcnFromAlias('Entity', 'Item')
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(265): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getMetadataFor('Entity:Item')
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(67): Doctrine\ORM\EntityManager->getClassMetadata('Entity:Item')
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(50): Doctrine\ORM\Repository\DefaultRepositoryFactory->createRepository(Object(Doctrine\ORM\EntityManager), 'Entity:Item')
+#6 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(665): Doctrine\ORM\Repository\DefaultRepositoryFactory->getRepository(Object(Doctrine\ORM\EntityManager), 'Entity:Item')
+#7 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(33): Doctrine\ORM\EntityManager->getRepository('Entity:Item')
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-24T11:40:35+00:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'Unknown Entity namespace alias 'Entities'.' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:236
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Configuration.php(194): Doctrine\ORM\ORMException::unknownEntityNamespace('Entities')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php(554): Doctrine\ORM\Configuration->getEntityNamespace('Entities')
+#2 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(194): Doctrine\ORM\Mapping\ClassMetadataFactory->getFqcnFromAlias('Entities', 'Item')
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(265): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getMetadataFor('Entities:Item')
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(67): Doctrine\ORM\EntityManager->getClassMetadata('Entities:Item')
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(50): Doctrine\ORM\Repository\DefaultRepositoryFactory->createRepository(Object(Doctrine\ORM\EntityManager), 'Entities:Item')
+#6 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(665): Doctrine\ORM\Repository\DefaultRepositoryFactory->getRepository(Object(Doctrine\ORM\EntityManager), 'Entities:Item')
+#7 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(33): Doctrine\ORM\EntityManager->getRepository('Entities:Item')
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-24T11:40:38+00:00 CRIT (2): exception 'Doctrine\Common\Persistence\Mapping\MappingException' with message 'Class 'Item' does not exist' in /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/MappingException.php:96
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/RuntimeReflectionService.php(43): Doctrine\Common\Persistence\Mapping\MappingException::nonExistingClass('Item')
+#1 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(267): Doctrine\Common\Persistence\Mapping\RuntimeReflectionService->getParentClasses('Item')
+#2 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(297): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getParentClasses('Item')
+#3 /home/ubuntu/workspace/vendor/doctrine/common/lib/Doctrine/Common/Persistence/Mapping/AbstractClassMetadataFactory.php(211): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->loadMetadata('Item')
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(265): Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory->getMetadataFor('Item')
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(67): Doctrine\ORM\EntityManager->getClassMetadata('Item')
+#6 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Repository/DefaultRepositoryFactory.php(50): Doctrine\ORM\Repository\DefaultRepositoryFactory->createRepository(Object(Doctrine\ORM\EntityManager), 'Item')
+#7 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(665): Doctrine\ORM\Repository\DefaultRepositoryFactory->getRepository(Object(Doctrine\ORM\EntityManager), 'Item')
+#8 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(33): Doctrine\ORM\EntityManager->getRepository('Item')
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#10 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#15 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#19 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#20 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-24T18:25:55+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.236.110"}
+2015-07-24T19:52:41+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.236.110"}
+2015-07-24T20:51:57+00:00 INFO (6): Create category request
+2015-07-24T20:51:57+00:00 INFO (6): {"CategoryId":39,"Title":"hello zzz disabled","Slug":"wordsz","Created":"2015-07-23 09:02:06","Updated":"2015-07-23 09:02:06","Status":200,"ParentId":"1"}
+2015-07-24T20:52:17+00:00 INFO (6): Create category request
+2015-07-24T20:52:17+00:00 INFO (6): {"CategoryId":41,"Title":"hello zzz disabled","Slug":"wordsz","Created":"2015-07-23 09:02:39","Updated":"2015-07-23 09:02:39","Status":500,"ParentId":"1"}
+2015-07-24T20:52:29+00:00 INFO (6): Create category request
+2015-07-24T20:52:29+00:00 INFO (6): {"CategoryId":41,"Title":"hello zzz disabled","Slug":"wordsz","Created":"2015-07-23 09:02:39","Updated":"2015-07-23 09:02:39","Status":500,"ParentId":1}
+2015-07-24T20:52:47+00:00 INFO (6): Create category request
+2015-07-24T20:52:47+00:00 INFO (6): {"CategoryId":44,"Title":"Test category","Slug":"test","Created":"2015-07-24 08:25:17","Updated":"2015-07-24 08:25:17","Status":"500"}
+2015-07-24T20:52:59+00:00 INFO (6): Create category request
+2015-07-24T20:52:59+00:00 INFO (6): {"CategoryId":44,"Title":"Test category","Slug":"test","Created":"2015-07-24 08:25:17","Updated":"2015-07-24 08:25:17","Status":500,"ParentId":"5"}
+2015-07-24T20:53:23+00:00 INFO (6): Create category request
+2015-07-24T20:53:23+00:00 INFO (6): {"CategoryId":44,"Title":"Test category","Slug":"test","Created":"2015-07-24 08:25:17","Updated":"2015-07-24 08:25:17","Status":500,"ParentId":"1"}
+2015-07-24T20:53:32+00:00 INFO (6): Create category request
+2015-07-24T20:53:32+00:00 INFO (6): {"CategoryId":44,"Title":"Test category","Slug":"test","Created":"2015-07-24 08:25:17","Updated":"2015-07-24 08:25:17","Status":500,"ParentId":"1"}
+2015-07-24T20:53:39+00:00 INFO (6): Create category request
+2015-07-24T20:53:39+00:00 INFO (6): {"CategoryId":44,"Title":"Test category","Slug":"test","Created":"2015-07-24 08:25:17","Updated":"2015-07-24 08:25:17","Status":500,"ParentId":"1"}

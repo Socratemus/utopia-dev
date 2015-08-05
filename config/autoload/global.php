@@ -35,7 +35,8 @@ return array(
             'CategoryService' => 'Application\Service\CategoryService',
             'CartService' => 'Application\Service\CartService',
             'ItemService' => 'Application\Service\ItemService',
-            'OrderService' => 'Application\Service\OrderService'
+            'OrderService' => 'Application\Service\OrderService',
+            'ImageService' => 'Application\Service\ImageService'
         ),
     ),
     
@@ -62,7 +63,7 @@ return array(
                         'lang' => '[a-z]{2}',
                         'slug' => '.*',
                         '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Admin\Controller\Index',
+                        'controller'    => 'Application\Controller\Item',
                         'action'        => 'index',
                     ),
                 ),

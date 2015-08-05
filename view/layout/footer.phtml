@@ -17,9 +17,9 @@
                                     </div>
                                 </div>  
 
-                                <div class="col-xs-12 col-sm-3 ">
+                                <div class="col-xs-12 col-sm-3 pl5 ">
                                     <a href="#" class="thumb-holder">
-                                        <img alt="" src="http://transvelo.in/demo/html/media-center/assets/images/products/product-small-01.jpg">
+                                        <img alt="" src="<?php echo $this->basePath('assets/img/product-01.jpg');?>" width="100%" height="100%">
                                     </a>
                                 </div>
                             </div>
@@ -34,17 +34,88 @@
 </div>
 <div id="MdFt" class="">
     <div class="container">
-        medium footer
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
+            <form role="form">
+                <input placeholder="Subscribe to our newsletter">
+                <button class="le-button">Subscribe</button>
+            </form>
+        </div>
     </div>
 </div>
 <div id="BtFt" class="">
     <div class="container">
-        bottom footer
+        <div class="col-xs-12 col-md-4 ">
+ 
+            <div class="contact-info">
+                <div class="footer-logo">
+                    <h1>MY LOGO</h1>
+                </div><!-- /.footer-logo -->
+                
+                <p class="regular-bold"> Feel free to contact us via phone,email or just send us mail.</p>
+                
+                <p>
+                    17 Princess Road, London, Greater London NW1 8JR, UK
+                    1-888-8MEDIA (1-888-892-9953)
+                </p>
+                
+                <div class="social-icons">
+                    <h3>Get in touch</h3>
+                    <ul>
+                        <li><a href="http://facebook.com/transvelo" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-pinterest"></a></li>
+                        <li><a href="#" class="fa fa-linkedin"></a></li>
+                        <!--<li><a href="#" class="fa fa-stumbleupon"></a></li>-->
+                        <!--<li><a href="#" class="fa fa-dribbble"></a></li>-->
+                        <!--<li><a href="#" class="fa fa-vk"></a></li>-->
+                    </ul>
+                </div><!-- /.social-icons -->
+            
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-md-8 extended">
+            
+            <div class="link-widget">
+                <?php for($wig = 0 ; $wig < 3; $wig++) : ?>
+                <div class="widget col-md-4">
+                    <h3>Find it fast</h3>
+                    <ul>
+                        <li><a href="index.php?page=category-grid">laptops &amp; computers</a></li>
+                        <li><a href="index.php?page=category-grid">Cameras &amp; Photography</a></li>
+                        <li><a href="index.php?page=category-grid">Smart Phones &amp; Tablets</a></li>
+                        <li><a href="index.php?page=category-grid">Video Games &amp; Consoles</a></li>
+                        <li><a href="index.php?page=category-grid">TV &amp; Audio</a></li>
+                        <li><a href="index.php?page=category-grid">Gadgets</a></li>
+                        <li><a href="index.php?page=category-grid">Car Electronic &amp; GPS</a></li>
+                        <li><a href="index.php?page=category-grid">Accesories</a></li>
+                    </ul>
+                </div><!-- /.widget -->
+                <?php endfor;?>
+            </div>
+ 
+        </div>
+        <div class="clearfix"></div>
+        
     </div>
 </div>
 
 <div id="CopyRights">
     <div class="container">
-        Linksss
+        <font color="#FFF" style="display : inline-block; margin-top : 5px">© Cornel Iancu - all rights reserved</font>
+        <span class="pull-right payment-methods" color="#FFF">
+            <a href="">
+                <img width=40 src="<?php echo $this->basePath('assets/img/payment-visa.png');?>" alt="Visa" />    
+            </a>
+            <a href="">
+                <img width=40 src="<?php echo $this->basePath('assets/img/payment-master.png');?>" alt="MasterCard" />
+            </a>
+            <a href="">
+                <img width=40 src="<?php echo $this->basePath('assets/img/payment-paypal.png');?>" alt="PayPal" />
+            </a>
+            
+            
+            
+        </span>
     </div>
 </div>

@@ -1,1 +1,105 @@
-hello worlds
+<div class="statistics col-md-12">
+    
+    <div class=" col-md-3">
+        <div class="widget">
+            <div class="col-md-8 extended">
+                <span class="pt5">Visitors (last 7d)</span>
+                <h2 class="no-margin"><span class="countUpMe">12,456</span></h2>
+            </div>
+            
+            <div class="col-md-4">
+                <i class=" fa big mt15 fa-bar-chart-o"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <div class="widget">
+            <div class="col-md-8 extended">
+                <span class="pt5">Sale</span>
+                <h2 class="no-margin"><span class="countUpMe">12,456</span></h2>
+            </div>
+            
+            <div class="col-md-4">
+                <i class=" fa big mt15 fa-line-chart"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <div class="widget">
+            <div class="col-md-8 extended">
+                <span class="pt5">Orders completed</span>
+                <h2 class="no-margin"><span class="countUpMe">32%</span></h2>
+            </div>
+            
+            <div class="col-md-4">
+                <i class=" fa big mt15 fa-pie-chart"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <div class="widget">
+            <div class="col-md-8 extended">
+                <span class="pt5">Visitors (live)</span>
+                <h2 class="no-margin"><span class="countUpMe">21</span></h2>
+            </div>
+            
+            <div class="col-md-4">
+                <i class=" fa big mt15 fa-area-chart"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="col-md-12 mt15">
+    
+    <div class="col-md-9 statistics"> 
+        
+        <div class="widget">
+            
+            Show some listing in here.
+            
+        </div>
+        
+    </div>
+    
+    <div class="col-md-3 statistics">
+        <div class="widget">
+            <h4 class="mt0">Server Status</h4>
+           
+            <hr />
+            
+            <div>
+                <strong>Server Address</strong> <br/>
+                <em>{{server.Ip}}</em>
+            </div>
+            
+            <hr />
+            
+            <div>
+                <strong>Uptime</strong><br />
+                <em>{{server.UpTime}}</em>
+            </div>
+            
+            <hr />
+            
+            <div>
+                <strong>Processes</strong><br />
+                <em>{{server.Processes}}</em>
+            </div>
+            
+            <hr />
+            
+            <div>
+                <strong>Memory</strong>
+                <progressbar class="progress-striped active" max="server.Memory.total" value="server.Memory.used">{{type}} <i ng-show="true">{{server.Memory.used}} / {{server.Memory.total}}</i></progressbar>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>

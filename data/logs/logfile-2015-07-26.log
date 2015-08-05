@@ -1,0 +1,194 @@
+2015-07-26T09:33:40+00:00 CRIT (2): exception 'Exception' with message 'language not supported yet.' in /home/ubuntu/workspace/module/Application/src/Application/Controller/IntlController.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\IntlController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/","ipaddress":"10.240.236.110"}
+2015-07-26T12:19:08+00:00 INFO (6): Creating new product
+2015-07-26T12:19:08+00:00 DEBUG (7): {"Title":"Default Title","Slug":"Default slug","Product":{"Price":999,"Stock":1,"Producer":"1"},"Cover":[]}
+2015-07-26T12:20:13+00:00 INFO (6): Creating new product
+2015-07-26T12:20:13+00:00 DEBUG (7): {"Title":"Default Title","Slug":"Default slug","Product":{"Price":999,"Stock":1,"Producer":"1"},"Cover":{"0":[],"length":1,"prevObject":{"0":{"0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[[],[]],"7":[],"8":[],"length":9,"elements":{"0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[[],[]],"7":[],"8":[],"Title":[],"Slug":[],"Price":[],"Stock":[],"Producer":[[],[]],"Cover":[],"Description":[]},"target":"","noValidate":true,"name":"pfrm","method":"get","encoding":"application\/x-www-form-urlencoded","enctype":"application\/x-www-form-urlencoded","autocomplete":"on","action":"","acceptCharset":"","data-cke-expando":51},"length":1,"prevObject":{"0":"$DOCUMENT","context":"$DOCUMENT","length":1},"context":"$DOCUMENT","selector":"form[name='pfrm']"},"context":"$DOCUMENT","selector":"form[name='pfrm'] input[type=\"file\"]"}}
+2015-07-26T12:21:21+00:00 INFO (6): Creating new product
+2015-07-26T12:21:21+00:00 DEBUG (7): {"Title":"Default Title","Slug":"Default slug","Product":{"Price":999,"Stock":1,"Producer":"1"},"Cover":{"0":[],"length":1,"prevObject":{"0":{"0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[[],[]],"7":[],"8":[],"length":9,"elements":{"0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[[],[]],"7":[],"8":[],"Title":[],"Slug":[],"Price":[],"Stock":[],"Producer":[[],[]],"Cover":[],"Description":[]},"target":"","noValidate":true,"name":"pfrm","method":"get","encoding":"application\/x-www-form-urlencoded","enctype":"application\/x-www-form-urlencoded","autocomplete":"on","action":"","acceptCharset":"","data-cke-expando":51},"length":1,"prevObject":{"0":"$DOCUMENT","context":"$DOCUMENT","length":1},"context":"$DOCUMENT","selector":"form[name='pfrm']"},"context":"$DOCUMENT","selector":"form[name='pfrm'] input[type=\"file\"]"}}
+2015-07-26T18:33:06+00:00 CRIT (2): exception 'Zend\ServiceManager\Exception\ServiceNotFoundException' with message 'Zend\ServiceManager\ServiceManager::createFromInvokable: failed retrieving "imageservice(alias: ImageService)" via invokable class "Application\Service\ImageService"; class does not exist' in /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php:1069
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(642): Zend\ServiceManager\ServiceManager->createFromInvokable('imageservice', 'ImageService')
+#1 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(598): Zend\ServiceManager\ServiceManager->doCreate('ImageService', 'imageservice')
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-servicemanager/src/ServiceManager.php(530): Zend\ServiceManager\ServiceManager->create(Array)
+#3 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(27): Zend\ServiceManager\ServiceManager->get('ImageService')
+#4 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#6 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#11 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#16 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-26T18:54:38+00:00 CRIT (2): exception 'Exception' with message 'File 204534dd72367c3c86044594fda9674c.pngdoest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:28
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(20): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-26T18:54:46+00:00 CRIT (2): exception 'Exception' with message 'File 204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:28
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(20): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.236.110"}
+2015-07-26T18:55:09+00:00 CRIT (2): exception 'Exception' with message 'File /home/ubuntu/workspace/data/filemanager/ProductImages/204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:28
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(20): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-26T18:57:53+00:00 CRIT (2): exception 'Exception' with message 'File /home/ubuntu/workspace/data/filemanager/204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-26T18:58:56+00:00 CRIT (2): exception 'Exception' with message 'File /home/ubuntu/workspace/data/filemanager/204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.0.34"}
+2015-07-26T18:59:21+00:00 CRIT (2): exception 'Exception' with message 'File /home/ubuntu/workspace/data/Filemanager/204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-26T19:00:33+00:00 CRIT (2): exception 'Exception' with message 'File /home/ubuntu/workspace/data/Filemanager/Temp204534dd72367c3c86044594fda9674c.png doest not exits on server.' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#1 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#4 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#14 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.166.139"}
+2015-07-26T19:06:28+00:00 CRIT (2): exception 'ImagickException' with message 'Can not process empty Imagick object' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:34
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(34): Imagick->cropimage(400, 400, 30, 10)
+#1 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#3 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.236.110"}
+2015-07-26T19:06:42+00:00 CRIT (2): exception 'ImagickException' with message 'Can not process empty Imagick object' in /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php:34
+Stack trace:
+#0 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(34): Imagick->cropimage(400, 400, 30, 10)
+#1 /home/ubuntu/workspace/module/Application/src/Application/Service/ImageService.php(22): Application\Service\ImageService->fromTempStorage('204534dd72367c3...')
+#2 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(28): Application\Service\ImageService->test()
+#3 /home/ubuntu/workspace/module/Test/src/Test/Controller/IndexController.php(14): Test\Controller\IndexController->imageServiceTest()
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Test\Controller\IndexController->indexAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/test","ipaddress":"10.240.239.133"}

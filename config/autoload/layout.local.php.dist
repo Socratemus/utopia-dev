@@ -25,9 +25,7 @@ return array(
         ),
     ),
     'module_layouts' => array(
-        'ZfcUser'            =>      'layout/layout/layout_main.phtml',
-        'Engine'             =>      'layout/layout/layout_main.phtml',
-//        'BjyAuthorize'       =>      'layout/layout/layout_main.phtml',
+        'ZfcUser'            =>      'layout/layout.phtml',
         'Admin'              =>      'layout/admin.phtml' 
     ),
 );

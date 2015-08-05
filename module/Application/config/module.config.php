@@ -23,7 +23,6 @@ return array(
                         'lang'       => 'en'
                     ),
                 ),
-                
             ),
             'home_redirect' => array (
                 'type' => 'Zend\Mvc\Router\Http\Segment',

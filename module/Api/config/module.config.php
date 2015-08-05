@@ -5,6 +5,12 @@ return array(
         'invokables' => array(
             'Api\Controller\Index'           =>      'Api\Controller\IndexController',
             'Api\Controller\Category'        =>      'Api\Controller\CategoryController',    
+            'Api\Controller\Item'            =>      'Api\Controller\ItemController',
+            'Api\Controller\Image'           =>      'Api\Controller\ImageController',
+            'Api\Controller\FileManager'     =>      'Api\Controller\FileManagerController',    
+            'Api\Controller\ServerStatus'    =>      'Api\Controller\ServerStatusController',    
+            
+            
         )
     ),
     

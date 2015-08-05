@@ -34,21 +34,6 @@ class Category extends Entity implements AbstractEntity {
      */
     protected $Slug;
     
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $Created;
-    
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $Updated;
-    
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $Status;
-    
     protected $Depth;
     
     /**
@@ -68,8 +53,7 @@ class Category extends Entity implements AbstractEntity {
     private $Children;
     
     public function __construct(){
-        $this->Created = new \DateTime('now');
-        $this->Updated = new \DateTime('now');
+        
     }
     
     public function getCategoryId(){
@@ -81,15 +65,7 @@ class Category extends Entity implements AbstractEntity {
     public function getSlug(){
         return $this->Slug;
     }
-    public function getCreated(){
-        return $this->Created;
-    }
-    public function getUpdated(){
-        return $this->Updated;
-    }
-    public function getStatus(){
-        return $this->Status;
-    }
+    
     public function getParent(){
         return $this->Parent;
     }
@@ -99,15 +75,6 @@ class Category extends Entity implements AbstractEntity {
     
     public function setTitle($Title){
         $this->Title = $Title;
-    }
-    public function setCreated($Created){
-        $this->Created = $Created;
-    }
-    public function setUpdated($Updated){
-        $this->Updated = $Updated;
-    }
-    public function setStatus($Status){
-        $this->Status = $Status;
     }
     
     public function setParent($Parent){

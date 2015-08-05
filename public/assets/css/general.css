@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700);
 /**
     - GRAY : #636363
     - Lightgray border color : #e0e0e0;
@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    color: #5d5d5d;
 }
 
 small {
@@ -95,6 +96,10 @@ select {
     margin : 0;
 }
 
+.mt0{
+    margin-top : 0px;
+}
+
 .mt5{
     margin-top : 5px;
 }
@@ -125,6 +130,10 @@ select {
 }
 .mt50{
     margin-top : 50px;
+}
+
+.mb0{
+    margin-bottom : 0px;
 }
 
 .mb5{
@@ -419,6 +428,9 @@ select {
   background-color: #F8484A;
   color: #fff;
 }
+.regular-bold {
+    font-weight: 700;
+}
 /***********************************************************************/
 
 .dropdown .dropdown-menu {
@@ -522,3 +534,55 @@ select {
   letter-spacing: -1px;
   text-transform: capitalize;
 }
+
+.custom-select{
+    position : relative;
+}
+.custom-select > select{
+    padding : 4px 8px !important; 
+    background : white;
+    border-radius : 2px;
+    border: 1px solid #ececec;
+}    
+.custom-select > span:before{
+    position :absolute;
+    content: "\f107";
+    font-family : "FontAwesome";
+    width : 25px; 
+    height : calc(100% - 4px); 
+    /*background :red; */
+    background : white;
+    /*border : 1px solid gray;*/
+    font-size : 20px; color :#C6C6C6;text-align : center;
+    pointer-events: none;
+    right : 2px;top :2px;
+}
+
+.custom-select > select > option {
+    padding : 5px;
+}
+/***************************************************************/
+.btn.bold {font-weight : bold;} 
+.btn{
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    line-height: 20px;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.btn.btn-default {
+    color: #7B7A7A;
+    background-color: #F5F5F5;
+    border-color: rgba(224, 207, 207, 0.75);
+}
+/***************************************************************/
+
+.share-btn-holder{display : inline-block; vertical-align : top; padding-top: 5px; max-width : 175px;overflow : hidden; margin-right :5px;}

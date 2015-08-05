@@ -64,10 +64,10 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Created', 'Updated', 'Status', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children');
+            return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', 'Created', 'Updated', 'Status');
         }
 
-        return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Created', 'Updated', 'Status', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children');
+        return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', 'Created', 'Updated', 'Status');
     }
 
     /**
@@ -209,39 +209,6 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
-    public function getCreated()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated', array());
-
-        return parent::getCreated();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getUpdated()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdated', array());
-
-        return parent::getUpdated();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getStatus()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', array());
-
-        return parent::getStatus();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getParent()
     {
 
@@ -270,39 +237,6 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', array($Title));
 
         return parent::setTitle($Title);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCreated($Created)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreated', array($Created));
-
-        return parent::setCreated($Created);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setUpdated($Updated)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdated', array($Updated));
-
-        return parent::setUpdated($Updated);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setStatus($Status)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatus', array($Status));
-
-        return parent::setStatus($Status);
     }
 
     /**
@@ -347,6 +281,72 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'toArray', array());
 
         return parent::toArray();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCreated($Created)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreated', array($Created));
+
+        return parent::setCreated($Created);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUpdated($Updated)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdated', array($Updated));
+
+        return parent::setUpdated($Updated);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setStatus($Status)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatus', array($Status));
+
+        return parent::setStatus($Status);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreated()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated', array());
+
+        return parent::getCreated();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUpdated()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdated', array());
+
+        return parent::getUpdated();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getStatus()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', array());
+
+        return parent::getStatus();
     }
 
 }

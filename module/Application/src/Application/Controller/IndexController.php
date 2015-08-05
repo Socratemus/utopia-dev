@@ -33,6 +33,12 @@ class IndexController extends AbstractActionController
         return $vm;
     }
     
+    public function chLangAction(){
+        
+        
+        exit();
+    }
+    
     public function redirectAction(){
         
         exit('redirecting...');

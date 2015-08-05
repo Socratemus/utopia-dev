@@ -21,10 +21,14 @@
             'application/services/ControllService',
             'application/services/CategoryService',
             
+            'application/directives/Ckeditor',
+            'application/directives/File',
+            
             
             'application/controllers/MainController',
             'application/controllers/CategoryController', 'application/controllers/CategoriesController',
-            'application/controllers/ProductsController',
+            'application/controllers/ProductsController', 'application/controllers/ProductController',
+            'application/controllers/FilemanagerController',
             
             'application/controllers/ModalController',
             'application/controllers/ModalInstanceController'
@@ -33,9 +37,10 @@
             $log,
             SessionService, ApiService, ControllService, CategoryService,
     
-            /* ReservationStatuses, */
+            CkEditor, MxFile,
         
-            MainController, CategoryController, CategoriesController , ProductsController,
+            MainController, CategoryController, CategoriesController , ProductsController, ProductController,
+            FilemanagerController,
             ModalController , ModalInstanceCtrl)
         {
            
@@ -43,21 +48,25 @@
             var moduleName = "main.Application";
            
             angular.module( moduleName, [ ] )
-                .service(       "session"              ,    SessionService      )
-                .service(       "ApiService"           ,    ApiService          )
-                .service(       "ControllService"      ,    ControllService     )
-                .service(       "CategoryService"      ,    CategoryService     )
+                .service(       "session"              ,    SessionService        )
+                .service(       "ApiService"           ,    ApiService            )
+                .service(       "ControllService"      ,    ControllService       )
+                .service(       "CategoryService"      ,    CategoryService       )
                 
                
-                /*.directive(     "reservationStatuses"  ,    ReservationStatuses )*/
+                .directive(     "ckeditor"  ,    CkEditor )
+                .directive(     "mxfile"    ,    MxFile )
                 
-                .controller(    "MainCtrl"             ,    MainController      )
-                .controller(    "CategoryCtrl"         ,    CategoryController  )
-                .controller(    "CategoriesCtrl"       ,    CategoriesController)
-                .controller(    "ProductsCtrl"         ,    ProductsController)
+                .controller(    "MainCtrl"             ,    MainController        )
+                .controller(    "CategoryCtrl"         ,    CategoryController    )
+                .controller(    "CategoriesCtrl"       ,    CategoriesController  )
+                .controller(    "ProductsCtrl"         ,    ProductsController    )
+                .controller(    "ProductCtrl"          ,    ProductController     )
+                .controller(    "FilemanagerCtrl"      ,    FilemanagerController )
                 
-                .controller(    "ModalCtrl"            ,    ModalController     )
-                .controller(    "ModalInstanceCtrl"    ,    ModalInstanceCtrl   )
+                
+                .controller(    "ModalCtrl"            ,    ModalController       )
+                .controller(    "ModalInstanceCtrl"    ,    ModalInstanceCtrl     )
            
             $log.info('APPLICATION MODULE LOADED');
             

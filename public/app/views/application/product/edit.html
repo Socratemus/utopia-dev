@@ -1,0 +1,155 @@
+<div class="container-fluid">
+    <form class="" name="pfrm" novalidate enctype="multipart/form-data">
+      
+        <div class="col-md-12 extended form-title">
+            <div class="col-md-8">
+              
+                <h3 class="_ft">Add a new product</h3>
+              
+            </div>
+            <div class="col-md-4">
+              <div class="_abw text-right">
+                <button class="btn custom" ng-disabled="pfrm.$invalid" ng-click="save()">Save</button>
+                <button class="btn custom">Close</button>
+              </div>
+              
+            </div>
+        </div>
+        
+        <div class="form-content col-md-12 extended">
+            
+            <legend><span>Edit product</span></legend>
+            
+            
+            <div class="clearfix"></div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Title</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="product.Title" name="Title" required placeholder="Product title">
+                    <div ng-show="pfrm.Title.$error.required">
+                        <span class="alert alert-danger">Please provide product name.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Slug</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="product.Slug" name="Slug" required placeholder="Product slug">
+                    <!--<div ng-show="pfrm.Title.$error.required">-->
+                    <!--    <span class="alert alert-danger">Please provide product name.</span>-->
+                    <!--</div>-->
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Price</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="product.Product.Price" name="Price" required placeholder="Product price">
+                    <div ng-show="pfrm.Price.$error.required">
+                        <span class="alert alert-danger">Please provide product price.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Stock</label>    
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="product.Product.Stock" name="Stock" required placeholder="Product stock">
+                    <div ng-show="pfrm.Stock.$error.required">
+                        <span class="alert alert-danger">Please provide product stock.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Producer</label>    
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control fw" ng-model="product.Product.Producer" name="Producer" required>
+                        <option value="">-- Select Producer --</option>
+                        <option value="1">Samsung</option>
+                    </select>
+                    <!--<input type="text" class="form-control" ng-model="product.Product.Producer" name="Producer" required placeholder="Product stock">-->
+                    <div ng-show="pfrm.Producer.$error.required">
+                        <span class="alert alert-danger">Please provide product producer.</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 brl">
+                    <label for="">Cover file</label>    
+                </div>
+                <div class="col-md-3 custom-file">
+                    <input type="file" name="Cover" mxfile ng-model="product.Cover" required>
+                    <div ng-show="pfrm.Cover.$error.required">
+                        <span class="alert alert-danger">Please provide product cover file.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-1">
+                    <label for="">Created</label>    
+                </div>
+                <div class="col-md-3">
+                    <p class="input-group">
+                      <input type="date" class="form-control" disabled datepicker-popup ng-model="product.Created" is-open="openeda" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                <div class="col-md-1">
+                    <label for="">Updated</label>    
+                </div>
+                <div class="col-md-3">
+                    <p class="input-group">
+                      <input type="date" class="form-control" disabled datepicker-popup ng-model="product.Updated" is-open="openeda" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                
+                <div class="col-md-1">
+                    <label for="">Status</label>    
+                </div>
+                <div class="col-md-3">
+                    <select ng-model="product.Status" class="form-control ">
+                        <option ng-repeat="status in statuses" ng-selected="status.Id == product.Status" value="{{status.Id}}">{{status.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-12">
+                    <label for="">Description</label>    
+                </div>
+                <div class="col-md-12">
+                    <textarea name="Description" ng-model="product.Description" ckeditor required></textarea>
+                    <div ng-show="pfrm.Description.$error.required">
+                        <span class="alert alert-danger">Please provide product description.</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div> <!-- END FORM CONTENT -->
+        <div class="clearfix"></div>
+    </form>
+</div>

@@ -12,10 +12,12 @@ class ItemService extends ModelService {
     //All business methods for item will be stored in here.
     
     /**
-     * 
+     * Returns all items;
      */
     public function getAll(){
+        return $this->getRepository()->findAll();
         
+        return array();
     }
     
     /**
