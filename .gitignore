@@ -8,9 +8,9 @@ nbproject
 .settings
 composer.lock
 data/cache/*
-data/DoctrineORMModule
-Filemanager/OrdersInvoices
-Filemanager/ProductImages
-Filemanager/Temp
+data/DoctrineORMModule/*
+data/Filemanager/OrdersInvoices/*
+data/Filemanager/ProductImages/*
+data/Filemanager/Temp
 vendor/bin
 vendor
