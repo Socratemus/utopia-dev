@@ -13,7 +13,7 @@ return array(
             'test-route'       => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/test[:controller[/:action[/:id[/:name]]]]',
+                    'route'    => '/test[/:controller[/:action[/:id[/:name]]]]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Test\Controller',
                         'controller'    => 'Index',

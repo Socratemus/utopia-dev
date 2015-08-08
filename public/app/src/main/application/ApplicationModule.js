@@ -23,6 +23,7 @@
             
             'application/directives/Ckeditor',
             'application/directives/File',
+            'application/directives/MultipleFile',
             
             
             'application/controllers/MainController',
@@ -37,7 +38,7 @@
             $log,
             SessionService, ApiService, ControllService, CategoryService,
     
-            CkEditor, MxFile,
+            CkEditor, MxFile, MltFile,
         
             MainController, CategoryController, CategoriesController , ProductsController, ProductController,
             FilemanagerController,
@@ -54,9 +55,10 @@
                 .service(       "CategoryService"      ,    CategoryService       )
                 
                
-                .directive(     "ckeditor"  ,    CkEditor )
-                .directive(     "mxfile"    ,    MxFile )
-                
+                .directive(     "ckeditor"             ,    CkEditor )
+                .directive(     "mxfile"               ,    MxFile )
+                .directive(     "multifile"            ,    MltFile )
+            
                 .controller(    "MainCtrl"             ,    MainController        )
                 .controller(    "CategoryCtrl"         ,    CategoryController    )
                 .controller(    "CategoriesCtrl"       ,    CategoriesController  )

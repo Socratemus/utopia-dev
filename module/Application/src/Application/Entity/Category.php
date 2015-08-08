@@ -52,8 +52,13 @@ class Category extends Entity implements AbstractEntity {
      **/
     private $Children;
     
+    /**
+     * @ORM\ManyToMany(targetEntity="Item", mappedBy="Categories")
+     **/
+    private $Items;
+    
     public function __construct(){
-        
+        parent::__construct();
     }
     
     public function getCategoryId(){
@@ -69,8 +74,17 @@ class Category extends Entity implements AbstractEntity {
     public function getParent(){
         return $this->Parent;
     }
+    
+    public function getChildren(){
+        return $this->Children;
+    }
+    
     public function getDepth(){
         return $this->Depth;
+    }
+    
+    public function getItems(){
+        return $this->Items;
     }
     
     public function setTitle($Title){

@@ -12,7 +12,7 @@ class ImageService extends ModelService {
     public function __construct(){
         $this->DataFolder = '/data/';
         $this->FileManagerFolder = 'Filemanager/';
-        $this->ProductImagesFolder = 'ProductImages/';
+        $this->ProductImagesFolder = 'Products/';
         $this->TemporaryFileFolder = 'Temp/';
     }
     
@@ -36,9 +36,9 @@ class ImageService extends ModelService {
             $this->clearDir($outputFolder);
         }
         mkdir($outputFolder);    
-        $outputSmall  = $outputFolder . 'small_' . $Id . '.png';
-        $outputMedium = $outputFolder . 'medium_' . $Id . '.png';
-        $outputHuge   = $outputFolder . 'huge_' . $Id . '.png';
+        $outputSmall  = $outputFolder . $Id . 'XS.png';
+        $outputMedium = $outputFolder . $Id . 'SM.png';
+        $outputHuge   = $outputFolder . $Id . 'MD.png';
         
         $data = array(
             'GUID' => $Id,
@@ -81,7 +81,6 @@ class ImageService extends ModelService {
     
     public function processFolder( $GUID , $NewFolderPath )
     {
-        
         $image = new \Application\Entity\Image();
         /* DO PROCESSING */
         $uri = $this->getBaseUri();
@@ -90,7 +89,7 @@ class ImageService extends ModelService {
             'GUID' => $GUID    
         );
         
-        $newPath = $this->getProductImagesFolder() . $NewFolderPath . '_' .  $GUID . '/';
+        $newPath = $this->getProductImagesFolder() . $NewFolderPath . '/';
         $currFolder = $this->getTemporaryFolder() . $GUID . '/';
         if(! file_exists($currFolder)){
             throw new \Exception('Folder was not found.');
@@ -100,10 +99,11 @@ class ImageService extends ModelService {
             $this->clearDir($newPath);
         }
         mkdir($newPath , 0777);
-       
+        
         $files = scandir($currFolder);
         $source = $currFolder;
         $destination = $newPath;
+        
         foreach ($files as $file) {
           if (in_array($file, array(".",".."))) continue;
           // If we copied this successfully, mark it for deletion
@@ -111,22 +111,63 @@ class ImageService extends ModelService {
             $delete[] = $source.$file;
           }
         }
+        
+        /**
+         * @TODO 
+         * De vazut daca stergem tot continutul folderului
+         * sau doar imaginile de cover.
+         */
         $this->clearDir($currFolder);
         
-        $absPath = $this->getBaseUri() . $this->getProductImagesFolder(false) . $NewFolderPath . '_' .  $GUID . '/';
+        $absPath = $this->getBaseUri() . $this->getProductImagesFolder(false) . $NewFolderPath . '/' .  $GUID;
         
         $data = array(
             'GUID' => $GUID,
             'Folder' => $newPath,
-            'Small' => $absPath . 'small_' . $GUID . '.png',
-            'Medium' => $absPath . 'medium_' . $GUID . '.png',
-            'Huge' => $absPath . 'huge_' . $GUID . '.png'
+            'Small' => $absPath . 'XS.png',
+            'Medium' => $absPath . 'SM.png',
+            'Huge' => $absPath . 'MD.png'
         );
         $image->exchange($data);
         // var_dump($image);
         // exit;
         return $image;
         
+    }
+    
+    public function processGaleryFolder($GUID , $Destionation)
+    {
+        $image = new \Application\Entity\Image();
+        $uri = $this->getBaseUri();
+        $currFolder = $this->getTemporaryFolder() . $GUID . '/';
+        $newPath = $this->getProductImagesFolder() . $Destionation . '/';
+        
+        if(!file_exists($currFolder)){
+            throw new \Exception('Image temporary folder does not exists any more.');
+        }
+        
+        $files = scandir($currFolder);
+        
+        foreach ($files as $file) {
+            if (in_array($file, array(".",".."))) continue;
+            // If we copied this successfully, mark it for deletion
+            if (copy($currFolder.$file, $newPath.$file)) {
+                $delete[] = $currFolder.$file;
+            }
+        }
+        $this->clearDir($currFolder);
+        
+        $absPath = $this->getBaseUri() . $this->getProductImagesFolder(false) . $Destionation . '/' .  $GUID;
+        $data = array(
+            'GUID' => $GUID,
+            'Folder' => $newPath,
+            'Small' => $absPath . 'XS.png',
+            'Medium' => $absPath . 'SM.png',
+            'Huge' => $absPath . 'MD.png'
+        );
+        $image->exchange($data);
+       
+        return $image;
     }
     
     protected function process($In , $Out , $Options = array())

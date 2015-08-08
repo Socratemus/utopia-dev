@@ -176,6 +176,17 @@ class Image extends \Application\Entity\Image implements \Doctrine\ORM\Proxy\Pro
     /**
      * {@inheritDoc}
      */
+    public function getImageId()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageId', array());
+
+        return parent::getImageId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getSmall()
     {
 

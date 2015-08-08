@@ -59,6 +59,7 @@
                 </div>
                 
             </div>
+            
             <div class="form-group col-md-12">
                 <div class="col-md-3">
                     <label for="">Stock</label>    
@@ -71,6 +72,30 @@
                 </div>
                 
             </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <label for="">Categories</label>    
+                </div>
+                <div class="col-md-9">
+                    <select class="form-control pull-left custom-select fw double" style="height : 76px;" ng-model="product.Categories" multiple name="Category" required>
+                        <option> - Select categories - </option>
+                        <option ng-repeat="category in categories" value="{{category.CategoryId}}">{{category.CategoryId}}. {{category.Title}}</option>
+                    </select>
+                    <div class="ml15 pull-left col-md-7 product-categories">
+                        
+                        <span ng-repeat="selct in product.Categories" class="label label-success mr5">{{showCat(selct)}}</span>
+                       
+                    </div>
+                    <div class="clearfix"></div>
+                    <div ng-show="pfrm.Category.$error.required">
+                        <span class="alert alert-danger">Please provide the categories this product will belong.</span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
             <div class="form-group col-md-12">
                 <div class="col-md-3">
                     <label for="">Producer</label>    

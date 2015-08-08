@@ -71,7 +71,12 @@
 
 <div class="container-fluid content">
     
-    <div class="_ntf" ng-class="{show: notification}">Successfully saved.</div>
+    <div class="_ntf" ng-class="{show: notification , error : notificationType == 2}">
+        <!--<span>Successfully updated</span>-->
+        <span ng-if="notificationType != 2">Operation was a success.</span>
+        <span ng-if="notificationType == 2">There was a problem with the process.</span>
+        <span ng-if=""></span>
+    </div>
     
     <div ng:view class="viewport container-fluid"></div>    
 </div>

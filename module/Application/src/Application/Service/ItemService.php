@@ -2,11 +2,13 @@
 
 namespace Application\Service;
 
+/**
+ * Handles the business logic of the items.
+ * Extends the model service wich provides the connection
+ * to the database, via DOCTRINE ORM.
+ * Can access service locator and entity manager.
+ */
 class ItemService extends ModelService {
-    
-    public function __construct(){
-        //echo 'constructed!';
-    }
     
     /**************************************************************************/
     //All business methods for item will be stored in here.
@@ -16,8 +18,6 @@ class ItemService extends ModelService {
      */
     public function getAll(){
         return $this->getRepository()->findAll();
-        
-        return array();
     }
     
     /**
@@ -25,19 +25,21 @@ class ItemService extends ModelService {
      */
     public function getItemById($Id)
     {
-        
+        return $this->getRepository()->find($Id);
     }
     
     /**
-     * 
+     * Returns an item by its slug.
      */
-    public function getItemBySlug($Slug)
+    public function getBySlug($Slug)
     {
-        
+         return $this->getRepository()->findBy(array('Slug' => $Slug));
     }
     
     /**************************************************************************/
-    
+    /**
+     * Returns the repository of this service.
+     */
     public function getRepository()
     {
         return $this->getEntityManager()->getRepository('Application\Entity\Item');

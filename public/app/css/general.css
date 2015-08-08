@@ -52,8 +52,18 @@ select.form-control {
     color: #858585;
     box-shadow: 0 1px 0 #fff;
 }
+select.form-control:focus{
+    box-shadow: 0 1px 0 #fff;
+}
 select.form-control.fw{
     width : 180px;
+}
+select.form-control.fw.double{
+    width : 260px;
+}
+select.custom-select > option {
+    border-bottom : 1px solid #EEE;
+    padding : 5px;
 }
 
 input.form-control:focus{
@@ -418,19 +428,30 @@ a:hover {
     right: 0;
     top: 185px;
     margin: auto;
-    width: 150px;
-    font-size: 11px;
+    width: 20%;
+    font-size: 11px; 
     /* border: 1px solid #FFFFFF; */
     text-align: center;
-    border-radius: 4px;
-    z-index: 3;
-    background-color: rgba(98, 203, 99, 0.68);
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.27);
+    border-radius: 3px;
+    z-index: 2;
+    background-color: rgb(70, 210, 71);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
     padding: 2px;
-    color: rgb(63, 54, 54);
+    color: rgb(255, 255, 255);
 }
 ._ntf.show{
     visibility : visible; opacity : 1;
+}
+
+._ntf.error{
+    background-color: rgba(230, 0, 0, 0.79);
+    color: white;
+}
+
+._ntf.info{
+    background-color: #F89406;
+    color: white;
+    text-shadow: .5px .5px #909090;
 }
 
 .table th, .table td {
@@ -502,3 +523,7 @@ ul.action-dropdown > li > a {font-size : 11px;}
   animation: rotating 2s linear infinite;
 }
 /*******************************/
+
+.form-control:focus{
+    border-color: rgb(193, 192, 192);
+}

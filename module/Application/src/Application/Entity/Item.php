@@ -10,6 +10,7 @@ namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -23,6 +24,11 @@ class Item extends Entity implements AbstractEntity{
      * @ORM\Column(type="integer")
      */
     protected $ItemId;
+    
+    /**
+     * @ORM\Column(type="string" , length=25 , nullable = false)
+     */
+    protected $GUID;
     
     /**
      * @ORM\Column(type="string")
@@ -45,21 +51,39 @@ class Item extends Entity implements AbstractEntity{
     private $Product;
     
     /**
-     * @ORM\OneToOne(targetEntity="Image", cascade = {"persist"})
-     * @ORM\JoinColumn(name="Cover", referencedColumnName="ImageId")
+     * @ORM\OneToOne(targetEntity="Image" ,cascade={"persist"})
+     * @ORM\JoinColumn(name="Cover", referencedColumnName="ImageId" , onDelete="CASCADE")
      **/
     private $Cover;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Category")
+     * @ORM\JoinTable(name="items_categories",
+     *      joinColumns={@ORM\JoinColumn(name="Item", referencedColumnName="ItemId")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="Category", referencedColumnName="CategoryId")}
+     *      )
+     **/
+    private $Categories;
     
     /********************************************************/
     public function __construct(){
          parent::__construct();
          $this->Product = new Product();
          $this->Product->setItem($this);
+         $this->Categories = new ArrayCollection();
+         //Am 25 la dispozitie
+         $encKey = 'MaXimCornel' . time();
+         $enc = substr( sha1($encKey) , 0 , 9 ) ;
+         $dt = date('ymdHis');
+         $this->GUID = strtoupper('ro' .$dt. $enc);
     }
     /********************************************************/
   
     public function getItemId(){
         return $this->ItemId;
+    }
+    public function getGUID(){
+        return $this->GUID;
     }
     public function getTitle(){
         return $this->Title;
@@ -76,9 +100,15 @@ class Item extends Entity implements AbstractEntity{
     public function getCover(){
         return $this->Cover;
     }
+    public function getCategories(){
+        return $this->Categories;
+    }
     
     public function setItemId($ItemId){
         $this->ItemId = $ItemId;
+    }
+    public function setGUID($GUID){
+        return $this->GUID;
     }
     public function setTitle($Title){
         $this->Title = $Title;
@@ -95,6 +125,9 @@ class Item extends Entity implements AbstractEntity{
     public function setCover($Cover){
         $this->Cover = $Cover;
     }
+    public function setCategories($Categories){
+        $this->Categories = $Categories;
+    }
     
     /********************************************************/
     public function toJSON(){
@@ -108,13 +141,21 @@ class Item extends Entity implements AbstractEntity{
     
     public function toArray(){
         $parent = parent::toArray();
+        
+        $cts = $this->getCategories()->toArray();
+        $ctsids = array();
+        foreach($cts as $ct)
+            array_push($ctsids , $ct->getCategoryId());
+        $cover = $this->getCover();
+        $cover = $cover ? $cover->toArray() : array();
         $data = array(
             'ItemId' => $this->getItemId(),
             'Title' => $this->getTitle(),
             'Slug'  => $this->getSlug(),
             'Description' => $this->getDescription(),
             'Product' => $this->getProduct()->toArray(),
-            //'Cover' => $this->getCover()->toArray()
+            'Cover' => $cover,
+            'Categories' => $ctsids
         );
         return array_merge($data, $parent);
     }

@@ -58,8 +58,13 @@
                 init : function(){
                     
                     CategoryService.init();
+                },
+                slugify : function(Input){
+                    var value = Input;
+                    return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                 }
             };
+            
             $scope.save = function( Mode ){
                 
                 if($scope.category._parent){
@@ -82,7 +87,9 @@
                 });
                 
             };
-            
+            $scope.slugify = function(){
+                $scope.category.Slug = requests.slugify($scope.category.Title)
+            };
             requests.init();
             requests.getAll();
             

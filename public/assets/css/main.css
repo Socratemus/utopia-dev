@@ -803,7 +803,7 @@ footer .widget .thumb-holder {
 
 /************************/
 /* @TODO REFACTOR */
-.price-current{
+#PrFront .price-current{
     font-size: 30px;
     font-weight: 700;
     color: #28124A;
@@ -811,7 +811,7 @@ footer .widget .thumb-holder {
     vertical-align: top;
 }
 
-.price-prev{
+#PrFront .price-prev{
     font-size: 14px;
     font-weight: 600;
     /*vertical-align: bottom;*/
@@ -821,7 +821,7 @@ footer .widget .thumb-holder {
     vertical-align: top;
 }
 
-.price-prev span{
+#PrFront .price-prev span{
     color: #E74C3C;
     text-decoration: line-through;
 }
@@ -896,26 +896,77 @@ footer .widget .thumb-holder {
 }
 
 #AddToCart{
-    margin: 0px 0 0 18px;
-    padding: 17px 50px;
+    /*margin: 0px 0 0 18px;*/
+    /*padding: 17px 50px;*/
 }
 
-
+._pr_gall_wp{
+    border-top : 1px solid lightgray !important;
+}
 ._pr_gall_wp img{
    
     /*border : 1px solid;*/    
     padding : 4px;
     /*margin : 2px;*/
     /*padding-right : 2px;*/
-    border-right : 1px solid lightgray;
+    /*border-right : 1px solid lightgray;*/
 }
 
 ._pr_gall_wp a{
-    font-size : 0;
+    font-size: 0;
+    float: left;
+    border: 1px solid lightgray;
+    border-top: 0;
+    
+    border-right: 0;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+._pr_gall_wp a:nth-child(6n+6){
+    border-right : 1px solid lightgray;
+}
+._pr_gall_wp a:last-child{
+    border-right : 1px solid lightgray;
 }
 
 .spc-wp .table{
     font-size : 12px;
 }
 
-.spc-wp .table > thead > tr > th:first-child {width : 45%;}
+.spc-wp .table > thead > tr > th:first-child {width : 45%; border-bottom : 0;}
+
+.comm-body {
+    min-height : 90px;border : 1px solid #EEE;
+    padding : 15px; padding-top : 8px;
+    position : relative;
+}
+
+.comm-body > p{font-size : 12px;}
+
+.comm-body:before{
+    left: -10px;
+    border-color: transparent #EEEEEE transparent transparent;
+    content: "";
+    border-width: 7.5px 10px 7.5px 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    top: 20px;
+}
+.comm-body:after{
+    content: "";
+    border-width: 7.5px 10px 7.5px 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    top: 20px;
+        left: -8px;
+    border-color: transparent #fff transparent transparent;
+}
+
+#CommForm .captcha-verify{width : 250px;}
+._pr_gall_wp{
+    float : left;
+}

@@ -2,22 +2,34 @@
 
 namespace Application\Service;
 
+/**
+ * Handles the business logic of the categories.
+ * Extends the model service wich provides the connection
+ * to the database, via DOCTRINE ORM.
+ * Can access service locator and entity manager.
+ */
 class CategoryService extends ModelService {
     
     private $_repository = 'Application\Entity\Category';
     
     public function __construct(){
-        
+        //parent::__construct(); //Parent constructor called
     }
     
     /**************************************************************************/
     //All business methods for category will be stored in here.
     
+    /**
+     * Returns an array of all root categories.
+     */
     public function getRootCategories(){
         $categories = $this->getRepository()->findBy(array('ParentId' => null ));
         return $categories;
     }
     
+    /**
+     * Returns an array containing all the children of a given category.
+     */
     public function getChildren($Parent = 1 , $Depth = 999){
         
         $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
@@ -47,12 +59,28 @@ class CategoryService extends ModelService {
         
     }
     
+    /**
+     * Returns category by CategoryId.
+     */
     public function getById($CategoryId){
         return $this->getRepository()->find($CategoryId);
+    }
+    
+    /**
+     * Returns category by slug.
+     */
+    public function getBySlug($Slug){
+       
+        $entity =  $this->getRepository()->findBy(array('Slug' => $Slug));;
+        
+        return $entity;
     }
 
     /**************************************************************************/
     
+    /**
+     * Returns the repository of this service.
+     */
     public function getRepository()
     {
         return $this->getEntityManager()->getRepository($this->_repository);

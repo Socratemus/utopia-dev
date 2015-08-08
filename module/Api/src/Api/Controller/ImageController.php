@@ -9,7 +9,9 @@ use Zend\View\Model\ViewModel;
 
 class ImageController extends AbstractActionController
 {
+    
     protected $ImageDestionation = 'data/Filemanager/Temp';
+    
     public function __construct(){
         
         parent::__construct();
@@ -21,6 +23,7 @@ class ImageController extends AbstractActionController
         }
         
     }
+    
     public function indexAction()
     {   
         try
@@ -33,10 +36,12 @@ class ImageController extends AbstractActionController
             $extension = new \Zend\Validator\File\Extension(array('extension' => array('txt', 'jpg' , 'png')));
             $httpadapter->setValidators(array($filesize, $extension), $files['file']['name']);
             
-            $filenewname = md5(rand(1,1999) . microtime());
+            $hash = md5(rand(1,1999) . uniqid() . microtime());
+            
+            $filenewname = strtoupper('img' . date('YmdHis') . substr($hash , 0, 6));
             
             if($httpadapter->isValid()) {
-                 
+                
                 $httpadapter->setDestination($this->ImageDestionation);
                 $httpadapter->addFilter('File\Rename', array('target' => $httpadapter->getDestination() .
                     DIRECTORY_SEPARATOR . $filenewname . '.png',
@@ -51,7 +56,6 @@ class ImageController extends AbstractActionController
             } else {
                 $this->JsonResponse->setMessage('File did not pass the adaptor config.');
             }
-            
             
             $imgSrv->fromTempStorage($filenewname);
             
@@ -69,4 +73,43 @@ class ImageController extends AbstractActionController
             return $this->JsonResponse;
         }
    }
+   
+    public function bulkAction()
+    {
+        try
+        {
+            $response = array();
+            $this->JsonResponse->setSucceed(1);
+            
+            $request = $this->getRequest();
+            $imgSrv = $this->getServiceLocator()->get('ImageService');
+            $files =  $request->getFiles()->toArray();
+            //var_dump($files);exit;
+            foreach($files['file'] as $file){
+                
+                /* @TODO */
+                /* Add validation in here */
+                $hash = md5( uniqid() . microtime() . rand(1,999));
+                //var_dump($hash);
+                $imageId= strtoupper('glr' . date('YmdHis') . substr($hash , 0, 6)) ;
+                $destinaton =  $this->ImageDestionation . DIRECTORY_SEPARATOR . $imageId. '.png';
+                move_uploaded_file($file['tmp_name'] ,$destinaton);
+                
+                $imgSrv->fromTempStorage($imageId);
+                
+                usleep(50000); //usleep 50ms
+                unset($hash);
+                array_push($response , $imageId);
+            }
+            
+            $this->JsonResponse->setVariables($response);
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e){
+            $this->JsonResponse->setMessage($e->getMessage());
+            $this->JsonResponse->setFailed(1);
+            return $this->JsonResponse;
+        }
+   }
+   
 }

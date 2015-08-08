@@ -1,1 +1,58 @@
-<h3>Content of login</h3>
+<!--<h1><?php echo $this->translate('Sign In'); ?></h1>-->
+
+<?php
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/login'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('id', 'LoginForm');
+?>
+<style>#LoginForm ul li {    font-size: 12px;
+    color: #FFFFFF;
+    background-color: #C30402;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-style: italic;
+    box-shadow: inset 0px 0px 5px rgba(117, 117, 117, 0.73);}</style>
+<?php echo $this->form()->openTag($form) ?>
+
+    <div class="col-md-4 col-md-offset-4 extended">
+        <?php echo $this->formElementErrors($form->get('identity')) ?>
+        
+        <div class="col-md-12 extended mt10">
+            <label>Enter your email address</label>
+        </div>
+        
+        <div class="col-md-12 extended">
+            <input type="email" class="form-control gen" name="identity" placeholder="Email" />
+            <!--<?php echo $this->formInput($form->get('identity')) ?>-->
+        </div>
+        
+        <div class="col-md-12 extended mt10">
+            <label>Enter your email address</label>
+        </div>
+        <div class="col-md-12 extended">
+            <input type="password" class="form-control gen" name="credential" placeholder="Passwrd" />
+        </div>
+        
+        <div class="col-md-12 mt10 extended">
+            <button class="btn btn-danger pull-right">Secure login</button>
+        <div class="col-md-12 extended">
+        <!--<dt><?php echo $this->formLabel($form->get('identity')) ?></dt>-->
+        <!--<dd><?php echo $this->formInput($form->get('identity')) ?></dd>-->
+
+        <!--<dt><?php echo $this->formLabel($form->get('credential')) ?></dt>-->
+        <!--<dd><?php echo $this->formInput($form->get('credential')) ?></dd>-->
+
+        <?php if ($this->redirect): ?>
+            <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+        <?php endif ?>
+
+        <!--<dd><?php echo $this->formButton($form->get('submit')) ?></dd>-->
+    </dl>
+
+<?php echo $this->form()->closeTag() ?>
+
+<?php if ($this->enableRegistration) : ?>
+<?php echo $this->translate('Not registered?'); ?> <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>"><?php echo $this->translate('Sign up!'); ?></a>
+<?php endif; ?>

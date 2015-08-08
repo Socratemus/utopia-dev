@@ -1,1 +1,82 @@
-<h3>Content of register</h3>
+<h1 class="mt0 text-center hide"><?php echo $this->translate('Register'); ?></h1>
+<!--<hr />-->
+
+<?php
+if (!$this->enableRegistration) {
+    print "Registration is disabled";
+    return;
+}
+$form = $this->registerForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/register'));
+$form->setAttribute('method', 'post');
+?>
+
+<?php echo $this->form()->openTag($form) ?>
+    <div class="col-md-6 extended">
+        <pre><?php var_dump($form->getMessages())?></pre>
+        <div class="col-md-12 extended">
+            <label>Enter your full name</label>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control gen" name="FirstName" placeholder="Firstname" />
+            </div>
+            
+            <div class="col-md-6">
+                <input type="text" class="form-control gen" name="LastName" placeholder="Lastname"/>
+            </div>
+        </div>
+        
+        
+        <div class="col-md-12 extended mt10">
+            <label>Enter your email address</label>
+        </div>
+        
+        <div class="col-md-12 extended">
+            <input type="email" class="form-control gen" name="email" placeholder="Email" />
+        </div>
+        
+        <div class="col-md-12 mt10 extended">
+            <label>Enter your desired password</label>
+        </div>
+        <div class="col-md-12 extended">
+            <input type="password" class="form-control gen" name="password" placeholder="Password" />
+        </div>
+        
+        <div class="col-md-12 extended mt10">
+            <label>Confirm the chosen password</label>
+        </div>
+        <div class="col-md-12 extended">
+            <input type="password" class="form-control gen" name="passwordVerify" placeholder="Password confirm" />
+        </div>
+        
+        <div class="col-md-12 mt10 extended">
+            <label><input type="checkbox"> I want the newsletter.</label>
+        </div>
+        
+        <div class="col-md-12 mt10 extended">
+            <label><input type="checkbox"> I accept the terms and conditions.</label>
+        </div>
+        <button class="btn btn-danger pull-right">Secure registration</button>
+    </div>
+    <!--<?php foreach ($form as $element): ?>-->
+    <!--    <?php if (!$element instanceof Zend\Form\Element\Button): ?>-->
+    <!--        <dt><?php echo $this->formLabel($element) ?></dt>-->
+    <!--    <?php endif ?>-->
+    <!--    <?php if ($element instanceof Zend\Form\Element\Button): ?>-->
+    <!--        <dd><?php echo $this->formButton($element) ?></dd>-->
+    <!--    <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>-->
+    <!--        <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>-->
+    <!--    <?php else: ?>-->
+    <!--        <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>-->
+    <!--    <?php endif ?>-->
+    <!--<?php endforeach ?>-->
+    <!--</dl>-->
+    
+    
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+    <?php endif ?>
+    
+<?php echo $this->form()->closeTag() ?>

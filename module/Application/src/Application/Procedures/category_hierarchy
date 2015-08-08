@@ -1,3 +1,15 @@
+drop procedure if exists category_hierarchy;
+drop temporary table if exists hier;
+drop temporary table if exists tmp;
+
+delimiter #
+
+create procedure category_hierarchy
+(
+in p_id_category smallint unsigned,
+in max_depth smallint
+)
+
 begin
 
 declare v_done tinyint unsigned default 0;
@@ -79,4 +91,4 @@ end if;
 drop temporary table if exists hier;
 drop temporary table if exists tmp;
 
-end
+end #

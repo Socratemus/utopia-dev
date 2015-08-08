@@ -43,7 +43,7 @@
                 link: function ($scope, elm, attr, ngModel) {
                    
                     var ck = CKEDITOR.replace(elm[0]);
-                    console.log('this is ittt');
+                    
                     ck.on('pasteState', function () {
                         $scope.$apply(function () {
                             ngModel.$setViewValue(ck.getData());

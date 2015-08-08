@@ -28,7 +28,7 @@
                     <label for="">Title</label>    
                 </div>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="category.Title" name="Title" required placeholder="Title">
+                    <input type="text" class="form-control" ng-model="category.Title" name="Title" ng-change="slugify()" required placeholder="Title">
                     <div ng-show="cfrm.Title.$error.required">
                         <span class="alert alert-danger">Please provide category name.</span>
                     </div>

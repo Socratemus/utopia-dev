@@ -8,69 +8,58 @@
 
         <ul id="" class="nav _nvm">
 
-            <?php for ($i = 1; $i < 4; $i++) : ?>
+            <?php foreach ($this->categories as $category) : ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                        Value of the Day
+                        <?php echo $category->getTitle();?>
                     </a>
                     <ul class="dropdown-menu menu-screen">
                         <li class="menu-item-content">
                             <!--HERE IS THE CONTENT OF THE PANEL-->
                             <div class="row">
+                                
                                 <div class="col-xs-12 col-md-4">
                                     <ul>
-                                        <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                        <li><a href="#">CPUs, Processors</a></li>
-                                        <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                        <li><a href="#">Graphics, Video Cards</a></li>
-                                        <li><a href="#">Interface, Add-On Cards</a></li>
-                                        <li><a href="#">Laptop Replacement Parts</a></li>
-                                        <li><a href="#">Memory (RAM)</a></li>
-                                        <li><a href="#">Motherboards</a></li>
-                                        <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                        <li><a href="#">Motherboard Components &amp; Accs</a></li>
+                                        <?php foreach($category->getChildren() as $chdCat) :?>
+                                        <li><a href="<?php echo $this->url('category',array('slug'=>$chdCat->getSlug() , 'lang' => 'ro'));?>"><?php echo $chdCat->getTitle();?></a></li>
+                                        <?php endforeach;?>
                                     </ul>
                                 </div>
-                                <div class="col-xs-12 col-md-4">
+                                
+                                <div class="col-xs-12 col-md-4 hide">
                                     <ul>
                                         <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                        <li><a href="#">CPUs, Processors</a></li>
-                                        <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                        <li><a href="#">Graphics, Video Cards</a></li>
-                                        <li><a href="#">Interface, Add-On Cards</a></li>
-                                        <li><a href="#">Laptop Replacement Parts</a></li>
+                                        
                                     </ul>
                                 </div>
-                                <div >
-
-                                </div>
+                                
                             </div>
 
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                        Laptops and Computers
-                    </a>
-                    <ul class="dropdown-menu menu-screen">
-                        <li class="yamm-content">
-                            THE CONTENT
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                        Video games and Consoles
-                    </a>
-                    <ul class="dropdown-menu menu-screen">
-                        <li class="yamm-content">
-                            THE CONTENT
-                        </li>
-                    </ul>
-                </li>
+                <!--<li class="dropdown">-->
+                <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">-->
+                <!--        Laptops and Computers-->
+                <!--    </a>-->
+                <!--    <ul class="dropdown-menu menu-screen">-->
+                <!--        <li class="yamm-content">-->
+                <!--            THE CONTENT-->
+                <!--        </li>-->
+                <!--    </ul>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">-->
+                <!--        Video games and Consoles-->
+                <!--    </a>-->
+                <!--    <ul class="dropdown-menu menu-screen">-->
+                <!--        <li class="yamm-content">-->
+                <!--            THE CONTENT-->
+                <!--        </li>-->
+                <!--    </ul>-->
+                <!--</li>-->
 
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </ul>
 
 

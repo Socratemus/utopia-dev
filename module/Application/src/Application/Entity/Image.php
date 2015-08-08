@@ -60,6 +60,9 @@ class Image extends Entity implements AbstractEntity {
     }
     
     /************************************************************************/
+    public function getImageId(){
+        return $this->ImageId;
+    }
     public function getSmall(){
         return $this->Small;
     }
@@ -99,6 +102,16 @@ class Image extends Entity implements AbstractEntity {
     }
     
     public function toArray(){
+        $ret = array(
+            'ImageId'        => $this->getImageId(),
+            'Small'     => $this->getSmall(),
+            'Medium'    => $this->getMedium(),
+            'Huge'      => $this->getHuge(),
+            'Folder'    => $this->getFolder()
+        );
+        
+        
+        return $ret;
         
     }
 }

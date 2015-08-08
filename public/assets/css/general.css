@@ -471,10 +471,7 @@ select {
 }
 .nav-tabs li.active a {
     margin-left: 0 !important;
-    font-size: 19px;
-    line-height: 30px;
-    padding: 16px 53px;
-    font-weight: 600;
+    
     text-transform: capitalize;
 }
 .nav>li>a {
@@ -488,8 +485,8 @@ select {
     background-color: #f9f9f9;
     font-size: 15px;
     line-height: 13px;
-    padding: 18px 39px;
-    margin: 0 3px;
+    /*padding: 18px 39px;*/
+    /*margin: 0 3px;*/
     text-transform: capitalize;
 }
 
@@ -497,7 +494,7 @@ select {
     margin-right: 2px;
     line-height: 1.428571429;
     border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
+    border-radius: 2px 2px 0 0;
 }
 
 
@@ -565,12 +562,12 @@ select {
 .btn.bold {font-weight : bold;} 
 .btn{
     border-radius: 4px;
-    font-weight: bold;
-    padding: 10px 20px;
+    font-weight: 300;
+    padding: 5px 20px;
     display: inline-block;
     line-height: 20px;
     border: none;
-    font-size: 15px;
+    font-size: 14px;
     color: #fff;
     text-transform: capitalize;
     -webkit-transition: all 0.3s ease;
@@ -586,3 +583,19 @@ select {
 /***************************************************************/
 
 .share-btn-holder{display : inline-block; vertical-align : top; padding-top: 5px; max-width : 175px;overflow : hidden; margin-right :5px;}
+
+input.form-control.gen{
+    border-radius : 0;
+    padding: 3px 6px; height : initial;
+    border : 0;
+    box-shadow : none;
+    background-color : #EFEFEF;
+        
+}
+input.form-control.gen:focus{
+    box-shadow : none;
+}
+
+form label{
+    font-weight : 400;
+}

@@ -21,6 +21,7 @@ class IndexController extends AbstractActionController
         //throw new \Exception('Test exception.');
         $ctSrv = $this->getServiceLocator()->get('CategoryService');
         $cts = $ctSrv->getRootCategories();
+        //var_dump($cts);
         //var_dump($cts[0]->toJson());exit;
         $catsKey = 'categorizKEY';
         //$cache = $this->getServiceLocator()->get('Zend\Cache\Storage\Filesystem');

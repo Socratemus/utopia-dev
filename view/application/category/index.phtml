@@ -139,23 +139,27 @@
                
                <div class="pr-wp c-pr-wp">
                    
-                   <?php for($i = 0 ; $i < 8 ; $i++) :?>
+                   <?php foreach($this->category->getItems() as $item) :?>
                    <div class="col-sm-12 col-md-12 prd-hero extended list-item">
                         <div class="_pr list-item">
                             <div class="ribbon red"><span>sale</span></div>
                             
                             <div class="image col-md-3">
-                                <img alt="" src="/public/assets/img/product-02.jpg">
+                                <?php 
+                                    $coverEntity = $item->getCover();
+                                    $cover = $coverEntity ? $coverEntity : null;
+                                ?>
+                                <img alt="" src="<?php if($cover) echo$cover->getSmall();?>">
                             </div>
                             
                             <div class="body col-md-6 no-margin pt5">
                                 <div class="label-discount green">-50% sale</div>
                                 <div class="title">
-                                    <a href="<?php echo $this->url('item' , array( 'lang' => 'en' , 'slug' => 'pwla'));?>">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
+                                    <a href="<?php echo $this->url('item' , array( 'lang' => 'en' , 'slug' => $item->getSlug()));?>"><?php echo $item->getTitle();?></a>
                                 </div>
-                                <div class="brand">sony</div>
+                                <div class="brand">sony - <?php echo $item->getGUID();?></div>
                                 <hr class="mt5 mb5" />
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis euismod erat sit amet porta. Etiam venenatis ac diam ac tristique. Morbi accumsan consectetur odio ut tincidunt. - See more at: http://transvelo.in/demo/html/media-center/index.php?page=category-grid&style=alt2#sthash.mMkTLTtS.dpuf</p>
+                                <p><?php echo $item->getDescription();?></p>
                                 
                             </div>
                             
@@ -168,7 +172,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                   <?php endfor;?>
+                   <?php endforeach;?>
                    
                </div> 
                

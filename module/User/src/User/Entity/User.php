@@ -60,20 +60,25 @@ class User implements UserInterface, ProviderInterface
      * @Annotation\Exclude()
      */
     protected $Password;
-
+    
     /**
-     * @var \DateTime
-     * @ORM\Column(type="datetime")
-     * @Annotation\Exclude()
+     * @ORM\Column(type="integer")
      */
-    protected $CreatedAt;
+    protected $Status;
     
     /**
      * @var \DateTime
      * @ORM\Column(type="datetime")
      * @Annotation\Exclude()
      */
-    protected $UpdatedAt;
+    protected $Created;
+    
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     * @Annotation\Exclude()
+     */
+    protected $Updated;
     
     /**
      * @var int
@@ -98,8 +103,9 @@ class User implements UserInterface, ProviderInterface
     public function __construct()
     {
         $this->roles = new ArrayCollection();
-        $this->setCreatedAt(new \DateTime('now'));
-        $this->setUpdatedAt(new \DateTime('now'));
+        $this->setCreated(new \DateTime('now'));
+        $this->setUpdated(new \DateTime('now'));
+        $this->Status = \Application\Response\Status::PENDING;
     }
 
     /**
@@ -167,12 +173,12 @@ class User implements UserInterface, ProviderInterface
         return $this->Password;
     }
     
-    public function getCreatedAt() {
+    public function getCreated() {
         return $this->CreatedAt;
     }
 
-    public function getUpdatedAt() {
-        return $this->UpdatedAt;
+    public function getUpdated() {
+        return $this->Updated;
     }
 
     public function setId($Id) {
@@ -199,12 +205,12 @@ class User implements UserInterface, ProviderInterface
         $this->Password = $Password;
     }
 
-    public function setCreatedAt(\DateTime $CreatedAt) {
-        $this->CreatedAt = $CreatedAt;
+    public function setCreated(\DateTime $CreatedAt) {
+        $this->Created = $CreatedAt;
     }
 
-    public function setUpdatedAt(\DateTime $UpdatedAt) {
-        $this->UpdatedAt = $UpdatedAt;
+    public function setUpdated(\DateTime $UpdatedAt) {
+        $this->Updated = $UpdatedAt;
     }
     
     public function getUsername() {

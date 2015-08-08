@@ -76,10 +76,12 @@ class CategoryController extends AbstractActionController
         {
             $csrv = $this->getServiceLocator()->get('CategoryService');
             $rootCats = $csrv->getRootCategories();
-            foreach($rootCats as &$rc){
-                $rc = $rc->toArray();
-            }
-            $this->JsonResponse->setVariables($rootCats);
+            
+            $ret = $this->getRecursiveCategories($rootCats);
+            // echo "<pre>";
+            // print_r($ret);
+            // exit();
+            $this->JsonResponse->setVariables($ret);
             $this->JsonResponse->setMessage('Get all categories.');
             $this->JsonResponse->setSucceed(1);
             
@@ -185,4 +187,30 @@ class CategoryController extends AbstractActionController
         }
         
     }
+    
+    /**********************************************************************/
+    
+    private function getRecursiveCategories($categories = array() , &$step = -1 , &$menu = array()){
+        $step++;
+        foreach($categories as $category){
+            // var_dump($step);
+            // var_dump($category->getTitle());
+            
+            $whiteSpace = ''; for($i = 0 ; $i < $step ; $i++) $whiteSpace .= '_';
+            
+            $category->setTitle($whiteSpace.$category->getTitle());
+            
+            array_push($menu, $category->toArray());
+            if( $chd = $category->getChildren()->toArray()){
+
+                $sub = $this->getRecursiveCategories($chd , $step , $menu);
+                $step--;
+            } else {
+               
+            }
+        }
+        
+        return $menu;
+    }
+    
 }

@@ -40,12 +40,20 @@ class Product extends Entity implements AbstractEntity {
      */
      private $Item;
      
+     /**
+      * @ORM\ManyToMany(targetEntity="Image" , cascade="persist")
+      * @ORM\JoinTable(name="product_images",
+      *      joinColumns={@ORM\JoinColumn(name="ProductId", referencedColumnName="ProductId" , onDelete="CASCADE")},
+      *      inverseJoinColumns={@ORM\JoinColumn(name="ImageId", referencedColumnName="ImageId", unique=true , onDelete="CASCADE")}
+      *      )
+      **/
      private $Galery;
      
      /*********************************************/
      
      public function __construct(){
           parent::__construct();
+          $this->Galery = new \Doctrine\Common\Collections\ArrayCollection();
      }
      
      /*********************************************/
@@ -61,6 +69,10 @@ class Product extends Entity implements AbstractEntity {
      }
      public function getItem(){
           return $this->Item;
+     }
+     
+     public function getGalery(){
+          return $this->Galery;
      }
      
      public function setProductId($ProductId){
@@ -89,10 +101,18 @@ class Product extends Entity implements AbstractEntity {
      
      public function toArray(){
           $parent = parent::toArray();
+          
+          $galeryitems =  $this->getGalery();
+          $gal = array();
+          foreach($galeryitems as $image){
+               array_push($gal , $image->toArray());
+          }
+          
           $data = array(
                'ProductId' => $this->getProductId(),
                'Price'     => $this->getPrice(),
-               'Stock'     => $this->getStock()
+               'Stock'     => $this->getStock(),
+               'Galery'    => $gal
           );
           return array_merge($data, $parent);
      }

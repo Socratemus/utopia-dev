@@ -120,11 +120,16 @@
                  * Type : info , success, error
                  */
                 notification : function( Type , Message ){
+                    
+                    $rootScope.notificationType = Type;
+                    $rootScope.notificationMessage = Message;
                     $rootScope.notification = true;
+                    
                     $timeout(function(){
                         $rootScope.notification = false;
                     },2000);
                 } ,
+                
                 redirect : function( Path ) {
                     console.log( Path);
                     $location.path( "/" + Path );

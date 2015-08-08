@@ -64,10 +64,10 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', 'Created', 'Updated', 'Status');
+            return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Items', 'Created', 'Updated', 'Status');
         }
 
-        return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', 'Created', 'Updated', 'Status');
+        return array('__isInitialized__', 'CategoryId', 'Title', 'Slug', 'Depth', 'ParentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Children', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'Items', 'Created', 'Updated', 'Status');
     }
 
     /**
@@ -220,12 +220,34 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
+    public function getChildren()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getChildren', array());
+
+        return parent::getChildren();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getDepth()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDepth', array());
 
         return parent::getDepth();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getItems()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getItems', array());
+
+        return parent::getItems();
     }
 
     /**

@@ -52,6 +52,14 @@ class ItemForm extends Form
         ));
         
         $this->add(array(
+            'name' => 'Status',
+            'options' => array(
+                'required' => false
+            ),
+            'type'  => 'Text'
+        ));
+        
+        $this->add(array(
             'name' => 'Product[Price]',
             'options' => array(
                 'required' => false
@@ -119,6 +127,14 @@ class ItemForm extends Form
         
         $inputFilter->add($factory->createInput([ 
             'name' => 'Slug', 
+            'filters' => array( 
+                array('name' => 'StripTags'), 
+                array('name' => 'StringTrim'), 
+            )
+        ]));
+        
+        $inputFilter->add($factory->createInput([ 
+            'name' => 'Status', 
             'filters' => array( 
                 array('name' => 'StripTags'), 
                 array('name' => 'StringTrim'), 

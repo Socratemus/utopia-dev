@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-4">
               <div class="_abw text-right">
-                <button class="btn custom" ng-disabled="pfrm.$invalid" ng-click="save()">Save</button>
+                <button class="btn custom" ng-disabled="pfrm.$invalid" ng-click="save(true)">Save</button>
                 <button class="btn custom">Close</button>
               </div>
               
@@ -77,12 +77,35 @@
             
             <div class="form-group col-md-12">
                 <div class="col-md-3">
+                    <label for="">Categories</label>    
+                </div>
+                <div class="col-md-9">
+                    <select class="form-control pull-left custom-select fw double" style="height : 76px;" ng-model="product.Categories" multiple name="Category" required>
+                        <option> - Select categories - </option>
+                        <option selected="selected" ng-repeat="category in categories" value="{{category.CategoryId}}">{{category.CategoryId}}. {{category.Title}}</option>
+                    </select>
+                    <div class="ml15 pull-left col-md-7 product-categories">
+                        
+                        <span ng-repeat="selct in product.Categories" class="label label-success mr5">{{showCat(selct)}}</span>
+                       
+                    </div>
+                    <div class="clearfix"></div>
+                    <div ng-show="pfrm.Category.$error.required">
+                        <span class="alert alert-danger">Please provide the categories this product will belong.</span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
                     <label for="">Producer</label>    
                 </div>
                 <div class="col-md-3">
                     <select class="form-control fw" ng-model="product.Product.Producer" name="Producer" required>
                         <option value="">-- Select Producer --</option>
-                        <option value="1">Samsung</option>
+                        <option ng-selected="product.Product.Producer == 1" value="1">Samsung</option>
                     </select>
                     <!--<input type="text" class="form-control" ng-model="product.Product.Producer" name="Producer" required placeholder="Product stock">-->
                     <div ng-show="pfrm.Producer.$error.required">
@@ -100,6 +123,36 @@
                     </div>
                 </div>
                 
+            </div>
+            
+            <div class="form-group col-md-12">
+                
+                <div class="col-md-3">
+                    <label for="">Galery</label>    
+                </div>
+                <div class="col-md-9 custom-file">
+                    <input type="file" class="" multifile ng-model="product.Product.Galery" name="Galery[]" multiple>
+                    
+                </div>
+                
+                <div class="col-md-12" id="Galery">
+                    
+                    <div class="galery-item-wp" ng-repeat="galItem in product.Product.Galery">
+                        <img ng-src="{{galItem.src}}" src=""/>
+                        
+                        <div class="galery-item-ftr">
+                            <label ng-class="{'label-success' : galItem.ImageId != undefined , 'label-warning' : galItem.ImageId == undefined }" class="label">
+                                <span ng-if="galItem.ImageId != undefined">uploaded</span>
+                                <span ng-if="galItem.ImageId == undefined">pending</span>
+                            </label>
+                            <button ng-click="removeGaleryImage(galItem, $index)" class="btn custom small pull-right">remove</button>
+                        </div>
+                                    
+                    </div>
+                    <!--<div style="display : inline-block"></div>-->
+                    
+                </div>
+                    
             </div>
             
             <div class="form-group col-md-12">

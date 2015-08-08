@@ -9,48 +9,39 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    protected $ImagesDestionations = 'data/Filemanager/Temp/';
+    
     public function indexAction()
     {   
        
-        $data = explode("\n", file_get_contents("/proc/meminfo"));
-        $meminfo = array();
-        foreach ($data as $line) {
-            list($key, $val) = explode(":", $line);
-            $meminfo[$key] = trim($val);
-        }
-        var_dump($meminfo)
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       exit;
-          $fh = fopen('/proc/meminfo','r');
-          $mem = 0;
-          while ($line = fgets($fh)) {
-            $pieces = array();
-            if (preg_match('/^MemTotal:\s+(\d+)\skB$/', $line, $pieces)) {
-              $mem = $pieces[1];
-              break;
+    }
+    
+    
+    public function generateAction()
+    {
+        $response = $this->getResponse();
+        $response->getHeaders()->addHeaderLine('Content-Type', "image/png");
+ 
+        $id = $this->params('id', false);//var_dump($id);exit;
+        //var_dump($id);exit;
+        if ($id) {
+ 
+            $image = './data/captcha/' . $id;
+ 
+            if (file_exists($image) !== false) {
+                $imagegetcontent = @file_get_contents($image);
+ 
+                $response->setStatusCode(200);
+                $response->setContent($imagegetcontent);
+ 
+                if (file_exists($image) == true) {
+                    unlink($image);
+                }
             }
-          }
-          fclose($fh);
-            $mbRamUsed = $mem / 1024;
-            $GibRamUsed = $mbRamUsed / 1024;
-            echo "$GibRamUsed GiB RAM found";
-          
-          exit;
-        //$this->productServiceTest();
-        $this->JsonResponse->setMessage('This is the application api interface.');
-        $this->JsonResponse->setSucceed(0);
-        return $this->JsonResponse;
+ 
+        }
+ 
+        return $response;
     }
     
     public function testAction()
