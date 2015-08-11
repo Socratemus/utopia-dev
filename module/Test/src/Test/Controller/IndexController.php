@@ -13,12 +13,32 @@ class IndexController extends AbstractActionController
     
     public function indexAction()
     {   
-       
+        try {
+
+            echo '<pre>'; 
+            $client = new \Google_Client();
+
+            $client->setApplicationName("test");
+            $client->setClientId('683627405636-h43565hrrqk9f6469vcklpf0fnm8jdj5.apps.googleusercontent.com');
+            $client->setClientSecret('lS0LM6Lb_F0230LIUZMOZC9Q');
+            $client->setRedirectUri('http://localhost/google-api-php-client-master/examples/fileupload.php');
+            $client->setScopes(array('https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.readonly','https://www.googleapis.com/auth/drive.file','https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/drive.appdata','https://www.googleapis.com/auth/drive.apps.readonly'));
+
+
+            var_dump($client);
+            exit();
+        }
+        catch(\Exception $e){
+            echo $e->getMessage();
+        }
+        
     }
     
     
     public function generateAction()
     {
+        echo 'test'; 
+        exit();
         $response = $this->getResponse();
         $response->getHeaders()->addHeaderLine('Content-Type', "image/png");
  
