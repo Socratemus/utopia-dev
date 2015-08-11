@@ -6,6 +6,7 @@ return array(
         'Api',
         'Application',
         
+        'Storage',
         
         'Test',
         

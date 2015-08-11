@@ -15,7 +15,8 @@
         "zf-commons/zfc-user": "0.1.*",
         "zf-commons/zfc-user-doctrine-orm": "0.1.*",
         "bjyoungblood/bjy-authorize": "1.2.*",
-        "zendframework/zendsearch": "0.1"
+        "zendframework/zendsearch": "0.1",
+        "google/google-api-php-client":"*"
     },
     "repositories": [
         {
@@ -38,7 +39,25 @@
                     }
                 }
             }
+        },
+
+        {
+            "type": "package",
+            "package": {
+                "name": "google/google-api-php-client",
+                "version": "0.1",
+                "source": {
+                    "url": "https://github.com/google/google-api-php-client.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "classmap": ["src/"]
+                }
+            }
         }
+
+
     ],
     "autoload": {
         "psr-0": {
