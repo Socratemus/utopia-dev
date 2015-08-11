@@ -87,6 +87,8 @@ class Module {
         // you can even do stuff after it stores           
         $zfcServiceEvents->attach('register.post', function($e) {
             /* $user = $e->getParam('user'); */
+            
+            //Alter the user, but you don't get to see the password.
         });
     }
 

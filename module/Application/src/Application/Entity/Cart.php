@@ -15,7 +15,7 @@ use Zend\Form\Annotation;
  * @ORM\Entity
  * @ORM\Table(name="cart")
  */
-class Cart {
+class Cart extends Entity {
     
      /**
      * @ORM\Id
@@ -24,6 +24,79 @@ class Cart {
      */
     protected $CartId;
     
+    /**
+     * Cookie guid stored in the browser.
+     * @ORM\Column(type="string" , length=35) 
+     *
+     */
+    protected $GUID;
     
+    /**
+     * @ORM\Column(type="integer" , length=35) 
+     * Cart's time to live
+     * 
+     */
+    protected $Ttl;
     
+    /**
+     * Date of expiration for the cart.
+     * 
+     */
+    protected $Expire;
+    
+    /**
+     * If the user is logged we will assign the cart to him.
+     */
+    private $User;
+    
+    /**
+     * An array collection for every item stored in the cart.
+     */
+    private $CartItems;
+    
+    public function __construct(){
+         parent::__construct();
+         //Construction
+    }
+    
+    /**************************************************************************/
+    public function getCartId(){
+         return $this->CartId;
+    }
+    public function getGUID(){
+         return $this->GUID;
+    }
+    public function getTtl(){
+         return $this->Ttl;
+    }
+    public function getExpire()
+    {
+         return $this->Expire;
+    }
+    
+    public function getUser(){
+         return $this->User;
+    }
+    public function getCartItems(){
+         return $this->CartItems;
+    }
+    
+    public function setCartId($CartId){
+         $this->CartId = $CartId;
+    }
+    public function setGUID($GUID){
+         $this->GUID = $GUID;
+    }
+    public function setTtl($Ttl){
+         $this->Ttl = $Ttl;
+    }
+    public function setExpire($Exipire){
+         $this->Expire = $Exipire;
+    }
+    public function setUser($User){
+         $this->User = $User;
+    }
+    public function setCartItems($CartItems){
+         $this->CartItems = $CartItems;
+    }
 }
