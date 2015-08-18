@@ -33,6 +33,7 @@
                 // Configure alias to full paths
                 'utils'       :     './mindspace/utils',
                 'application' :     './main/application',
+                'util'        :     './main/util'
             },
             "shim"  :   {
                 'angular' : {'exports' : 'angular'},

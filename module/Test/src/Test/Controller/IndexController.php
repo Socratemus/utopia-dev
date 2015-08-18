@@ -5,6 +5,7 @@ namespace Test\Controller;
 
 use Application\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Entity as Entity;
 
 
 class IndexController extends AbstractActionController
@@ -14,19 +15,21 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {   
         try {
-
-            echo '<pre>'; 
-            $client = new \Google_Client();
-
-            $client->setApplicationName("test");
-            $client->setClientId('683627405636-h43565hrrqk9f6469vcklpf0fnm8jdj5.apps.googleusercontent.com');
-            $client->setClientSecret('lS0LM6Lb_F0230LIUZMOZC9Q');
-            $client->setRedirectUri('http://localhost/google-api-php-client-master/examples/fileupload.php');
-            $client->setScopes(array('https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.readonly','https://www.googleapis.com/auth/drive.file','https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/drive.appdata','https://www.googleapis.com/auth/drive.apps.readonly'));
-
-
-            var_dump($client);
-            exit();
+            $filter = new Entity\Filter;
+            $data = array(
+                'Title' => 'Producer',
+                'Slug'  => 'producer',
+                'Category' => '1'
+            );
+            $category = $this->getServiceLocator()->get('CategoryService')->getById(1);
+            $filter->exchange($data);
+            $filter->setCategory($category);
+            $this->getServiceLocator()->get('EntityManager')->persist($filter);
+            $this->getServiceLocator()->get('EntityManager')->flush();
+            var_dump($filter);
+            exit;
+            
+            return $this->JsonResponse;
         }
         catch(\Exception $e){
             echo $e->getMessage();

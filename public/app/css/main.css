@@ -4,9 +4,9 @@
  
  
  content {
-    /*width : 100%;*/
-    /*height : 100%;*/
-    /*position : absolute;*/
+    width : 100%;
+    height : 100%;
+    position : absolute;
     top : 0; left : 0;
     background: #FFF;
  }
@@ -29,7 +29,15 @@
 }
 
 .content{
-    padding : 15px;
+    position : relative;
+    height : calc(100% - 44px);
+    width : 100%;
+    overflow : hidden;
+    overflow-y : auto;
+    top: -3px;
+}
+.content.disable-scroll{
+  overflow-y : hidden;
 }
 
 footer{

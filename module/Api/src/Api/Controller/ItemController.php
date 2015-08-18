@@ -117,7 +117,7 @@ class ItemController extends AbstractActionController
                 throw new \Exception('Id was not provided.');
             }
             
-            $item = $itemService->getItemById($id);
+            $item = $itemService->getById($id);
             
             $this->JsonResponse->setSucceed(1);
             $this->JsonResponse->setMessage('Successfully fetched the requested item.');
@@ -172,7 +172,7 @@ class ItemController extends AbstractActionController
             if(!$itemId) {
                 throw new \Exception('Item id was not provided');
             }
-            $item = $itemService->getItemById($itemId);
+            $item = $itemService->getById($itemId);
             
             $itemForm = new ItemForm();
             $itemForm->setData($data);

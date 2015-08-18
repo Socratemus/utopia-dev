@@ -190,6 +190,39 @@ class CategoryController extends AbstractActionController
     
     /**********************************************************************/
     
+    public function getFiltersAction(){
+        try
+        {
+            $csrv = $this->getServiceLocator()->get('CategoryService');
+            $id = $this->params()->fromQuery('c');
+            $category = $csrv->getById($id);
+            
+            $filters = $category->getFilters();
+            $tmp = array();
+            foreach($filters as &$filter){
+                array_push($tmp , $filter->toArray());
+            }
+            
+            //var_dump($category->getFilters());exit;
+            $this->JsonResponse->setVariables(
+                $tmp
+            );
+            
+            $this->JsonResponse->setMessage('Get filters action.');
+            $this->JsonResponse->setSucceed();
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e)
+        {
+            $this->getLogger()->crit($e);
+            $this->JsonResponse->setMessage($e->getMessage());
+            $this->JsonResponse->setFailed(1);
+            return $this->JsonResponse;
+        }
+    }
+    
+    /**********************************************************************/
+    
     private function getRecursiveCategories($categories = array() , &$step = -1 , &$menu = array()){
         $step++;
         foreach($categories as $category){

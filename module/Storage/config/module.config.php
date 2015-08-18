@@ -23,6 +23,13 @@ return array(
                 )
             )
         )
-    )
+    ),
+    'service_manager' => array(
+        'invokables' => array(
+            //'ApplicationServiceErrorHandler' => 'Engine\Service\ApplicationErrorHandlerService',
+            'GoogleDrive' => 'Storage\Service\GoogleDrive',
+           
+        ),
+    ),
     
 );

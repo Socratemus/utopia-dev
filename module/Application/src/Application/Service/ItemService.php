@@ -23,7 +23,7 @@ class ItemService extends ModelService {
     /**
      * Return item by id
      */
-    public function getItemById($Id)
+    public function getById($Id)
     {
         return $this->getRepository()->find($Id);
     }

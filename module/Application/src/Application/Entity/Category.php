@@ -10,6 +10,7 @@ namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -57,8 +58,15 @@ class Category extends Entity implements AbstractEntity {
      **/
     private $Items;
     
+    /** 
+     * @ORM\OneToMany(targetEntity="Filter", mappedBy="Category",cascade={"persist"})
+     */
+    private $Filters;
+    
     public function __construct(){
         parent::__construct();
+        $this->Items = new ArrayCollection();
+        $this->Filters = new ArrayCollection();
     }
     
     public function getCategoryId(){
@@ -86,6 +94,9 @@ class Category extends Entity implements AbstractEntity {
     public function getItems(){
         return $this->Items;
     }
+    public function getFilters(){
+        return $this->Filters;
+    }
     
     public function setTitle($Title){
         $this->Title = $Title;
@@ -97,6 +108,10 @@ class Category extends Entity implements AbstractEntity {
     
     public function setDepth($Depth){
         $this->Depth = $Depth;
+    }
+    
+    public function setFilters($Filters){
+        $this->Filters = $Filters;
     }
     
     public function toJson(){

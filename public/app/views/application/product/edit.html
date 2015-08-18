@@ -1,21 +1,81 @@
 <div class="container-fluid">
     <form class="" name="pfrm" novalidate enctype="multipart/form-data">
-      
+        <panel>
+            
+            <div class="overlay"></div>
+            <button class="btn custom close-panel"><i class="fa fa-close"></i> Close</button>
+            <button class="btn custom action-btn"><i class="fa fa-plus-square-o"></i> Add</button>
+            <div class="inner">
+                <tabset justified="true">
+                    <tab ng-repeat="category in product.Categories" heading="{{showCat(category)}}">
+                    
+                        <!--{{showCat(category)}}-->
+                        <div class="row panel-row header">
+                            <div class="col-md-3">Filter Name</div>
+                            <div class="col-md-3">Filter Slug</div>
+                            <div class="col-md-2">Filter Value</div>
+                            <div class="col-md-2">Value slug </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                        
+                        <div class="row panel-row" ng-repeat="filter in filters[category]">
+                            <!--<div class="col-md-12">-->
+                                
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="filter.Title" ng-change="slugify(filter , 'Title')"  />
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="filter.Slug" disabled />
+                                </div>
+                                <div class="col-md-2 extended hide">
+                                    <button class="btn custom"><i class="fa fa-gear"></i></button>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" ng-model="filter.FilterValues[product.ItemId].Value"
+                                        ng-change="slugify(filter.FilterValues[product.ItemId] , 'Value')"
+                                    />
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" ng-model="filter.FilterValues[product.ItemId].Slug" disabled />
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn custom" ng-click="savefilter(filter);"><i class="fa fa-floppy-o"></i></button>
+                                    <button class="btn custom"><i class="fa fa-trash-o"></i></button>
+                                    <button class="btn custom"><i class="fa fa-gear"></i></button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </tab>
+                    <!--<tab heading="SJ">Short Labeled Justified content</tab>-->
+                    <!--<tab heading="Long Justified">Long Labeled Justified content</tab>-->
+                    <!--<tab heading="Long Justified">Long Labeled Justified content</tab>-->
+                    
+                  </tabset>
+                  <div class="clearfix"></div>
+                  
+            </div>
+            
+        </panel>
         <div class="col-md-12 extended form-title">
             <div class="col-md-8">
               
-                <h3 class="_ft">Add a new product</h3>
+                <h3 class="_ft">Edit product</h3>
               
             </div>
             <div class="col-md-4">
               <div class="_abw text-right">
+                <button class="btn custom toggle-panel">Filters</button>
                 <button class="btn custom" ng-disabled="pfrm.$invalid" ng-click="save(true)">Save</button>
                 <button class="btn custom">Close</button>
               </div>
               
             </div>
         </div>
-        
         <div class="form-content col-md-12 extended">
             
             <legend><span>Edit product</span></legend>

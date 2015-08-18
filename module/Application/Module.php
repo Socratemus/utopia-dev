@@ -16,6 +16,9 @@ use Zend\Mvc\MvcEvent;
 class Module {
 
     public function onBootstrap(MvcEvent $e) {
+        //Set default timezone
+        date_default_timezone_set('Europe/Bucharest');
+        
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);

@@ -29,7 +29,7 @@
             'application/controllers/MainController',
             'application/controllers/CategoryController', 'application/controllers/CategoriesController',
             'application/controllers/ProductsController', 'application/controllers/ProductController',
-            'application/controllers/FilemanagerController',
+            'application/controllers/FilemanagerController', 'application/controllers/GoogleDriveController',
             
             'application/controllers/ModalController',
             'application/controllers/ModalInstanceController'
@@ -41,11 +41,11 @@
             CkEditor, MxFile, MltFile,
         
             MainController, CategoryController, CategoriesController , ProductsController, ProductController,
-            FilemanagerController,
+            FilemanagerController, GoogleDriveController,
             ModalController , ModalInstanceCtrl)
         {
            
-            //$log.debug('Start loading application module');
+            $log.debug('Start loading application module');
             var moduleName = "main.Application";
            
             angular.module( moduleName, [ ] )
@@ -65,6 +65,7 @@
                 .controller(    "ProductsCtrl"         ,    ProductsController    )
                 .controller(    "ProductCtrl"          ,    ProductController     )
                 .controller(    "FilemanagerCtrl"      ,    FilemanagerController )
+                .controller(    "GoogleDriveCtrl"      ,    GoogleDriveController )
                 
                 
                 .controller(    "ModalCtrl"            ,    ModalController       )

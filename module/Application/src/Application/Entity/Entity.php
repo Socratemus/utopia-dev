@@ -79,11 +79,26 @@ abstract class Entity {
     }
     
     public function toArray(){
-        return array(
+        
+        /* return all protected values */
+        $reflect = new \ReflectionClass($this);
+
+        $props = $reflect->getProperties(\ReflectionProperty::IS_PROTECTED);
+        $arr = array();
+        foreach ($props as $prop) {
+            if (isset($this->{$prop->getName()}) && ! $this->{$prop->getName()} instanceof \DateTime) {
+                //echo $this->{$prop->getName()};
+                $arr[$prop->getName()] = $this->{$prop->getName()};
+            }
+        }
+        
+        $toMerge = array(
             'Created' => $this->getCreated()->format('Y-m-d H:i:s'),
             'Updated' => $this->getUpdated()->format('Y-m-d H:i:s'),
             'Status'  => $this->getStatus()
         );
+        
+        return array_merge ( $arr , $toMerge  );
     }
     
 }

@@ -20,9 +20,8 @@
 					// , lang: 'ru'                    // language (OPTIONAL)
 			});
 			var wh = $(window).height(); 
-// 			$('div.content').css({'padding-top' : 0}).css({'padding-bottom' : 0});
+
             $('#elfinder').height(wh - 58);
-            $('#elfinder').css({'margin-top' : -15});
             $log = $log.getInstance("FilemanagetController");
             $log.info("constructor() ");
         };

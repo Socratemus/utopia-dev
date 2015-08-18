@@ -1,6 +1,13 @@
 /**
  * General css file for admin.
  */
+html , body{
+    height : 100%;
+}
+body{
+    overflow-x : hidden;
+} 
+
 label, input, select, textarea, li , table {
   font-size: 12px;
   color: #999;
@@ -410,6 +417,74 @@ span.alert{
     padding : 0;
 }
 
+panel{
+    right : -850px;
+    width : 750px;
+    height : 100%;
+    position :absolute;
+    background : #FFF;
+    /*background-color : rgba(0,0,0,.333);*/
+    z-index : 3;
+    transition : right .4s ease-in-out;
+    -webkit-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+    box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+}
+
+.close-panel{
+    position : absolute;
+    bottom : 2px; left : 5px;
+}
+
+.action-btn{
+    position : absolute;
+    bottom : 2px; right : 5px;
+}
+
+panel.open{
+    
+    right : 0; 
+    
+}
+panel .nav.nav-tabs li a{border-radius : 0px;
+    border-top : 0 !important;
+}
+
+panel .nav.nav-tabs li a:first-child{
+    border-left : 0 !important;
+}
+
+panel .tab-content{
+    padding :15px;
+}
+
+panel .tab-content .panel-row{
+    border-bottom : 1px solid #EEE;
+}
+panel .tab-content .header {
+    font-size: 12px;
+    padding-left: 5px;
+    color: gray;
+    font-weight: 400;
+    border-top: 1px solid #EEE;
+    padding: 0px;
+}
+
+panel .tab-content .panel-row > [class*='col-md-']{
+    border-right : 1px solid #EEE;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left : 10px;padding-right : 10px;text-align : center;
+}
+panel .tab-content .panel-row > [class*='col-md-']:last-child{border-right : 0;}
+
+
+panel .tab-content .header > [class*='col-md-']{
+    border-right : 1px solid #EEE;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align : left;
+}
 
 a {
   text-decoration: none;

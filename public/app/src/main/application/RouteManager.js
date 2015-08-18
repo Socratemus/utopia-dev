@@ -47,6 +47,11 @@
                         controller  : 'FilemanagerCtrl'
                     })
                     
+                    .when( '/drive', {
+                        templateUrl : ASSETS_PATH + 'views/application/google-drive/landing.html',
+                        controller  : 'GoogleDriveCtrl'
+                    })
+                    
                     .when( '/test', {
                         templateUrl : ASSETS_PATH + 'views/application/test.html',
                         //controller  : 'MainController'

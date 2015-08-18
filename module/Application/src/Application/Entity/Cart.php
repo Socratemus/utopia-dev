@@ -40,7 +40,7 @@ class Cart extends Entity {
     
     /**
      * Date of expiration for the cart.
-     * 
+     * @ORM\Column(type="datetime" , length=35) 
      */
     protected $Expire;
     
@@ -51,11 +51,17 @@ class Cart extends Entity {
     
     /**
      * An array collection for every item stored in the cart.
+     * 
+     * @ORM\OneToMany(targetEntity="CartItem",mappedBy="Cart",cascade={"persist"})
+     * @var Collection
+     * @ORM\OrderBy({"CartItemId" = "desc"})
+     *
      */
     private $CartItems;
     
     public function __construct(){
          parent::__construct();
+         $this->CartItems = new \Doctrine\Common\Collections\ArrayCollection();
          //Construction
     }
     

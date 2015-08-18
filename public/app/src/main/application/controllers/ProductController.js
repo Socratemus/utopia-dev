@@ -55,6 +55,8 @@
                         angular.forEach( $scope.product.Product.Galery, function(Item, key) {
                             Item.src = Item.Small;
                         });
+                        requests.getFilters();
+                        //console.log( $scope.product);
                     });
                     
                 },
@@ -63,6 +65,16 @@
                         //console.log(Result.data.Object);
                         $scope.categories = Result.data.Object;
                     });
+                },
+                getCategory : function(Id){
+                    var found = null;
+                    angular.forEach( $scope.categories, function(Item, key) {
+                            if(Item.CategoryId == Id){
+                                found = Item
+                            }
+                    });
+                    if(!found){return null}
+                    return found;
                 },
                 removeGaleryImage : function(Elem , Index){
                     if(Elem.ImageId !== undefined){
@@ -82,7 +94,27 @@
                     });
                     if(!found){return null}
                     return found.replace(/\_/g, '');
+                },
+                getFilters : function(){
+                    $scope.filters = {};
+                    angular.forEach( $scope.product.Categories, function(CategoryId, key) {
+                        ApiService.get('/category/get-filters' , {c : CategoryId}).then(function(Result){
+                            $scope.filters[CategoryId] = Result.data.Object;
+                            //console.log(Result.data);
+                        });  
+                    });
+                },
+                slugify : function(Input){
+                     var value = Input;
+                    return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                },
+                addFilter : function(){
+                    console.log('add filter');
+                },
+                savefilter : function(Filter){
+                    console.log(Filter);
                 }
+                
             };
             
             
@@ -98,14 +130,36 @@
                     Stock : 1
                 }
             };
+            $scope.slugify = function(Object,Property){
+                //console.log(Object);
+                Object.Slug = requests.slugify(Object[Property]);
+            };
             $scope.save = requests.save;
+            $scope.savefilter = requests.savefilter;
             $scope.showCat = requests.showCat;
             $scope.removeGaleryImage = requests.removeGaleryImage; 
+            $scope.getCategory = requests.getCategory;
             
             if(itemId){
                 requests.getItem(itemId);
             }
             requests.getCategories();
+            
+            $scope.$watch(
+                    'product',
+                    function( newValue, oldVal ) {
+                        //check categories length changed
+                        // console.log(newValue);
+                        // console.log(newValue.categories);
+                        if(newValue.Categories == undefined || oldVal.Categories == undefined)  return;
+                        var ctch = newValue.Categories.length != oldVal.Categories.length;
+                        if(ctch){
+                            requests.getFilters();
+                            //console.log('categories have changed!');    
+                        }
+                        
+                    }, true
+                );
             
             $log = $log.getInstance("ProductController");
             $log.info("constructor() ");

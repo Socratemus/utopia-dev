@@ -13,11 +13,12 @@
             'application/RouteManager',
             'application/services/ControllService',
             'application/ApplicationModule',
+            'util/UtilModule',
             
         ],
         function ($log, LogDecorator,
             MainRouteManager, ControllSrv ,
-            ApplicationModule
+            ApplicationModule , UtilModule
 
             )
         {
@@ -42,16 +43,19 @@
                     .module(
                         appName,
                         [ "ngRoute", "ngSanitize", "ui.bootstrap", "googlechart" ,
-                            ApplicationModule
+                            ApplicationModule, UtilModule
+                            
+                            
                         ]
                     )
                     .config( LogDecorator       )
                     .config( MainRouteManager   )
                     ;
             
-            app.run(["$rootScope", "ControllService",function($rootScope, ControllSrv){
+            app.run(["$rootScope", "ControllService" , "DomService",function($rootScope, ControllSrv , DomService){
                 ControllSrv.apiListeners();
                 ControllSrv.appStatuses();
+                DomService.init();
                 
             }]);
             

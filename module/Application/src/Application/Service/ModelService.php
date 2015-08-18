@@ -15,6 +15,11 @@ class ModelService implements ServiceLocatorAwareInterface
     {
         $this->ServiceLocator = $ServiceLocator;
         $this->EntityManager = $this->ServiceLocator->get('entitymanager');
+        if(method_exists($this , 'init'))
+        {
+            call_user_func( array($this,'init'), array());
+            //exit('i haz methd');
+        }
     }
     
     public function getServiceLocator()

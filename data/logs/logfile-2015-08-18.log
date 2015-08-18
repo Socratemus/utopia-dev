@@ -1,0 +1,92 @@
+2015-08-18T12:46:15+03:00 DEBUG (7): {"ItemId":"33","Title":"Telefon mobil Apple iPhone 6, 64GB, Gold","Slug":"telefon-mobil-iphone-6gold","Status":"307","Description":"<h1>This is them product descriptionz&nbsp;<\/h1>\n\n<p>&nbsp;<\/p>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginez<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">imaginez<\/div>\n\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginezd<\/div>\n<\/div>","Product":{"Price":"999.1234","Stock":"5"}}
+2015-08-18T14:56:48+03:00 DEBUG (7): {"ItemId":"33","Title":"Telefon mobil Apple iPhone 6, 64GB, Gold","Slug":"telefon-mobil-iphone-6gold","Status":"307","Description":"<h1>This is them product descriptionz&nbsp;<\/h1>\n\n<p>&nbsp;<\/p>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginez<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">imaginez<\/div>\n\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginezd<\/div>\n<\/div>","Product":{"Price":"999.1234","Stock":"5"}}
+2015-08-18T22:08:54+03:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'The identifier CategoryId is missing for a query of Application\Entity\Category' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:259
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(378): Doctrine\ORM\ORMException::missingIdentifierField('Application\Ent...', 'CategoryId')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(154): Doctrine\ORM\EntityManager->find('Application\Ent...', NULL, 0, NULL)
+#2 /home/ubuntu/workspace/module/Application/src/Application/Service/CategoryService.php(66): Doctrine\ORM\EntityRepository->find(NULL)
+#3 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(198): Application\Service\CategoryService->getById(NULL)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main}
+2015-08-18T22:34:14+03:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'The identifier CategoryId is missing for a query of Application\Entity\Category' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:259
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(378): Doctrine\ORM\ORMException::missingIdentifierField('Application\Ent...', 'CategoryId')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(154): Doctrine\ORM\EntityManager->find('Application\Ent...', NULL, 0, NULL)
+#2 /home/ubuntu/workspace/module/Application/src/Application/Service/CategoryService.php(66): Doctrine\ORM\EntityRepository->find(NULL)
+#3 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(198): Application\Service\CategoryService->getById(NULL)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main}
+2015-08-18T22:34:14+03:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'The identifier CategoryId is missing for a query of Application\Entity\Category' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:259
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(378): Doctrine\ORM\ORMException::missingIdentifierField('Application\Ent...', 'CategoryId')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(154): Doctrine\ORM\EntityManager->find('Application\Ent...', NULL, 0, NULL)
+#2 /home/ubuntu/workspace/module/Application/src/Application/Service/CategoryService.php(66): Doctrine\ORM\EntityRepository->find(NULL)
+#3 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(198): Application\Service\CategoryService->getById(NULL)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main}
+2015-08-18T22:34:14+03:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'The identifier CategoryId is missing for a query of Application\Entity\Category' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:259
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(378): Doctrine\ORM\ORMException::missingIdentifierField('Application\Ent...', 'CategoryId')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(154): Doctrine\ORM\EntityManager->find('Application\Ent...', NULL, 0, NULL)
+#2 /home/ubuntu/workspace/module/Application/src/Application/Service/CategoryService.php(66): Doctrine\ORM\EntityRepository->find(NULL)
+#3 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(198): Application\Service\CategoryService->getById(NULL)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main}
+2015-08-18T22:34:14+03:00 CRIT (2): exception 'Doctrine\ORM\ORMException' with message 'The identifier CategoryId is missing for a query of Application\Entity\Category' in /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/ORMException.php:259
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(378): Doctrine\ORM\ORMException::missingIdentifierField('Application\Ent...', 'CategoryId')
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(154): Doctrine\ORM\EntityManager->find('Application\Ent...', NULL, 0, NULL)
+#2 /home/ubuntu/workspace/module/Application/src/Application/Service/CategoryService.php(66): Doctrine\ORM\EntityRepository->find(NULL)
+#3 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(198): Application\Service\CategoryService->getById(NULL)
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#15 {main}
