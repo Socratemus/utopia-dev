@@ -50,6 +50,14 @@ class AbstractActionController extends ZFAbstractActionController
          */
         return $data;
     }
+    
+    protected function getBasePath(){
+        $uri = $this->getRequest()->getUri();
+        $scheme = $uri->getScheme();
+        $host = $uri->getHost();
+        $base = sprintf('%s://%s', $scheme, $host);
+        return $base;
+    }
 }
 
 

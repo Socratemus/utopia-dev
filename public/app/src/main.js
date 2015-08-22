@@ -52,11 +52,13 @@
                     .config( MainRouteManager   )
                     ;
             
-            app.run(["$rootScope", "ControllService" , "DomService",function($rootScope, ControllSrv , DomService){
+            app.run(["$rootScope", "ControllService" , "DomService" , "DecoratorService"
+                ,function($rootScope, ControllSrv , DomService , DecoratorService){
+                $rootScope.basePath = BASE_PATH;
                 ControllSrv.apiListeners();
                 ControllSrv.appStatuses();
                 DomService.init();
-                
+                DecoratorService.init();
             }]);
             
             angular.bootstrap( document.getElementsByTagName("body")[0], [ appName ]);

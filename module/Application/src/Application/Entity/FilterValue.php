@@ -36,10 +36,20 @@ class FilterValue extends Entity implements AbstractEntity{
     protected $Value;
     
     /**
+     * @ORM\Column(type="integer" , nullable = false)
+     */
+    protected $FilterId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Filter",inversedBy="FilterValues",cascade={"persist"})
-     * @ORM\JoinColumn(name="Filter", referencedColumnName="FilterId" ,onDelete="CASCADE" , nullable = false)
+     * @ORM\JoinColumn(name="FilterId", referencedColumnName="FilterId" ,onDelete="CASCADE" , nullable = false)
      */
     private $Filter;
+    
+    /**
+     * @ORM\Column(type="integer" , nullable = false)
+     */
+    protected $ItemId;
     
     /**
      * @ORM\ManyToOne(targetEntity="Item",inversedBy="SpecificationsValues",cascade={"persist"})
@@ -62,8 +72,14 @@ class FilterValue extends Entity implements AbstractEntity{
     public function getValue(){
         return $this->Value;
     }
+    public function getFilterId(){
+        return $this->FilterId;
+    }
     public function getFilter(){
         return $this->Filter;
+    }
+    public function getItemId(){
+        return $this->ItemId;
     }
     public function getItem(){
         return $this->Item;
@@ -78,12 +94,20 @@ class FilterValue extends Entity implements AbstractEntity{
     public function setValue($Value){
         $this->Value = $Value;
     }
+    public function setFilterId($FilterId){
+        $this->FilterId = $FilterId;
+    }
     public function setFilter($Filter){
         $this->Filter = $Filter;
+    }
+    public function setItemId($ItemId){
+        $this->ItemId = $ItemId;
     }
     public function setItem($Item){
         $this->Item = $Item;
     }
     /**************************************************************************/
     public function toJson(){}
+    
+    
 }

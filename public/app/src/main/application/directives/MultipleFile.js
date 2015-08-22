@@ -30,47 +30,60 @@
                     var modelFiles = [];
                     
                     $(files).each(function(index, el){
-                        var modelFile = {
-                            id   : 'undefined',
-                            src  : 'undefined',
-                            file : el
-                        };
+                        // var modelFile = {
+                        //     id   : 'undefined',
+                        //     src  : 'undefined',
+                        //     file : el
+                        // };
                         
-                        modelFiles.push(modelFile);
+                        // modelFiles.push(modelFile);
                         
-                        if (FileReader && files && files.length) {
-                            var fr = new FileReader();
-                            fr.onload = function () {
-                                var src= fr.result;
-                                modelFiles[index].src = src;
-                            }
-                            fr.readAsDataURL(el);
-                        }
+                        // if (FileReader && files && files.length) {
+                        //     var fr = new FileReader();
+                        //     fr.onload = function () {
+                        //         var src= fr.result;
+                        //         modelFiles[index].src = src;
+                        //     }
+                        //     fr.readAsDataURL(el);
+                        // }
 
                         fd.append('file[]', el);
                        
                     });
-                   
+                    
+                    var apply = function( Object ){
+                        ngModel.$setViewValue(Object);
+                        ngModel.$render();
+                    }
+                    
                     $http.post('/public/api/image/bulk', fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     }).then(function(Result) {
-                        console.log('RECEIVED THE RESULTS');
-                        
-                        angular.forEach(Result.data.Object, function(hashcode, key) {
-                            modelFiles[key].id = hashcode;
+                        var modelValue = ngModel.$modelValue; 
+                        angular.forEach(Result.data.Object, function(Image, key) {
+                            modelFiles[key] = {};
+                            modelFiles[key].id = Image.hashcode;
+                            modelFiles[key].src = Image.src;
                         });
+                        if(! modelValue ) modelValue = [];
+                        var setValue = modelValue.concat(modelFiles);
+                        apply(setValue);
+                        $(el[0]).parent().find('.loader').remove(); //Remove loader.
+                        // var toSet = [{},{},{},{}];
+                        // console.log(ngModel.$modelValue);
+                        // 
+                        // $timeout(function(){
+                        //     if(ngModel.$modelValue == undefined) {
+                        //         ngModel.$setViewValue(modelFiles);
+                        //     } else {
+                        //         //var setValue = ngModel.$modelValue.concat(modelFiles);
+                        //         //ngModel.$setViewValue(modelFiles);    
+                        //     }
                         
-                        $timeout(function(){
+                        //     ngModel.$render();
                             
-                            if(ngModel.$modelValue == undefined) {
-                                ngModel.$setViewValue(modelFiles);
-                            } else {
-                                ngModel.$setViewValue(ngModel.$modelValue.concat(modelFiles));    
-                            }
-                            $(el[0]).parent().find('.loader').remove(); //Remove loader.
-                            ngModel.$render();
-                        },200);
+                        // },200);
 
                     });
                   })

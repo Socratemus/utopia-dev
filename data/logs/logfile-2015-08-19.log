@@ -1,0 +1,441 @@
+2015-08-19T16:14:22+03:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:694
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(694): PDOStatement->execute()
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'SELECT t0.FilterValueId AS FilterValueId1, t0.Slug AS Slug2, t0.Value AS Value3, t0.FilterId AS FilterId4, t0.ItemId AS ItemId5, t0.Created AS Created6, t0.Updated AS Updated7, t0.Status AS Status8, t0.FilterId AS FilterId9, t0.Item AS Item10 FROM filter_value t0 WHERE t0.FilterId = ?' with params [6]:
+
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(702): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'SELECT t0.Filte...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+2015-08-19T16:14:22+03:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:694
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(694): PDOStatement->execute()
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'SELECT t0.FilterValueId AS FilterValueId1, t0.Slug AS Slug2, t0.Value AS Value3, t0.FilterId AS FilterId4, t0.ItemId AS ItemId5, t0.Created AS Created6, t0.Updated AS Updated7, t0.Status AS Status8, t0.FilterId AS FilterId9, t0.Item AS Item10 FROM filter_value t0 WHERE t0.FilterId = ?' with params [2]:
+
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(702): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'SELECT t0.Filte...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+2015-08-19T16:14:31+03:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:694
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(694): PDOStatement->execute()
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'SELECT t0.FilterValueId AS FilterValueId1, t0.Slug AS Slug2, t0.Value AS Value3, t0.FilterId AS FilterId4, t0.ItemId AS ItemId5, t0.Created AS Created6, t0.Updated AS Updated7, t0.Status AS Status8, t0.FilterId AS FilterId9, t0.Item AS Item10 FROM filter_value t0 WHERE t0.FilterId = ?' with params [2]:
+
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 't0.FilterId' in 'field list'' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(702): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'SELECT t0.Filte...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1784): Doctrine\DBAL\Connection->executeQuery('SELECT t0.Filte...', Array, Array)
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(1740): Doctrine\ORM\Persisters\BasicEntityPersister->getOneToManyStatement(Array, Object(Application\Entity\Filter))
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(2792): Doctrine\ORM\Persisters\BasicEntityPersister->loadOneToManyCollection(Array, Object(Application\Entity\Filter), Object(Doctrine\ORM\PersistentCollection))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(236): Doctrine\ORM\UnitOfWork->loadCollection(Object(Doctrine\ORM\PersistentCollection))
+#5 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php(612): Doctrine\ORM\PersistentCollection->initialize()
+#6 /home/ubuntu/workspace/module/Application/src/Application/Entity/Filter.php(98): Doctrine\ORM\PersistentCollection->getIterator()
+#7 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(203): Application\Entity\Filter->toArray()
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->getFiltersAction()
+#9 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#12 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#14 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#16 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#17 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#18 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#19 {main}
+2015-08-19T20:46:03+03:00 INFO (6): update filter
+2015-08-19T20:46:03+03:00 DEBUG (7): null
+2015-08-19T20:48:55+03:00 INFO (6): update filter
+2015-08-19T20:48:55+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":35,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"},"35":{"FilterValueId":2,"Slug":"motorola","Value":"Motorola\r\n","FilterId":2,"ItemId":35,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T20:49:56+03:00 INFO (6): update filter
+2015-08-19T20:49:56+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:04:26+03:00 INFO (6): update filter
+2015-08-19T21:04:26+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:04:31+03:00 INFO (6): update filter
+2015-08-19T21:04:31+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:28:49+03:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Category' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php:165
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(165): PDOStatement->execute(NULL)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(257): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->createFilterAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+
+Next exception 'Doctrine\DBAL\DBALException' with message 'An exception occurred while executing 'INSERT INTO filter (Title, Slug, Created, Updated, Status, Category) VALUES (?, ?, ?, ?, ?, ?)' with params ["Default", "default ", "2015-08-19 21:28:49", "2015-08-19 21:28:49", 200, null]:
+
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Category' cannot be null' in /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:91
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/doctrine/dbal/lib/Doctrine/DBAL/Statement.php(167): Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(PDOException), 'INSERT INTO fil...', Array)
+#1 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/Persisters/BasicEntityPersister.php(279): Doctrine\DBAL\Statement->execute()
+#2 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(966): Doctrine\ORM\Persisters\BasicEntityPersister->executeInserts()
+#3 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(335): Doctrine\ORM\UnitOfWork->executeInserts(Object(Doctrine\ORM\Mapping\ClassMetadata))
+#4 /home/ubuntu/workspace/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(340): Doctrine\ORM\UnitOfWork->commit(NULL)
+#5 /home/ubuntu/workspace/module/Api/src/Api/Controller/CategoryController.php(257): Doctrine\ORM\EntityManager->flush()
+#6 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Api\Controller\CategoryController->createFilterAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#17 {main}
+2015-08-19T21:30:35+03:00 INFO (6): update filter
+2015-08-19T21:30:35+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:31:12+03:00 INFO (6): update filter
+2015-08-19T21:31:12+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:31:26+03:00 INFO (6): update filter
+2015-08-19T21:31:26+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:33:21+03:00 INFO (6): update filter
+2015-08-19T21:33:21+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:33:36+03:00 INFO (6): update filter
+2015-08-19T21:33:36+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:39:20+03:00 INFO (6): update filter
+2015-08-19T21:39:20+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:39:26+03:00 INFO (6): update filter
+2015-08-19T21:39:26+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:39:28+03:00 INFO (6): update filter
+2015-08-19T21:39:28+03:00 DEBUG (7): {"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 21:29:24","isLoading":true}
+2015-08-19T21:40:38+03:00 INFO (6): update filter
+2015-08-19T21:40:38+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:41:02+03:00 INFO (6): update filter
+2015-08-19T21:41:02+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:41:08+03:00 INFO (6): update filter
+2015-08-19T21:41:08+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:41:11+03:00 INFO (6): update filter
+2015-08-19T21:41:11+03:00 DEBUG (7): {"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:41:13+03:00 INFO (6): update filter
+2015-08-19T21:41:13+03:00 DEBUG (7): {"FilterId":5,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T21:41:59+03:00 INFO (6): update filter
+2015-08-19T21:41:59+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:42:02+03:00 INFO (6): update filter
+2015-08-19T21:42:02+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:43:26+03:00 INFO (6): update filter
+2015-08-19T21:43:26+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:43:49+03:00 INFO (6): update filter
+2015-08-19T21:43:49+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:46:28+03:00 INFO (6): update filter
+2015-08-19T21:46:28+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:47:12+03:00 INFO (6): update filter
+2015-08-19T21:47:12+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:47:29+03:00 INFO (6): update filter
+2015-08-19T21:47:29+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:47:31+03:00 INFO (6): update filter
+2015-08-19T21:47:31+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:47:50+03:00 INFO (6): update filter
+2015-08-19T21:47:50+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:48:55+03:00 INFO (6): update filter
+2015-08-19T21:48:55+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:49:01+03:00 INFO (6): update filter
+2015-08-19T21:49:01+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:49:59+03:00 INFO (6): update filter
+2015-08-19T21:49:59+03:00 DEBUG (7): {"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:50:26+03:00 INFO (6): update filter
+2015-08-19T21:50:26+03:00 DEBUG (7): {"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T21:53:09+03:00 INFO (6): update filter
+2015-08-19T21:53:09+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:53:50+03:00 INFO (6): update filter
+2015-08-19T21:53:50+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:54:16+03:00 INFO (6): update filter
+2015-08-19T21:54:16+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:55:58+03:00 INFO (6): update filter
+2015-08-19T21:55:58+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:56:25+03:00 INFO (6): update filter
+2015-08-19T21:56:25+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:56:51+03:00 INFO (6): update filter
+2015-08-19T21:56:51+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:58:13+03:00 INFO (6): update filter
+2015-08-19T21:58:13+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:58:35+03:00 INFO (6): update filter
+2015-08-19T21:58:35+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T21:58:51+03:00 INFO (6): update filter
+2015-08-19T21:58:51+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T22:00:33+03:00 INFO (6): update filter
+2015-08-19T22:00:33+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":3,"Slug":"htc","Value":"Htc","FilterId":2,"ItemId":33,"Status":1,"Created":"2015-08-11 00:00:00","Updated":"2015-08-14 00:00:00"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-17 15:11:56","isLoading":true}
+2015-08-19T22:00:40+03:00 INFO (6): update filter
+2015-08-19T22:00:40+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"ItemId":33,"Value":"create","Slug":"create"}],"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T22:01:42+03:00 INFO (6): update filter
+2015-08-19T22:01:42+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"ItemId":33,"Value":"create","Slug":"create"}],"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T22:02:44+03:00 INFO (6): update filter
+2015-08-19T22:02:44+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":6,"Slug":"update","Value":"update","FilterId":3,"ItemId":33,"Status":200,"Created":"2015-08-19 22:01:42","Updated":"2015-08-19 22:01:42"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:01:42","isLoading":true}
+2015-08-19T22:03:22+03:00 INFO (6): update filter
+2015-08-19T22:03:22+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":6,"Slug":"update","Value":"update","FilterId":3,"ItemId":33,"Status":200,"Created":"2015-08-19 22:01:42","Updated":"2015-08-19 22:01:42"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:01:42","isLoading":true}
+2015-08-19T22:04:19+03:00 INFO (6): update filter
+2015-08-19T22:04:19+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":6,"Slug":"update","Value":"update","FilterId":3,"ItemId":33,"Status":200,"Created":"2015-08-19 22:01:42","Updated":"2015-08-19 22:01:42"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:01:42","isLoading":true}
+2015-08-19T22:04:38+03:00 INFO (6): update filter
+2015-08-19T22:04:38+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":6,"Slug":"update","Value":"update","FilterId":3,"ItemId":33,"Status":200,"Created":"2015-08-19 22:01:42","Updated":"2015-08-19 22:01:42"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:01:42","isLoading":true}
+2015-08-19T22:04:51+03:00 INFO (6): update filter
+2015-08-19T22:04:51+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"crate","Slug":"crate"}],"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-17 15:23:23","isLoading":true}
+2015-08-19T22:04:52+03:00 INFO (6): update filter
+2015-08-19T22:04:52+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"create","Slug":"create"}],"FilterId":5,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T22:05:03+03:00 INFO (6): update filter
+2015-08-19T22:05:03+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"create","Slug":"create"}],"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:04:51","isLoading":true}
+2015-08-19T22:05:34+03:00 INFO (6): update filter
+2015-08-19T22:05:34+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"createasd","Slug":"createasd"}],"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:04:51","isLoading":true}
+2015-08-19T22:05:41+03:00 INFO (6): update filter
+2015-08-19T22:05:41+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":4,"Slug":"defaults","Value":"Defaults","FilterId":7,"ItemId":33,"Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 21:29:24"}},"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 21:29:24","isLoading":true}
+2015-08-19T22:06:58+03:00 INFO (6): update filter
+2015-08-19T22:06:58+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"create","Slug":"create","ItemId":33}],"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:05:34","isLoading":true}
+2015-08-19T22:07:05+03:00 INFO (6): update filter
+2015-08-19T22:07:05+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"create","Slug":"create","ItemId":33}],"FilterId":5,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:04:52","isLoading":true}
+2015-08-19T22:09:33+03:00 DEBUG (7): {"ItemId":"33","Title":"Telefon mobil Apple iPhone 6, 64GB, Goldy","Slug":"telefon-mobil-iphone-6gold","Status":"307","Description":"<h1>This is them product descriptionz&nbsp;<\/h1>\n\n<p>&nbsp;<\/p>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginez<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">imaginez<\/div>\n\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n<\/div>\n\n<div class=\"col-md-12 hide\">\n<div class=\"col-md-6\">\n<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;<\/p>\n<\/div>\n\n<div class=\"col-md-6\">imaginezd<\/div>\n<\/div>","Product":{"Price":"999.1234","Stock":"5"}}
+2015-08-19T22:10:23+03:00 INFO (6): update filter
+2015-08-19T22:10:23+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":11,"Slug":"cevas","Value":"cevas","FilterId":11,"ItemId":33,"Status":200,"Created":"2015-08-19 22:08:49","Updated":"2015-08-19 22:08:49"}},"FilterId":11,"Title":"Altceva","Slug":"altceva","Status":200,"Created":"2015-08-19 22:08:49","Updated":"2015-08-19 22:08:49","isLoading":true}
+2015-08-19T22:10:39+03:00 DEBUG (7): {"ItemId":"34","Title":"Laptop asusACHE","Slug":"laptopasus","Status":"200","Description":"Write description in here.","Product":{"Price":"111.0000","Stock":"3"}}
+2015-08-19T22:10:55+03:00 INFO (6): update filter
+2015-08-19T22:10:55+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"maron","Slug":"maron","ItemId":34}},"FilterId":12,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-19 22:09:01","Updated":"2015-08-19 22:09:01","isLoading":true}
+2015-08-19T22:10:56+03:00 INFO (6): update filter
+2015-08-19T22:10:56+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"rechin","Slug":"rechin","ItemId":34}},"FilterId":11,"Title":"Altceva","Slug":"altceva","Status":200,"Created":"2015-08-19 22:08:49","Updated":"2015-08-19 22:10:23","isLoading":true}
+2015-08-19T22:11:02+03:00 INFO (6): update filter
+2015-08-19T22:11:02+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"105\"","Slug":"105","ItemId":34}},"FilterId":10,"Title":"Diagonala","Slug":"diagonala","Status":200,"Created":"2015-08-19 22:08:34","Updated":"2015-08-19 22:08:34","isLoading":true}
+2015-08-19T22:11:05+03:00 INFO (6): update filter
+2015-08-19T22:11:05+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"105\"","Slug":"105","ItemId":34}},"FilterId":10,"Title":"Diagonala","Slug":"diagonala","Status":200,"Created":"2015-08-19 22:08:34","Updated":"2015-08-19 22:08:34","isLoading":true}
+2015-08-19T22:11:13+03:00 INFO (6): update filter
+2015-08-19T22:11:13+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"105\"","Slug":"105","ItemId":34}},"FilterId":10,"Title":"Diagonala","Slug":"diagonala","Status":200,"Created":"2015-08-19 22:08:34","Updated":"2015-08-19 22:08:34","isLoading":true}
+2015-08-19T22:11:31+03:00 INFO (6): update filter
+2015-08-19T22:11:31+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"pr34","Slug":"pr34","ItemId":34}},"FilterId":9,"Title":"newFilter","Slug":"newfilter","Status":200,"Created":"2015-08-19 22:07:25","Updated":"2015-08-19 22:07:25","isLoading":true}
+2015-08-19T22:11:32+03:00 INFO (6): update filter
+2015-08-19T22:11:32+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"pr34","Slug":"pr34","ItemId":34}},"FilterId":8,"Title":"cacat","Slug":"cacat","Status":200,"Created":"2015-08-19 21:29:42","Updated":"2015-08-19 21:29:42","isLoading":true}
+2015-08-19T22:11:32+03:00 INFO (6): update filter
+2015-08-19T22:11:32+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"pr34","Slug":"pr34","ItemId":34}],"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T22:11:40+03:00 INFO (6): update filter
+2015-08-19T22:11:40+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"pr34","Slug":"pr34","ItemId":34}],"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T22:11:41+03:00 INFO (6): update filter
+2015-08-19T22:11:41+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"pr34","Slug":"pr34","ItemId":34}},"FilterId":8,"Title":"cacat","Slug":"cacat","Status":200,"Created":"2015-08-19 21:29:42","Updated":"2015-08-19 21:29:42","isLoading":true}
+2015-08-19T22:11:41+03:00 INFO (6): update filter
+2015-08-19T22:11:41+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"pr34","Slug":"pr34","ItemId":34}},"FilterId":9,"Title":"newFilter","Slug":"newfilter","Status":200,"Created":"2015-08-19 22:07:25","Updated":"2015-08-19 22:07:25","isLoading":true}
+2015-08-19T22:13:22+03:00 INFO (6): update filter
+2015-08-19T22:13:22+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"pr34","Slug":"pr34","ItemId":34}],"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T22:13:31+03:00 INFO (6): update filter
+2015-08-19T22:13:31+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"pr34","Slug":"pr34","ItemId":34}],"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-18 09:35:31","isLoading":true}
+2015-08-19T22:14:13+03:00 INFO (6): update filter
+2015-08-19T22:14:13+03:00 DEBUG (7): {"FilterValues":{"34":{"FilterValueId":25,"Slug":"pr35","Value":"pr35","FilterId":6,"ItemId":34,"Status":200,"Created":"2015-08-19 22:13:31","Updated":"2015-08-19 22:13:31"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:13:31","isLoading":true}
+2015-08-19T22:14:23+03:00 INFO (6): update filter
+2015-08-19T22:14:23+03:00 DEBUG (7): {"FilterValues":{"34":{"FilterValueId":25,"Slug":"pr36","Value":"pr36","FilterId":6,"ItemId":34,"Status":200,"Created":"2015-08-19 22:13:31","Updated":"2015-08-19 22:13:31"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:13:31","isLoading":true}
+2015-08-19T22:14:30+03:00 INFO (6): update filter
+2015-08-19T22:14:30+03:00 DEBUG (7): {"FilterValues":{"34":{"FilterValueId":25,"Slug":"pr36","Value":"pr36","FilterId":6,"ItemId":34,"Status":200,"Created":"2015-08-19 22:13:31","Updated":"2015-08-19 22:13:31"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:13:31","isLoading":true}
+2015-08-19T22:14:56+03:00 INFO (6): update filter
+2015-08-19T22:14:56+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"Samsang","Slug":"samsang","ItemId":34}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 21:58:51","isLoading":true}
+2015-08-19T22:15:05+03:00 INFO (6): update filter
+2015-08-19T22:15:05+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"Samsang","Slug":"samsang","ItemId":34}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 21:58:51","isLoading":true}
+2015-08-19T22:15:23+03:00 INFO (6): update filter
+2015-08-19T22:15:23+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"SamsangYang","Slug":"samsangyang","ItemId":34}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 21:58:51","isLoading":true}
+2015-08-19T22:15:34+03:00 INFO (6): update filter
+2015-08-19T22:15:34+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"SamsangYang","Slug":"samsangyang","ItemId":34}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 21:58:51","isLoading":true}
+2015-08-19T22:15:43+03:00 INFO (6): update filter
+2015-08-19T22:15:43+03:00 DEBUG (7): {"FilterValues":{"34":{"Value":"SamsangYang","Slug":"samsangyang","ItemId":34}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 21:58:51","isLoading":true}
+2015-08-19T22:16:04+03:00 DEBUG (7): {"ItemId":"35","Title":"Ceva cu dulceataZ","Slug":"ceva-slug","Status":"107","Description":"<p>Write description in here.<\/p>\n\n<p>Hellow<\/p>","Product":{"Price":"100.0000","Stock":"55"}}
+2015-08-19T22:16:18+03:00 INFO (6): update filter
+2015-08-19T22:16:18+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"RED","Slug":"red","ItemId":35}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:04:38","isLoading":true}
+2015-08-19T22:16:34+03:00 INFO (6): update filter
+2015-08-19T22:16:34+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"REDd","Slug":"redd","ItemId":35}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:04:38","isLoading":true}
+2015-08-19T22:18:02+03:00 INFO (6): update filter
+2015-08-19T22:18:02+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":32,"Slug":"reddz","Value":"REDdz","FilterId":3,"ItemId":35,"Status":200,"Created":"2015-08-19 22:16:34","Updated":"2015-08-19 22:16:34"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:16:34","isLoading":true}
+2015-08-19T22:18:09+03:00 INFO (6): update filter
+2015-08-19T22:18:09+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":32,"Slug":"reddzd","Value":"REDdzd","FilterId":3,"ItemId":35,"Status":200,"Created":"2015-08-19 22:16:34","Updated":"2015-08-19 22:16:34"}},"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:16:34","isLoading":true}
+2015-08-19T22:19:13+03:00 INFO (6): update filter
+2015-08-19T22:19:13+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"12312","Slug":"12312","ItemId":35}},"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:06:58","isLoading":true}
+2015-08-19T22:19:46+03:00 INFO (6): update filter
+2015-08-19T22:19:46+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"pula filtru","Slug":"pula-filtru","ItemId":35}},"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:06:58","isLoading":true}
+2015-08-19T22:21:17+03:00 INFO (6): update filter
+2015-08-19T22:21:17+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"new","Slug":"new","ItemId":35}},"FilterId":5,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:07:05","isLoading":true}
+2015-08-19T22:21:40+03:00 INFO (6): update filter
+2015-08-19T22:21:40+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"asd","Slug":"asd","ItemId":35}},"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 22:05:41","isLoading":true}
+2015-08-19T22:22:05+03:00 INFO (6): update filter
+2015-08-19T22:22:05+03:00 DEBUG (7): {"FilterValues":{"35":{"Value":"asdasd","Slug":"asdasd","ItemId":35}},"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 22:05:41","isLoading":true}
+2015-08-19T22:30:36+03:00 INFO (6): update filter
+2015-08-19T22:30:36+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"yyy","Slug":"yyy","ItemId":35}],"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 22:15:43","isLoading":true}
+2015-08-19T22:30:45+03:00 INFO (6): update filter
+2015-08-19T22:30:45+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"yyy666","Slug":"yyy666","ItemId":35}],"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 22:15:43","isLoading":true}
+2015-08-19T22:31:36+03:00 INFO (6): update filter
+2015-08-19T22:31:36+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":2,"Slug":"yyy66655","Value":"yyy66655","FilterId":2,"ItemId":35,"Status":200,"Created":"2015-08-19 22:30:45","Updated":"2015-08-19 22:30:45"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 22:30:45","isLoading":true}
+2015-08-19T22:31:44+03:00 INFO (6): update filter
+2015-08-19T22:31:44+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":2,"Slug":"yyy66656","Value":"yyy66656","FilterId":2,"ItemId":35,"Status":200,"Created":"2015-08-19 22:30:45","Updated":"2015-08-19 22:30:45"}},"FilterId":2,"Title":"Producerz","Slug":"producerz","Status":200,"Created":"2015-08-17 15:11:56","Updated":"2015-08-19 22:30:45","isLoading":true}
+2015-08-19T22:31:55+03:00 INFO (6): update filter
+2015-08-19T22:31:55+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"0000","Slug":"0000","ItemId":35}],"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:18:09","isLoading":true}
+2015-08-19T22:32:01+03:00 INFO (6): update filter
+2015-08-19T22:32:01+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"00001","Slug":"00001","ItemId":35}],"FilterId":3,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:18:09","isLoading":true}
+2015-08-19T22:33:13+03:00 INFO (6): update filter
+2015-08-19T22:33:13+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"qwe","Slug":"qwe","ItemId":35}],"FilterId":4,"Title":"Resolution","Slug":"resolution","Status":200,"Created":"2015-08-17 15:23:23","Updated":"2015-08-19 22:19:46","isLoading":true}
+2015-08-19T22:34:18+03:00 INFO (6): update filter
+2015-08-19T22:34:18+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"qweasd","Slug":"qweasd","ItemId":35}],"FilterId":5,"Title":"Producer","Slug":"producer","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:21:17","isLoading":true}
+2015-08-19T22:35:20+03:00 INFO (6): update filter
+2015-08-19T22:35:20+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"asd","Slug":"asd","ItemId":35}],"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 22:22:05","isLoading":true}
+2015-08-19T22:35:23+03:00 INFO (6): update filter
+2015-08-19T22:35:23+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"asdqe","Slug":"asdqe","ItemId":35,"FilterValueId":7}],"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 22:22:05","isLoading":true}
+2015-08-19T22:35:31+03:00 INFO (6): update filter
+2015-08-19T22:35:31+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"asdqedfg","Slug":"asdqedfg","ItemId":35,"FilterValueId":7}],"FilterId":7,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 21:29:24","Updated":"2015-08-19 22:22:05","isLoading":true}
+2015-08-19T22:35:35+03:00 INFO (6): update filter
+2015-08-19T22:35:35+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"hello","Slug":"hello","ItemId":35}],"FilterId":13,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 22:22:34","Updated":"2015-08-19 22:22:34","isLoading":true}
+2015-08-19T22:36:13+03:00 DEBUG (7): {"ItemId":"35","Title":"Ceva cu dulceataZ","Slug":"ceva-slug","Status":"107","Description":"<p>Write description in here.<\/p>\n\n<p>Hellow<\/p>","Product":{"Price":"100.0000","Stock":"55"}}
+2015-08-19T22:41:22+03:00 INFO (6): update filter
+2015-08-19T22:41:22+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"qwe","Slug":"qwe","ItemId":35}],"FilterId":9,"Title":"newFilter","Slug":"newfilter","Status":200,"Created":"2015-08-19 22:07:25","Updated":"2015-08-19 22:11:41","isLoading":true}
+2015-08-19T22:41:25+03:00 INFO (6): update filter
+2015-08-19T22:41:25+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"123","Slug":"123","ItemId":35}],"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:14:30","isLoading":true}
+2015-08-19T22:41:26+03:00 INFO (6): update filter
+2015-08-19T22:41:26+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"qwe","Slug":"qwe","ItemId":35}],"FilterId":8,"Title":"cacat","Slug":"cacat","Status":200,"Created":"2015-08-19 21:29:42","Updated":"2015-08-19 22:11:41","isLoading":true}
+2015-08-19T22:41:30+03:00 INFO (6): update filter
+2015-08-19T22:41:30+03:00 DEBUG (7): {"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"qweasd","Slug":"qweasd","ItemId":35,"FilterValueId":12}],"FilterId":9,"Title":"newFilter","Slug":"newfilter","Status":200,"Created":"2015-08-19 22:07:25","Updated":"2015-08-19 22:11:41","isLoading":true}
+2015-08-19T22:41:33+03:00 INFO (6): update filter
+2015-08-19T22:41:33+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":9,"Slug":"defaultqwe","Value":"Defaultqwe","FilterId":20,"ItemId":35,"Status":200,"Created":"2015-08-19 22:39:52","Updated":"2015-08-19 22:39:52"}},"FilterId":20,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 22:39:52","Updated":"2015-08-19 22:39:52","isLoading":true}
+2015-08-19T22:41:49+03:00 DEBUG (7): {"ItemId":"35","Title":"Ceva cu dulceataZ","Slug":"ceva-slug","Status":"107","Description":"<p>Write description in here.<\/p>\n\n<p>Hellow<\/p>","Product":{"Price":"100.0000","Stock":"55"}}
+2015-08-19T22:42:53+03:00 DEBUG (7): {"ItemId":"36","Title":"Telefon mobil Samsung Galaxy A7, 16GB, 4G, Black","Slug":"telefon-mobil-samsung-galaxy-a7","Status":"500","Description":"<p>Write description in here.<\/p>\n\n<p>qqqq<\/p>","Product":{"Price":"2.0990","Stock":"10"}}
+2015-08-19T22:43:07+03:00 INFO (6): update filter
+2015-08-19T22:43:07+03:00 DEBUG (7): {"FilterValues":{"36":{"Value":"1024","Slug":"1024","ItemId":36}},"FilterId":25,"Title":"Decibeli","Slug":"decibeli","Status":200,"Created":"2015-08-19 22:42:22","Updated":"2015-08-19 22:42:22","isLoading":true}
+2015-08-19T22:43:09+03:00 INFO (6): update filter
+2015-08-19T22:43:09+03:00 DEBUG (7): {"FilterValues":{"36":{"Value":"Black","Slug":"black","ItemId":36}},"FilterId":26,"Title":"Color","Slug":"color","Status":200,"Created":"2015-08-19 22:42:34","Updated":"2015-08-19 22:42:34","isLoading":true}
+2015-08-19T22:43:12+03:00 INFO (6): update filter
+2015-08-19T22:43:12+03:00 DEBUG (7): {"FilterValues":{"36":{"Value":"1025","Slug":"1025","ItemId":36,"FilterValueId":19}},"FilterId":25,"Title":"Decibeli","Slug":"decibeli","Status":200,"Created":"2015-08-19 22:42:22","Updated":"2015-08-19 22:42:22","isLoading":true}
+2015-08-19T22:44:00+03:00 INFO (6): update filter
+2015-08-19T22:44:00+03:00 DEBUG (7): {"FilterValues":{"36":{"Value":"ceva","Slug":"ceva","ItemId":36}},"FilterId":24,"Title":"HELLOZ","Slug":"helloz","Status":200,"Created":"2015-08-19 22:42:08","Updated":"2015-08-19 22:42:08","isLoading":true}
+2015-08-19T22:44:03+03:00 INFO (6): update filter
+2015-08-19T22:44:03+03:00 DEBUG (7): {"FilterValues":{"36":{"Value":"cevaqwe","Slug":"cevaqwe","ItemId":36,"FilterValueId":21}},"FilterId":24,"Title":"HELLOZ","Slug":"helloz","Status":200,"Created":"2015-08-19 22:42:08","Updated":"2015-08-19 22:42:08","isLoading":true}
+2015-08-19T22:44:32+03:00 INFO (6): update filter
+2015-08-19T22:44:32+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":16,"Slug":"wow","Value":"WOW","FilterId":24,"ItemId":35,"Status":200,"Created":"2015-08-19 22:42:08","Updated":"2015-08-19 22:42:08"}},"FilterId":24,"Title":"HELLOZ","Slug":"helloz","Status":200,"Created":"2015-08-19 22:42:08","Updated":"2015-08-19 22:44:03","isLoading":true}
+2015-08-19T22:48:08+03:00 INFO (6): update filter
+2015-08-19T22:48:08+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:41:25"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:41:25","isLoading":true}
+2015-08-19T22:48:29+03:00 INFO (6): update filter
+2015-08-19T22:48:29+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:08"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:08","isLoading":true}
+2015-08-19T22:49:11+03:00 INFO (6): update filter
+2015-08-19T22:49:11+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:29"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:29","isLoading":true}
+2015-08-19T22:49:19+03:00 INFO (6): update filter
+2015-08-19T22:49:19+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":14,"Slug":"qwe","Value":"qwe","FilterId":8,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:26","Updated":"2015-08-19 22:41:26"}},"FilterId":8,"Title":"cacat","Slug":"cacat","Status":200,"Created":"2015-08-19 21:29:42","Updated":"2015-08-19 22:41:26","isLoading":true}
+2015-08-19T22:49:26+03:00 INFO (6): update filter
+2015-08-19T22:49:26+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":14,"Slug":"qwe","Value":"qwe","FilterId":8,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:26","Updated":"2015-08-19 22:41:26"}},"FilterId":8,"Title":"cacat","Slug":"cacat","Status":200,"Created":"2015-08-19 21:29:42","Updated":"2015-08-19 22:41:26","isLoading":true}
+2015-08-19T22:49:36+03:00 INFO (6): update filter
+2015-08-19T22:49:36+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:29"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:29","isLoading":true}
+2015-08-19T22:49:44+03:00 INFO (6): update filter
+2015-08-19T22:49:44+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:29"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:29","isLoading":true}
+2015-08-19T22:50:10+03:00 INFO (6): update filter
+2015-08-19T22:50:10+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:29"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:29","isLoading":true}
+2015-08-19T22:52:48+03:00 DEBUG (7): {"ItemId":"35","Title":"Ceva cu dulceataZ","Slug":"ceva-slug","Status":"107","Description":"<p>Write description in here.<\/p>\n\n<p>Hellow<\/p>","Product":{"Price":"100.0000","Stock":"55"}}
+2015-08-19T22:52:56+03:00 DEBUG (7): {"ItemId":"35","Title":"Ceva cu dulceataZ","Slug":"ceva-slug","Status":"107","Description":"<p>Write description in here.<\/p>\n\n<p>Hellow<\/p>","Product":{"Price":"100.0000","Stock":"55"}}
+2015-08-19T22:57:20+03:00 INFO (6): update filter
+2015-08-19T22:57:20+03:00 DEBUG (7): {"Title":"SA ITI FUT UNA","Slug":"sa-iti-fut-una","Category":39,"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"Default","Slug":"Default","ItemId":33,"FilterValueId":15}],"isLoading":true,"FilterId":15}
+2015-08-19T22:57:30+03:00 INFO (6): update filter
+2015-08-19T22:57:30+03:00 DEBUG (7): {"Title":"SA ITI FUT UNA","Slug":"sa-iti-fut-una","Category":39,"FilterValues":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"Value":"IN MUIE","Slug":"in-muie","ItemId":33,"FilterValueId":15}],"isLoading":true,"FilterId":15}
+2015-08-19T23:01:21+03:00 INFO (6): update filter
+2015-08-19T23:01:21+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":12,"Slug":"Default","Value":"Default","FilterId":12,"ItemId":33,"Status":200,"Created":"2015-08-19 22:55:54","Updated":"2015-08-19 22:55:54"}},"FilterId":12,"Title":"Default","Slug":"default ","Status":200,"Created":"2015-08-19 22:55:54","Updated":"2015-08-19 22:55:54","isLoading":true}
+2015-08-19T23:02:14+03:00 INFO (6): update filter
+2015-08-19T23:02:14+03:00 DEBUG (7): {"FilterValues":{"33":{"FilterValueId":2,"Slug":"","Value":"","FilterId":2,"ItemId":33,"Status":200,"Created":"2015-08-19 22:53:47","Updated":"2015-08-19 22:53:47"}},"FilterId":2,"Title":"Processor","Slug":"processor","Status":200,"Created":"2015-08-19 22:53:47","Updated":"2015-08-19 22:53:47","isLoading":true}
+2015-08-19T23:03:12+03:00 DEBUG (7): {"ItemId":"37","Title":"Telefon mobil HTC One M9, 32GB, 4G, Silver","Slug":"telefon-mobil-htc-one-m9-32gb-4g-silver","Status":"200","Description":"Write description in here.","Product":{"Price":"2999.9999","Stock":"5"}}
+2015-08-19T23:03:37+03:00 DEBUG (7): {"ItemId":"37","Title":"Telefon mobil HTC One M9, 32GB, 4G, Silver","Slug":"telefon-mobil-htc-one-m9-32gb-4g-silver","Status":"200","Description":"Write description in here.","Product":{"Price":"2999.9999","Stock":"5"}}
+2015-08-19T23:04:29+03:00 INFO (6): Creating new product
+2015-08-19T23:04:29+03:00 DEBUG (7): {"ItemId":null,"Title":"Ceva produs","Slug":"produsul-ceva","Status":"200","Description":"<p>Write description in here.<\/p>\n\n<p>OLE<\/p>","Product":{"Price":"999","Stock":"1"}}
+2015-08-19T23:04:59+03:00 DEBUG (7): {"ItemId":"43","Title":"Ceva produs","Slug":"produsul-ceva","Status":"200","Description":"<p>Write description in here.<\/p>\n\n<p>OLE<\/p>","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-19T23:05:06+03:00 DEBUG (7): {"ItemId":"43","Title":"Ceva produs","Slug":"produsul-ceva","Status":"200","Description":"<p>Write description in here.<\/p>\n\n<p>OLE<\/p>","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-19T23:05:13+03:00 DEBUG (7): {"ItemId":"43","Title":"Ceva produs","Slug":"produsul-ceva","Status":"307","Description":"<p>Write description in here.<\/p>\n\n<p>OLE<\/p>","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-19T23:05:24+03:00 INFO (6): update filter
+2015-08-19T23:05:24+03:00 DEBUG (7): {"FilterValues":{"35":{"FilterValueId":13,"Slug":"123","Value":"123","FilterId":6,"ItemId":35,"Status":200,"Created":"2015-08-19 22:41:25","Updated":"2015-08-19 22:48:29"}},"FilterId":6,"Title":"Price group","Slug":"price-group","Status":200,"Created":"2015-08-18 09:35:31","Updated":"2015-08-19 22:48:29","isLoading":true}

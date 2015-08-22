@@ -11,9 +11,9 @@ class ImageService extends ModelService {
     
     public function __construct(){
         $this->DataFolder = '/data/';
-        $this->FileManagerFolder = 'Filemanager/';
-        $this->ProductImagesFolder = 'Products/';
-        $this->TemporaryFileFolder = 'Temp/';
+        $this->FileManagerFolder = 'uploads/';
+        $this->ProductImagesFolder = 'products/';
+        $this->TemporaryFileFolder = 'temp/';
     }
     
     public function test(){

@@ -17,13 +17,14 @@
     define([
             'utils/logger/ExternalLogger',
             'util/services/DomService',
+            'util/services/DecoratorService',
 
             //'application/controllers/MainController',
           
         ],
         function ( 
             $log, 
-            DomService
+            DomService , DecoratorService
             )
         {
             
@@ -32,6 +33,7 @@
            
             angular.module( moduleName, [ ] )
                 .service(       "DomService"              ,    DomService        )
+                .service(       "DecoratorService"        ,    DecoratorService  )
             ;
            
             $log.info('UTIL MODULE LOADED');

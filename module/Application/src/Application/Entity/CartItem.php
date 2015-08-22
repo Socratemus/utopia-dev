@@ -42,7 +42,7 @@ class CartItem extends Entity {
     
     /**
      * @ORM\ManyToOne(targetEntity="Item")
-     * @ORM\JoinColumn(name="Item", referencedColumnName="ItemId")
+     * @ORM\JoinColumn(name="Item", referencedColumnName="ItemId" , onDelete="CASCADE")
      */
     private $Item;
     

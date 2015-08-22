@@ -13,10 +13,13 @@
                 
                 enablePanels : function(){
                     var self = this;
-                    $(document).on('click' , '.toggle-panel' , (function(){
-                        $('.content').toggleClass('disable-scroll');
-                        $('panel').toggleClass('open');
+                    $(document).on('click' , '.toggle-panel' , (function(ev){
+                        $('panel').removeClass('open');// close all panels
+                        var $target = $(ev.target),
+                            panel = $($target.data('target'));
+                        ;
                         
+                        panel.addClass('open');
                     }));
                     $(document).on('click' , 'panel .overlay' , (function(){
                         $('.content').toggleClass('disable-scroll');
@@ -24,8 +27,8 @@
                     }));
                     
                     $(document).on('click' , 'panel .close-panel' , (function(){
-                        $('.content').toggleClass('disable-scroll');
-                        $('panel').toggleClass('open');
+                        $('.content').removeClass('disable-scroll');
+                        $('panel').removeClass('open');
                     }));
                     
                     // $(document).mouseup(function (e)

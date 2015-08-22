@@ -10,7 +10,7 @@ use Zend\View\Model\ViewModel;
 class ImageController extends AbstractActionController
 {
     
-    protected $ImageDestionation = 'data/Filemanager/Temp';
+    protected $ImageDestionation = 'data/uploads/temp';
     
     public function __construct(){
         
@@ -78,6 +78,8 @@ class ImageController extends AbstractActionController
     {
         try
         {
+            //var_dump($this->getBasePath());exit;
+            
             $response = array();
             $this->JsonResponse->setSucceed(1);
             
@@ -99,7 +101,11 @@ class ImageController extends AbstractActionController
                 
                 usleep(50000); //usleep 50ms
                 unset($hash);
-                array_push($response , $imageId);
+                $object = array(
+                    'src' => $this->getBasePath() . '/data/uploads/temp/'.$imageId.'/'.$imageId.'SM.png',
+                    'hashcode' => $imageId
+                );
+                array_push($response , $object);
             }
             
             $this->JsonResponse->setVariables($response);

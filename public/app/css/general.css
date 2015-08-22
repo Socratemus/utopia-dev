@@ -7,7 +7,11 @@ html , body{
 body{
     overflow-x : hidden;
 } 
-
+@media only screen and (min-device-width: 1024px) {
+    body,html {
+        min-width: 1025px;
+    }
+}
 label, input, select, textarea, li , table {
   font-size: 12px;
   color: #999;
@@ -25,7 +29,9 @@ label, input, select, textarea, li , table {
     font-size : 85%;
 }
 
-.fa.medium{}
+.fa.medium{
+    font-size : 25px;
+}
 .fa.big{
     font-size : 30px;
 }
@@ -49,6 +55,9 @@ input[type=text], input[type=email],input[type=date], textarea {
 
 input[type=text].fw, input[type=email].fw,input[type=date].fw, textarea.fw{
     width : 180px;
+}
+.form-control{
+    box-shadow : none;
 }
 select.form-control {
     height: 26px; padding : 0;padding-left: 0;
@@ -417,19 +426,7 @@ span.alert{
     padding : 0;
 }
 
-panel{
-    right : -850px;
-    width : 750px;
-    height : 100%;
-    position :absolute;
-    background : #FFF;
-    /*background-color : rgba(0,0,0,.333);*/
-    z-index : 3;
-    transition : right .4s ease-in-out;
-    -webkit-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
-    box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
-}
+
 
 .close-panel{
     position : absolute;
@@ -441,26 +438,94 @@ panel{
     bottom : 2px; right : 5px;
 }
 
-panel.open{
+panel{
+    
+    width : 100%;
+    height : 100%;
+    position :absolute;
+    background : #FFF;
+    z-index : 3;
+    transition : all .4s ease-in-out;
+    
+}
+panel.right{
+    right : -850px;
+    -webkit-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+    box-shadow: -10px 0px 30px 0px rgba(0,0,0,0.25);
+}
+panel.left{
+    left : -850px;
+    -webkit-box-shadow: 10px 0px 30px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 10px 0px 30px 0px rgba(0,0,0,0.25);
+    box-shadow: 10px 0px 30px 0px rgba(0,0,0,0.25);
+}
+
+panel.left .close-panel{
+    right : 5px;left: initial;
+}
+
+panel.right.open{
     
     right : 0; 
     
 }
+panel.left.open{
+    
+    left : 0; 
+    
+}
+
+panel .inner{
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    overflow-x: hidden;
+    /*padding-bottom: 30px;*/
+}
+
 panel .nav.nav-tabs li a{border-radius : 0px;
     border-top : 0 !important;
 }
 
-panel .nav.nav-tabs li a:first-child{
+panel .nav.nav-tabs li:first-child a:first-child{
     border-left : 0 !important;
 }
+panel .nav.nav-tabs li.active a{
+    background-color  :#F9F9F9; 
+    border-bottom-color :#F9F9F9 ;
+}
+panel .nav.nav-tabs li.active a:focus{
+    border-bottom-color :#F9F9F9 ;
+}
+
 
 panel .tab-content{
     padding :15px;
+    padding-top : 0;
 }
 
 panel .tab-content .panel-row{
     border-bottom : 1px solid #EEE;
+    position: relative;
 }
+
+panel .tab-content .panel-row .panel-row-loading{
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(169, 166, 166, 0.24);
+    /*border-top: 1px solid #A0A0A0;*/
+    /*border-bottom: 1px solid #A0A0A0;*/
+    box-shadow: 0px 0px 1px 0px rgb(210, 210, 210);
+}
+
+panel .tab-content .panel-row:nth-child(2n+1) {
+    background-color: rgba(249, 249, 249, 0.11);
+    /*box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,.3);*/
+}
+
 panel .tab-content .header {
     font-size: 12px;
     padding-left: 5px;
@@ -601,4 +666,7 @@ ul.action-dropdown > li > a {font-size : 11px;}
 
 .form-control:focus{
     border-color: rgb(193, 192, 192);
+}
+label.label.label-small{
+    font-size : 65%;
 }

@@ -1,0 +1,19 @@
+2015-08-21T23:05:54+03:00 INFO (6): Creating new product
+2015-08-21T23:05:54+03:00 DEBUG (7): {"ItemId":null,"Title":"Default Title ---","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999","Stock":"1"}}
+2015-08-21T23:11:42+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title ---","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:12:16+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title ---","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:12:19+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title ---","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:12:28+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:13:22+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:13:24+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:35:50+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:36:15+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:38:44+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:39:04+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:50:18+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:50:28+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:50:48+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:51:56+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:52:02+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:56:38+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-21T23:57:10+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title CACA","Slug":"Default slug","Status":"200","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}

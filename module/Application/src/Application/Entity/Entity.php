@@ -30,13 +30,15 @@ abstract class Entity {
     /**************************************************************************/
     final public function exchange($Data){
         //var_dump($Data);exit;
+        $this->Updated = new \DateTime('now');
+        $exclude = array('Created' , 'Updated');
         $reflect = new \ReflectionClass($this);
 
         $props = $reflect->getProperties(\ReflectionProperty::IS_PROTECTED);
 
         foreach ($props as $prop) {
 
-            if (isset($Data[$prop->getName()])) {
+            if (isset($Data[$prop->getName()]) && ! in_array($prop->getName(),$exclude)) {
                 $this->{$prop->getName()} = $Data[$prop->getName()];
             }
         }

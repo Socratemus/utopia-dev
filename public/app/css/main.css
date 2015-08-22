@@ -127,20 +127,22 @@ header ul.navigation ul.dropdown-menu > li > a i {
   border-bottom: 1px solid #CCC;
   padding: 2px 30px 5px 30px;
   text-shadow: 0 1px 0 #FFF;
-  margin-bottom : 15px;
+  /*margin-bottom : 15px;*/
 }
 
 .form-title.mb0{margin-bottom:0;}
 .form-title ._ft{
     font-weight: bold;
     font-size: 17px;
-    margin-top: 9px; margin-bottom : 5px;
+    margin-top: 9px; 
+    /*margin-bottom : 5px;*/
     color: rgba(0, 0, 0, 0.70);
-    float: left;padding-left : 25px;
+    float: left;
+    padding-left : 25px;
 }
 
 .form-title ._abw{
-  /*margin-top : 5px;*/
+  margin-top : 5px;
 }
 
 .btn.custom{
@@ -148,7 +150,7 @@ header ul.navigation ul.dropdown-menu > li > a i {
   border-radius: 4px !important;
   background: #B0DFED !important;
   padding: 1px 10px !important;
-  margin-top: 3px;
+  /*margin-top: 3px;*/
   color : rgb(71, 68, 68);
   border: 0!important;
   border-top: 1px solid rgba(255, 255, 255, 0.5)!important;
@@ -247,7 +249,7 @@ header ul.navigation ul.dropdown-menu > li > a i {
     width: 120px;
     height: 116px;
     border: 1px solid lightgray;
-    margin: 5px; margin-bottom: 17px;
+    margin: 5px; margin-bottom: 25px;
     padding : 5px;
     background :url(../img/ajax-small-preloader.gif);
     background-repeat: no-repeat;
@@ -264,9 +266,14 @@ header ul.navigation ul.dropdown-menu > li > a i {
     margin: auto;
 }
 
-#Galery {
-    margin-bottom: 15px;
+.galery-item-ftr > label {font-size : 65%;}
+.galery-item-ftr > .btn {
+  margin-top : 4px !important;
 }
+
+/*#Galery {*/
+/*    margin-bottom: 15px;*/
+/*}*/
 .product-categories{margin-top : -3px;}
 .product-categories > span{
   float : left;margin-top : 3px;

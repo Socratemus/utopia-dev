@@ -5,7 +5,7 @@ namespace Api\Controller;
 
 use Application\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
+use Application\Entity as Entity;
 
 class CategoryController extends AbstractActionController
 {
@@ -190,6 +190,9 @@ class CategoryController extends AbstractActionController
     
     /**********************************************************************/
     
+    /**
+     * Returns all filters of a given category id.
+     */
     public function getFiltersAction(){
         try
         {
@@ -203,12 +206,153 @@ class CategoryController extends AbstractActionController
                 array_push($tmp , $filter->toArray());
             }
             
-            //var_dump($category->getFilters());exit;
             $this->JsonResponse->setVariables(
                 $tmp
             );
             
             $this->JsonResponse->setMessage('Get filters action.');
+            $this->JsonResponse->setSucceed();
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e)
+        {
+            $this->getLogger()->crit($e);
+            $this->JsonResponse->setMessage($e->getMessage());
+            $this->JsonResponse->setFailed(1);
+            return $this->JsonResponse;
+        }
+    }
+    
+    /**
+     * Creates a new filter.
+     */
+    public function createFilterAction()
+    {
+        try
+        {
+            $data   = $this->getPayload();
+            $csrv   = $this->getServiceLocator()->get('CategoryService');
+            $itmsrv = $this->getServiceLocator()->get('ItemService');
+            $em     = $this->getServiceLocator()->get('EntityManager');
+            if(!isset($data['Category']))
+            {
+                throw new \Exception('Category not provided');
+            }
+            $category = $csrv->getById($data['Category']);
+            $filter = new Entity\Filter();
+            $filter->exchange($data);
+            $filter->setCategory($category);
+            $em->persist($filter);
+            
+            if(isset($data['FilterValues']) && is_array($data['FilterValues'])){
+                foreach($data['FilterValues'] as $filterValue){
+                    if(!empty($filterValue) && isset($filterValue['ItemId']))
+                    {
+                        $item = $itmsrv->getById($filterValue['ItemId']);
+                        $fv = new Entity\FilterValue();
+                        $fv->exchange($filterValue);
+                        $fv->setItem($item);
+                        $fv->setFilter($filter);
+                        $filter->getFilterValues()->add($fv);
+                        $em->persist($fv);
+                    }
+                    
+                }
+            }
+            $em->flush();
+            $this->JsonResponse->setMessage(__METHOD__);
+            $this->JsonResponse->setVariables($filter->toArray());
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e)
+        {
+            $this->getLogger()->crit($e);
+            $this->JsonResponse->setMessage($e->getMessage());
+            $this->JsonResponse->setFailed(1);
+            return $this->JsonResponse;
+        }
+        
+    }
+    
+    /**
+     * Updates a new filter
+     * If filter values are sent, they are also updated
+     * or created.
+     */
+    public function updateFilterAction()
+    {   
+        try
+        {
+            $data = $this->getPayload();
+            $itmsrv = $this->getServiceLocator()->get('ItemService');
+            $em = $this->getServiceLocator()->get('EntityManager');
+            //unset($data['FilterValues']);
+            $this->getLogger()->info('update filter');
+            $this->getLogger()->debug(json_encode($data));
+            
+            $filterId = $data['FilterId'];
+            $filter   = $em->getRepository('Application\Entity\Filter')->find($filterId);
+            $filter->exchange($data);
+            $em->persist($filter);
+            
+            if(isset($data['FilterValues']) && is_array($data['FilterValues'])){
+                foreach($data['FilterValues'] as $filterValue){
+                    if(!empty($filterValue) && isset($filterValue['ItemId']) && !isset($filterValue['FilterValueId']))
+                    {
+                        $item = $itmsrv->getById($filterValue['ItemId']);
+                        $fv = new Entity\FilterValue();
+                        $fv->exchange($filterValue);
+                        $fv->setItem($item);
+                        $fv->setFilter($filter);
+                        $filter->getFilterValues()->add($fv);
+                        $em->persist($fv);
+                    }
+                    if(!empty($filterValue) && isset($filterValue['ItemId']) && isset($filterValue['FilterValueId']))
+                    {
+                        $fv   = $em->getRepository('Application\Entity\FilterValue')->find($filterValue['FilterValueId']);
+                        $fv->exchange($filterValue);
+                        $em->persist($fv);
+                    }
+                    
+                }
+            }
+
+            $em->flush();
+            $this->JsonResponse->setMessage(__METHOD__);
+            $this->JsonResponse->setVariables($filter->toArray());
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e)
+        {
+            $this->getLogger()->crit($e);
+            $this->JsonResponse->setMessage($e->getMessage());
+            $this->JsonResponse->setFailed(1);
+            return $this->JsonResponse;
+        }
+    }
+    
+    /**
+     * Removes a filter by its ID
+     * 
+     */
+    public function deleteFilterAction()
+    {
+        try
+        {
+            $id = $this->params()->fromQuery('id');
+            if(!$id){
+                throw new \Exception('Filter id was not provided.');
+            }
+            
+            $em = $this->getServiceLocator()->get('EntityManager');
+            
+            $filter = $em->getRepository('\Application\Entity\Filter')->find($id);
+            if(!$filter) {
+                throw new \Exception('This filter does not exists');
+            }
+            $em->remove($filter);$em->flush();
+            $this->JsonResponse->setMessage(__METHOD__);
+            //$this->JsonResponse->setVariables($filter->toArray());
             $this->JsonResponse->setSucceed();
             return $this->JsonResponse;
         }

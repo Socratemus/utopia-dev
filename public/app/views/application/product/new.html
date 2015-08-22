@@ -1,21 +1,21 @@
 <div class="container-fluid">
-    <form class="" name="pfrm" novalidate enctype="multipart/form-data">
+    <form class="" name="ifrm" novalidate enctype="multipart/form-data">
       
-        <div class="col-md-12 extended form-title">
-            <div class="col-md-8">
+        <div class="col-md-12 col-xs-12 extended form-title">
+            <div class="col-md-8 col-xs-8">
               
-                <h3 class="_ft">Add a new product</h3>
+                <h3 class="_ft mb0">Add a new product</h3>
               
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-4">
               <div class="_abw text-right">
-                <button class="btn custom" ng-disabled="pfrm.$invalid" ng-click="save()">Save</button>
+                <button class="btn custom" ng-disabled="ifrm.$invalid" ng-click="actions.item.create()">Save</button>
                 <button class="btn custom">Close</button>
               </div>
               
             </div>
         </div>
-        
+        <div class="clearfix"></div>
         <div class="form-content col-md-12 extended">
             
             <legend><span>New product</span></legend>
@@ -23,72 +23,84 @@
             
             <div class="clearfix"></div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            
+            <!-- ITEM NAME -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
                     <label for="">Title</label>    
                 </div>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="product.Title" name="Title" required placeholder="Product title">
-                    <div ng-show="pfrm.Title.$error.required">
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" class="form-control" ng-model="item.Title" ng-change="_slugify(item , 'Title' , 'Slug')" name="Title" 
+                        required placeholder="Product title" 
+                    />
+                    <div ng-show="ifrm.Title.$error.required">
                         <span class="alert alert-danger">Please provide product name.</span>
                     </div>
                 </div>
                 
             </div>
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            
+            <!-- ITEM SLUG -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
                     <label for="">Slug</label>    
                 </div>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="product.Slug" name="Slug" required placeholder="Product slug">
-                    <!--<div ng-show="pfrm.Title.$error.required">-->
-                    <!--    <span class="alert alert-danger">Please provide product name.</span>-->
-                    <!--</div>-->
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" disabled class="form-control" ng-model="item.Slug" name="Slug" required placeholder="Product slug">
+                    <div ng-show="ifrm.Slug.$error.required">
+                        <span class="alert alert-danger">Please provide product slug.</span>
+                    </div>
                 </div>
                 
             </div>
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            
+            
+            <!-- ITEM PRICE -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
                     <label for="">Price</label>    
                 </div>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="product.Product.Price" name="Price" required placeholder="Product price">
-                    <div ng-show="pfrm.Price.$error.required">
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" class="form-control" ng-model="item.Product.Price" name="Price" required placeholder="Product price">
+                    <div ng-show="ifrm.Price.$error.required">
                         <span class="alert alert-danger">Please provide product price.</span>
                     </div>
                 </div>
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <!-- ITEM STOCK -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
                     <label for="">Stock</label>    
                 </div>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="product.Product.Stock" name="Stock" required placeholder="Product stock">
-                    <div ng-show="pfrm.Stock.$error.required">
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" class="form-control" ng-model="item.Product.Stock" name="Stock" required placeholder="Product stock">
+                    <div ng-show="ifrm.Stock.$error.required">
                         <span class="alert alert-danger">Please provide product stock.</span>
                     </div>
                 </div>
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <!-- ITEM CATEGORIES -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
                     <label for="">Categories</label>    
                 </div>
-                <div class="col-md-9">
-                    <select class="form-control pull-left custom-select fw double" style="height : 76px;" ng-model="product.Categories" multiple name="Category" required>
+                <div class="col-md-9 col-xs-9">
+                    <select class="form-control pull-left custom-select fw double" style="height : 76px;" ng-model="item.Categories" multiple name="Category" required>
                         <option> - Select categories - </option>
-                        <option ng-repeat="category in categories" value="{{category.CategoryId}}">{{category.CategoryId}}. {{category.Title}}</option>
+                        <option selected="selected" ng-repeat="category in categories" value="{{category.CategoryId}}">{{category.CategoryId}}. {{category.Title}}</option>
                     </select>
+                    
                     <div class="ml15 pull-left col-md-7 product-categories">
                         
-                        <span ng-repeat="selct in product.Categories" class="label label-success mr5">{{showCat(selct)}}</span>
+                        <span ng-repeat="catId in item.Categories" class="label label-success mr5">{{actions.category.get(catId).Title}}</span>
                        
                     </div>
                     <div class="clearfix"></div>
-                    <div ng-show="pfrm.Category.$error.required">
+                    <div ng-show="ifrm.Category.$error.required">
                         <span class="alert alert-danger">Please provide the categories this product will belong.</span>
                     </div>
                     
@@ -96,79 +108,83 @@
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <!-- ITEM PRODUCER -->
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-2">
                     <label for="">Producer</label>    
                 </div>
-                <div class="col-md-3">
-                    <select class="form-control fw" ng-model="product.Product.Producer" name="Producer" required>
+                <div class="col-md-3 col-xs-4">
+                    <select class="form-control fw" ng-model="item.Product.Producer" name="Producer" required>
                         <option value="">-- Select Producer --</option>
-                        <option value="1">Samsung</option>
+                        <option ng-selected="item.Product.Producer == 1" value="1">Samsung</option>
                     </select>
                     <!--<input type="text" class="form-control" ng-model="product.Product.Producer" name="Producer" required placeholder="Product stock">-->
-                    <div ng-show="pfrm.Producer.$error.required">
+                    <div ng-show="ifrm.Producer.$error.required">
                         <span class="alert alert-danger">Please provide product producer.</span>
                     </div>
                 </div>
                 
-                <div class="col-md-3 brl">
+                <br class="visible-sm">
+                
+                <div class="col-md-3 brl  col-xs-2">
                     <label for="">Cover file</label>    
                 </div>
-                <div class="col-md-3 custom-file">
-                    <input type="file" name="Cover" mxfile ng-model="product.Cover" required>
-                    <div ng-show="pfrm.Cover.$error.required">
+                <div class="col-md-3 custom-file col-xs-4">
+                    <input type="file" name="Cover" mxfile ng-model="item.Cover" required>
+                    <div ng-show="ifrm.Cover.$error.required">
                         <span class="alert alert-danger">Please provide product cover file.</span>
                     </div>
                 </div>
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-1">
-                    <label for="">Created</label>    
-                </div>
-                <div class="col-md-3">
-                    <p class="input-group">
-                      <input type="date" class="form-control" disabled datepicker-popup ng-model="product.Created" is-open="openeda" close-text="Close" />
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                      </span>
-                    </p>
-                </div>
-                <div class="col-md-1">
-                    <label for="">Updated</label>    
-                </div>
-                <div class="col-md-3">
-                    <p class="input-group">
-                      <input type="date" class="form-control" disabled datepicker-popup ng-model="product.Updated" is-open="openeda" close-text="Close" />
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                      </span>
-                    </p>
-                </div>
+            <!-- ITEM DATES -->
+            <!--<div class="form-group col-md-12 col-xs-12">-->
+            <!--    <div class="col-md-1 col-xs-1">-->
+            <!--        <label for="">Created</label>    -->
+            <!--    </div>-->
+            <!--    <div class="col-md-3 col-xs-3">-->
+            <!--        <p class="input-group">-->
+            <!--          <input type="date" class="form-control" disabled datepicker-popup ng-model="item.Created" is-open="openeda" close-text="Close" />-->
+            <!--          <span class="input-group-btn">-->
+            <!--            <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+            <!--          </span>-->
+            <!--        </p>-->
+            <!--    </div>-->
+            <!--    <div class="col-md-1 col-xs-1">-->
+            <!--        <label for="">Updated</label>    -->
+            <!--    </div>-->
+            <!--    <div class="col-md-3 col-xs-3">-->
+            <!--        <p class="input-group">-->
+            <!--          <input type="date" class="form-control" disabled datepicker-popup ng-model="item.Updated" is-open="openeda" close-text="Close" />-->
+            <!--          <span class="input-group-btn">-->
+            <!--            <button type="button" class="btn btn-default" disabled ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+            <!--          </span>-->
+            <!--        </p>-->
+            <!--    </div>-->
                 
-                <div class="col-md-1">
-                    <label for="">Status</label>    
-                </div>
-                <div class="col-md-3">
-                    <select ng-model="product.Status" class="form-control ">
-                        <option ng-repeat="status in statuses" ng-selected="status.Id == product.Status" value="{{status.Id}}">{{status.Name}}</option>
-                    </select>
-                </div>
-            </div>
+            <!--    <div class="col-md-1 col-xs-1">-->
+            <!--        <label for="">Status</label>    -->
+            <!--    </div>-->
+            <!--    <div class="col-md-3 col-xs-3">-->
+            <!--        <select ng-model="item.Status" class="form-control ">-->
+            <!--            <option ng-repeat="status in statuses" ng-selected="status.Id == item.Status" value="{{status.Id}}">{{status.Name}}</option>-->
+            <!--        </select>-->
+            <!--    </div>-->
+            <!--</div>-->
             
-            <div class="form-group col-md-12">
-                <div class="col-md-12">
-                    <label for="">Description</label>    
-                </div>
-                <div class="col-md-12">
-                    <textarea name="Description" ng-model="product.Description" ckeditor required></textarea>
-                    <div ng-show="pfrm.Description.$error.required">
-                        <span class="alert alert-danger">Please provide product description.</span>
-                    </div>
-                </div>
+            <!--<div class="form-group col-md-12 col-xs-12">-->
+            <!--    <div class="col-md-12">-->
+            <!--        <label for="">Description</label>    -->
+            <!--    </div>-->
+            <!--    <div class="col-md-12">-->
+            <!--        <textarea name="Description" ng-model="item.Description" ckeditor required></textarea>-->
+            <!--        <div ng-show="ifrm.Description.$error.required">-->
+            <!--            <span class="alert alert-danger">Please provide product description.</span>-->
+            <!--        </div>-->
+            <!--    </div>-->
                 
-            </div>
+            <!--</div>-->
             
         </div> <!-- END FORM CONTENT -->
         <div class="clearfix"></div>
