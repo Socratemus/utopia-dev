@@ -1,0 +1,243 @@
+@import url(//fonts.googleapis.com/css?family=Karla:400,700);
+@import url(//fonts.googleapis.com/css?family=Dosis:400,500,600,700,300);
+
+@import 'vars'; 
+
+@import 'global';
+
+@import 'custom'; 
+ 
+@import 'media'; 
+ 
+/* Will need a save of this file to complile it properly. */
+/* We will write scss in here and then move it to its coresponding folder */ 
+
+#MainHandler{
+    ;
+}
+
+.menutoggler { 
+    float : left;
+    font-size : 24px;
+    padding : 26px 10px;
+    width : 100%;
+    border-right : 2px solid $color-light;
+}
+
+.menutoggler.or{
+    border-left : 2px solid $color-light;
+    border-right : 0px;
+}
+.menutoggler.nb{
+    border : 0px;
+}
+
+#HeaderMenu{
+    padding-top     : 10px;
+    padding-bottom  : 10px;
+}
+
+#HeaderMenu > nav > ul {
+    margin : 0; padding : 0;
+    list-style : none;
+    text-align: center;
+}
+
+#HeaderMenu > nav > ul > li{
+    display : inline-block;
+}
+
+#HeaderMenu > nav > ul > li > a{
+    padding : 0px 8px;
+    height : 58px;
+    line-height : 58px;
+    display : block; text-align : center;
+} 
+#HeaderMenu > nav > ul > li > a > span{
+    font-family: Karla;
+    font-weight: 700;
+    font-style: normal; 
+    font-size: 15px;
+}
+
+#HB{
+    padding: 15px 0;
+    position: relative;
+    z-index: 3;
+    background : $color-light-green;
+    color : $color-dark-green;
+    text-align : center;
+} 
+#HB section{
+        padding: 5px 0!important;
+}
+
+.product-wp{
+    min-height : 300px;
+    background : $color-open-light;
+}
+
+h1.site-heading , h2.site-heading , h3.site-heading, h4.site-heading{
+    font-family: Dosis;
+    line-height: 24px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-style: normal;
+    float : left;
+}
+
+.site-heading > span {
+    border-bottom: 2px solid #222;
+    padding-bottom: 3px;
+    display: inline-block;
+}
+
+.site-button {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    height: auto;
+    padding: 20px 36px;
+    margin: 0 10px 20px 0;
+    font-weight: bold;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+    outline: 0;
+    text-shadow: none;
+    text-decoration: none;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    max-width: 100%;
+}
+
+.site-button > span {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: 4px;
+    line-height: 20px;
+}
+
+.site-button.has-icon > i {
+    position : absolute;
+    left: 0px;
+    font-size: 18px;
+    top: 21px;
+} 
+ 
+.prod-inner{
+    cursor : pointer;
+    position : relative;
+    min-height : 300px;
+    background-color: #fff;
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.prod-inner:hover{
+    -moz-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    -webkit-transform: translateY(-4px);
+    -moz-transform: translateY(-4px);
+    transform: translateY(-4px);
+} 
+
+.prod-inner .image-mask{
+    width : 100%;
+    height : 250px; overflow : hidden;
+}
+.prod-inner .image-mask img{ width : 100%; }
+
+.prod-inner .product-details{
+    background : #FFF;
+    padding-top : 25px;padding-bottom : 25px;
+    position : relative;
+}
+.product-details .pr-price{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    
+    font-size: 16px;
+    line-height: 20px; 
+    margin-top: 2px;
+    margin-bottom: 0;
+    display: block;  
+    font-weight: bold;
+    
+} 
+
+.product-details .pr-stars{
+    position: absolute; 
+    bottom: 0px;
+    right: 20px;
+}
+
+footer {
+    color: rgb(153, 153, 153);
+    font-family: Dosis;
+}
+
+footer h3{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+} 
+
+.text { 
+    font-family: Karla;
+    font-size: 14px;
+    font-style: normal; 
+    font-weight: normal; 
+    letter-spacing: normal;
+    line-height: 26px; 
+}
+
+section#Footer{
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.product h3 {
+    margin: 0!important;
+    padding: 0!important;
+    line-height: 150%;
+    font-size: 18px;
+}  
+
+
+#SM ul li a {
+    color : $color-lightgray;
+    text-align: left;
+    padding: 20px 0!important;
+    display: block;
+    font-family: Karla;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+}
+#SM ul li:first-child{
+    border-top : 0;
+}
+#SM ul li {
+    border-top: 2px solid rgba(255,255,255,0.2);
+    text-align: left;
+}
+
+#SM nav {
+    padding: 0 30px;
+}
+
+#SM ul{
+    list-style : none;
+    margin : 0;
+    padding : 0;
+}

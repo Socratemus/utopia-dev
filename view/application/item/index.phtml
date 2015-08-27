@@ -10,14 +10,20 @@
     
 </style>
 
-<div class="row">
+<div class="container-fluid">
     
     <div class="col-md-4" style="border : 0px solid lightgray;">
         
         <div style="border : 1px solid lightgray; padding : 5px">
            <!-- Create a Cloud Zoom in the usual way. -->
             <img src="<?php echo $cover->getMedium();?>" width="100%" id = "zoom1" class = "cloudzoom"
-                 data-cloudzoom = "zoomImage: '<?php echo $cover->getHuge();?>' , zoomPosition: 'inside', autoInside: true" />
+                 data-cloudzoom = "zoomImage: '<?php echo $cover->getHuge();?>' , 
+                 zoomPosition: 'inside', 
+                 autoInside: true,
+                 startMagnification : 2, 
+                 maxMagnification : 4
+                 " 
+             />
         
         </div> 
         
@@ -44,17 +50,17 @@
     </div>
     
     
-    <div class="col-md-7">
+    <div class="col-md-6">
         <div style="padding : 0 10px" id="PrFront">
             
             <!-- STARS AND AVAILABILITY ZONE -->
             <div>
                 
                 <span class="_pr_stars mr25"> 
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star full"></i>
+                    <i class="fa fa-star full"></i>
+                    <i class="fa fa-star full"></i>
+                    <i class="fa fa-star full"></i>
                     <i class="fa fa-star"></i>
                 </span>
                 
@@ -64,7 +70,7 @@
             
             <!-- PRODUCT TITLE ZONE -->
             <div>
-                <h2 class="mt0" style="margin-top : 0;margin-bottom : -10px;">VAIO fit laptop - windows 8 SVF14322CXW</h2>
+                <h2 class="mt0" style="margin-top : 0;margin-bottom : -10px;"><?php echo $this->item->getTitle();?></h2>
                 <small><small>SONY</small></small>
                 <hr class="mt5 mb0 pb5" />
             </div>
@@ -97,26 +103,42 @@
             
             <!-- PRICE ZONE -->
             <div class="prices">
-                <div class="price-current">$1740.00</div>
+                <div class="price-current">$<?php echo $this->item->getProduct()->getPrice();?></div>
                 <div class="price-prev"><span>$2199.00</span> Discount 20%</div>
             </div>
             
             <!-- QUANTITY & ADD BTN ZONE -->
             <div class="qt-wp">
-                <div class="qnt">
-                    <form>
-                        <a class="minus" href="#reduce"></a>
-                        <input name="quantity" readonly="readonly" type="text" value="1">
-                        <a class="plus" href="#add"></a>
-                    </form>
-                </div>
                 <a id="AddToCart" href="" class="btn btn-danger">add to cart</a>
             </div>
             
-            <div class="col-md-12 extended mt15">
+            <div class="col-xs-12 extended _pr_bt mt15">
+                
+                <div class="col-xs-4">
+                    <span>
+                        <label class="text-center block"><i class="fa fa-credit-card large"></i></label>
+                        Plata ramburs
+                    </span>
+                </div>
+                <div class="col-xs-4">
+                    <span>
+                        <i class="fa fa-dropbox large"></i> 
+                        <?php echo $this->translate('Limited quantity');?> 
+                    </span>
+                </div>
+                <div class="col-xs-4">
+                    <span>
+                        <i class="fa fa-mobile large"></i> 
+                        Comanda telefonic
+                    </span>
+                </div>
+                
+            </div>
+            
+            <div class="col-md-12 hide extended mt15">
                 <div style="border : 0px solid gray; min-height : 250px;">
         
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs hide">
                         <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
                         <li class=""><a href="#aditional-description" data-toggle="tab">Additional Information</a></li>
                         <li class=""><a href="#reviews" data-toggle="tab">Reviews(3)</a></li>
@@ -367,18 +389,203 @@
                             <div class="clearfix"></div>
                     </div>
                 
+                    </div>
                 </div>
+            
             </div>
             
-        </div>
             <div class="clearfix"></div>
+        
         </div> 
+    </div>
+    <div class="col-md-2 col-xs-2 extended">
+        
+        <div class="_comctc row" >
+            
+            <div class="col-xs-12 extended" style="">
+                <span class="col-xs-2 text-center"><i class="fa medium fa-calendar "></i></span>
+                <span class="col-xs-10"> L-V 9:00-17:00 </span>
+            </div>
+
+
+            
+            <div class="col-xs-12 extended">
+                <span class="col-xs-2 text-center"><i class="fa medium fa-phone "></i></span>
+                <span class="col-xs-10"> 0724 508 044 </span>
+                
+            </div>
+            <div class="col-xs-12 extended">
+                <span class="col-xs-2 text-center"><i class="fa medium fa-envelope"></i></span>
+                <span class="col-xs-10"> oricand@devutopia.ro</span>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="clearfix"></div>
+    <hr />
+    <div class=" col-xs-9">
+        <div class="" id="description">
+            <h3 class="col-xs-12">Description</h3>
+            <?php echo $this->item->getDescription();?>
+            <div class="clearfix"></div>
+        </div>
+        
+        <div class="" id="specifications">
+            <h3 class="col-xs-12">Specifications</h3>
+            
+            <div class="col-md-6 col-xs-6 spc-wp">
+                <div class="col-md-12 extended">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Audio</th   >
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            <tr>
+                                <td>Iesire sunet (RMS):</td>
+                                <td>2 x 10 W</td>
+                            </tr>
+                            <tr>
+                                <td>Caracteristici superioare sunet:</td>
+                                <td>Clear Phase Speaker
+                                    S-Master
+                                    Dolby Digital
+                                    Dolby Digital Plus
+                                    Dolby Digital Pulse
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-md-12 extended">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Video</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            <tr>
+                                <td>Iesire sunet (RMS):</td>
+                                <td>2 x 10 W</td>
+                            </tr>
+                            <tr>
+                                <td>Caracteristici superioare sunet:</td>
+                                <td>Clear Phase Speaker
+                                    S-Master
+                                    Dolby Digital
+                                    Dolby Digital Plus
+                                    Dolby Digital Pulse
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            <tr>
+                                <td>Iesire sunet (RMS):</td>
+                                <td>2 x 10 W</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-md-12 extended">
+                     <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Video</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            
+            <div class="col-md-6 spc-wp col-xs-6">
+                
+                <div class="col-md-12 extended">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Video</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-12 extended">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Video</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            <tr>
+                                <td>Iesire sunet (RMS):</td>
+                                <td>2 x 10 W</td>
+                            </tr>
+                            <tr>
+                                <td>Caracteristici superioare sunet:</td>
+                                <td>Clear Phase Speaker
+                                    S-Master
+                                    Dolby Digital
+                                    Dolby Digital Plus
+                                    Dolby Digital Pulse
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sistem audio:</td>
+                                <td>NICAM/A2</td>
+                            </tr>
+                            <tr>
+                                <td>Iesire sunet (RMS):</td>
+                                <td>2 x 10 W</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+        
     </div>
     
     <!-- ADDITIONAL INFO AREA -->
     
-
-
 <?php 
     $this->headLink()->appendStylesheet($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.css'));
     $this->inlineScript()->appendFile($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.js'));

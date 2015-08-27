@@ -1,191 +1,40 @@
-<div class="row">
-
-    <div class="col-md-3 animate-dropdown" style="">
-
-        <div class="_smh">
-            <i class="fa fa-align-justify"></i> All Departments
-        </div>
-
-        <ul id="" class="nav _nvm">
-
-            <?php foreach ($this->categories as $category) : ?>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                        <?php echo $category->getTitle();?>
-                    </a>
-                    <ul class="dropdown-menu menu-screen">
-                        <li class="menu-item-content">
-                            <!--HERE IS THE CONTENT OF THE PANEL-->
-                            <div class="row">
-                                
-                                <div class="col-xs-12 col-md-4">
-                                    <ul>
-                                        <?php foreach($category->getChildren() as $chdCat) :?>
-                                        <li><a href="<?php echo $this->url('category',array('slug'=>$chdCat->getSlug() , 'lang' => 'ro'));?>"><?php echo $chdCat->getTitle();?></a></li>
-                                        <?php endforeach;?>
-                                    </ul>
-                                </div>
-                                
-                                <div class="col-xs-12 col-md-4 hide">
-                                    <ul>
-                                        <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                        
-                                    </ul>
-                                </div>
-                                
-                            </div>
-
-                        </li>
-                    </ul>
-                </li>
-                <!--<li class="dropdown">-->
-                <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">-->
-                <!--        Laptops and Computers-->
-                <!--    </a>-->
-                <!--    <ul class="dropdown-menu menu-screen">-->
-                <!--        <li class="yamm-content">-->
-                <!--            THE CONTENT-->
-                <!--        </li>-->
-                <!--    </ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">-->
-                <!--        Video games and Consoles-->
-                <!--    </a>-->
-                <!--    <ul class="dropdown-menu menu-screen">-->
-                <!--        <li class="yamm-content">-->
-                <!--            THE CONTENT-->
-                <!--        </li>-->
-                <!--    </ul>-->
-                <!--</li>-->
-
-            <?php endforeach; ?>
-        </ul>
-
-
+<!-- APP INDEX FILE -->
+<div class="">
+    <div class="" style="height:400px;overflow : hidden">
+        <img src="<?php echo $this->basePath('images/slider_bkg_look.jpg')?>" width="100%">
     </div>
-
-    <div class="col-md-9" id="FrGl">
-        <img src="<?php echo $this->basePath() ?>/assets/img/banner-photo-1.png" width="100%" alt="Banner photo" />
-    </div>
-
-</div>
-<div class="row mt25">
-
-    <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 banner">
-        <a href="#">
-            <div class="banner-text">
-                <h1>New Life</h1>
-                <span class="tagline">Introducing New Category</span>
+    <div class="col-xs-12 mt25 mb25">
+        
+            
+            <?php for($i = 0 ; $i < 4 ; $i++) :?>
+            <div class="col-sm-3 col-xs-6">
+                <div class="ci-cont">
+                    
+                    <div class="_ops">
+                    
+                    </div>
+                    
+                    <img width="100%" src="<?php echo $this->basePath('images/accessories_img_banner.jpg');?>" alt="category" />
+                    
+                </div>
             </div>
-            <img src="<?php echo $this->basePath(); ?>/assets/img/banner-narrow-01.jpg" alt='banner background image' />
-        </a>
-    </div>
-    <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 banner">
-        <a href="#">
-            <div class="banner-text right">
-                <h1>New Life</h1>
-                <span class="tagline">Introducing New Category</span>
-            </div>
-            <img src="<?php echo $this->basePath(); ?>/assets/img/banner-narrow-02.jpg" alt='banner background image' />
-        </a>
-    </div>
+            <?php endfor;?>
 
+        
+    </div>
+    
+    <div class="clearfix"></div>
+        
 </div>
 
-<div class="row mt25" id='MnCt'>
-    <div class='col-md-12'>
+<div class="container-fluid product-wp">
+    <!--<div class="container">-->
+        <?php echo $this->partial('application/helper/products.phtml' , array()) ?>
+    <!--</div>-->
+</div>
 
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#featured" data-toggle="tab">featured</a></li>
-            <li><a href="#new-arrivals" data-toggle="tab">new arrivals</a></li>
-            <li><a href="#top-sales" data-toggle="tab">top sales</a></li>
-        </ul>
-
-        <div class="tab-content">
-            <div class="tab-pane active" id="featured">
-
-                <div class="pr-wp"> <!-- PRODUCT WRAPPER -->
-                    <?php for ($pr = 0; $pr < 4; $pr++): ?>
-                        <div class="col-sm-4 col-md-3 prd-hero extended">
-                            <div class="_pr">
-                                <div class="ribbon red"><span>sale</span></div>
-                                <div class="image">
-                                    <img alt="" src="<?php echo $this->basePath('assets/img/product-01.jpg');?>">
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount green">-50% sale</div>
-                                    <div class="title">
-                                        <a href="index.php?page=single-product">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
-                                    </div>
-                                    <div class="brand">sony</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endfor; ?>
-                    <div class="clearfix"></div>
-                </div>
-
-            </div>
-
-            <div class="tab-pane" id="new-arrivals">
-                <div class="pr-wp"> <!-- PRODUCT WRAPPER -->
-                    <?php for ($pr = 0; $pr < 4; $pr++): ?>
-                        <div class="col-sm-4 col-md-3 prd-hero extended">
-                            <div class="_pr">
-                                <div class="ribbon red"><span>sale</span></div>
-                                <div class="image">
-                                    <img alt="" src="<?php echo $this->basePath('assets/img/product-01.jpg');?>">
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount green">-50% sale</div>
-                                    <div class="title">
-                                        <a href="index.php?page=single-product">New arivals- Windows 8 SVF14322CXW</a>
-                                    </div>
-                                    <div class="brand">sony</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endfor; ?>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="tab-pane" id="top-sales">
-                <div class="pr-wp"> <!-- PRODUCT WRAPPER -->
-                    <?php for ($pr = 0; $pr < 4; $pr++): ?>
-                        <div class="col-sm-4 col-md-3 prd-hero extended">
-                            <div class="_pr">
-                                <div class="ribbon red"><span>sale</span></div>
-                                <div class="image">
-                                    <img alt="" src="<?php echo $this->basePath('assets/img/product-01.jpg');?>">
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount green">-50% sale</div>
-                                    <div class="title">
-                                        <a href="index.php?page=single-product">Top sales - VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
-                                    </div>
-                                    <div class="brand">sony</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endfor; ?>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+<div class="container-fluid product-wp">
+    <!--<div class="container">-->
+        <?php echo $this->partial('application/helper/products.phtml' , array()) ?>
+    <!--</div>-->
 </div>

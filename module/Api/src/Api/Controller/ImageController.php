@@ -9,14 +9,14 @@ use Zend\View\Model\ViewModel;
 
 class ImageController extends AbstractActionController
 {
-    
+    protected $UploadsFolder = 'data/uploads';
     protected $ImageDestionation = 'data/uploads/temp';
     
     public function __construct(){
         
         parent::__construct();
-        if(!file_exists('data/Filemanager')){
-            mkdir('data/Filemanager' , 0777);
+        if(!file_exists($this->UploadsFolder)){
+            mkdir($this->UploadsFolder , 0777);
         }
         if(!file_exists($this->ImageDestionation)){
             mkdir($this->ImageDestionation , 0777);

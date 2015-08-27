@@ -31,13 +31,15 @@ $form->setAttribute('id', 'LoginForm');
         <div class="col-md-12 extended mt10">
             <label>Enter your email address</label>
         </div>
+        
         <div class="col-md-12 extended">
             <input type="password" class="form-control gen" name="credential" placeholder="Passwrd" />
         </div>
         
         <div class="col-md-12 mt10 extended">
             <button class="btn btn-danger pull-right">Secure login</button>
-        <div class="col-md-12 extended">
+        </div>
+        <!--<div class="col-md-12 extended">-->
         <!--<dt><?php echo $this->formLabel($form->get('identity')) ?></dt>-->
         <!--<dd><?php echo $this->formInput($form->get('identity')) ?></dd>-->
 
@@ -47,9 +49,9 @@ $form->setAttribute('id', 'LoginForm');
         <?php if ($this->redirect): ?>
             <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
         <?php endif ?>
-
+    </div>
         <!--<dd><?php echo $this->formButton($form->get('submit')) ?></dd>-->
-    </dl>
+    <!--</dl>-->
 
 <?php echo $this->form()->closeTag() ?>
 

@@ -10,26 +10,57 @@
     </head>
 
     <body>
-        
-        <header class="">
 
-            <?php echo $this->render('layout/header.phtml')?>    
+        <aside class="col-md-4 col-sm-4 col-xs-8 extended" id="SM">
+            <?php echo $this->render('application/helper/aside.phtml');?>
+        </aside>
             
-        </header>
-        
-
-        <main class="">
-            <div id="Main" class="">
-                <div class="container">
-                    <?php echo $this->content; ?>    
-                </div>
-        </main>
-    
-        <footer class="">
+        <content class="">
+            
+            <header class="">
+            
+                <?php echo $this->render('layout/header.phtml')?>
+                
+            </header>
+            <div class="" id="HB">
+                    
+                    <div class="col-sm-4">
+                        <section id="text-8" class="widget widget_text clearfix">
+                             <div class="textwidget">
+                                 <i class="fa fa-truck"></i>
+                                 <strong> Free Shipping</strong> on all orders over $100.
+                             </div>
+                        </section> 
+                    </div>
+                    <div class="col-sm-4">
+                        <section id="text-10" class="widget widget_text clearfix">
+                             <div class="textwidget">
+                                 <i class="fa fa-check"></i><strong> Worldwide Delivery</strong> and same day dispatch.
+                             </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-4">
+                        <section id="text-9" class="widget widget_text clearfix"> 
+                            <div class="textwidget">
+                                <i class="fa fa-diamond"></i><strong> Receive Gifts</strong> when you subscribe.
+                            </div>
+                        </section>
+                    </div>
+                    <div class="clearfix"></div>
+            </div>
+            <div id="Content">
+                
+                <?php echo $this->content; ?>        
+            </div>
+            
+             
+            <footer class="">
            
-            <?php echo $this->partial('layout/footer.phtml')?>
-          
-        </footer>
+                <?php echo $this->partial('layout/footer.phtml')?>
+              
+            </footer>
+            
+        </content>
         
         <?php echo $this->render('layout/scripts.phtml')?>
         <?php echo $this->inlineScript();?>

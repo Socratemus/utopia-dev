@@ -337,3 +337,20 @@ Stack trace:
 #10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
 #11 {main} {"url":"https://utopia-dev-socratemus.c9.io/public/en/p/slug","ipaddress":"10.240.239.133"}
 2015-08-22T20:31:38+03:00 DEBUG (7): {"ItemId":"44","Title":"Default Title cacacea","Slug":"Default slug","Status":"307","Description":"Write description in here.","Product":{"Price":"999.0000","Stock":"1"}}
+2015-08-22T20:41:04+03:00 INFO (6): Create category request
+2015-08-22T20:41:04+03:00 INFO (6): {"CategoryId":1,"Title":"Electronics - AWW YEA","Slug":"electronics","Created":"2015-07-06 00:00:00","Updated":"2015-07-10 00:00:00","Status":107}
+2015-08-22T20:42:36+03:00 DEBUG (7): {"ItemId":"46","Title":"Apple iPad Air 2, 16GB, Wi-Fi, Silverz","Slug":"apple-ipad-air-2-16gb-wifi-silver","Status":"200","Description":"Write description in here.","Product":{"Price":"2199.9900","Stock":"15"}}
+2015-08-22T20:51:57+03:00 CRIT (2): exception 'Exception' with message 'The category was not found.[index.php]' in /home/ubuntu/workspace/module/Application/src/Application/Controller/CategoryController.php:24
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(82): Application\Controller\CategoryController->IndexAction()
+#1 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#3 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#4 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#6 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 /home/ubuntu/workspace/vendor/zendframework/zend-eventmanager/src/EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/ubuntu/workspace/vendor/zendframework/zend-mvc/src/Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 /home/ubuntu/workspace/public/index.php(17): Zend\Mvc\Application->run()
+#11 {main}

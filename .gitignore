@@ -9,6 +9,7 @@ nbproject
 composer.lock
 data/cache
 data/DoctrineORMModule
-data/Filemanager
+data/uploads
+data/logs
 vendor/bin
 vendor

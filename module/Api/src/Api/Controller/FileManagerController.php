@@ -9,7 +9,7 @@ use Zend\View\Model\ViewModel;
 
 class FileManagerController extends AbstractActionController
 {
-    private $_folder = "data/Filemanager";
+    private $_folder = "data";
     
     public function indexAction()
     {   
