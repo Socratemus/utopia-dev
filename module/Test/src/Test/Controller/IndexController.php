@@ -15,24 +15,28 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {   
         try {
-            $filter = new Entity\Filter;
-            $data = array(
-                'Title' => 'Producer',
-                'Slug'  => 'producer',
-                'Category' => '1'
-            );
-            $category = $this->getServiceLocator()->get('CategoryService')->getById(1);
-            $filter->exchange($data);
-            $filter->setCategory($category);
-            $this->getServiceLocator()->get('EntityManager')->persist($filter);
-            $this->getServiceLocator()->get('EntityManager')->flush();
-            var_dump($filter);
-            exit;
+            
+            // $cron = $this->getServiceLocator()->get('CronManager');
+            // $cron->test();exit;
+            $this->getLogger()->info('START CLI REQUEST!!');
+
+            $commandKey = strtoupper(md5('Maximus' . uniqid()));
+            $commandParams = array('foo' => 'bar' , 'baz' => 'bat');
+            $command = new \Cli\Entity\Command("\Cron\Service\CronManager" , "_cr_task_Testing" , $commandKey , $commandParams);
+            
+            $processManager = $this->getServiceLocator()->get('processManager');
+            $command = $processManager($command);
+            //$processManager->execute(false ,false);exit;
+            echo "<pre>";
+            var_dump($command->toArray());
+            
+            exit();
             
             return $this->JsonResponse;
         }
         catch(\Exception $e){
             echo $e->getMessage();
+            exit;
         }
         
     }

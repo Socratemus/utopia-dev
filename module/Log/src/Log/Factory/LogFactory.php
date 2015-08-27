@@ -15,7 +15,7 @@ class LogFactory implements FactoryInterface
       *
       * @return mixed
       */
-     public function createService(ServiceLocatorInterface $serviceLocator)
+     public function createService(ServiceLocatorInterface $serviceLocator,  $Options = false)
      {
         return new LogService($serviceLocator, $Options);
      }
