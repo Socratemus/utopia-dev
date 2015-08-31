@@ -24,16 +24,8 @@ return array(
             'Cli\Controller\Index' => 'Cli\Controller\IndexController',
         ),
     ),
-    // 'bjyauthorize' => array(
-    //     'guards' => array(
-    //         'BjyAuthorize\Guard\Controller' => array(
-    //             array('controller' => 'Cli\Controller\Index', 'roles' => array('guest')),
-    //         ),
-    //     ),
-    // ),
     'service_manager' => array(
         'invokables' => array(
-            //'ApplicationServiceErrorHandler' => 'Engine\Service\ApplicationErrorHandlerService',
             'ProcessManager' => 'Cli\Service\ProcessManager',
         ),
     ),
@@ -53,8 +45,32 @@ return array(
                             'action'     => 'index'
                         )
                     )
+                ),
+
+                'run-command' => array (
+                    'options' => array (
+                        'route' => 'run command [--verbose|-v] <class> <method> <cacheKey> <key>',
+                        'defaults' => array (
+                            'controller' => 'Cli\Controller\Index',
+                            'action' => 'run',
+                        )
+                    )
                 )
             )
         )
-    )    
+    ),
+
+    'doctrine' => array(
+        'driver' => array(
+            'cli_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'paths' => __DIR__ . '/../src/Cli/Entity',
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Cli\Entity' => 'cli_entities',
+                ),
+            )
+        )
+    ),    
 );

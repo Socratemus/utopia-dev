@@ -7,7 +7,7 @@ return array(
         'Application',
         
         'Storage',
-        
+        'Cron',
         'Test',
         
         /****************/
