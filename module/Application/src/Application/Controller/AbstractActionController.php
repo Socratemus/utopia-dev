@@ -10,7 +10,9 @@ class AbstractActionController extends ZFAbstractActionController
 {
     
     protected $Logger;
+    protected $Cache;
     protected $ProcessManager;
+    protected $EntityManager;
     
     public function __construct()
     {
@@ -35,6 +37,15 @@ class AbstractActionController extends ZFAbstractActionController
         }
         return $this->Logger;
     }
+
+    public function getCache()
+    {
+        if( ! isset($this->Cache))
+        {
+            $this->Cache = $this->getServiceLocator()->get('cache');
+        }
+        return $this->Cache;
+    }
     
     public function getPayload(){
         $raw = $this->getRequest()->getContent();
@@ -57,6 +68,13 @@ class AbstractActionController extends ZFAbstractActionController
         $host = $uri->getHost();
         $base = sprintf('%s://%s', $scheme, $host);
         return $base;
+    }
+
+    protected function getEntityManager(){
+        if(!$this->EntityManager){
+            $this->EntityManager = $this->getServiceLocator()->get('EntityManager');
+        }
+        return $this->EntityManager;
     }
 }
 

@@ -48,7 +48,7 @@ Class Command extends \Application\Entity\Entity implements CommandInterface {
 	/**
      * @ORM\Column(type="text" , nullable = true)
      */
-	protected $Message = "no message";
+	protected $Message = null;
 
 	public function __construct($Class = null , $Method = null , $CacheKey = null, $Params = array()){
 		parent::__construct();
@@ -92,6 +92,10 @@ Class Command extends \Application\Entity\Entity implements CommandInterface {
 	public function getParams(){
 		return $this->Params;
 	}
+	public function getMessage()
+	{
+		return $this->Message;
+	}
 	public function addParam($Param){}
 
 	public function setId($CommandId){
@@ -114,6 +118,10 @@ Class Command extends \Application\Entity\Entity implements CommandInterface {
 	}
 	public function setParams(array $Params){
 		$this->Params = $Params;
+	}
+	public function setMessage($Message)
+	{
+		$this->Message = $Message;
 	}
 
 	/****************************************************/

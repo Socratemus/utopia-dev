@@ -34,7 +34,7 @@ class IndexController extends AbstractActionController
         try
         {
             $this->getLogger()->info(' __ Starting to process cli request __ ');
-
+            //sleep(5);
             $request = $this->getRequest();
 
             $request = $this->getRequest();
@@ -68,6 +68,14 @@ class IndexController extends AbstractActionController
             $filepath = 'data/cache/CLI_REQUEST_' . date('Y-m-d(H_i_s)');
             $contents = $class. '::' . $method . '::' . $cacheKey . '::' . $key;
             $this->getLogger()->info(' __ Parameters received correctly __ ');
+            //sleep(5);
+            $commandRepo = $this->getEntityManager()->getRepository('\Cli\Entity\Command');
+            $command = $commandRepo->findBy(array('GUID' => $key , 'Status' => \Application\Response\Status::ACTIVE));
+            if(empty($command)){
+                throw new Exception('Command was not found.');
+            }
+            $command = $command[0];
+            
             if( ! class_exists($class))
             {
                 if($this->getServiceLocator()->has($class))
@@ -95,17 +103,23 @@ class IndexController extends AbstractActionController
                 }
                 unset($objRefCls);
                 $this->getLogger()->info(' __ Object was instantiated __ ');
-                $this->getLogger()->info($object);
             }
 
             if(method_exists($object, $method))
             {
                 /* Check params */
-                //$params = $this->getCache()->get($cacheKey);
-                $params = false;
+                if($this->getCache()->hasItem($cacheKey)){
+                    $params = $this->getCache()->getItem($cacheKey);    
+                } else {
+                    $params = false;    
+                }
+                
+                
                 if($params) 
                 {
-
+                    $this->getLogger()->debug(' __ Called '.$class.'::'.$method. '::'.serialize($params).' __ ' );
+                    $result = $object->$method($params);
+                    $this->getLogger()->info(' __ Successfully Called '.$class.'::'.$method.' __ ');
                 } 
                 else 
                 {
@@ -120,15 +134,26 @@ class IndexController extends AbstractActionController
                 throw new \Exception("$class does not implement that $method.");
             }
 
-            //$this->getLogger()->info("Class $class exists");
+            //sleep(5);
             $contents .= "\n";
             $contents .= $result;
             file_put_contents($filepath , $contents);
 
+            $command->setStatus(\Application\Response\Status::SUCCESS);
+            $this->getEntityManager()->persist($command);
+            $this->getEntityManager()->flush(); //Set command as finished.
         }
         catch(\Exception $e)
         {
+            if(isset($command) && !empty($command))
+            {
+                $command->setStatus(\Application\Response\Status::FAILED);
+                $command->setMessage($e->getMessage());
+                $this->getEntityManager()->persist($command);
+                $this->getEntityManager()->flush(); //Set command as finished.
+            }
             $this->getLogger()->crit($e);
         }
     }   
+
 }

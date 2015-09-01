@@ -12,17 +12,50 @@ class IndexController extends AbstractActionController
 {
     protected $ImagesDestionations = 'data/Filemanager/Temp/';
     
+
     public function indexAction()
+    {
+        try 
+        {
+            return $this->JsonResponse;
+        }
+        catch(\Exception $e){
+            echo $e->getMessage();
+            exit;
+        }
+         
+    }
+
+    public function indexBakAction()
     {   
         try {
-            
+                
+            $className = '\Application\Entity\Category';
+            $em = $this->getEntityManager();
+
+            $cmd = $em->getClassMetadata($className);
+            $connection = $em->getConnection();
+            $dbPlatform = $connection->getDatabasePlatform();
+            $connection->query('SET FOREIGN_KEY_CHECKS=0');
+            $q = $dbPlatform->getTruncateTableSql($cmd->getTableName());
+            var_dump($q);
+            $connection->executeUpdate($q);
+            $connection->query('SET FOREIGN_KEY_CHECKS=1');
+
+
+            exit();
             // $cron = $this->getServiceLocator()->get('CronManager');
             // $cron->test();exit;
             $this->getLogger()->info('START CLI REQUEST!!');
 
             $commandKey = strtoupper(md5('Maximus' . uniqid()));
             $commandParams = array('foo' => 'bar' , 'baz' => 'bat');
-            $command = new \Cli\Entity\Command("\Cron\Service\CronManager" , "_cr_task_Testing" , $commandKey , $commandParams);
+            // $cache = $this->getServiceLocator()->get('cache');
+            // $exists = $cache->hasItem($commandKey);
+
+            // $cache->setItem($commandKey , 'something');
+            // exit;
+            $command = new \Cli\Entity\Command("\Cli\Service\TaskManager" , "task_resetDatabase" , $commandKey , $commandParams);
             
             $processManager = $this->getServiceLocator()->get('processManager');
             $command = $processManager($command);
@@ -40,7 +73,6 @@ class IndexController extends AbstractActionController
         }
         
     }
-    
     
     public function generateAction()
     {

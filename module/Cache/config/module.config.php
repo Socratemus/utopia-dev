@@ -23,9 +23,14 @@ return array(
 
             'cache_dir' => 'data/cache/',
             'namespace' => 'socratemuscache',
-            'ttl'       => 3600
+            'ttl'       => 3600 //1h minutes
             // other options
 
+        ),
+        'plugins' => array (
+            'exception_handler' => array ('throw_exceptions' => false),
+            'serializer',
+            'clearExpiredByFactor',
         ),
 
     ),

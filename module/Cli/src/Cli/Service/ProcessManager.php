@@ -9,6 +9,8 @@ class ProcessManager implements  ServiceLocatorAwareInterface{
     protected $Url;
     protected $ServiceLocator = null;
     protected $System;
+    protected $Cache = null;
+
     
     public function __construct(){
         $this->Url = getcwd();
@@ -71,18 +73,35 @@ class ProcessManager implements  ServiceLocatorAwareInterface{
     {
         try
         {
+            $cache = $this->getCache();
             $guid = substr(strtoupper(md5($Command->getClass() . $Command->getMethod())) , 0 , 10);
             $Command->setGUID($guid);
             $em = $this->getServiceLocator()->get('EntityManager');
             
             //Get existing command by guid!
-            $ckcmds = $em->getRepository('\Cli\Entity\Command')->findBy(array('GUID' => $guid));
+            $ckcmds = $em->getRepository('\Cli\Entity\Command')->findBy(array('GUID' => $guid,
+             'Status' => \Application\Response\Status::ACTIVE ));
             if(!empty($ckcmds)){
                 $Command = $ckcmds[0];
+                if($cache->hasItem($Command->getCacheKey()))
+                {   
+                    $params = $cache->getItem($Command->getCacheKey());
+                    $Command->setParams($params);
+                }
                 return $Command;
             }
+
+           
+            if($cache->hasItem($Command->getCacheKey()))
+            {   
+                $cache->removeItem($Command->getCacheKey());
+            }
             
-            //var_dump($Command); exit;
+            if( !empty($Command->getParams()))
+            {
+                $cache->setItem($Command->getCacheKey() , $Command->getParams());    
+            }
+
             //CHECK IF COMAND EXISTS AND WITH STATUS 200 OR SOMETHING
 
             //Check command and prepare it!.
@@ -133,6 +152,11 @@ class ProcessManager implements  ServiceLocatorAwareInterface{
             $this->getLogger()->crit($e);
             return false;
         }
+    }
+
+    private function getCache(){
+        $cache = $this->getServiceLocator()->get('cache');
+        return $cache;
     }
     
     
