@@ -40,6 +40,10 @@ class ServerStatusController extends AbstractActionController
     
     private function getMemory()
     {
+        if(!file_exists('/proc/meminfo'))
+        {
+            return array('total' => 0 , 'used' => 0 , 'free' => 0 , 'unit' => 'KiB');
+        }
         $data = explode("\n", file_get_contents("/proc/meminfo"));
         $meminfo = array();
         foreach ($data as $line) {
@@ -93,7 +97,9 @@ class ServerStatusController extends AbstractActionController
     
     private function getUptime(){
         exec("uptime", $system); // get the uptime stats 
-       
+        if(empty($system)){
+            return array('days' => 0 , 'hours' => 0,'min' => 0);
+        }
         $string = $system[0]; // this might not be necessary 
         $uptime = explode(" ", $string); // break up the stats into an array 
         //var_dump($uptime);exit;

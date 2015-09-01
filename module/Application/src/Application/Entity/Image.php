@@ -18,9 +18,9 @@ use Zend\Form\Annotation;
 class Image extends Entity implements AbstractEntity {
     
     public static $DIMENTIONS = array(
-        HUGE => array('width' => '1600', 'height' => '1400'),
-        MEDIUM => array('width' => '800', 'height' => '700'),
-        SMALL => array('width' => 440 , 'height' => 360),
+        'HUGE' => array('width' => '1600', 'height' => '1400'),
+        'MEDIUM' => array('width' => '800', 'height' => '700'),
+        'SMALL' => array('width' => 440 , 'height' => 360),
     );
     
      /**

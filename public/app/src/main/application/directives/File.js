@@ -23,7 +23,7 @@
                     var fd = new FormData();
                     fd.append('file', file);
                     $(el[0]).parent().prepend('<span class="loader"></span>');
-                    $http.post('/public/api/image', fd, {
+                    $http.post(APP_PATH + '/image', fd, {
                         
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
