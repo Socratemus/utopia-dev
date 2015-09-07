@@ -1,0 +1,20 @@
+<?php
+
+$app_listeners = array(
+
+    'Application\Controller\AbstractActionController' => array (
+        
+        'events' => array (
+            \Zend\Mvc\MvcEvent::EVENT_DISPATCH => array (
+                'Application\Listener\Router' => array (
+                    'callback' => 'process',
+                    'priority' => -50
+                ),
+            ),
+        )
+    )
+);
+
+return array(
+    'app_listeners' => $app_listeners
+);

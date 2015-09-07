@@ -7,8 +7,8 @@ class CartService extends ModelService {
     private $_cartKey = '_usr_cart';
     private $_ttl = array(
        'sec' => 0,
-       'min' => 5,
-       'hours' => 0,
+       'min' => 0,
+       'hours' => 12, //12 Hours cart.
        'days' => 0
     ); 
     
@@ -24,7 +24,6 @@ class CartService extends ModelService {
     {
         //Fetching a cart instance.
         $cart = $this->getCart();
-        
         //Updating all carts to disable if expired
         $query = $this->getEntityManager()->createQuery(
                         'SELECT c FROM \Application\Entity\Cart c 
@@ -82,11 +81,24 @@ class CartService extends ModelService {
         $cartItem->setCart($cart);
         $cartItem->setItem($Item);
         $cartItem->setQuantity($quantity);
-        $cartItem->setVoucher('EMPTY');
+        $cartItem->setVoucher(null);
         
         $this->getEntityManager()->persist($cartItem);
         $this->getEntityManager()->flush();
         return true;
+    }
+    
+    /**
+     * Clear all items from current cart
+     */
+    public function clear()
+    {
+        $cart = $this->getCart();
+        $cart->setStatus( \Application\Response\Status::DISABLED);
+        $cookiesrv = \Utils\Misc\Cookie::getInstance();
+        $cookiesrv->remove($this->_cartKey);
+        $this->getEntityManager()->persist($cart);
+        $this->getEntityManager()->flush();
     }
     
     /**

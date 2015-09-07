@@ -83,6 +83,26 @@ return array(
                 ),
             ),
             
+            
+            'flight' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/:lang/flight[/:controller[/:action[/:id[/:name]]]]',
+                    'constraints' => array(
+                        'lang' => '[a-z]{2}',
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]*',
+                        'name' => '.*',
+                    ),
+                    'defaults' => array(
+                         //'lang' => 'ro',
+                        'controller' => 'flightSearch',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            
             'order'     => array(
                 'type'    => 'segment',
                 'options' => array(

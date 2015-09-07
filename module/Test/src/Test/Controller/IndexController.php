@@ -17,6 +17,12 @@ class IndexController extends AbstractActionController
     {
         try 
         {
+            // $mailer = $this->getServiceLocator()->get('Mailer');
+            // $mailer->Subject = 'Hello worlds';
+            // $mailer->Body = 'This is the second test.';
+            // $mailer->send();
+            
+            //var_dump($mailer);exit;
             return $this->JsonResponse;
         }
         catch(\Exception $e){

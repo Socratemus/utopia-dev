@@ -12,8 +12,14 @@ class CartController extends AbstractActionController
         /* @TODO */
         $cartsrv = $this->getServiceLocator()->get('CartService');
         $cart = $cartsrv->getCart();
-        echo "<pre>"; var_dump($cart->getCartItems()->toArray());
-        exit('get cart...');
+        echo "<pre>";
+        echo 'Items in cart : ' . $cart->getCartItems()->count();
+        var_dump($cart->getGUID());
+        
+        $url = $this->url()->fromRoute('order', array('lang' => 'en' , 'action' => 'create'),array('force_canonical' => true));
+        
+        echo '<a href="' . $url .'">Create order</a>';
+        exit('');
     }
     
     public function removeAction(){
@@ -24,6 +30,8 @@ class CartController extends AbstractActionController
         /* @TODO */
         try
         {
+            $redirectUrl = $this->getRequest()->getHeader('HTTP_REFERER', $defaultValue);
+            
             $cartsrv = $this->getServiceLocator()->get('CartService');
             $itemsrv = $this->getServiceLocator()->get('ItemService');
             $item = $this->params()->fromQuery('id');
@@ -44,12 +52,15 @@ class CartController extends AbstractActionController
                 throw new \Exception('Item is not available.');
             }
             $cartsrv->addItem($item , array('quantity' => $quantity));
+            if($redirectUrl){
+                return $this->redirect()->toUrl($redirectUrl);  
+            } else {
+                return $this->redirect()->toRoute('cart',array('lang' => 'en'));  
+            }
             
-            exit('must redirect!');
         }
         catch(\Exception $e)
         {
-            //var_dump($e);exit;
             $this->getLogger()->crit($e);
             return $this->redirect()->toRoute('home');
         }

@@ -15,6 +15,7 @@ return array(
         'Log',
         'Utils',
         'Cli',
+        'Mail',
         
         /**REQUIREMENTS**/
         'DoctrineModule',

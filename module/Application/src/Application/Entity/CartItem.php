@@ -9,7 +9,6 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
@@ -36,13 +35,13 @@ class CartItem extends Entity {
     
     /**
      * @ORM\ManyToOne(targetEntity="Cart")
-     * @ORM\JoinColumn(name="Cart", referencedColumnName="CartId")
+     * @ORM\JoinColumn(name="CartId", referencedColumnName="CartId" , onDelete="CASCADE")
      */
     private $Cart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Item")
-     * @ORM\JoinColumn(name="Item", referencedColumnName="ItemId" , onDelete="CASCADE")
+     * @ORM\JoinColumn(name="ItemId", referencedColumnName="ItemId" , onDelete="CASCADE")
      */
     private $Item;
     

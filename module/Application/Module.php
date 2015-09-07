@@ -17,12 +17,14 @@ class Module {
 
     public function onBootstrap(MvcEvent $e) {
         //Set default timezone
+        
         date_default_timezone_set('Europe/Bucharest');
         
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         $sm = $e->getApplication()->getServiceManager();
+        $config = $sm->get('config');
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 'dispatch', function($e) use ($sm) {
             $controller = $e->getTarget();
             $controllerClass = get_class($controller);
@@ -36,6 +38,70 @@ class Module {
             $cartsrv->verify();
             
         }, 100);
+        
+        if(array_key_exists('app_listeners', $config))
+        {   
+            $applistners = $config['app_listeners'];
+           
+            foreach ($applistners as $subject => $cfg)
+            {
+                
+                foreach ($cfg['events'] as $event => $listeners)
+                {
+                  foreach ($listeners as $lClass => $lCfg)
+                    {
+                        if(is_array($lCfg))
+                        {
+                            if(array_key_exists('callback', $lCfg))
+                            {
+                                $callback = $lCfg['callback'];
+                            }
+                            if(array_key_exists('priority', $lCfg))
+                            {
+                                $priority = intval($lCfg['priority']);
+                            }
+                        }
+                        try
+                        {
+                            if($sm->has($lClass))
+                            {
+                                $listener = $sm->get($lClass);
+                            }
+                            elseif(class_exists($lClass))
+                            {
+                                $newClass = new \ReflectionClass($lClass);
+                                if($newClass->implementsInterface('Zend\ServiceManager\ServiceManagerAwareInterface'))
+                                {
+                                    $listener = new $lClass($sm);
+                                }
+                                else
+                                {
+                                    $listener = new $lClass();
+                                }
+                                unset($newClass);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                           
+                            
+                            if(isset($listener) && !empty($listener))
+                            {
+                                $eventManager->getSharedManager()->attach($subject, $event, array ($listener, $callback), $priority);
+                            }
+                        }
+                        catch(\Exception $err)
+                        {
+                            continue;
+                        }
+                    }
+                        
+                }//Foreach event listned to
+                //$eventManager->getSharedManager()->attach($subject, $event, array ($listener, $callback), $priority);
+            } //Foreach subject
+        }
+        
     }
 
     public function getConfig() {

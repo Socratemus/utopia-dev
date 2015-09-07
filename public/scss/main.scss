@@ -1,9 +1,24 @@
+@font-face {
+  font-family: AgencyBold;
+  src: local("Helvetica Neue Bold"),
+       local("HelveticaNeue-Bold"),
+       url(../fonts/AgencyFB-Bold.ttf);
+}
+@font-face {
+  font-family: Agency;
+  src: local("Helvetica Neue Bold"),
+       local("HelveticaNeue-Bold"),
+       url(../fonts/Agency_FB.ttf);
+}
+
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 
 @import "bootstrap-sass-3.3.5/assets/stylesheets/_bootstrap";
-@import "font-awesome-4.4.0/scss/font-awesome";
+@import "font-awesome-4.4.0/scss/font-awesome"; 
 
-@import "vars";
+@import "vars"; 
+@import "general";
+@import "media-queries";
 
 body {
     min-width: 320px;
@@ -13,6 +28,12 @@ body {
     color: $color-dark;
     background-color : $color-lightgray;
     font-family: "Pt Sans Narrow",Helvetica,sans-serif;
+} 
+
+
+.title{
+    font-family : Agency;
+    text-transform : uppercase;
 } 
 
 .top-header-nav{
@@ -84,3 +105,206 @@ body {
     display : block;
     padding : 15px 0px;
 } 
+
+#Wrapper {
+    min-height : 500px;
+    // background : rgba(0,0,0,.0325);
+    padding-top : 10px; padding-bottom : 10px;
+}
+
+
+.sc-inner{
+    min-height : 100px;
+    // border: 1px solid $color-darkgray;
+}
+
+.menu-title{
+    background-color : $color-main;
+    padding: 10px 17px
+}
+
+.menu-content {
+    border: 1px solid #e2dfdf;
+    box-shadow: 0 0 0 1px #fff inset;
+}
+.menu-content > ul {
+    margin :0; padding : 0;list-style : none;
+}
+.menu-content > ul > li > a {
+    display : block;
+    color: $color-darkgray;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 11px 0;
+    margin: 0 15px;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px #fff;
+    text-transform : uppercase;
+    font-family: Agency;
+}
+.menu-content > ul > li:last-child > a{
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.menu-content > ul > li > a:hover{
+    text-decoration : none;
+}
+.menu-content > ul > li > a:active{
+    text-decoration : none;
+}
+.menu-content > ul > li > a:focus{
+    text-decoration : none;
+}
+
+.menu-content > ul > li > a.has-many:after{
+    display : inline-block;
+    font-family: fontawesome;
+    content: "\f105";
+    float : right;
+}
+
+.menu-content > ul > li:hover{
+    background-color : $color-main;
+}
+
+.menu-content > ul > li:hover > a{
+    border-bottom-color : transparent;
+    color : $color-white;
+    
+}
+
+
+.menu-title > h3{
+    display : inline-block; margin : 0;
+    color : $color-white;
+    text-transform : uppercase;
+}
+
+.menu-title > i {
+    font-size: 22px;
+    margin-right: 5px;
+    color: $color-white;
+}
+
+aside .submenu {
+    position: absolute;
+    width: 720px;
+    min-height: 220px;
+    // background-color: rgba(211, 211, 211, 0.67);
+    background-color : $color-white;
+    top: 46px;
+    left: 100%;
+    z-index : 3;
+}
+
+aside .submenu ul {
+    margin : 0; padding : 0;
+    list-style : none;
+}
+
+aside .submenu ul li a {
+    display : block; 
+    padding : 5px;
+    font-size: 15px;
+    text-transform: none;
+}
+
+aside .submenu ul li a:before {
+    content: "\f111";
+    display: block;
+    font-family: FontAwesome;
+    margin-right: 10px;
+    font-size: 10px;
+    float: left;
+}
+
+.menu-category{
+    margin-top : 15px;
+    margin-bottom : 15px;
+} 
+.menu-content > ul > li:hover .submenu{
+    display : block !important;
+}
+.submenu:hover{display : block !important;}
+
+.carousel-wp{
+    max-height : 280px;
+    overflow : hidden;
+}
+
+.product-category-title{
+    font-size: 24px;
+    color: #444444;
+    text-transform: uppercase;
+}
+
+.front-category-wp > .title{
+    padding: 0 0 5px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px $color-white;
+}
+
+.product-wp > .product-inner{
+    position : relative;
+    min-height : 340px;
+    background : $color-white;
+    box-shadow : 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.product-wp > .product-inner .pr-img{ height : 270px; 
+    // border-bottom : 1px solid $color-lightborder;
+    display : table-cell;
+    vertical-align : middle;
+}
+.product-wp > .product-inner .pr-img img{
+    width : 100%;
+}
+
+.product-wp > .product-inner .pr-details{
+    height : 70px;
+    text-align : center;
+    font-size: 15px;
+}
+
+.product-wp > .product-inner .pr-details h5{
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 0 2px;
+    text-transform: capitalize;
+}
+
+.product-wp > .product-inner .pr-details .price {
+    color: $color-yellow; 
+}
+
+.product-wp > .product-inner .pr-details .old-price{
+    text-decoration: line-through;
+    color : $color-gray;
+}
+
+.product-wp > .product-inner .pr-details .discount{
+    color : $color-white;
+    background-color : $color-yellow;
+    padding: 0px 6px;
+}
+
+.product-wp > .product-inner .pr-details .product-price-wp{
+    margin-top : 8px;
+}
+
+.product-wp .box-label{
+    top : 10px;
+    position : absolute; left :0;
+    padding: 2px 8px;
+    background : $color-yellow;
+    color : $color-white;
+    width :40px; text-align : center;
+}
+
+.product-wp .box-label.sale-box{
+    top  : 35px;
+    background : $color-blue;
+}

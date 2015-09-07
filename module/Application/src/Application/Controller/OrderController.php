@@ -2,8 +2,11 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Entity\Order;
+use Application\Entity\OrderItem;
+
 
 class OrderController extends AbstractActionController
 {
@@ -20,7 +23,31 @@ class OrderController extends AbstractActionController
      *  The page where an order is created! 
      */
     public function createAction(){
-        /* @TODO */
+        try 
+        {
+            $cartsrv = $this->getServiceLocator()->get('CartService');
+            $orderserv = $this->getServiceLocator()->get('OrderService');    
+            $cart = $cartsrv->getCart();
+
+            $order = $orderserv->createOrder($cart);
+
+            $this->getLogger()->info('New order was created.[' . $order->getGUID() . ']');
+            $redirect = $this->redirect()->toRoute('cart',array('lang' => 'en'));
+            return $redirect; 
+            
+        }
+        catch(\Exception $e)
+        {
+            $this->getLogger()->crit($e);
+            $redirect = $this->redirect()->toRoute('home',array('lang' => 'en'));
+            return $redirect;
+        }
+        
+        
+        
+       
+        
+       
     }
     
     /**
