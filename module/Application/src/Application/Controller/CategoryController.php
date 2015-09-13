@@ -23,10 +23,16 @@ class CategoryController extends AbstractActionController
             if(!$cat)
                 throw new \Exception('The category was not found.[' . $slug . ']');
             $cat = $cat[0];
+            
+            //Lets get the filters
+            $filters = $ctgsrv->getFilters($cat);
+            
+            
             $viewModel = new ViewModel();
             $viewModel->setVariables(
                 array(
-                     'category' => $cat
+                    'filters'  => $filters,
+                    'category' => $cat
                 )    
             );
             return $viewModel;

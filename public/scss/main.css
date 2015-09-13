@@ -7886,6 +7886,24 @@ ul.np {
   padding: 0;
   list-style: none; }
 
+ul.pagination {
+  margin: 0; }
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-radius: 0; }
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-radius: 0; }
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  border-color: #ffbb33;
+  background-color: #ffbb33; }
+
+.pagination > li > a, .pagination > li > span {
+  color: #626060;
+  padding-top: 4px;
+  padding-bottom: 4px; }
+
 /******************************************************************************/
 .mt0 {
   margin-top: 0px; }
@@ -8388,7 +8406,8 @@ body {
   text-transform: capitalize; }
 
 .product-wp > .product-inner .pr-details .price {
-  color: #ffbb33; }
+  color: #ffbb33;
+  font-weight: bold; }
 
 .product-wp > .product-inner .pr-details .old-price {
   text-decoration: line-through;
@@ -8520,5 +8539,82 @@ body {
   font-size: 14px; }
 
 /***************************************/
+/**************************************/
+/* category widget */
+.cat-widget {
+  height: 420px;
+  background-color: #ffffff;
+  border-top: 4px solid #ffbb33; }
+
+.cat-widget .cat-cover {
+  overflow: hidden;
+  height: 416px; }
+
+.cat-widget .child-overview h2 {
+  text-transform: uppercase; }
+
+.cat-widget .child-overview ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+
+.cat-widget .child-overview ul > li {
+  display: block; }
+
+.cat-widget .child-overview ul > li > a {
+  font-size: 14px;
+  padding: 5px;
+  display: block; }
+
+.cat-widget .widget-item-wp {
+  height: 208px;
+  min-height: 100px;
+  position: relative;
+  transition: all .3s ease;
+  overflow: hidden; }
+
+.cat-widget .widget-item-wp header h6 {
+  margin: 0;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 14px; }
+
+.cat-widget .widget-item-wp header h5 {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  color: #ffbb33;
+  font-weight: bold; }
+
+.cat-widget .widget-item-wp content {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  height: 160px; }
+
+.cat-widget .widget-item-wp content img {
+  width: 80%; }
+
+.cat-widget .widget-item-wp content span {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -30px;
+  background-color: #FFBB33;
+  color: white;
+  padding: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out; }
+
+.cat-widget .widget-item-wp:hover {
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.03); }
+
+.cat-widget .widget-item-wp:hover span {
+  bottom: 0; }
+
+/**************************************/
 
 /*# sourceMappingURL=main.css.map */

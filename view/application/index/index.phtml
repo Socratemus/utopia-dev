@@ -1,191 +1,198 @@
 
+<aside class="col-sm-2 col-xs-12 extended" id="SC">
 
-    
-    <aside class="col-sm-3 col-xs-12 extended" id="SC">
-    
-        <div class="sc-inner">
-            <div class='side-menu'>
-                <header id="">
-                     <i class="fa fa-align-justify"></i>
-                     <h3>Categories</h3>
-                </header>
-                <section class="menu-content">
+    <div class="sc-inner">
+        <div class='side-menu'>
+            <header id="">
+                 <i class="fa fa-align-justify"></i>
+                 <h3>Categories</h3>
+            </header>
+            <section class="menu-content">
+                
+                <ul class="">
                     
-                    <ul class="">
-                        
-                        <li>
-                            <a class="has-many" href="">
-                                <i class="fa fa-female mr5"></i>Woman
-                            </a>
-                            <div class="submenu" style="display : none;">
-                                
-                                <div class="submenu-inner col-sm-12">
-                                    <?php for($subcat = 0 ; $subcat < 5 ; $subcat++) :?>
-                                    <div class="col-sm-4 mt15 mb15">
-                                        <h3 class="no-margin uppercase"><a href="">Handbags</a></h3>
-                                        
-                                        <ul>
-                                            <li>
-                                                <a href="">Fashion</a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a href="">Hats and gloves</a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a href="">Fashion</a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a href="">Lifestyle</a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a href="">Bras</a>
-                                            </li>
-                                            
-                                            <li>
-                                                <a href="">Sneakers</a>
-                                            </li>
-                                            
-                                        </ul>
-                                        
-                                    </div>
+                    <li>
+                        <a class="has-many" href="">
+                            <i class="fa fa-female mr5"></i>Woman
+                        </a>
+                        <div class="submenu" style="display : none;">
+                            
+                            <div class="submenu-inner col-sm-12">
+                                <?php for($subcat = 0 ; $subcat < 5 ; $subcat++) :?>
+                                <div class="col-sm-4 mt15 mb15">
+                                    <h3 class="no-margin uppercase"><a href="">Handbags</a></h3>
                                     
-                                    <?php endfor;?>
+                                    <ul>
+                                        <li>
+                                            <a href="">Fashion</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="">Hats and gloves</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="">Fashion</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="">Lifestyle</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="">Bras</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="">Sneakers</a>
+                                        </li>
+                                        
+                                    </ul>
                                     
                                 </div>
                                 
+                                <?php endfor;?>
+                                
                             </div>
-                        </li>
-                        
-                        <li>
-                            <a class="has-many" href="">
-                                <i class="fa fa-male mr5"></i>Man
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a class="has-many" href="">
-                                <i class="fa fa-barcode mr5"></i>Fashion
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="">
-                                <i class="fa fa-black-tie mr5"></i>Accessories
-                            </a>
-                        </li>
-                        
-                    </ul>
+                            
+                        </div>
+                    </li>
                     
-                </section>
+                    <li>
+                        <a class="has-many" href="">
+                            <i class="fa fa-male mr5"></i>Man
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="has-many" href="">
+                            <i class="fa fa-barcode mr5"></i>Fashion
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="">
+                            <i class="fa fa-black-tie mr5"></i>Accessories
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </section>
+        </div>
+        
+        
+        <div class="widget mt35">
+            <h2 class="title">
+                <span class="">Special offers</span>
+            </h2> 
+            
+            <content>
+                this is where i want content to be.
+            </content>
+            
+            
+        </div>
+        
+        <div class="side-wid widget mt35 hide">
+            <div class="title">
+                <span class="product-category-title">Best sellers</span>
             </div>
             
-            
-            <div class="widget mt35">
-                <h2 class="title">
-                    <span class="">Special offers</span>
-                </h2> 
+            <div class="inner no-padding">
+                <span class="carou-control">
+                    <button class="slick-prev"><</button>
+                    <button class="slick-next">></button>
+                </span>
                 
-                <content>
-                    this is where i want content to be.
-                </content>
-                
-                
-            </div>
-            
-            <div class="side-wid widget mt35 hide">
-                <div class="title">
-                    <span class="product-category-title">Best sellers</span>
+                <div class='cw'>
+                    <?php for($p = 0 ; $p < 5 ; $p++): ?>
+                    <div class="carousel-item product-wp">
+                        <div class="product-inner">
+                            <span class="new-box box-label">New</span>
+                            
+                            <span class="sale-box box-label">Sale!</span>
+                            
+                            <div class="pr-img">
+                                <img src="/public/images/product-01.jpg">
+                            </div>
+                            
+                            <div class="pr-details">
+                                <h5 class="product_name"> 
+                                    <a href="" title="Pilot Jacket">Pilot Jacket - <?php echo $p?> </a>
+                                </h5>
+                                <div class="product-price-wp">
+                                    <span class="price">RON 150</span>
+                                    <span class="old-price">RON 180</span>
+                                    <span class="discount">-15%</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <?php endfor; ?>
                 </div>
                 
-                <div class="inner no-padding">
-                    <span class="carou-control">
-                        <button class="slick-prev"><</button>
-                        <button class="slick-next">></button>
-                    </span>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</aside>
+
+<section class="col-sm-10 col-xs-12" id="Wrapper">
+    
+    <div class="carousel-wp" style="max-height : 320px; overflow : hidden">
+         
+        <img src="<?php echo $this->basePath('images/galery-item-1.jpg')?>" width="100%" alt="" title="" />
+        
+    </div>
+    
+    <section class="_cicw mt25">
+        
+        <h2 class="title">Featured products</h2>
+        
+        <div class="products-container row">
+            <?php for($pr = 0 ; $pr < 3 ; $pr++) :?>
+            <div class="col-sm-4 product-wp">
+                <div class="product-inner">
+                    <span class="new-box box-label">New</span>
                     
-                    <div class='cw'>
-                        <?php for($p = 0 ; $p < 5 ; $p++): ?>
-                        <div class="carousel-item product-wp">
-                            <div class="product-inner">
-                                <span class="new-box box-label">New</span>
-                                
-                                <span class="sale-box box-label">Sale!</span>
-                                
-                                <div class="pr-img">
-                                    <img src="/public/images/product-01.jpg">
-                                </div>
-                                
-                                <div class="pr-details">
-                                    <h5 class="product_name"> 
-                                        <a href="" title="Pilot Jacket">Pilot Jacket - <?php echo $p?> </a>
-                                    </h5>
-                                    <div class="product-price-wp">
-                                        <span class="price">RON 150</span>
-                                        <span class="old-price">RON 180</span>
-                                        <span class="discount">-15%</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
+                    <span class="sale-box box-label">Sale!</span>
+                    
+                    <div class="pr-img">
+                        <img src="<?php echo $this->basePath('/images/product-01.jpg');?>">
+                    </div>
+                    
+                    <div class="pr-details">
+                        <h5 class="product_name"> 
+                            <a href="" title="Pilot Jacket">Pilot Jacket </a>
+                        </h5>
+                        <div class="product-price-wp">
+                            <span class="price">RON 150</span>
+                            <span class="old-price">RON 180</span>
+                            <span class="discount">-15%</span>
                         </div>
-                        <?php endfor; ?>
                     </div>
                     
                 </div>
             </div>
-            
+            <?php endfor; ?>
         </div>
-        
-        
-    </aside>
-    
-    <section class="col-sm-9 col-xs-12" id="Wrapper">
-        
-        <div class="carousel-wp">
-             
-            <img src="<?php echo $this->basePath('images/galery-item-1.jpg')?>" width="100%" alt="" title="" />
-            
-        </div>
-        
-        <section class="_cicw mt25">
-            
-            <h2 class="title">Featured products</h2>
-            
-            <div class="products-container row">
-                <?php for($pr = 0 ; $pr < 3 ; $pr++) :?>
-                <div class="col-sm-4 product-wp">
-                    <div class="product-inner">
-                        <span class="new-box box-label">New</span>
-                        
-                        <span class="sale-box box-label">Sale!</span>
-                        
-                        <div class="pr-img">
-                            <img src="<?php echo $this->basePath('/images/product-01.jpg');?>">
-                        </div>
-                        
-                        <div class="pr-details">
-                            <h5 class="product_name"> 
-                                <a href="" title="Pilot Jacket">Pilot Jacket </a>
-                            </h5>
-                            <div class="product-price-wp">
-                                <span class="price">RON 150</span>
-                                <span class="old-price">RON 180</span>
-                                <span class="discount">-15%</span>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <?php endfor; ?>
-            </div>
-            
-        </section>
         
     </section>
+    
+</section>
+
+<?php foreach($this->categories as $fct) : if($fct->getStatus() != \Application\Response\Status::ACTIVE) continue; ?>
+
+<div class="col-md-12 mt25" style="padding-left : 0;">
+    <?php echo $this->partial('application/helper/category-wiget.phtml' , array('category' => $fct));?>
+</div>
+
+<?php endforeach;?>
+    
     
 <?php 
     $this->headLink()->appendStylesheet($this->basePath('css/slick.css'));

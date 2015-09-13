@@ -72,6 +72,27 @@ ul.np{
     list-style : none;
 }
 
+ul.pagination{
+    margin : 0;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span{
+    border-radius : 0;
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius : 0;
+}
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+    border-color : $color-yellow;
+    background-color : $color-yellow;
+}
+.pagination > li > a, .pagination > li > span {
+    color : $color-top-header;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+
 /******************************************************************************/
 .mt0{
     margin-top : 0px;

@@ -1,0 +1,126 @@
+<section class="col-md-12 extended cat-widget">
+    
+    <div class="col-sm-6 extended-right">
+        
+        <div class="col-xs-4 child-overview">
+            <!-- CATEGORY TITLE -->
+            <h2 class="text-center"><?php echo $category->getTitle();?></h2>
+            
+            <ul>
+                <?php foreach($category->getChildren() as $chd) :?>
+                <?php if($chd->getStatus() != \Application\Response\Status::ACTIVE) continue; ?>
+                <li>
+                    <a href=""><?php echo $chd->getTitle();?></a>
+                </li>
+                <?php endforeach;?>
+                
+                
+            </ul>
+            
+        </div>
+        <div class="col-xs-8 extended cat-cover" style="min-height : 150px; border: 0px solid gray;">
+            <img src="<?php echo $this->basePath('images/cat-cover-test.jpg')?>" width="100%" />
+        </div> 
+    </div>
+    
+    <div class="col-sm-6 extended">
+        
+        
+        <div class="col-xs-4 extended">
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Suit jackets</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/fashio-dress.png')?>" alt="" />
+                    
+                    <span> ADD TO CART </span>
+                    
+                </content>
+                
+            </div>
+            
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Nike Air MAX</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/product-01.jpg')?>" alt="" />
+                </content>
+                
+            </div>
+        </div>
+        
+        <div class="col-xs-4 extended">
+            
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Nike Air MAX</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/product-01.jpg')?>" alt="" />
+                </content>
+                
+            </div>
+            
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Nike Air MAX</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/product-01.jpg')?>" alt="" />
+                </content>
+                
+            </div>
+            
+        </div>
+        
+        <div class="col-xs-4 extended">
+            
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Nike Air MAX</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/product-01.jpg')?>" alt="" />
+                </content>
+                
+            </div>
+            
+            <div class="widget-item-wp">
+                
+                <header>
+                    <h6>Nike Air MAX</h6>
+                    <h5>1000 RON</h6>
+                </header>
+                
+                <content>
+                    <img src="<?php echo $this->basePath('images/product-01.jpg')?>" alt="" />
+                </content>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+   
+    
+    
+    
+</section>

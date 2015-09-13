@@ -11,7 +11,7 @@
     //var_dump($bcr);exit;
 ?>
 
-<aside class="col-sm-3 col-xs-12 extended" id="SC">
+<aside class="col-sm-3 col-xs-12 hide extended" id="SC">
     <div class="sc-inner">
         <div class='side-menu'>
             <header id="">
@@ -101,9 +101,9 @@
                 
             <content class="bordered">
                 
-                <?php for($f = 0 ; $f < 2 ; $f++) :?>
-                <section class="col-md-12 filter-wp">
-                    <h4>Size</h4>
+                <?php foreach($filters as $filter) :?>
+                <section class="col-md-12 filter-wp hide">
+                    <h4><?php echo $filter->getTitle();?></h4>
                     <ul>
                         
                         <li>
@@ -140,7 +140,7 @@
                     </ul>
                     <hr class="separator" />
                 </section>
-                <?php endfor;?>
+                <?php endforeach;?>
                 
                 <span class="clearfix"></span>
             </content>
@@ -150,7 +150,7 @@
 </aside>
     
     
-<section class="col-sm-9 col-xs-12" id="Wrapper">
+<section class="col-sm-12 col-xs-12" id="Wrapper">
         
         <ol class="breadcrumb">
           <li><a href="#">Home</a></li>
@@ -174,12 +174,24 @@
                 </select>
             </div>
             
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-right">
                 <nav>
                   <ul class="pagination">
-                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    
+                    <li>
+                      <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                      <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
             </div>
@@ -189,6 +201,31 @@
          
          
         <section class="prds row">
+            <?php foreach($category->getItems() as $item) : ?>
+            <div class="col-sm-4 product-wp">
+                <div class="product-inner">
+                    <span class="new-box box-label">New</span>
+                    
+                    <span class="sale-box box-label">Sale!</span>
+                    
+                    <div class="pr-img">
+                        <img src="<?php echo $item->getCover()->getMedium() ;?>">
+                    </div>
+                    
+                    <div class="pr-details">
+                        <h5 class="product_name"> 
+                            <a href="" title="Pilot Jacket"><?php echo $item->getTitle() ;?> </a>
+                        </h5>
+                        <div class="product-price-wp">
+                            <span class="price">RON <?php echo $item->getProduct()->getPrice() ;?></span>
+                            <!--<span class="old-price">RON 180</span>-->
+                            <!--<span class="discount">-15%</span>-->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <?php endforeach; ?>
             <?php foreach($category->getItems() as $item) : ?>
             <div class="col-sm-4 product-wp">
                 <div class="product-inner">

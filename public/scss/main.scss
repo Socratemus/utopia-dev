@@ -257,7 +257,7 @@ body {
 }
 .product-wp > .product-inner .pr-img img{
     width : 100%;
-}
+} 
 .product-wp > .product-inner .pr-details{
     height : 70px;
     text-align : center;
@@ -270,7 +270,8 @@ body {
     text-transform: capitalize;
 }
 .product-wp > .product-inner .pr-details .price {
-    color: $color-yellow; 
+    color: $color-yellow;  
+    font-weight : bold;
 }
 .product-wp > .product-inner .pr-details .old-price{
     text-decoration: line-through;
@@ -295,8 +296,8 @@ body {
 .product-wp .box-label.sale-box{
     top  : 35px;
     background : $color-blue;
-}
-
+}   
+ 
 .menu-cat-wp{
     position: absolute;
     background-color: $color-white;
@@ -310,7 +311,7 @@ body {
     border-radius : 0;
     border :0 ;
     margin-top : 0;
-}
+} 
 .menu-cat-wp .mc-wp {
     padding-top : 10px;
     padding-bottom : 20px;
@@ -409,3 +410,86 @@ body {
     font-size: 14px;
 }
 /***************************************/
+
+
+/**************************************/
+/* category widget */
+.cat-widget{
+    height : 420px;
+    background-color : $color-white;
+    border-top : 4px solid $color-yellow;
+}
+.cat-widget .cat-cover{
+    overflow : hidden;
+    height : 416px;
+}
+.cat-widget .child-overview h2 {
+    text-transform : uppercase;
+}
+.cat-widget .child-overview ul {
+    margin : 0;
+    padding : 0;
+    list-style : none;
+    text-align : center;
+}
+.cat-widget .child-overview ul > li {
+    display : block;
+}
+.cat-widget .child-overview ul > li > a {
+    font-size : 14px;
+    padding : 5px;
+    display : block;
+}
+.cat-widget .widget-item-wp{
+    height : 208px;
+    min-height : 100px;
+    //box-shadow :1px 1px 0px 0px rgba(0,0,0,.2);
+    // height : 50%;
+    position : relative;
+    transition : all .3s ease;
+    overflow : hidden;
+}
+
+
+.cat-widget .widget-item-wp header h6{
+    margin: 0;
+    padding-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+.cat-widget .widget-item-wp header h5{
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    color : $color-yellow ; font-weight : bold;
+}
+.cat-widget .widget-item-wp content{
+    display : block;
+    text-align : center;
+    overflow : hidden;
+    height : 160px;
+}
+.cat-widget .widget-item-wp content img{
+    width : 80%;
+}
+.cat-widget .widget-item-wp content span{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -30px;
+    background-color: #FFBB33;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    transition : all 0.3s ease-in-out;
+}
+.cat-widget .widget-item-wp:hover{
+    box-shadow :0px 0px 15px 3px rgba(0, 0, 0, 0.03);
+}
+.cat-widget .widget-item-wp:hover span{
+    bottom : 0;
+}
+
+/**************************************/

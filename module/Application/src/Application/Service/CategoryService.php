@@ -75,7 +75,16 @@ class CategoryService extends ModelService {
         
         return $entity;
     }
-
+    
+    /**
+     * 
+     * 
+     */
+    public function getFilters(\Application\Entity\Category $Category){
+        $filterRepo = $this->getEntityManager()->getRepository('\Application\Entity\Filter');
+        $filters = $filterRepo->findBy(array('Category' => $Category));
+        return $filters;
+    }
     /**************************************************************************/
     
     /**
