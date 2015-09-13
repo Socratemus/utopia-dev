@@ -74,9 +74,15 @@ header ul.navigation > li:hover > span > a {
 
 header ul.navigation > li > span > a {
   color: #FFF;
-  padding: 10px 25px 11px 18px;
+  padding: 10px 25px 8px 18px;
   display: block;
   text-shadow: 0px 1px 0px rgba(0,0,0,0.2);
+}
+
+header ul.navigation > li > span.open > a{
+  background: #e3edf7;
+  border-radius: 4px 4px 0 0;
+  color: #222;
 }
 
 header ul.navigation > li > span > a i{
@@ -164,7 +170,7 @@ header ul.navigation ul.dropdown-menu > li > a i {
   line-height : 15px;
 }
 .form-content legend{
-  border-top: 1px solid #fff;
+  /*border-top: 1px solid #fff;*/
   border-bottom: 1px solid #DDD;
   font-size: 11px;
   font-weight: bold;
@@ -176,7 +182,7 @@ header ul.navigation ul.dropdown-menu > li > a i {
   position: relative;
   display: block;
   padding-left :10px;
-  background-color : rgba(0, 0, 0, 0.01);
+  background-color : rgba(228,228,228,0.5);
   margin-bottom : 0;
 }
 
@@ -231,7 +237,9 @@ header ul.navigation ul.dropdown-menu > li > a i {
 .brl {
   border-left : 1px solid #DDDDDD;
 } 
-
+.statistics{
+  margin-top : 15px;
+}
 .statistics .widget{
   min-height : 70px;
   /*border : 1px solid lightgray;*/
@@ -277,4 +285,28 @@ header ul.navigation ul.dropdown-menu > li > a i {
 .product-categories{margin-top : -3px;}
 .product-categories > span{
   float : left;margin-top : 3px;
+}
+
+.acc-list-wp{
+  padding-top : 20px;
+}
+
+.acc-item{
+  color : rgb(85, 85, 85);
+  min-height : 250px;
+  border : 1px solid lightgray;
+  position : relative;
+}
+
+.acc-item > div.footer {
+  bottom: 0;
+  position: absolute;
+  padding: 15px;
+  border-top: 1px solid lightgray;
+  width: 100%;
+}
+
+.acc-item .details p{
+  margin-bottom : 3px; font-size : 13px;
+  color : rgb(85, 85, 85);
 }

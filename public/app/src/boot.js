@@ -17,9 +17,9 @@
       { ngRoute             : "../public/app/vendor/angular-1.4.2/angular-route.js",                                size: "30052"   },
       { ngSanitize          : "../public/app/vendor/angular-1.4.2/angular-sanitize.js",                             size: "19990"   },
       { angularbootstrap: "../public/app/vendor/angular-1.4.2/addons/angular-bootstrap/ui-bootstrap-tpls-0.13.0.js",size: "999999"  },
-      { ngChart             : "../public/app/vendor/angular-1.4.2/addons/angular-chart/angular-google-chart.js",    size: "999999"  },
-      { ckeditor            : "../public/app/vendor/ckeditor/ckeditor.js",                                          size: "999999"  },
-      { elfinder            : "../public/app/vendor/elfinder-2.x/js/elfinder.full.js",                              size: "10101"   }
+      { ngChart             : "../public/app/vendor/angular-1.4.2/addons/angular-chart/angular-google-chart.js",    size: "999999"  }
+    //   { ckeditor            : "../public/app/vendor/ckeditor/ckeditor.js",                                          size: "999999"  },
+    //   { elfinder            : "../public/app/vendor/elfinder-2.x/js/elfinder.full.js",                              size: "10101"   }
   
     )
     .ready("ALL", function() {
@@ -33,6 +33,7 @@
                 // Configure alias to full paths
                 'utils'       :     './mindspace/utils',
                 'application' :     './main/application',
+                'account'     :     './main/account',
                 'util'        :     './main/util'
             },
             "shim"  :   {

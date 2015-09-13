@@ -32,4 +32,8 @@ class Listener implements ListenerAggregateInterface, ServiceManagerAwareInterfa
         $this->ServiceManager = $ServiceManager;
     }
     
+    public function getServiceManager(){
+        return $this->ServiceManager;
+    }
+    
 }

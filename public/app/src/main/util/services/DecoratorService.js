@@ -21,8 +21,7 @@
                 init : function(){
                     
                     $rootScope._slugify = this.slugify;
-                    
-                    $log.info('initialize decorator service ');
+                    $log.info('Initialize DecoratorService ');
                 }
                 
             };

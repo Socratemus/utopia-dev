@@ -24,9 +24,6 @@
                         </div>
                         
                         <div class="row panel-row" ng-repeat="filter in item.filters[category]">
-                            <div class="col-md-12 col-xs-12 hide">
-                                <pre>{{filter}}</pre>
-                            </div>
                             <div class="col-md-12 col-xs-12">
                                 <div class="col-md-1 col-xs-1 extended text-left" style="height: 26px;">
                                     <!--<i class="fa fa-info-circle medium"></i>-->
@@ -37,7 +34,7 @@
                                         pending
                                     </label>
                                     <img ng-show="filter.isLoading " 
-                                    ng-src="{{basePath}}/app/img/small-preloader.gif" width="30%" alt="" />
+                                    ng-src="{{basePath}}/app/img/small-preloader.gif" width="20%" alt="" />
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <input type="text" class="form-control" ng-model="filter.Title" ng-change="_slugify(filter , 'Title' , 'Slug')"  />
@@ -55,7 +52,7 @@
                                         pending
                                     </label>
                                     <img ng-show="filter.isLoading " 
-                                    ng-src="{{basePath}}/app/img/small-preloader.gif" width="30%" alt="" />
+                                    ng-src="{{basePath}}/app/img/small-preloader.gif" width="20%" alt="" />
                                 </div>
                                 
                                 <div class="col-md-2 col-xs-2">

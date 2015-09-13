@@ -283,6 +283,7 @@ class CategoryController extends AbstractActionController
     {   
         try
         {
+            //sleep(3);
             $data = $this->getPayload();
             $itmsrv = $this->getServiceLocator()->get('ItemService');
             $em = $this->getServiceLocator()->get('EntityManager');

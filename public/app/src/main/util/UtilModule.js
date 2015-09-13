@@ -28,7 +28,7 @@
             )
         {
             
-            $log.debug('Start loading util module');
+            //$log.debug('Start loading util module');
             var moduleName = "main.Util";
            
             angular.module( moduleName, [ ] )

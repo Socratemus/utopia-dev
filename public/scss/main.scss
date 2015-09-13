@@ -37,36 +37,73 @@ body {
 } 
 
 .top-header-nav{
-    border-bottom: 1px solid #e2dfdf;
+    border-bottom: 1px solid $color-lightborder;
     box-shadow: 0 1px #fff;
     height : 31px; /* to be removed*/
+}
+.top-header-nav .sctrl{
+    padding : 0;
+    margin:0; 
+    list-style : none;
+}
+
+.top-header-nav .sctrl > li {
+    display : inline-block;
+    padding : 6px 0px;
+}
+.top-header-nav .sctrl > li:last-child a {
+    border-right : 0;
+    box-shadow : none;
+}
+
+.top-header-nav .sctrl > li > a {
+    color : $color-top-header;
+    padding : 0px 15px ;display : block;
+    border-right : 1px solid $color-white;
+    box-shadow: 1px 0px 0px 0px rgba(0,0,0,0.2);
+    font-family : Agency; font-size : 14px;
+}
+.top-header-nav .sctrl > li > a:hover{
+    color : $color-yellow;
 }
 
 .middle-header-nav{
     height :135px;
-}
-
+} 
+ 
 .header-menu-wp{
-    height : 48px;
+    // height : 48px;
     position : relative;
     background-color : $color-main;
     margin-bottom : 36px;
 }
-
+.header-menu-wp .nav > li > a {
+    color : $color-white;
+    padding : 0 20px;
+    font-family : Agency; 
+}
+.header-menu-wp .nav>li>a:hover{
+    background-color : $color-yellow
+} 
+.header-menu-wp .nav > li{
+    font-size : 20px;
+    line-height: 48px;
+    position : inherit;
+}
 .header-menu-shadow{
     background : url(../images/shadow-top-menu.png) no-repeat scroll 50% 0;;
     position : absolute;
     width : 100%;
     height : 36px;
     bottom : -36px;
-}
+} 
+
 #Main{
     margin-bottom : 30px;
 }
 #Footer{
     background-color : $color-darkgray;
 }
-
 #Footer .footer-top h4 {
     border-color: rgba(0,0,0,1);
     border-style: solid;
@@ -76,22 +113,19 @@ body {
     margin: 66px 0 20px;
     padding-bottom: 10px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: $color-white;
 }
-
 #Footer .footer-top p {
     font-size: 14px;
-    color: #ffffff;
+    color: $color-white;
     line-height: 25px;
 }
-
 #Footer .footer-top{
     border-color: rgba(0,0,0,1);
     border-style: solid;
     border-width: 0 0 1px;
     box-shadow: 0 1px rgba(255,255,255,0.2);
 }
-
 #Footer .footer-bottom .footer-bottom-inner{
     margin: 15px 0px;
     //background-color: red;
@@ -100,7 +134,6 @@ body {
 }
 
 #Header .logo-wp{}
-
 #Header .logo-wp .logo{
     display : block;
     padding : 15px 0px;
@@ -108,29 +141,34 @@ body {
 
 #Wrapper {
     min-height : 500px;
-    // background : rgba(0,0,0,.0325);
-    padding-top : 10px; padding-bottom : 10px;
-}
+    
+    padding-bottom : 10px;
+} 
 
-
-.sc-inner{
-    min-height : 100px;
-    // border: 1px solid $color-darkgray;
-}
-
-.menu-title{
+#SC{}
+#SC .side-menu header{
     background-color : $color-main;
     padding: 10px 17px
 }
-
-.menu-content {
-    border: 1px solid #e2dfdf;
-    box-shadow: 0 0 0 1px #fff inset;
+#SC .side-menu header i{
+    font-size: 22px;
+    margin-right: 5px;
+    color: $color-white;
 }
-.menu-content > ul {
+#SC .side-menu header h3{
+    display : inline-block; margin : 0;
+    color : $color-white;
+    text-transform : uppercase;
+}
+#SC .side-menu section{}
+#SC .side-menu section.menu-content {
+    border: 1px solid $color-lightborder;
+    box-shadow: 0 0 0 1px $color-white inset;
+}
+#SC .side-menu section.menu-content > ul {
     margin :0; padding : 0;list-style : none;
 }
-.menu-content > ul > li > a {
+#SC .side-menu section.menu-content > ul > li > a {
     display : block;
     color: $color-darkgray;
     font-weight: normal;
@@ -139,79 +177,57 @@ body {
     padding: 11px 0;
     margin: 0 15px;
     border-bottom: 1px solid $color-lightborder;
-    box-shadow: 0 1px #fff;
+    box-shadow: 0 1px $color-white;
     text-transform : uppercase;
     font-family: Agency;
 }
-.menu-content > ul > li:last-child > a{
+#SC .side-menu section.menu-content > ul > li:last-child > a{
     border-bottom: 0;
     box-shadow: none;
 }
-
-.menu-content > ul > li > a:hover{
+#SC .side-menu section.menu-content > ul > li > a:hover{
     text-decoration : none;
 }
-.menu-content > ul > li > a:active{
+#SC .side-menu section.menu-content > ul > li > a:active{
     text-decoration : none;
 }
-.menu-content > ul > li > a:focus{
+#SC .side-menu section.menu-content > ul > li > a:focus{
     text-decoration : none;
 }
-
-.menu-content > ul > li > a.has-many:after{
+#SC .side-menu section.menu-content > ul > li > a.has-many:after{
     display : inline-block;
     font-family: fontawesome;
     content: "\f105";
     float : right;
 }
-
-.menu-content > ul > li:hover{
+#SC .side-menu section.menu-content > ul > li:hover{
     background-color : $color-main;
 }
-
-.menu-content > ul > li:hover > a{
+#SC .side-menu section.menu-content > ul > li:hover > a{
     border-bottom-color : transparent;
     color : $color-white;
     
 }
-
-
-.menu-title > h3{
-    display : inline-block; margin : 0;
-    color : $color-white;
-    text-transform : uppercase;
-}
-
-.menu-title > i {
-    font-size: 22px;
-    margin-right: 5px;
-    color: $color-white;
-}
-
-aside .submenu {
+#SC .side-menu section .submenu {
     position: absolute;
     width: 720px;
     min-height: 220px;
-    // background-color: rgba(211, 211, 211, 0.67);
     background-color : $color-white;
     top: 46px;
     left: 100%;
     z-index : 3;
-}
-
-aside .submenu ul {
+} 
+#SC .side-menu section .submenu ul {
     margin : 0; padding : 0;
     list-style : none;
 }
-
-aside .submenu ul li a {
+#SC .side-menu section .submenu ul li a {
     display : block; 
     padding : 5px;
     font-size: 15px;
     text-transform: none;
 }
-
-aside .submenu ul li a:before {
+#SC .side-menu section .submenu ul li a:before {
     content: "\f111";
     display: block;
     font-family: FontAwesome;
@@ -219,32 +235,11 @@ aside .submenu ul li a:before {
     font-size: 10px;
     float: left;
 }
-
-.menu-category{
-    margin-top : 15px;
-    margin-bottom : 15px;
-} 
-.menu-content > ul > li:hover .submenu{
+#SC .side-menu section ul li:hover .submenu{
     display : block !important;
 }
-.submenu:hover{display : block !important;}
-
-.carousel-wp{
-    max-height : 280px;
-    overflow : hidden;
-}
-
-.product-category-title{
-    font-size: 24px;
-    color: #444444;
-    text-transform: uppercase;
-}
-
-.front-category-wp > .title{
-    padding: 0 0 5px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid $color-lightborder;
-    box-shadow: 0 1px $color-white;
+#SC .side-menu section .submenu:hover{
+    display : block !important;
 }
 
 .product-wp > .product-inner{
@@ -253,48 +248,42 @@ aside .submenu ul li a:before {
     background : $color-white;
     box-shadow : 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
 }
-
-.product-wp > .product-inner .pr-img{ height : 270px; 
-    // border-bottom : 1px solid $color-lightborder;
+.product-wp > .product-inner .pr-img{ 
+    height : 270px; 
     display : table-cell;
     vertical-align : middle;
+    text-align: center;
+    padding: 25px;
 }
 .product-wp > .product-inner .pr-img img{
     width : 100%;
 }
-
 .product-wp > .product-inner .pr-details{
     height : 70px;
     text-align : center;
     font-size: 15px;
 }
-
 .product-wp > .product-inner .pr-details h5{
     display: inline-block;
     font-size: 15px;
     margin: 10px 0 2px;
     text-transform: capitalize;
 }
-
 .product-wp > .product-inner .pr-details .price {
     color: $color-yellow; 
 }
-
 .product-wp > .product-inner .pr-details .old-price{
     text-decoration: line-through;
     color : $color-gray;
 }
-
 .product-wp > .product-inner .pr-details .discount{
     color : $color-white;
     background-color : $color-yellow;
     padding: 0px 6px;
 }
-
 .product-wp > .product-inner .pr-details .product-price-wp{
     margin-top : 8px;
 }
-
 .product-wp .box-label{
     top : 10px;
     position : absolute; left :0;
@@ -303,8 +292,120 @@ aside .submenu ul li a:before {
     color : $color-white;
     width :40px; text-align : center;
 }
-
 .product-wp .box-label.sale-box{
     top  : 35px;
     background : $color-blue;
 }
+
+.menu-cat-wp{
+    position: absolute;
+    background-color: $color-white;
+    width: 100%;
+    min-height: 150px;
+    left: 0;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.25),inset 0 1px 1px rgba(0,0,0,0.35);
+    z-index: 1;
+    top : calc(100%);
+    border-radius : 0;
+    border :0 ;
+    margin-top : 0;
+}
+.menu-cat-wp .mc-wp {
+    padding-top : 10px;
+    padding-bottom : 20px;
+}
+.menu-cat-wp .mc-wp h4 {
+    color : $color-black;
+    margin: 8px 0 10px 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #c0c0c0;
+    font-size: 18px;
+}
+.menu-cat-wp .mc-wp ul {
+    list-style : none;
+    padding : 0; margin : 0;
+}
+.menu-cat-wp .mc-wp ul > li {
+    line-height : 25px;
+    padding-left : 5px;
+}
+.menu-cat-wp .mc-wp ul > li > a {
+    font-family: Pt Sans Narrow, Arial, sans-serif;
+    font-size : 14px;
+    color : $color-dark;
+    text-transform : none;
+}
+.menu-cat-wp .mc-wp ul > li > a:before{
+    content : '>';
+    margin-right : 8px;
+}
+
+/* Products wrapper */
+.prds{}
+.prds .product-wp{margin-bottom : 15px;}
+
+/***************************************/
+/* SIDEBAR */
+#SC .widget content{
+    display :block;
+    min-height : 100px;
+    background-color : rgba(255,255,255, .38); //@TESTING
+}
+#SC .widget content.bordered{
+    box-sizing : border-box;
+    border: 1px solid $color-lightborder;
+    box-shadow: 0 0 0 1px $color-white inset;
+}
+
+#SC .widget content .filter-wp h4{
+    // margin : 0;
+    text-transform : uppercase;
+}
+
+#SC .widget content .filter-wp ul{
+    margin : 0; padding : 0; list-style : none;
+}
+
+#SC .widget content .filter-wp ul li label{
+    font-weight : 300;
+    display : block;
+    margin : 0;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"]{
+    visibility : hidden;
+    opacity : 0;
+    display : none;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"] + span{
+    display : block;
+    padding : 3px 10px;
+    padding-left : 15px;
+    
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"] + span:before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid $color-lightborder;
+    background-color : $color-white;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+#SC .widget content .filter-wp:last-child hr{
+    display : none;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"]:checked + span:before{
+    content : "\f00c";
+    font-family : fontawesome;
+    line-height: 13px;
+    text-align: center;
+    font-size: 14px;
+}
+/***************************************/

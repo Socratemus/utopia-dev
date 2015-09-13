@@ -1,209 +1,219 @@
-<div class="row">
+<?php
+    $bcr = array($category->getTitle());
+    $tmpcat = $category;
+    //var_dump($tmpcat->getParent());exit;
+    while($bc = $tmpcat->getParent()){
+        array_push($bcr , $bc->getTitle());
+        
+        $tmpcat = $tmpcat->getParent();
+    }
+    $bcr = array_reverse($bcr);
+    //var_dump($bcr);exit;
+?>
 
-    <div class="col-md-3 extended">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-            <div class="_smh" style="border-radius: 5px;">
-                <i class="fa fa-align-justify"></i> All Departments
-            </div>
-        </a>
-
-        <ul class="dropdown-menu" id="SdMn">
-            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-            <li><a href="#">CPUs, Processors</a></li>
-            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-            <li><a href="#">Graphics, Video Cards</a></li>
-            <li><a href="#">Interface, Add-On Cards</a></li>
-            <li><a href="#">Laptop Replacement Parts</a></li>
-            <li><a href="#">Memory (RAM)</a></li>
-            <li><a href="#">Motherboards</a></li>
-            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-            <li><a href="#">Motherboard Components</a></li>
-        </ul>
-
-
-    </div>
-    <div class="col-md-9 extended" id="BcR">
-        <ul class="" >
-            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-            <li><a href="#">CPUs, Processors</a></li>
-            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-        </ul>
-    </div>
-
-</div>
-
-<div class="row mt25">
-
-    <div class="col-md-3 sidebar">
-        <div class="widget">
-            <h1>Product Filters</h1>
-            <div class="body bordered">
-                <?php for ($i = 5; $i < 10; $i ++) : ?>
-                    <div class="category-filter filter">
-                        <h2>Brands</h2>
-                        <hr />
-                        <ul>
-                            <li>
-                                <input class="custom-checkbox" id="ckb1" type="checkbox">
-                                <label for="ckb1">Samsung</label> 
-                                <span class="pull-right">(2)</span>
-                            </li>
-                            <li>
-                                <input class="custom-checkbox" id="ckb2"  type="checkbox">
-                                <label for="ckb2">Toshiba</label> 
-                                <span class="pull-right">(2)</span>
-                            </li>
-                            <li>
-                                <input class="custom-checkbox" id="ckb3"  type="checkbox">
-                                <label for="ckb3">Alcatel</label> 
-                                <span class="pull-right">(2)</span>
-                            </li>
-                            <li>
-                                <input class="custom-checkbox" id="ckb4"  type="checkbox">
-                                <label for="ckb4">Apple</label> 
-                                <span class="pull-right">(2)</span>
-                            </li>
-                        </ul>
-                        <hr />
-                    </div><!-- /.category-filter -->
-                <?php endfor; ?>
-                <div class="price-filter mt10 filter">
-                    <h2>Price</h2>
-                    <hr>
-                    <div class="price-range-holder">
-
-                        <span class="min-max">
-                            Price: $89 - $2899
-                        </span>
-<!--                        <span class="filter-button">
-                            <a href="#">Filter</a>
-                        </span>-->
-                    </div>
-                </div><!-- /.price-filter -->
-
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-9">
-
-        <div class="control-bar col-md-12 ">
-            <div class="col-md-3 extended custom-select">
-                <select class="form-control">
-                    <option value="1">24 per page</option>
-                    <option value="2">48 per page</option>
-                    <option value="3">32 per page</option>
-                </select>
-                <span></span>
-            </div>
-            <div class="col-md-4 pull-right display-toggler">
-                <ul>
-                    <li class="grid-list-button-item "><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
-                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="clearfix"></div>
-
-        <div class="tab-content">
-            <div id="grid-view" class="products-grid fade tab-pane">
-               <div class="pr-wp c-pr-wp">
-                   <?php for($i = 0 ; $i < 8 ; $i++) :?>
-                   <div class="col-sm-4 col-md-4 prd-hero extended">
-                        <div class="_pr">
-                            <div class="ribbon red"><span>sale</span></div>
-                            <div class="image">
-                                <img alt="" src="/public/assets/img/product-01.jpg">
-                            </div>
-                            <div class="body">
-                                <div class="label-discount green">-50% sale</div>
-                                <div class="title">
-                                    <a href="index.php?page=single-product">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
+<aside class="col-sm-3 col-xs-12 extended" id="SC">
+    <div class="sc-inner">
+        <div class='side-menu'>
+            <header id="">
+                 <i class="fa fa-align-justify"></i>
+                 <h3>Categories</h3>
+            </header>
+            <section class="menu-content">
+                    
+                    <ul class="">
+                        
+                        <li>
+                            <a class="has-many" href="">
+                                <i class="fa fa-female mr5"></i>Woman
+                            </a>
+                            <div class="submenu" style="display : none;">
+                                
+                                <div class="submenu-inner col-sm-12">
+                                    <?php for($subcat = 0 ; $subcat < 5 ; $subcat++) :?>
+                                    <div class="col-sm-4 mt15 mb15">
+                                        <h3 class="no-margin uppercase"><a href="">Handbags</a></h3>
+                                        
+                                        <ul>
+                                            <li>
+                                                <a href="">Fashion</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="">Hats and gloves</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="">Fashion</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="">Lifestyle</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="">Bras</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="">Sneakers</a>
+                                            </li>
+                                            
+                                        </ul>
+                                        
+                                    </div>
+                                    
+                                    <?php endfor;?>
+                                    
                                 </div>
-                                <div class="brand">sony</div>
-                            </div>
-                            <div class="prices">
-                                <div class="price-prev">$1399.00</div>
-                                <div class="price-current pull-right">$1199.00</div>
-                            </div>
-                        </div>
-                    </div>
-                   <?php endfor;?>
-                   <div class="clearfix"></div>
-               </div>
-                
-            </div><!-- /.products-grid #grid-view -->
-
-            <div id="list-view" class="products-grid fade tab-pane in active">
-               
-               <div class="pr-wp c-pr-wp">
-                   
-                   <?php foreach($this->category->getItems() as $item) :?>
-                   <div class="col-sm-12 col-md-12 prd-hero extended list-item">
-                        <div class="_pr list-item">
-                            <div class="ribbon red"><span>sale</span></div>
-                            
-                            <div class="image col-md-3">
-                                <?php 
-                                    $coverEntity = $item->getCover();
-                                    $cover = $coverEntity ? $coverEntity : null;
-                                ?>
-                                <img alt="" src="<?php if($cover) echo$cover->getSmall();?>">
-                            </div>
-                            
-                            <div class="body col-md-6 no-margin pt5">
-                                <div class="label-discount green">-50% sale</div>
-                                <div class="title">
-                                    <a href="<?php echo $this->url('item' , array( 'lang' => 'en' , 'slug' => $item->getSlug()));?>"><?php echo $item->getTitle();?></a>
-                                </div>
-                                <div class="brand">sony - <?php echo $item->getGUID();?></div>
-                                <hr class="mt5 mb5" />
-                                <p><?php echo $item->getDescription();?></p>
                                 
                             </div>
-                            
-                            <div class="prices col-md-3">
-                                <div class="price-current">$1199.00</div> 
-                                <div class="price-prev mt10 mb10 block">$1399.00</div>
-                                <button class="btn btn-danger btn-block">Add to cart</button>
-                            </div>
-                            
-                            <div class="clearfix"></div>
+                        </li>
+                        
+                        <li>
+                            <a class="has-many" href="">
+                                <i class="fa fa-male mr5"></i>Man
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="has-many" href="">
+                                <i class="fa fa-barcode mr5"></i>Fashion
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="">
+                                <i class="fa fa-black-tie mr5"></i>Accessories
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </section>
+        </div>
+            
+            
+        <div class="widget mt35">
+            
+            <h2 class="title">
+                <span class=""><?php echo $this->translate('Filters')?></span>
+            </h2> 
+                
+            <content class="bordered">
+                
+                <?php for($f = 0 ; $f < 2 ; $f++) :?>
+                <section class="col-md-12 filter-wp">
+                    <h4>Size</h4>
+                    <ul>
+                        
+                        <li>
+                            <label>
+                                <input type="checkbox" name="" class="" />
+                                <span>XXL</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="" class="" />
+                                <span>XL</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="" class="" />
+                                <span>L</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="" class="" />
+                                <span>M</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="" class="" />
+                                <span>S</span>
+                            </label>
+                        </li>
+                        
+                    </ul>
+                    <hr class="separator" />
+                </section>
+                <?php endfor;?>
+                
+                <span class="clearfix"></span>
+            </content>
+        </div>
+            
+    </div>
+</aside>
+    
+    
+<section class="col-sm-9 col-xs-12" id="Wrapper">
+        
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <?php foreach($bcr as $breadcrumb) :?>
+          <li><a href="#"><?php echo $breadcrumb?></a></li>
+          <?php endforeach;?>
+        </ol>
+        
+        <div class="cat-cover">
+            <img width=100% src="<?php echo $this->basePath('images/header-ad.jpg')?>" alt="<?php echo $category->getTitle();?>">
+        </div>
+        
+        <h3 class="title"><?php echo $category->getTitle();?></h3>
+        
+        <div class="sort row">
+            <div class="col-sm-6">
+            
+                <h5 style="display : inline; margin-right : 5px;">Sort by</h5>
+                <select class="">
+                    <option>--Select on option--</option>
+                </select>
+            </div>
+            
+            <div class="col-sm-6">
+                <nav>
+                  <ul class="pagination">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    
+                  </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <hr class="separator" />
+         
+         
+        <section class="prds row">
+            <?php foreach($category->getItems() as $item) : ?>
+            <div class="col-sm-4 product-wp">
+                <div class="product-inner">
+                    <span class="new-box box-label">New</span>
+                    
+                    <span class="sale-box box-label">Sale!</span>
+                    
+                    <div class="pr-img">
+                        <img src="<?php echo $item->getCover()->getMedium() ;?>">
+                    </div>
+                    
+                    <div class="pr-details">
+                        <h5 class="product_name"> 
+                            <a href="" title="Pilot Jacket"><?php echo $item->getTitle() ;?> </a>
+                        </h5>
+                        <div class="product-price-wp">
+                            <span class="price">RON <?php echo $item->getProduct()->getPrice() ;?></span>
+                            <!--<span class="old-price">RON 180</span>-->
+                            <!--<span class="discount">-15%</span>-->
                         </div>
                     </div>
-                   <?php endforeach;?>
-                   
-               </div> 
-               
-                
-
-            </div><!-- /.products-grid #list-view -->
-
-        </div>
-        <nav>
-            <ul class="pagination products-pagination">
-                <li class="disabled">
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="active">
-                    <a href="#">1</a>
-                </li>
-               
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-</div>
+                    
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </section>
+        
+</section>

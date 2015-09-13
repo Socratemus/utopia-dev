@@ -26,7 +26,9 @@ label, input, select, textarea, li , table {
 }
 
 .label {
-    font-size : 85%;
+    font-size : 65%;
+    padding-bottom : 2px;
+    padding-top : 3px;
 }
 
 .fa.medium{
@@ -669,4 +671,19 @@ ul.action-dropdown > li > a {font-size : 11px;}
 }
 label.label.label-small{
     font-size : 65%;
+}
+
+.modal-dialog{
+    border-radius : 0;
+}
+
+.modal-header{
+    background-color: #6399c7;
+    padding: 10px 20px;
+    color : #FFF;
+}
+
+.modal-footer{
+    background-color: #6399c7;
+    padding: 10px 20px;
 }

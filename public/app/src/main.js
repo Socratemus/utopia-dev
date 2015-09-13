@@ -13,12 +13,14 @@
             'application/RouteManager',
             'application/services/ControllService',
             'application/ApplicationModule',
+            'account/AccountModule',
+            'account/RouteManager',
             'util/UtilModule',
             
         ],
         function ($log, LogDecorator,
             MainRouteManager, ControllSrv ,
-            ApplicationModule , UtilModule
+            ApplicationModule , AccountModule , AccountRouteManager , UtilModule
 
             )
         {
@@ -32,7 +34,7 @@
             
             $log = $log.getInstance( "BOOTSTRAP" );
             $log.info( "Initializing {0}", [ appName ] );
-
+            
             /**
              * Start the main application
              *
@@ -43,13 +45,14 @@
                     .module(
                         appName,
                         [ "ngRoute", "ngSanitize", "ui.bootstrap", "googlechart" ,
-                            ApplicationModule, UtilModule
+                            ApplicationModule, AccountModule ,UtilModule
                             
                             
                         ]
                     )
-                    .config( LogDecorator       )
-                    .config( MainRouteManager   )
+                    .config( LogDecorator           )
+                    .config( MainRouteManager       )
+                    .config( AccountRouteManager    )
                     ;
             
             app.run(["$rootScope", "ControllService" , "DomService" , "DecoratorService"

@@ -45,7 +45,7 @@
             ModalController , ModalInstanceCtrl)
         {
            
-            $log.debug('Start loading application module');
+            //$log.debug('Start loading application module');
             var moduleName = "main.Application";
            
             angular.module( moduleName, [ ] )

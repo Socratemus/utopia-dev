@@ -13,6 +13,10 @@
     padding-right : 0;
 }
 
+*:focus{
+    outline : none;
+}
+
 a {
     color: $color-darkgray;
     transition: all 0.3s  ease;
@@ -23,11 +27,52 @@ a:hover, a:focus, a:active{
     color : $color-yellow;
 }
 
+h1, h2, h3, h4 {
+    color : $color-black;
+    font-family : Agency;
+}
+ 
+
+
 /******************************************************************************/
 .no-margin {
     margin : 0;
 }
+.no-padding {
+    padding : 0 !important;
+}
+.uppercase{text-transform : uppercase;}
+.lowercase{ text-transform : lowercase;}
+.capitalize{text-transform : capitalize;}
+.nav.inline > li {display : inline-block;}
+.title{
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px $color-white;
+}
+.separator{
+    margin : 5px 0px;
+    border : 0;
+    border-top: 1px solid $color-white;
+    box-shadow : 0px 1px 0px 0px $color-lightborder;
+}
 
+.breadcrumb{
+    border-bottom: 1px solid #D6D4D4;
+    border-radius: 0;
+    box-shadow: 0px 1px 0px 0px #FFF;
+    color : $color-closed-black;
+}
+.breadcrumb > li + li:before{
+    content : "\f105";
+    font-family : FontAwesome;
+}
+
+ul.np{
+    padding : 0;
+    list-style : none;
+}
+
+/******************************************************************************/
 .mt0{
     margin-top : 0px;
 }

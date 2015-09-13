@@ -1,0 +1,140 @@
+<div class="container-fluid">
+    
+    <div class="col-md-12 mb0 extended form-title mb0">
+        <div class="col-md-8">
+          
+            <h3 class="_ft">Account overview</h3>
+          
+        </div>
+        <div class="col-md-4">
+          <div class="_abw text-right">
+            <button class="btn custom" ng-click="ViewMethods.openModal()">Add</button>
+            <button class="btn custom" ng-disabled="true" ng-click="save()">Save</button>
+            <button class="btn custom">Back</button>
+          </div>
+          
+        </div>
+    </div>
+    
+   
+    <div class="col-md-12 extended listing-body">
+        
+        
+        <div class="acc-list-wp col-md-12">
+            
+            <div class="col-xs-12 col-sm-4 mb15 acc-item-wp" ng-repeat="acc in ViewVars.accounts">
+                
+                <section class="acc-item">
+                    <div class="col-md-12">
+                        <h4 class="mb0">{{acc.Name}}</h4>
+                        <h5 class="mt0"><small>Small project name</small></h5>
+                    </div>
+                    
+                    <div class="col-md-12 mt50 pt30 details">
+                        <p>Founds : <strong class="pull-right">1000</strong></p>
+                        <p>Currency : <strong class="pull-right">EUR</strong> </p>
+                        <p>Created : <strong class="pull-right">01/01/2015</strong></p>
+                    </div>
+                    
+                    
+                    
+                    <div class="clearfix"></div>
+                    <div class="footer">
+                        <span>Status : 
+                            <small class="label label-primary pull-right mt5">Finished</small>
+                        </span>
+                    </div>
+                    
+                </section>
+                
+            </div>
+            
+            
+        </div>
+        
+        
+    </div>
+    
+</div>
+
+<!-- Add new account modal. -->
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Add a new account</h3>
+    </div>
+    <form name="accfrm" novalidate>
+        
+    
+        <div class="col-md-12 form-content extended">
+            <legend><span><i class="fa fa-info-circle"></i> &nbsp; Please fill all the form fields with valid data.</span></legend>
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
+                    <label for="">Account name</label>    
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" class="form-control" required ng-model="ViewVars.account.Name" name="Name">
+                    <div ng-show="accfrm.Name.$error.required" class="ng-hide">
+                        <span class="alert alert-danger">Please provide the account name.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
+                    <label for="">Account subtitle</label>    
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <input type="text" class="form-control" required ng-model="ViewVars.account.Subtitle" name="Subtitle">
+                    <div ng-show="accfrm.Subtitle.$error.required" class="ng-hide">
+                        <span class="alert alert-danger">Please provide subtitle.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
+                    <label for="">Founds</label>    
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <input type="number" class="form-control" required ng-model="ViewVars.account.Founds" min="1" max="99999" name="Founds">
+                    <div ng-show="accfrm.Founds.$error.required" class="ng-hide">
+                        <span class="alert alert-danger">Please provide found.</span>
+                    </div>
+                    <div ng-show="accfrm.Founds.$error.min" class="ng-hide">
+                        <span class="alert alert-danger">Minimum founds allowed is 1.</span>
+                    </div>
+                    <div ng-show="accfrm.Founds.$error.max" class="ng-hide">
+                        <span class="alert alert-danger">Maximum founds allowed is 99999.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-3 col-xs-3">
+                    <label for="">Account subtitle</label>    
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <select class="form-control fw" name="Currency" ng-model="ViewVars.account.Currency" required>
+                        <option value="">Select currency</option>
+                        <option value="RON">Romanian LEU</option>
+                        <option value="USD">American Dolar</option>
+                        <option value="EUR">Euro</option>
+                    </select>
+                    <div ng-show="accfrm.Currency.$error.required" class="ng-hide">
+                        <span class="alert alert-danger">Please select the account currency.</span>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+        
+        
+        <div class="clearfix"></div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn custom" type="button" ng-disabled="accfrm.$invalid" ng-click="ViewMethods.submit()">OK</button>
+        <button class="btn btn custom" type="button" ng-click="ViewMethods.close()">Cancel</button>
+    </div>
+</script>

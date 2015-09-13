@@ -6,9 +6,12 @@ class Router extends Listener {
     
     
     public function process(\Zend\Mvc\MvcEvent $Event){
-        //echo 'doing'; 
+        
         $params = $Event->getParams();
-        //$Event->setParam('lang' , 'ro'); //NOT WORKING
+       
+        $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ro';
+        
+        $Event->getViewModel()->setVariable('lang', $lang);
        
     }
     
