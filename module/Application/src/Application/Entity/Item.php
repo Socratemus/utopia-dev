@@ -60,7 +60,7 @@ class Item extends Entity implements AbstractEntity{
      * @ORM\ManyToMany(targetEntity="Category")
      * @ORM\JoinTable(name="items_categories",
      *      joinColumns={@ORM\JoinColumn(name="Item", referencedColumnName="ItemId" , onDelete="CASCADE")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="Category", referencedColumnName="CategoryId")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="Category", referencedColumnName="CategoryId" , onDelete="CASCADE")}
      *      )
      **/
     private $Categories;

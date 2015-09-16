@@ -2,6 +2,7 @@
 
 namespace Application\Service;
 use Application\Entity\Image as Image;
+
 class ImageService extends ModelService {
     
     protected $DataFolder;

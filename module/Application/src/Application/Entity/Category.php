@@ -35,6 +35,18 @@ class Category extends Entity implements AbstractEntity {
      */
     protected $Slug;
     
+    /**
+     * @ORM\OneToOne(targetEntity="Image" ,cascade={"persist"})
+     * @ORM\JoinColumn(name="Cover", referencedColumnName="ImageId" , onDelete="CASCADE" , nullable=true)
+     **/
+    protected $Cover;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Image" ,cascade={"persist"})
+     * @ORM\JoinColumn(name="Banner", referencedColumnName="ImageId" , onDelete="CASCADE" , nullable=true)
+     **/
+    protected $Banner;
+    
     protected $Depth;
     
     /**
@@ -79,6 +91,14 @@ class Category extends Entity implements AbstractEntity {
         return $this->Slug;
     }
     
+    public function getCover(){
+        return $this->Cover;
+    }
+    
+    public function getBanner(){
+        return $this->Banner;
+    }
+    
     public function getParent(){
         return $this->Parent;
     }
@@ -102,6 +122,18 @@ class Category extends Entity implements AbstractEntity {
         $this->Title = $Title;
     }
     
+    public function setSlug($Slug){
+        $this->Slug = $Slug;
+    }
+    
+    public function setCover($Cover){
+        $this->Cover = $Cover;
+    }
+    
+    public function setBanner($Banner){
+        $this->Banner = $Banner;
+    }
+    
     public function setParent($Parent){
         $this->Parent = $Parent;
     }
@@ -122,11 +154,14 @@ class Category extends Entity implements AbstractEntity {
     }
     
     public function toArray(){
-        
+        $cover  = $this->getCover() ? $this->getCover()->getGUID() : null;
+        $banner = $this->getBanner() ? $this->getBanner()->getGUID() : null;
         $array  = array(
             'CategoryId' => $this->getCategoryId(),
             'Title' => $this->getTitle(),
             'Slug' => $this->getSlug(),
+            'Cover' => $cover,
+            'Banner' => $banner,
             'Created' => $this->getCreated()->format('Y-m-d H:i:s'),
             'Updated' => $this->getUpdated()->format('Y-m-d H:i:s'),
             'Status'  => $this->getStatus()

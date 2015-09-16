@@ -1,13 +1,13 @@
 <div class="container-fluid">
     <form class="" name="cfrm" novalidate>
       
-        <div class="col-md-12 extended form-title">
-            <div class="col-md-8">
+        <div class="col-xs-12 extended form-title">
+            <div class="col-xs-8">
               
-                <h3 class="_ft">Edit category</h3>
+                <h3 class="_ft">Edit Category</h3>
               
             </div>
-            <div class="col-md-4">
+            <div class="col-xs-4">
               <div class="_abw text-right">
                 <button class="btn custom" ng-disabled="cfrm.$invalid" ng-click="save('save')">Save</button>
                 <button class="btn custom">Close</button>
@@ -16,15 +16,15 @@
             </div>
         </div>
         
-        <div class="form-content col-md-12 extended">
+        <div class="form-content col-xs-12 extended">
             
             <div class="clearfix"></div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Title</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <input type="text" class="form-control" ng-model="category.Title" name="Title" required placeholder="Title">
                     <div ng-show="cfrm.Title.$error.required">
                         <span class="alert alert-danger">Please provide category name.</span>
@@ -33,21 +33,21 @@
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Slug</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <input type="text" class="form-control" ng-model="category.Slug" name="Slug" placeholder="Slug">
                 </div>
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Parent</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <!--<select ng-model="category._parent" class="form-control fw" ng-options="category.Title for category in categories track by category.Title"></select>-->
                     <select ng-model="category.ParentId" class="form-control fw">
                         <option ng-repeat="cat in categories" ng-selected="cat.CategoryId == category.ParentId" value="{{cat.CategoryId}}">{{cat.Title}}{{cat.CategoryId}}</option>
@@ -57,11 +57,11 @@
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Created</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <p class="input-group">
                       <input type="date" class="form-control" disabled datepicker-popup ng-model="dta" is-open="openeda" close-text="Close" />
                       <span class="input-group-btn">
@@ -72,11 +72,11 @@
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Updated</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     
                     <p class="input-group">
                       <input type="date" class="form-control" disabled datepicker-popup datepicker-options="dateOptions" ng-model="dt" is-open="opened" close-text="Close" />
@@ -89,15 +89,39 @@
                 
             </div>
             
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
                     <label for="">Status</label>    
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <select ng-model="category.Status" class="form-control fw">
                         <option ng-repeat="status in statuses" ng-selected="status.Id == category.Status" value="{{status.Id}}">{{status.Name}}</option>
                     </select>
                     <!--<select ng-model="category._status" ng-init="category._status = statuses[0]" class="form-control fw" ng-options="status.Id as status.Name for status in statuses track by status.Id"></select>-->
+                    
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
+                    <label for="">Cover</label>    
+                </div>
+                <div class="col-xs-9  custom-file">
+                    <input type="file" name="Cover" mxfile data-options="{{ViewVars.resizeOptions}}"  ng-model="category.Cover">
+                    <small class="label label-warning">{{category.Cover}}</small>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="form-group col-xs-12">
+                <div class="col-xs-3">
+                    <label for="">Banner</label>    
+                </div>
+                <div class="col-xs-9  custom-file">
+                    <input type="file" name="Banner" mxfile data-options="{{ViewVars.bannerOpt}}"  ng-model="category.Banner">
+                    <small class="label label-warning">{{category.Banner}}</small>
                     
                 </div>
                 

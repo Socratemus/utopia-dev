@@ -12,18 +12,45 @@ class IndexController extends AbstractActionController
 {
     protected $ImagesDestionations = 'data/Filemanager/Temp/';
     
-
-    public function indexAction()
+    
+    public function indexAction(){
+        try 
+        {
+            $imgfac = $this->getServiceLocator()->get('ImageFactory');
+            $guid = "IMG20150915221323639A41";
+            $im = $imgfac->getByGUID($guid);
+            $im = $im[0];
+            
+            $im = $imgfac->move($im , 'categories');
+            
+            var_dump($im);
+            
+            exit;
+        }
+        catch(\Exception $e){
+            echo $e->getMessage();
+            exit;
+        }
+    }
+    
+    public function indexBak2Action()
     {
         try 
         {
+            // $imgsrv = $this->getServiceLocator()->get('ImageService');
+            // $json = '{"Title":"qweqwe","Slug":"qweqwe","Status":200,"Cover":"FID::IMG20150914095822135845"}';
+            // $data = json_decode($json , 1);
+            // $Cover = $data['Cover'];
+            // $cover = $imgsrv->processFolder($Cover , md5(uniqid() . rand(1,100)) );
+            
+            // var_dump($cover);exit;
             // $mailer = $this->getServiceLocator()->get('Mailer');
             // $mailer->Subject = 'Hello worlds';
             // $mailer->Body = 'This is the second test.';
             // $mailer->send();
             
             //var_dump($mailer);exit;
-            return $this->JsonResponse;
+            // return $this->JsonResponse;
         }
         catch(\Exception $e){
             echo $e->getMessage();

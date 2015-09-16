@@ -197,8 +197,8 @@ header ul.navigation ul.dropdown-menu > li > a i {
 .form-content label {font-weight : normal; font-size : 11px; }
 
 .form-content .form-group {
-    padding-bottom: 15px;
-    padding-top: 15px; margin-bottom : 0;
+    padding-bottom: 10px;
+    padding-top: 10px; margin-bottom : 0;
     border-bottom: 1px solid #DDD;
 }
 

@@ -45,7 +45,7 @@
             </thead>
             
             <tbody>
-                <tr ng-repeat="category in categories">
+                <tr ng-repeat="category in categories" ng-class="{'hide' : category.Status == 500}">
                     <td>
                         <input type="checkbox" />
                     </td>
@@ -76,6 +76,7 @@
                             <li>
                               <a href>Enable</a>
                               <a href>Disable</a>
+                              <a ng-click="ViewMethods.delete(category.CategoryId)">Delete</a>
                             </li>
                           </ul>
                         </span>

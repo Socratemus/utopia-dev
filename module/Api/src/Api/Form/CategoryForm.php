@@ -44,6 +44,22 @@ class CategoryForm extends Form
         ));
         
         $this->add(array(
+            'name' => 'Cover',
+            'options' => array(
+                'required' => false
+            ),
+            'type'  => 'Text'
+        ));
+        
+        $this->add(array(
+            'name' => 'Banner',
+            'options' => array(
+                'required' => false
+            ),
+            'type'  => 'Text'
+        ));
+        
+        $this->add(array(
             'name' => 'ParentId',
             'options' => array(
               
@@ -100,14 +116,34 @@ class CategoryForm extends Form
                     'name' => 'StringLength', 
                     'options' => array( 
                         'min' => 3,
-                        'max' => 50,
-                        // 'messages' => array( 
-                        //     'stringLengthTooShort' => 'Title min length is 20',
-                        //     'stringLengthTooLong' => 'Title max length is 30'
-                        // ) 
+                        'max' => 50
                     ), 
                 ), 
             ), 
+        ]));
+        
+        $inputFilter->add($factory->createInput([ 
+            'name' => 'Cover', 
+            'allowEmpty' => true,
+            'required' => false,
+            'filters' => array( 
+                array('name' => 'StripTags'), 
+                array('name' => 'StringTrim'), 
+            ), 
+            'validators' => array( 
+                
+            ), 
+        ]));
+        
+        $inputFilter->add($factory->createInput([ 
+            'name' => 'Banner', 
+            'allowEmpty' => true,
+            'required' => false,
+            'filters' => array( 
+                array('name' => 'StripTags'), 
+                array('name' => 'StringTrim'), 
+            ), 
+            'validators' => array( ), 
         ]));
         
         $inputFilter->add($factory->createInput([ 

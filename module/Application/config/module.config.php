@@ -62,6 +62,9 @@ return array(
             'translator'    => 'MvcTranslator',
             'entitymanager' => 'doctrine.entitymanager.orm_default'
         ),
+        'invokables' => array(
+            'ImageFactory'  => 'Application\Service\ImageFactory'
+        )
     ),
     'translator' => array(
         'locale' => 'en_US',

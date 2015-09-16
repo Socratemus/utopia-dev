@@ -53,6 +53,9 @@ class CategoryController extends AbstractActionController
             $id = $this->params()->fromQuery('id');
             //$this->params()->fromQuery('paramname');
             $category = $csrv->getById($id);
+            if(empty($category)){
+                throw new \Exception('Category was not found.');
+            }
             $tmp = $category->toArray();
             if($category->getParent()){
                 
@@ -93,11 +96,18 @@ class CategoryController extends AbstractActionController
             return $this->JsonResponse;
         }    
     }
+    
+    /**
+     * Creates a new category
+     * Params : 
+     *  {} @TODO
+     */
     public function createAction()
     {
         try
         {
             $csrv = $this->getServiceLocator()->get('CategoryService');
+            $imfac = $this->getServiceLocator()->get('ImageFactory');
             $body = $this->getPayload();
             $this->getLogger()->info('Create category request');
             $this->getLogger()->info(json_encode($body));
@@ -117,14 +127,24 @@ class CategoryController extends AbstractActionController
                     $category->setParent($parent);
                 }
                 
+                if(isset($data['Cover']) && !empty($data['Cover']))
+                {
+                    $cover = $imfac->getByGUID($data['Cover']);
+                    $cover = $cover[0];
+                    $imfac->move($cover , 'categories');
+                    $category->setCover($cover);
+                }
+                
                 $em = $this->getServiceLocator()->get('EntityManager');
-                $em->persist($category); $em->flush();
+                $em->persist($category);
+                $em->flush();
                 
             } else {
-                
+                //throw new \Exception('Form is not valid');
                 $this->JsonResponse->setFailed(1);
                 $messages = $form->getMessages();
                 $this->JsonResponse->setVariable('Errors' , $messages);
+                return $this->JsonResponse;
             }
             
             $this->JsonResponse->setVariables($category->toArray());
@@ -144,6 +164,7 @@ class CategoryController extends AbstractActionController
         try
         {
             $csrv = $this->getServiceLocator()->get('CategoryService');
+            $imfac = $this->getServiceLocator()->get('ImageFactory');
             $this->JsonResponse->setSucceed(1);
             $body = $this->getPayload();
             $this->getLogger()->info('Create category request');
@@ -158,12 +179,46 @@ class CategoryController extends AbstractActionController
                     throw new \Exception('Missing category id.');
                 }
                 $category = $csrv->getById($data['CategoryId']);
+                $catImGuid = $category->getCover() ? $category->getCover()->getGUID() : null;
+                if(isset($data['Cover']) && $data['Cover'] != $catImGuid){
+                    //exit('fa update');
+                    $cover= $data['Cover'];
+                    unset($data['Cover']);
+                    $cover = $imfac->getByGUID($cover);
+                    $cover = $cover[0];
+                    $imfac->move($cover , 'categories');
+                    $olcov = $category->getCover();
+                    $category->setCover($cover);
+                    if($olcov) {
+                        $imfac->remove($olcov);
+                    }
+                } else {
+                    unset($data['Cover']);
+                }
+                if(isset($data['Banner']) && $data['Banner'] != $catImGuid){
+                    //exit('fa update banner');
+                    $cover= $data['Banner'];
+                    unset($data['Banner']);
+                    $cover = $imfac->getByGUID($cover);
+                    $cover = $cover[0];
+                    //var_dump($cover);exit;
+                    $imfac->move($cover , 'categories');
+                    $olcov = $category->getBanner();
+                    $category->setBanner($cover);
+                    if($olcov) {
+                        $imfac->remove($olcov);
+                    }
+                    
+                } else {
+                    unset($data['Banner']);
+                }
                 $category->exchange($data);
                 if(isset($data['ParentId']) && !empty($data['ParentId']))
                 {
                     $parent = $csrv->getById($data['ParentId']);   
                     $category->setParent($parent);
                 }
+               
                 $em = $this->getServiceLocator()->get('EntityManager');
                 $em->persist($category); $em->flush();
                 

@@ -160,7 +160,11 @@
         </ol>
         
         <div class="cat-cover">
-            <img width=100% src="<?php echo $this->basePath('images/header-ad.jpg')?>" alt="<?php echo $category->getTitle();?>">
+            <?php if($category->getBanner()) :?>
+            <img width=100% src="<?php echo $category->getBanner()->getHuge()?>" alt="<?php echo $category->getTitle();?>">
+            <?php else : ?>
+            
+            <?php endif;?>
         </div>
         
         <h3 class="title"><?php echo $category->getTitle();?></h3>

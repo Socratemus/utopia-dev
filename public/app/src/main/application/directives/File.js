@@ -12,6 +12,7 @@
 
             return {
                 require:'ngModel',
+                
                 link:function(scope,el,attrs,ngModel){
                   
                   
@@ -23,8 +24,12 @@
                     var fd = new FormData();
                     fd.append('file', file);
                     $(el[0]).parent().prepend('<span class="loader"></span>');
+                    var opt = $(el[0]).data('options');
+                    if(opt){
+                        fd.append('options' , JSON.stringify(opt));    
+                    }
+                    
                     $http.post(APP_PATH + '/image', fd, {
-                        
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     }).then(function(Result) {

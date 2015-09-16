@@ -30,9 +30,15 @@
                             $scope.categories = categories;
                         }
                     });
+                },
+                delete : function( Id  ) {
+                    console.log('remove category with id' + Id);
                 }
             };
             requests.getAll();
+            
+            $scope.ViewMethods = requests;
+            
             $log = $log.getInstance("CategoriesController");
             $log.info("constructor() ");
         };

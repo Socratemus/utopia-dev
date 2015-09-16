@@ -29,7 +29,7 @@
             $scope.category = {
                 Title : '',
                 Slug  : '',
-                Status : "998"
+                Status : 200
             }
             var requests = {
                 getCategory : function(Id) {
@@ -65,6 +65,39 @@
                 }
             };
             
+            var object = {
+                resizeOptions : {
+                    xs : {
+                        width : 240,
+                        height : 275
+                    },
+                    sm : {
+                        width : 480,
+                        height : 550
+                    },
+                    md : {
+                        width : 720,
+                        height : 825
+                    }
+                },
+                bannerOpt : {
+                    xs : {
+                        width : 360,
+                        height : 60
+                    },
+                    sm : {
+                        width : 720,
+                        height : 120
+                    },
+                    md : {
+                        width : 1080,
+                        height : 180
+                    }
+                }
+            }
+            
+            $scope.ViewVars = object;
+            
             $scope.save = function( Mode ){
                 
                 if($scope.category._parent){
@@ -90,6 +123,9 @@
             $scope.slugify = function(){
                 $scope.category.Slug = requests.slugify($scope.category.Title)
             };
+            
+            $scope.ViewMethods = requests;
+            
             requests.init();
             requests.getAll();
             
