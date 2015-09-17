@@ -687,3 +687,42 @@ label.label.label-small{
     background-color: #6399c7;
     padding: 10px 20px;
 }
+
+.progress {
+    height : 10px;
+    margin : 0;
+}
+
+.table-head{
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+}
+.table-head > span {
+    padding-top : 3px;
+    border-right: 1px solid #ccc;
+    color: #999;
+    padding-bottom : 3px;
+}
+
+.table-row {
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    display : table;
+    width : 100%;
+    margin : 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.table-row > span{
+    padding-top : 3px;
+    padding-bottom : 3px;
+    color: #999;
+    display : table-cell;
+    vertical-align : middle;
+    float : inherit;
+}
+
+.table-head > span:last-child{
+    border-right:0;
+}

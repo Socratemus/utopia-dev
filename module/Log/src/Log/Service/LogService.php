@@ -21,6 +21,10 @@ class LogService {
             $log->addWriter($dbwriter);    
         }
         
+        $log->Extra = array(
+            'url' => 'some fucking shit'
+        );
+        
         $this->setLogger($log);
 
     }
@@ -76,6 +80,7 @@ class LogService {
                 )
             );
             $writer = new \Zend\Log\Writer\Db($db, 'app_log', $mapping);
+            
             return $writer;
         } catch (\Exception $e) {
             return null;

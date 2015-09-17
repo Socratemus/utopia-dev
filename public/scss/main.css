@@ -8616,5 +8616,13 @@ body {
   bottom: 0; }
 
 /**************************************/
+/*************************************/
+.label {
+  font-size: 12px;
+  font-family: Helvetica; }
+
+/* Product page */
+#specifications table th {
+  border: 0; }
 
 /*# sourceMappingURL=main.css.map */

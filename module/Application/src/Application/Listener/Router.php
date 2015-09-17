@@ -10,9 +10,12 @@ class Router extends Listener {
         $params = $Event->getParams();
        
         $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ro';
+        // var_dump($lang);exit;
         
         $Event->getViewModel()->setVariable('lang', $lang);
+        $Event->getViewModel()->langu = 'sex';
        
+        // var_dump($Event->getViewModel()->getVariables());exit;
     }
     
 }

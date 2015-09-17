@@ -493,3 +493,22 @@ body {
 }
 
 /**************************************/
+
+/*************************************/
+.label {font-size : 12px; font-family : Helvetica;}
+/* Product page */
+#specifications table th{
+    border : 0;
+}
+
+.pp {
+    // background-color : $color-white;
+    // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
+.pp ol {
+    // background-color : white;
+}
+
+.pp .pr-display{
+    // padding : 15px;
+}

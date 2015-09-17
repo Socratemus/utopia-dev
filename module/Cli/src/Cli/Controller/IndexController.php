@@ -29,6 +29,9 @@ class IndexController extends AbstractActionController
         echo 'done';
     }
 
+    /**
+     * Runs an [active] CLI Command
+     */
     public function runAction()
     {
         try
@@ -72,10 +75,10 @@ class IndexController extends AbstractActionController
             $commandRepo = $this->getEntityManager()->getRepository('\Cli\Entity\Command');
             $command = $commandRepo->findBy(array('GUID' => $key , 'Status' => \Application\Response\Status::ACTIVE));
             if(empty($command)){
-                throw new Exception('Command was not found.');
+                throw new \Exception('Command was not found.');
             }
             $command = $command[0];
-            
+            $this->updateCommand($command , \Application\Response\Status::PENDING);
             if( ! class_exists($class))
             {
                 if($this->getServiceLocator()->has($class))
@@ -96,6 +99,7 @@ class IndexController extends AbstractActionController
                 if($objRefCls->implementsInterface('Zend\ServiceManager\ServiceLocatorAwareInterface'))
                 {
                     $object = new $class($this->getServiceLocator());
+                    $object->setServiceLocator($this->getServiceLocator());
                 }
                 else
                 {
@@ -155,5 +159,14 @@ class IndexController extends AbstractActionController
             $this->getLogger()->crit($e);
         }
     }   
+    
+    /**
+     * Updates the status of a command.
+     */
+    private function updateCommand(\Cli\Entity\CommandInterface $Command , $Status){
+        $Command->setStatus($Status);
+        $this->getEntityManager()->persist($Command);
+        $this->getEntityManager()->flush(); //Flush the command
+    }
 
 }

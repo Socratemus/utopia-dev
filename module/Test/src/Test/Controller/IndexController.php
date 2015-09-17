@@ -16,14 +16,8 @@ class IndexController extends AbstractActionController
     public function indexAction(){
         try 
         {
-            $imgfac = $this->getServiceLocator()->get('ImageFactory');
-            $guid = "IMG20150915221323639A41";
-            $im = $imgfac->getByGUID($guid);
-            $im = $im[0];
-            
-            $im = $imgfac->move($im , 'categories');
-            
-            var_dump($im);
+            $data = array('url'=>'some url' , 'ipaddress' => '192.168.1.100');
+            $this->getLogger()->info('Test message');
             
             exit;
         }

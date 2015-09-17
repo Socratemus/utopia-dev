@@ -27,6 +27,7 @@ return array(
     'service_manager' => array(
         'invokables' => array(
             'ProcessManager' => 'Cli\Service\ProcessManager',
+            'TaskManager' => 'Cli\Service\TaskManager',
         ),
     ),
     'console' => array(

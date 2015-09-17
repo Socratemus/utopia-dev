@@ -8,35 +8,39 @@ namespace Cli\Service;
 class TaskManager extends \Application\Service\ModelService {
 	
 	/**
-	 *
+	 * Reset database task
 	 */
-	public function task(){
+	public function TskResetDatabase()
+	{
+		for($i = 0 ; $i < 10 ; $i++){
+			echo ' Looping in task reset database ::' . $i . "\n";
+			$this->getLogger()->info('task reset database loop ' . $i );
+			sleep(2);
+		}
+		
+		return 'reset database task done';	
+	}
+	
+	/**
+	 * Removes all product images from the server
+	 */
+	public function TskClearProductImages(){
+		echo __METHOD__ . "\n";
+		echo 'STARTS SLEEPING';
+		sleep(10);
+		echo 'END CLEAR PRODUCTS AFTER 100 s SLEEP';
 		return __METHOD__;
 	}
 	
 	/**
-	 *
+	 * Removes all categories images from the server
 	 */
-	public function task_resetDatabase(){
-
-		try
-		{
-			$className = '\Application\Entity\AppLog';
-			$em = $this->getEntityManager();
-			$cmd = $em->getClassMetadata($className);
-			// $connection = $em->getConnection();
-			// $dbPlatform = $connection->getDatabasePlatform();
-			// $connection->query('SET FOREIGN_KEY_CHECKS=0');
-			// $q = $dbPlatform->getTruncateTableSql($cmd->getTableName());
-			// $connection->executeUpdate($q);
-			// $connection->query('SET FOREIGN_KEY_CHECKS=1');
-			return 'table was truncated.';
+	public function TskClearCategoriesImages(){
+		for($i = 0 ; $i < 100000 ; $i++){
+			$this->getLogger()->info('STRESS TEST THE SERVER');
+			echo date('Y-m-d H:i:s') . ' :: ' . microtime() . 'STRESSING THE SERVER' . "\n";
 		}
-		catch(\Exception $e)
-		{
-			return $e->getMessage();
-		}
-
+		
 		return __METHOD__;
 	}
 

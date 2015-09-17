@@ -52,6 +52,11 @@
                         controller  : 'GoogleDriveCtrl'
                     })
                     
+                    .when( '/cli', {
+                        templateUrl : ASSETS_PATH + 'views/application/cli/landing.html',
+                        controller  : 'CliCtrl'
+                    })
+                    
                     .when( '/test', {
                         templateUrl : ASSETS_PATH + 'views/application/test.html',
                         //controller  : 'MainController'

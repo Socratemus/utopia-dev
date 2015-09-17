@@ -6,10 +6,13 @@ nbproject
 .idea
 .project
 .settings
+.quarantine
+.tmb
 composer.lock
 data/cache
 data/DoctrineORMModule
 data/uploads
 data/logs
+data/clilog
 vendor/bin
 vendor

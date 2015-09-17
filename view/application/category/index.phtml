@@ -1,14 +1,12 @@
 <?php
     $bcr = array($category->getTitle());
     $tmpcat = $category;
-    //var_dump($tmpcat->getParent());exit;
     while($bc = $tmpcat->getParent()){
         array_push($bcr , $bc->getTitle());
         
         $tmpcat = $tmpcat->getParent();
     }
     $bcr = array_reverse($bcr);
-    //var_dump($bcr);exit;
 ?>
 
 <aside class="col-sm-3 col-xs-12 hide extended" id="SC">
@@ -205,6 +203,7 @@
          
          
         <section class="prds row">
+           
             <?php foreach($category->getItems() as $item) : ?>
             <div class="col-sm-4 product-wp">
                 <div class="product-inner">
@@ -217,33 +216,9 @@
                     </div>
                     
                     <div class="pr-details">
-                        <h5 class="product_name"> 
-                            <a href="" title="Pilot Jacket"><?php echo $item->getTitle() ;?> </a>
-                        </h5>
-                        <div class="product-price-wp">
-                            <span class="price">RON <?php echo $item->getProduct()->getPrice() ;?></span>
-                            <!--<span class="old-price">RON 180</span>-->
-                            <!--<span class="discount">-15%</span>-->
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <?php endforeach; ?>
-            <?php foreach($category->getItems() as $item) : ?>
-            <div class="col-sm-4 product-wp">
-                <div class="product-inner">
-                    <span class="new-box box-label">New</span>
-                    
-                    <span class="sale-box box-label">Sale!</span>
-                    
-                    <div class="pr-img">
-                        <img src="<?php echo $item->getCover()->getMedium() ;?>">
-                    </div>
-                    
-                    <div class="pr-details">
-                        <h5 class="product_name"> 
-                            <a href="" title="Pilot Jacket"><?php echo $item->getTitle() ;?> </a>
+                        <h5 class="product_name">
+                            
+                            <a href="<?php echo $this->url('item' , array('lang' => $this->viewModel()->getRoot()->lang , 'slug' => $item->getSlug()))?>" title="Pilot Jacket"><?php echo $item->getTitle() ;?> </a>
                         </h5>
                         <div class="product-price-wp">
                             <span class="price">RON <?php echo $item->getProduct()->getPrice() ;?></span>

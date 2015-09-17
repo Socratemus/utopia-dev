@@ -10,6 +10,7 @@ class ModelService implements ServiceLocatorAwareInterface
     
     protected $ServiceLocator;
     protected $EntityManager;
+    protected $Logger = null;
     
     public function setServiceLocator(ServiceLocatorInterface $ServiceLocator)
     {
@@ -39,5 +40,16 @@ class ModelService implements ServiceLocatorAwareInterface
         $host = $uri->getHost();
         $base = sprintf('%s://%s', $scheme, $host);
         return $base;
+    }
+    
+    /**
+     * Returns an instance of log
+    **/
+    protected function getLogger(){
+        if( ! isset($this->Logger))
+        {
+            $this->Logger = $this->getServiceLocator()->get('Log\Factory\LogFactory')->getLogger();
+        }
+        return $this->Logger;
     }
 }

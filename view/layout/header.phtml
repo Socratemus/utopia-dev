@@ -57,7 +57,7 @@
                 <div class="col-md-6">
                     
                     <div class="logo-wp">
-                        <a href="" class="logo">
+                        <a href="<?php echo $this->url('home' , array('lang' => $this->lang));?>" class="logo">
                             <img src="http://demo.fieldthemes.com/newyork/home4/img/newyork-logo-1432971360.jpg" alt="site logo">
                         </a>
                     </div>
@@ -82,7 +82,7 @@
                     <ul class="nav nav-bar inline">
                         
                         <li>
-                            <a href=""><i class="fa fa-home"></i></a>
+                            <a href="<?php echo $this->url('home' , array('lang' => $this->lang));?>"><i class="fa fa-home"></i></a>
                         </li>
                         <?php foreach($this->categories as $category) :  ?>
                         <?php if($category->getStatus() != \Application\Response\Status::ACTIVE) continue; ?>

@@ -1,437 +1,51 @@
-<?php 
-    $cover = $this->item->getCover();
+<?php
+    $category = $item->getCategories()->first();
+    $bcr = array($item->getTitle() , $category->getTitle());
+    $tmpcat = $category;
+    //var_dump($tmpcat->getParent());exit;
+    while($bc = $tmpcat->getParent()){
+        array_push($bcr , $bc->getTitle());
+        
+        $tmpcat = $tmpcat->getParent();
+    }
+    $bcr = array_reverse($bcr);
+
 ?>
-
-
-<style>
-   
-    .cloudzoom-lens + div{ visibility : hidden !important; }
-   
+<section class="col-sm-12 col-xs-12 pp" id="Wrapper">
     
-</style>
-
-<div class="container-fluid">
+    <div class="col-md-12 col-xs-12">
+        <ol class="breadcrumb pl0">
+          <li><a href="#">Home</a></li>
+          <?php foreach($bcr as $breadcrumb) :?>
+          <li><a href="#"><?php echo $breadcrumb?></a></li>
+          <?php endforeach;?>
+        </ol>
+    </div>
     
-    <div class="col-md-4" style="border : 0px solid lightgray;">
+    <div class="col-md-12 col-xs-12">
         
-        <div style="border : 1px solid lightgray; padding : 5px">
-           <!-- Create a Cloud Zoom in the usual way. -->
-            <img src="<?php echo $cover->getMedium();?>" width="100%" id = "zoom1" class = "cloudzoom"
-                 data-cloudzoom = "zoomImage: '<?php echo $cover->getHuge();?>' , 
-                 zoomPosition: 'inside', 
-                 autoInside: true,
-                 startMagnification : 2, 
-                 maxMagnification : 4
-                 " 
-             />
-        
-        </div> 
-        
-        <div class="mt15 _pr_gall_wp" style="border : 0px solid lightgray; min-height : 60px;">
-            
-            <a  href="#" class="cloudzoom-gallery"
-                data-cloudzoom =
-                     "useZoom: '#zoom1', image: '<?php echo $cover->getMedium();?>', zoomImage: '<?php echo $cover->getHuge();?>'">
-                <img src="<?php echo $cover->getSmall();?>" width="60" alt="Orig">
-            </a>
-            <?php foreach($item->getProduct()->getGalery() as $galeryItem) :?>
-            <a  href="#" class="cloudzoom-gallery"
-                data-cloudzoom =
-                     "useZoom: '#zoom1', image: '<?php echo $galeryItem->getMedium();?>', zoomImage: '<?php echo $galeryItem->getHuge();?>'">
-                <img src="<?php echo $galeryItem->getSmall();?>" width="60" alt="Orig2">
-            </a>
-            <?php endforeach;?>
-            
-            
-
-            
-            
+        <div class="col-sm-4 col-xs-4 extended" >
+            <div class="inner" style="min-height : 250px;border : 1px solid lightgray;">
+                <div class="pr-display">
+                    <img src="<?php echo $item->getCover()->getMedium(); ?>" 
+                    alt="<?php echo $item->getTitle; ?>" width="100%" />
+                </div>
+            </div>
         </div>
-    </div>
-    
-    
-    <div class="col-md-6">
-        <div style="padding : 0 10px" id="PrFront">
-            
-            <!-- STARS AND AVAILABILITY ZONE -->
-            <div>
-                
-                <span class="_pr_stars mr25"> 
-                    <i class="fa fa-star full"></i>
-                    <i class="fa fa-star full"></i>
-                    <i class="fa fa-star full"></i>
-                    <i class="fa fa-star full"></i>
-                    <i class="fa fa-star"></i>
-                </span>
-                
-                <small><strong><span>Avaiability:</span> <span style="color : #59B210">In Stock</span></strong></small>
-                    
-            </div>
-            
-            <!-- PRODUCT TITLE ZONE -->
-            <div>
-                <h2 class="mt0" style="margin-top : 0;margin-bottom : -10px;"><?php echo $this->item->getTitle();?></h2>
-                <small><small>SONY</small></small>
-                <hr class="mt5 mb0 pb5" />
-            </div>
-            
-            <!-- SHARE ZONE -->
-            <div style="min-height : 25px;"> 
-                
-                <div class="share-btn-holder">
-                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>    
-                </div>
-                
-                
-                <div class="share-btn-holder">
-                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
-                </div>
-                
-                <div class="share-btn-holder">
-                    <div class="g-plus" data-action="share"></div>
-                </div>
-                
-                <!--<hr class="mt5 mb0 pb5" />-->
-            </div>
-            
-            <!-- TEXT DESCRIPTION ZONE -->
-            <div>
-                <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare turpis non risus semper dapibus. Quisque eu vehicula turpis. Donec sodales lacinia eros, sit amet auctor tellus volutpat non. - See more at: http://transvelo.in/demo/html/media-center/index.php?page=single-product#sthash.9GsAh9u2.dpuf</p>    -->
-                <a href="#"><i class="fa fa-heart-o"></i> Add to Favorites</a>                
-            </div>
-            
-            <!-- PRICE ZONE -->
-            <div class="prices">
-                <div class="price-current">$<?php echo $this->item->getProduct()->getPrice();?></div>
-                <div class="price-prev"><span>$2199.00</span> Discount 20%</div>
-            </div>
-            
-            <!-- QUANTITY & ADD BTN ZONE -->
-            <div class="qt-wp">
-                <a id="AddToCart" href="" class="btn btn-danger">add to cart</a>
-            </div>
-            
-            <div class="col-xs-12 extended _pr_bt mt15">
-                
-                <div class="col-xs-4">
-                    <span>
-                        <label class="text-center block"><i class="fa fa-credit-card large"></i></label>
-                        Plata ramburs
-                    </span>
-                </div>
-                <div class="col-xs-4">
-                    <span>
-                        <i class="fa fa-dropbox large"></i> 
-                        <?php echo $this->translate('Limited quantity');?> 
-                    </span>
-                </div>
-                <div class="col-xs-4">
-                    <span>
-                        <i class="fa fa-mobile large"></i> 
-                        Comanda telefonic
-                    </span>
-                </div>
-                
-            </div>
-            
-            <div class="col-md-12 hide extended mt15">
-                <div style="border : 0px solid gray; min-height : 250px;">
         
-                    <ul class="nav nav-tabs hide">
-                        <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
-                        <li class=""><a href="#aditional-description" data-toggle="tab">Additional Information</a></li>
-                        <li class=""><a href="#reviews" data-toggle="tab">Reviews(3)</a></li>
-                    </ul>
-            
-                    <div class="tab-content" style="border : 1px solid #E0E0E0;margin-top : 1px; padding : 20px;">
-                        
-                        <div class="tab-pane active" id="description">
-            
-                            <?php echo $this->item->getDescription();?>
-                            <div class="clearfix"></div>
-                        </div>
-            
-                        <div class="tab-pane" id="aditional-description">
-                            
-                            
-                            <div class="col-md-6 spc-wp">
-                                <div class="col-md-12 extended">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Audio</th   >
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Iesire sunet (RMS):</td>
-                                                <td>2 x 10 W</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caracteristici superioare sunet:</td>
-                                                <td>Clear Phase Speaker
-                                                    S-Master
-                                                    Dolby Digital
-                                                    Dolby Digital Plus
-                                                    Dolby Digital Pulse
-                                                </td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <div class="col-md-12 extended">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Video</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Iesire sunet (RMS):</td>
-                                                <td>2 x 10 W</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caracteristici superioare sunet:</td>
-                                                <td>Clear Phase Speaker
-                                                    S-Master
-                                                    Dolby Digital
-                                                    Dolby Digital Plus
-                                                    Dolby Digital Pulse
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Iesire sunet (RMS):</td>
-                                                <td>2 x 10 W</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <div class="col-md-12 extended">
-                                     <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Video</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="col-md-6 spc-wp">
-                                
-                                <div class="col-md-12 extended">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Video</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-        
-                                <div class="col-md-12 extended">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Video</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Iesire sunet (RMS):</td>
-                                                <td>2 x 10 W</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caracteristici superioare sunet:</td>
-                                                <td>Clear Phase Speaker
-                                                    S-Master
-                                                    Dolby Digital
-                                                    Dolby Digital Plus
-                                                    Dolby Digital Pulse
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sistem audio:</td>
-                                                <td>NICAM/A2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Iesire sunet (RMS):</td>
-                                                <td>2 x 10 W</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                            </div>
-        
-                            <div class="clearfix"></div>
-                            
-                        </div>
-            
-                        <div class="tab-pane " id="reviews">
-                            
-                            <div class="col-md-12">
-                                
-                                <?php for($comm = 0 ; $comm < 2 ; $comm++) :?>
-                                <div class="row mb10">
-                                    <div class="col-md-2">
-                                        <img src="http://transvelo.in/demo/html/media-center/assets/images/default-avatar.jpg" alt="Avatar">
-                                    </div>
-                                    <div class="col-md-10">
-                                        
-                                        <div class="comm-body" style="">
-                                            
-                                            <p>John Smith 
-                                                <span class="stars">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    
-                                                </span>
-                                                <span class="pull-right">01.01.2012</span>
-                                            </p>
-                                            
-                                            <p>Bun televizorul. Imagine exceptionala.... Numai ca am avut o mare si neplacuta surpriza. Nu m-am informat suficient. Desi este model 2015 nu este CI+ adica nu este compatibil cu smart card-ul de la Rcs Rds, ceea ce inseamna ca este nevoie de decodor cu telecomanda separata ceea ce nu ma incanta deloc. Daca as fi stiut optam pentru alt model compatibil CI+. Asta inseamna sa te increzi in unii vanzatori care vor numai sa vanda si atat. Chiar nu stiu cate stele sa evaluez...</p>
-                                            
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <?php endfor;?>
-                                
-                            </div>
-                            
-                            <div class="col-md-10 col-md-offset-2" id=CommForm>
-                                <h3>Add review</h3>
-                                <hr />
-                                <?php
-        
-                                    $form = $this->form;
-                                    $form->prepare();
-                                     
-                                    echo $this->form()->openTag($form);
-                                ?>
-                                    <div class="form-group col-md-6 extended">
-                                         <label>Firstname</label>
-                                         <?php echo $this->formInput($form->get('Firstname'));?>
-                                    </div>
-                                    <div class="form-group col-md-6" style="padding-right : 0">
-                                         <label>Lastname</label>
-                                         <?php echo $this->formInput($form->get('Lastname'));?>
-                                    </div>
-                                    <div class="form-group col-md-12 extended">
-                                         <label>Email</label>
-                                         <?php echo $this->formInput($form->get('Email'));?>
-                                    </div>
-                                    <!--echo $this->formRow($form->get('Email'));-->
-                                    <!--echo $this->formRow($form->get('Firstname'));-->
-        
-                                    <!--echo $this->formRow($form->get('Lastname'));-->
-                                    <div class="form-group">
-                                    <?php echo $this->formRow($form->get('captcha')); ?>
-                                     
-                                    <!--echo $this->formSubmit($form->get('submit'));-->
-                                    
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-6 extended" style="padding-right : 0; margin-top : -40px;">
-                                            <button class="btn pull-right btn-danger btn-block">Comment</button>
-                                        </div>
-                                    </div>
-                                
-                                <?php
-                                    echo $this->form()->closeTag();
-                                ?>
-                                
-                            </div>
-                            
-                            
-                            
-                        </div>
-                        
-                            <div class="clearfix"></div>
-                    </div>
-                
-                    </div>
-                </div>
-            
+        <div class="col-sm-8 col-xs-8">
+            <div class="inner" style="min-height : 250px;border : 0px solid lightgray;">
+                <h3 class="mt0 title">
+                    <?php echo $item->getTitle();?> 
+                    <small class="pull-right label label-warning"><?php echo substr($item->getGUID() ,0 , 10)?></small>
+                </h3>
             </div>
-            
-            <div class="clearfix"></div>
-        
-        </div> 
-    </div>
-    <div class="col-md-2 col-xs-2 extended">
-        
-        <div class="_comctc row" >
-            
-            <div class="col-xs-12 extended" style="">
-                <span class="col-xs-2 text-center"><i class="fa medium fa-calendar "></i></span>
-                <span class="col-xs-10"> L-V 9:00-17:00 </span>
-            </div>
-
-
-            
-            <div class="col-xs-12 extended">
-                <span class="col-xs-2 text-center"><i class="fa medium fa-phone "></i></span>
-                <span class="col-xs-10"> 0724 508 044 </span>
-                
-            </div>
-            <div class="col-xs-12 extended">
-                <span class="col-xs-2 text-center"><i class="fa medium fa-envelope"></i></span>
-                <span class="col-xs-10"> oricand@devutopia.ro</span>
-            </div>
+            product content.
         </div>
         
     </div>
     
-    <div class="clearfix"></div>
-    <hr />
-    <div class=" col-xs-9">
-        <div class="" id="description">
-            <h3 class="col-xs-12">Description</h3>
-            <?php echo $this->item->getDescription();?>
-            <div class="clearfix"></div>
-        </div>
-        
-        <div class="" id="specifications">
+    <div class="" id="specifications">
             <h3 class="col-xs-12">Specifications</h3>
             
             <div class="col-md-6 col-xs-6 spc-wp">
@@ -521,7 +135,7 @@
                 
             </div>
             
-            <div class="col-md-6 spc-wp col-xs-6">
+            <div class="col-md-6 col-xs-6 spc-wp">
                 
                 <div class="col-md-12 extended">
                     <table class="table">
@@ -581,23 +195,7 @@
             
             <div class="clearfix"></div>
         </div>
-        
-    </div>
     
-    <!-- ADDITIONAL INFO AREA -->
+    <div class="clearfix"></div>
     
-<?php 
-    $this->headLink()->appendStylesheet($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.css'));
-    $this->inlineScript()->appendFile($this->basePath('assets/src/cloudzoom-3.1/cloudzoom.js'));
-    
-    $this->inlineScript()->appendScript(        <<<START
-    
-    $().ready(function(){
-        CloudZoom.quickStart();
-    });
-        
-START
-);
-
-?>
-
+</section>

@@ -1,0 +1,80 @@
+<div class="col-md-12 mb0 extended form-title mb0">
+    <div class="col-md-8">
+      
+        <h3 class="_ft">System commands</h3>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="_abw text-right">
+        
+        <button class="btn custom">Back</button>
+      </div>
+      
+    </div>
+</div>
+
+<div class="col-md-12 extended listing-body">
+    
+    <div class="table">
+        
+        <div class="table-head row">
+            
+            <span class="col-xs-1 text-center">ID</span>
+            
+            <span class="col-xs-2">Title</span>
+            
+            <span class="col-xs-3">Class</span>
+            
+            <span class="col-xs-3">Method</span>
+            
+            <span class="col-xs-1">Status</span>
+            
+            <span class="col-xs-2 text-center">Actions</span>
+            
+        </div>
+        
+        <div class="table-body row">
+            
+            <div class="col-md-12 extended">
+                
+                <div class="table-row row" ng-repeat="command in ViewVars.commands ">
+                     
+                     <span class="col-xs-1 text-center">{{command.CommandId}}</span>
+                     
+                     <span class="col-xs-2">{{command.GUID}}</span>
+                     
+                     <span class="col-xs-3">{{command.Class}}</span>
+                     
+                     <span class="col-xs-3">{{command.Method}}</span>
+                     
+                     <span class="col-xs-1">
+                        {{command.Status}}
+                        <div class="progress hide">
+                          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>     
+                         
+                     </span>
+                     
+                     <span class="col-xs-2 text-center"> 
+                         <i class="fa hide fa-gear"></i> 
+                         <button 
+                             ng-disabled="command.Status == 107"
+                             class="btn custom small"
+                             ng-click="ViewMethods.run(command);"
+                         >
+                              run 
+                         </button>
+                     </span>
+                     <span class="clearfix"></span>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    
+</div>

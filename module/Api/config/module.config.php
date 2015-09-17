@@ -9,8 +9,7 @@ return array(
             'Api\Controller\Image'           =>      'Api\Controller\ImageController',
             'Api\Controller\FileManager'     =>      'Api\Controller\FileManagerController',    
             'Api\Controller\ServerStatus'    =>      'Api\Controller\ServerStatusController',    
-            
-            
+            'Api\Controller\Cli'             =>      'Api\Controller\CliController',    
         )
     ),
     
