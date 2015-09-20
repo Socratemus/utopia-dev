@@ -76,6 +76,20 @@ class AbstractActionController extends ZFAbstractActionController
         }
         return $this->EntityManager;
     }
+    
+    /**
+     * Returns the referer url if exists.
+     */
+    protected function getReferer(){
+        
+        $referer = $this->getRequest()->getHeaders()->get('Referer');
+        
+        if(!$referer) {
+            return false;
+        } 
+        
+        return $referer->getUri();
+    }
 }
 
 

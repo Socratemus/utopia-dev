@@ -24,7 +24,7 @@
     
     <div class="col-md-12 col-xs-12">
         
-        <div class="col-sm-4 col-xs-4 extended" >
+        <div class="col-sm-3 extended col-xs-3 " >
             <div class="inner" style="min-height : 250px;border : 1px solid lightgray;">
                 <div class="pr-display">
                     <img src="<?php echo $item->getCover()->getMedium(); ?>" 
@@ -33,14 +33,59 @@
             </div>
         </div>
         
-        <div class="col-sm-8 col-xs-8">
+        <div class="col-sm-6 col-xs-8">
             <div class="inner" style="min-height : 250px;border : 0px solid lightgray;">
                 <h3 class="mt0 title">
                     <?php echo $item->getTitle();?> 
                     <small class="pull-right label label-warning"><?php echo substr($item->getGUID() ,0 , 10)?></small>
                 </h3>
+                
+                <div class="mt15 row">
+                    
+                    <div class="col-sm-12 rating">
+                        <span>
+                            <?php for($i = 0 ; $i < 5; $i++) :?> 
+                            <i class="fa fa-star-o"></i>
+                            <?php endfor; ?>
+                        </span>
+                        
+                        <span class="ml20"><i class="fa fa-comment-o"></i> Bazat pe 0 recenzii</span>
+                        
+                    </div>
+                    
+                    <div class="col-sm-12 mt20 rating">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo</p>
+                    </div>
+                                        
+                    <div class="col-sm-12 mt5 stock">
+                        <label class="label label-success">in stock</label>
+                    </div>
+                    
+                    <div class="col-sm-12 mt25 cart-options">
+                        <form action="<?php echo $this->url('cart', array('action' => 'add' , 'lang' => 'en'));?>" method="GET">
+                            <input type="hidden" name="q" value="1" />
+                            <input type="hidden" name="id" value="<?php echo $item->getItemId();?>" />
+                            <button id="" class="btn btn-warning">Adauga in cos</button>
+                            <input type="text" disabled class="text-center" value="1" id="PRQUA" name="" />
+                            <button id="" disabled class="btn "><i class="fa fa-plus"></i></button>
+                            <button id="" disabled class="btn "><i class="fa fa-minus"></i></button>
+                        </form>
+                    </div>
+                    
+                    <div class="col-sm-12 mt25 social-media">
+                        <hr />
+                        <a href="">Tweet</a>
+                        <a href="">Share</a>
+                        <hr />
+                    </div>
+                    
+                </div>
             </div>
-            product content.
+            
+        </div>
+        
+        <div class="col-sm-3">
+            right side
         </div>
         
     </div>

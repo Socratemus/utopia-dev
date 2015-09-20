@@ -1,4 +1,126 @@
-<h3>Content of cart page</h3>
+<?php
+$lang = $this->viewModel()->getRoot()->lang;
 
+?>
 
-<?php echo $this->url('flight')?>
+<section class="col-sm-12 col-xs-12 cp" id="Wrapper">
+    
+    <div class="col-md-12 col-xs-12">
+        <ol class="breadcrumb pl0 mb10">
+          
+          <li><a href="<?php echo $this->url('home' , array('lang' => $lang)); ?>">Home</a></li>
+          
+          <li><a href="javascript:void(0);"><?php echo $this->translate('Cosul tau de cumparaturi'); ?></a></li>
+          
+        </ol>
+    </div>
+    
+    <div class="col-md-12 col-xs-12 relative">
+        <h3 class="title pb5 mt5">Cos de cumparauri - Overview</h3>
+        <span class="pull-right" style="margin-top : -33px">
+            <?php echo $this->translate('Cosul tau de cumparaturi contine');?>: 12 <?php echo $this->translate('produse');?>
+        </span>
+    </div>
+    
+    <div class="col-sm-12 orprs pp">
+        ADD STEPS IN HERE
+        <hr class="mt10 mb5" />
+    </div>
+    
+    <div class="col-sm-12 cart-overview">
+       
+       <table class="table">
+           
+           <thead>
+               <tr>
+                   <th>
+                       <span><?php echo $this->translate('Product'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Description'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Stock'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Price'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Quantity'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Total'); ?></span>
+                   </th>
+               </tr>
+           </thead>
+           
+           <tbody>
+               <?php foreach($cart->getCartItems() as $cartItem) : ?>
+               <tr class="cart-row">
+                   
+                   <td align="center" width="60">
+                       <span> 
+                           <img src="<?php echo $cartItem->getItem()->getCover()->getSmall()?>" alt="" width="50" /> 
+                       </span>
+                   </td>
+                   
+                   <td>
+                       <span> <?php echo $cartItem->getItem()->getTitle();?> </span>
+                   </td>
+                   
+                   <td>
+                       <span> <label class="label label-success">in stock</label> </span>
+                   </td>
+                   
+                   <td>
+                       <span> 100 RON </span>
+                   </td>
+                   
+                   <td>
+                       <span> 1 </span>
+                   </td>
+                   
+                   <td>
+                       <span> 100 RON </span>
+                   </td>
+                   
+               </tr>
+               <?php endforeach; ?>
+           </tbody>
+           
+           <tfoot>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">Total produse</td>
+                   <td class="price">100</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">Total transport</td>
+                   <td class="price">100</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">Total</td>
+                   <td class="price">100 RON</td>
+                   
+               </tr>
+               
+           </tfoot>
+           
+       </table> 
+        
+    </div>
+    
+</section>

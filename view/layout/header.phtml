@@ -33,7 +33,9 @@
                             <a href=""> <i class="fa fa-user"></i> Account</a>
                         </li>
                         <li>
-                            <a href=""> <i class="fa fa-user"></i> My Cart</a>
+                            <a href="<?php echo $this->url('cart', array('lang' => $this->lang));?>">
+                                 <i class="fa fa-opencart"></i> My Cart
+                             </a>
                         </li>
                         <li>
                             <a href=""> <i class="fa fa-lock"></i> Login</a>

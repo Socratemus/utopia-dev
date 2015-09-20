@@ -293,14 +293,14 @@ header ul.navigation ul.dropdown-menu > li > a i {
 
 .acc-item{
   color : rgb(85, 85, 85);
-  min-height : 250px;
+  min-height : 120px;
   border : 1px solid lightgray;
   position : relative;
 }
 
 .acc-item > div.footer {
   bottom: 0;
-  position: absolute;
+  /*position: absolute;*/
   padding: 15px;
   border-top: 1px solid lightgray;
   width: 100%;

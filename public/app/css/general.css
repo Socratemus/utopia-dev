@@ -717,10 +717,10 @@ label.label.label-small{
 .table-row > span{
     padding-top : 3px;
     padding-bottom : 3px;
-    color: #999;
-    display : table-cell;
+    color: #848282;
+    /*display : table-cell;*/
     vertical-align : middle;
-    float : inherit;
+    /*float : inherit;*/
 }
 
 .table-head > span:last-child{

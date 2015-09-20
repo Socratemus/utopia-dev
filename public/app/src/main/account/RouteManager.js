@@ -15,6 +15,10 @@
                         templateUrl : ASSETS_PATH + 'views/account/landing.html',
                         controller  : 'IndexCtrl'
                     })
+                    .when( '/overview/:id', {
+                        templateUrl : ASSETS_PATH + 'views/account/details.html',
+                        controller  : 'AccountOverviewCtrl'
+                    })
                 ;
             };
 

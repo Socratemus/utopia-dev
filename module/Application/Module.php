@@ -12,6 +12,7 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\View\ViewEvent;
 
 class Module {
 
@@ -101,6 +102,15 @@ class Module {
                 //$eventManager->getSharedManager()->attach($subject, $event, array ($listener, $callback), $priority);
             } //Foreach subject
         }
+        
+        $eventManager->getSharedManager()->attach('Zend\View\View', ViewEvent::EVENT_RENDERER_POST, function($event) {
+
+            $renderer = $event->getRenderer();
+            $translator = $renderer->plugin('translate');
+            $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en'; // SET TO DEFAULT LANG
+            $translator->getTranslator()->setLocale($lang);
+           
+        });
         
     }
 

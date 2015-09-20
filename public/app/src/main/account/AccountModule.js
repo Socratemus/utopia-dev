@@ -18,9 +18,11 @@
             'utils/logger/ExternalLogger',
             'account/controllers/IndexController',
             'account/controllers/AccountModalController',
+            'account/controllers/AccountOverviewController',
         ],
         function (  $log ,
-            IndexController , AccountModalController
+            IndexController , AccountModalController,
+            AccountOverviewController
         
         ){
             
@@ -29,6 +31,7 @@
             angular.module( moduleName, [ ] )
                  .controller(    "IndexCtrl"                ,    IndexController               )
                  .controller(    "AccountModalInstanceCtrl" ,    AccountModalController        )
+                 .controller(    "AccountOverviewCtrl"      ,    AccountOverviewController     )
                 
             ;
             

@@ -12,14 +12,17 @@ class CartController extends AbstractActionController
         /* @TODO */
         $cartsrv = $this->getServiceLocator()->get('CartService');
         $cart = $cartsrv->getCart();
-        echo "<pre>";
-        echo 'Items in cart : ' . $cart->getCartItems()->count();
-        var_dump($cart->getGUID());
+        // echo "<pre>";
+        // echo 'Items in cart : ' . $cart->getCartItems()->count();
+        // var_dump($cart->getGUID());
         
-        $url = $this->url()->fromRoute('order', array('lang' => 'en' , 'action' => 'create'),array('force_canonical' => true));
+        // $url = $this->url()->fromRoute('order', array('lang' => 'en' , 'action' => 'create'),array('force_canonical' => true));
         
-        echo '<a href="' . $url .'">Create order</a>';
-        exit('');
+        // echo '<a href="' . $url .'">Create order</a>';
+        // exit('');
+        return array(
+            'cart' => $cart    
+        );
     }
     
     public function removeAction(){
@@ -30,12 +33,12 @@ class CartController extends AbstractActionController
         /* @TODO */
         try
         {
-            $redirectUrl = $this->getRequest()->getHeader('HTTP_REFERER', $defaultValue);
+            $redirectUrl = $this->getReferer();
             
             $cartsrv = $this->getServiceLocator()->get('CartService');
             $itemsrv = $this->getServiceLocator()->get('ItemService');
             $item = $this->params()->fromQuery('id');
-            //var_dump($item);exit;
+            
             $quantity = $this->params()->fromQuery('q');
             if(!$item){
                 throw new \Exception('Add to cart not propperly called.[missing query id]');    
@@ -55,6 +58,7 @@ class CartController extends AbstractActionController
             if($redirectUrl){
                 return $this->redirect()->toUrl($redirectUrl);  
             } else {
+                //$lang = $_SESSION['lang']; //Fetch language from session.
                 return $this->redirect()->toRoute('cart',array('lang' => 'en'));  
             }
             

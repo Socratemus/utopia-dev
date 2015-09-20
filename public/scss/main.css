@@ -8619,10 +8619,65 @@ body {
 /*************************************/
 .label {
   font-size: 12px;
-  font-family: Helvetica; }
+  font-family: Helvetica;
+  border-radius: 0; }
+
+.btn {
+  border-radius: 0;
+  height: 30px;
+  padding-top: 3px;
+  line-height: 0px; }
+
+td, th {
+  font-weight: 400; }
 
 /* Product page */
 #specifications table th {
   border: 0; }
+
+.pp .rating {
+  color: #1e1e21; }
+
+.pp .social-media a {
+  background: #d6d4d4;
+  padding: 5px 20px; }
+
+.pp hr {
+  border-top: 0;
+  border-bottom: 1px solid #d6d4d4;
+  box-shadow: 0 1px #ffffff; }
+
+#PRQUA {
+  width: 30px;
+  padding: 4px 5px 5px 4px;
+  display: inline-block;
+  vertical-align: top; }
+
+.cp tr:first-child th {
+  border-top: 1px solid #d6d4d4 !important;
+  border-bottom-width: 1px !important;
+  box-shadow: 1px 1px white; }
+
+.cp th, td {
+  border-width: 1px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px white;
+  border: 1px solid #d6d4d4; }
+
+.cart-row td {
+  background-color: #f5f5f5;
+  box-shadow: 1px 1px white; }
+
+.cp thead {
+  color: #333;
+  text-shadow: .4px .1px; }
+
+.cp tfoot {
+  text-align: right;
+  color: #333;
+  text-shadow: .4px .1px; }
+
+.cp .price {
+  color: #ffbb33; }
 
 /*# sourceMappingURL=main.css.map */
