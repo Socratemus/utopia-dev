@@ -88,18 +88,21 @@ abstract class Entity {
         $props = $reflect->getProperties(\ReflectionProperty::IS_PROTECTED);
         $arr = array();
         foreach ($props as $prop) {
+            //var_dump(isset($this->{$prop->getName()}));
             if (isset($this->{$prop->getName()}) && ! $this->{$prop->getName()} instanceof \DateTime) {
                 //echo $this->{$prop->getName()};
                 $arr[$prop->getName()] = $this->{$prop->getName()};
             }
         }
         
+        //var_dump($arr);exit;
+        
         $toMerge = array(
             'Created' => $this->getCreated()->format('Y-m-d H:i:s'),
             'Updated' => $this->getUpdated()->format('Y-m-d H:i:s'),
             'Status'  => $this->getStatus()
         );
-        
+        //var_dump($toMerge);exit;
         return array_merge ( $arr , $toMerge  );
     }
     

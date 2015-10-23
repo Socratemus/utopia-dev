@@ -12,15 +12,11 @@
          *
          * @constructor
          */
-        var ModalController = function($scope, $log, $interval, $modalInstance ,ApiService)
+        var ModalController = function($scope, $log, $interval, $modalInstance, Account ,ApiService)
         {
+            
             var object = {
-                account : {
-                    Name : '',
-                    Subtitle : '',
-                    Founds : 0,
-                    Currency : null
-                }
+                account : Account
             },
             requests = {
                 close : function(){
@@ -40,7 +36,7 @@
             $log.debug('Account::ModalController::Constructor');
         }
         
-        return ["$scope", "$log", "$interval", "$modalInstance" , "ApiService", ModalController];
+        return ["$scope", "$log", "$interval", "$modalInstance" , "Account" ,"ApiService", ModalController];
         
     });
 

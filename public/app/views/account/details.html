@@ -1,5 +1,89 @@
-<div class="container-fluid">
+<div class="container-fluid relative">
     
+    <aside id="RowDetails" class="">
+        
+        <content>
+            
+            <div class="form-content col-md-12 extended col-xs-12">
+                
+                <legend>
+                    <span>External order details</span>
+                    <!--<span >-->
+                         <button close-aside class="btn custom small pull-right mti5 mri10">Close</button>
+                    <!--</span>-->
+                </legend>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">Title</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for="">Well hello..</label>     
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">Price</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for="">1000</label>     
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">Currency</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for="">RON</label>     
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">External Id</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for="">69403818186730</label>     
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">Shipping</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for="">China Post Registered Air Mail</label>     
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group col-md-12 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-3">
+                        <label for="">Url</label>    
+                    </div>
+                    <div class="col-md-9 text-right col-xs-9">
+                       <label for=""><a href="">Click here</a></label>     
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </content>
+        
+    </aside>
     <div class="col-md-12 mb0 extended form-title mb0">
         <div class="col-md-8">
           
@@ -50,13 +134,27 @@
                              <label class="label label-success medium">shipped</label>
                          </span>
                          <span class="col-xs-2"> 01.01.2015  </span>
-                         <span class="col-xs-2 text-center"> 
+                         <span class="col-xs-2 text-center actions"> 
                              
                              <i class="fa mr5 fa-times"></i>
                              
                              <i class="fa mr5 fa-pencil-square-o"></i>
                              
-                             <i class="fa mr5 fa-gear"></i> 
+                            
+                             
+                             <span class="dropdown" dropdown >
+                                <a href class="dropdown-toggle" dropdown-toggle>
+                                   <i class="fa fa-gear"></i>
+                                </a>
+                                 <ul class="dropdown-menu action-dropdown">
+                                    <li>
+                                      <a href="">Option 1</a>
+                                      <a href="">Option 2</a>
+                                      <a aside-toggle aside-target="#RowDetails" href="">Show details</a>
+                                      <a href="" ng-click="">Delete</a>
+                                    </li>
+                                </ul>
+                            </span>
                              
                          </span>
                          <span class="clearfix"></span>

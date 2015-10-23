@@ -424,6 +424,60 @@ span.alert{
     padding-right: 50px;
 }
 
+.mli5{
+    margin-left : 5px !important;
+}
+.mli10{
+     margin-left : 10px !important;
+}
+.mli15{
+     margin-left : 15px !important;
+}
+.mli20{
+     margin-left : 20px !important;
+}
+
+.mri5{
+    margin-right : 5px !important;
+}
+.mri10{
+    margin-right : 10px !important;
+}
+.mri15{
+    margin-right : 15px !important;
+}
+.mri20{
+    margin-right : 20px !important;
+}
+
+
+.mti5{
+    margin-top : 5px !important;
+}
+.mti10{
+    margin-top : 10px !important;
+}
+.mti15{
+    margin-top : 15px !important;
+}
+.mti20{
+    margin-top : 20px !important;
+}
+
+.mbi5{
+    margin-bottom : 5px !important;
+}
+.mbi10{
+    margin-bottom : 10px !important;
+}
+.mbi15{
+    margin-bottom : 15px !important;
+}
+.mbi20{
+    margin-bottom : 20px !important;
+}
+
+
 .container-fluid{
     padding : 0;
 }
@@ -462,11 +516,9 @@ panel.left{
     -moz-box-shadow: 10px 0px 30px 0px rgba(0,0,0,0.25);
     box-shadow: 10px 0px 30px 0px rgba(0,0,0,0.25);
 }
-
 panel.left .close-panel{
     right : 5px;left: initial;
 }
-
 panel.right.open{
     
     right : 0; 
@@ -477,7 +529,6 @@ panel.left.open{
     left : 0; 
     
 }
-
 panel .inner{
     position: absolute;
     width: 100%;
@@ -485,11 +536,9 @@ panel .inner{
     overflow-x: hidden;
     /*padding-bottom: 30px;*/
 }
-
 panel .nav.nav-tabs li a{border-radius : 0px;
     border-top : 0 !important;
 }
-
 panel .nav.nav-tabs li:first-child a:first-child{
     border-left : 0 !important;
 }
@@ -500,8 +549,6 @@ panel .nav.nav-tabs li.active a{
 panel .nav.nav-tabs li.active a:focus{
     border-bottom-color :#F9F9F9 ;
 }
-
-
 panel .tab-content{
     padding :15px;
     padding-top : 0;
@@ -551,6 +598,36 @@ panel .tab-content .header > [class*='col-md-']{
     padding-top: 5px;
     padding-bottom: 5px;
     text-align : left;
+}
+
+aside {
+    position : absolute;
+    left: 0;
+    width : 100%; height : 100%;
+    background-color : rgba(0, 0, 0, 0.15);
+    z-index : -1;
+    opacity : 0;
+    transition : all 0.3s ease-in-out;
+}
+
+aside.open{
+    opacity : 1;
+    z-index : 2;
+}
+
+aside > content {
+    background-color : #FFF;
+    position : absolute;
+    left :0;
+    top : 0;
+    left : -80%;
+    height : 100%;width : 75%;
+    transition : all .3s ease-in-out;
+    box-shadow : 2px 0px 15px rgba(0,0,0,.25)
+}
+
+aside.open > content {
+    left: 0;
 }
 
 a {
@@ -703,6 +780,15 @@ label.label.label-small{
     color: #999;
     padding-bottom : 3px;
 }
+
+.table-row .actions , .table-row .actions a{
+    color : #333;
+    font-size : 13px;
+}
+
+
+
+.table-row .actions i {cursor : pointer;}
 
 .table-row {
     font-size: 12px;

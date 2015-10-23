@@ -8,7 +8,7 @@ use Application\Entity\OrderItem;
 
 class OrderService extends ModelService {
     
-    const COST_TRANSPORT = 15.00;
+    const COST_TRANSPORT = 17.30;
     const FREE_TRANSPORT = 3200.00;
     
     public function __construct(){
@@ -22,6 +22,19 @@ class OrderService extends ModelService {
      * Returns paged orders
      */
     public function getPaged(){
+        
+    }
+    
+    /**
+     *  Returns order by its guid. 
+     */
+    public function getByGUID($guid){
+        
+        $order = $this->getRepository()->findBy(array('GUID' => $guid, 'Status' => \Application\Response\Status::ACTIVE));
+        if(!$order){
+            return false;
+        }
+        return $order[0];
         
     }
     
@@ -110,7 +123,9 @@ class OrderService extends ModelService {
        return false;
     }
     
-    
+    /**
+     * 
+     */
     private function generateOrderNo( $OrderId ){
         return str_pad($OrderId, 5, '0', STR_PAD_LEFT) . '/' . date('ymd');
     }

@@ -59,10 +59,13 @@ class Cart extends Entity {
      */
     private $CartItems;
     
+    protected $TOTAL = 0;
+    protected $TOTAL_ITEMS = 0;
+    protected $TRANSPORT = 0;
+    
     public function __construct(){
-         parent::__construct();
-         $this->CartItems = new \Doctrine\Common\Collections\ArrayCollection();
-         //Construction
+        parent::__construct();
+        $this->CartItems = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**************************************************************************/
@@ -79,7 +82,6 @@ class Cart extends Entity {
     {
          return $this->Expire;
     }
-    
     public function getUser(){
          return $this->User;
     }
@@ -104,5 +106,48 @@ class Cart extends Entity {
     }
     public function setCartItems($CartItems){
          $this->CartItems = $CartItems;
+    }
+    /**************************************************************************/
+    public function setTotalItems($TotalItems){
+        $this->TOTAL_ITEMS = $TotalItems;
+    }
+    public function setTransport($Transport){
+        $this->TRANSPORT = $Transport;
+    }
+    public function setTotal($Total){
+        $this->TOTAL = $Total;
+    }
+    
+    
+    public function getTotalItems(){
+        return $this->TOTAL_ITEMS;
+    }
+    
+    public function getTransport(){
+        return $this->TRANSPORT;
+    }
+    
+    public function getTotal(){
+        return $this->TOTAL;
+    }
+    
+    
+    /**************************************************************************/
+    public function process(){
+        $totalItems = 0;
+        foreach($this->getCartItems() as $cartItem){
+            $totalItems += $cartItem->getTotal();
+        }
+        $this->setTotalItems($totalItems);
+        
+        if($this->getTotalItems() > \Application\Service\OrderService::FREE_TRANSPORT){
+            $this->setTransport(0);
+        } else {
+            $this->setTransport(\Application\Service\OrderService::COST_TRANSPORT);
+        }
+        
+        $cartTotal = $this->getTotalItems() + $this->getTransport();
+        $this->setTotal($cartTotal);
+        
     }
 }

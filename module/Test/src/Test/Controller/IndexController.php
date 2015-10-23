@@ -16,10 +16,14 @@ class IndexController extends AbstractActionController
     public function indexAction(){
         try 
         {
-            $data = array('url'=>'some url' , 'ipaddress' => '192.168.1.100');
-            $this->getLogger()->info('Test message');
+            $address = new Entity\Address();
             
-            exit;
+            var_dump($address);exit;
+            
+            
+            $this->JsonResponse->setVariables($address->toArray());
+            
+            return $this->JsonResponse;
         }
         catch(\Exception $e){
             echo $e->getMessage();

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid relative">
     
     <div class="col-md-12 mb0 extended form-title mb0">
         <div class="col-md-8">
@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-4">
           <div class="_abw text-right">
-            <button class="btn custom" ng-click="ViewMethods.openModal()">Add</button>
+            <button class="btn custom" ng-click="ViewMethods.openModal(ViewVars.account)">Add</button>
             <button class="btn custom">Back</button>
           </div>
           
@@ -25,14 +25,32 @@
                 
                 <section class="acc-item">
                     <div class="col-md-12">
-                        <h4 class="mb0">{{acc.Name}}</h4>
-                        <h5 class="mt0"><small>Small project name</small></h5>
+                        <h4 class="mb0">
+                            {{acc.Title}}
+                            
+                            <span class="dropdown relative pull-right" dropdown >
+                                <a href class="dropdown-toggle btn custom  pull-right" dropdown-toggle>
+                                   <i class="fa fa-gear"></i>
+                                </a>
+                                 <ul class="dropdown-menu action-dropdown" style=" width: 90px;margin-top: 7px;">
+                                    <li>
+                                      <a href="" ng-click="ViewMethods.openModal(acc)">Edit</a>
+                                      <a href="#overview/{{acc.AccountId}}">Details</a>
+                                      <a href="" ng-click="ViewMethods.openModal(acc)" ng-click="">Delete</a>
+                                    </li>
+                                </ul>
+                            </span>
+                          
+                        </h4>
+                        <h5 class="mt0"><small>{{acc.Subtitle}}</small> 
+                            <button class="btn hide custom small pull-right">details</button>
+                        </h5>
                     </div>
                     
                     <div class="col-md-12 details">
-                        <p>Founds : <strong class="pull-right">1000</strong></p>
-                        <p>Currency : <strong class="pull-right">EUR</strong> </p>
-                        <p>Created : <strong class="pull-right">01/01/2015</strong></p>
+                        <p>Founds : <strong class="pull-right">{{acc.Founds}}</strong></p>
+                        <p>Currency : <strong class="pull-right">{{acc.Currency}}</strong> </p>
+                        <p>Created : <strong class="pull-right">{{acc.Created}}</strong></p>
                     </div>
                     
                     
@@ -72,7 +90,7 @@
                     <label for="">Account name</label>    
                 </div>
                 <div class="col-md-9 col-xs-9">
-                    <input type="text" class="form-control" required ng-model="ViewVars.account.Name" name="Name">
+                    <input type="text" class="form-control" required ng-model="ViewVars.account.Title" name="Name">
                     <div ng-show="accfrm.Name.$error.required" class="ng-hide">
                         <span class="alert alert-danger">Please provide the account name.</span>
                     </div>

@@ -25,6 +25,9 @@ class OrderController extends AbstractActionController
     public function createAction(){
         try 
         {
+            
+        
+            //exit('creating new order.');
             $cartsrv = $this->getServiceLocator()->get('CartService');
             $orderserv = $this->getServiceLocator()->get('OrderService');    
             $cart = $cartsrv->getCart();
@@ -32,7 +35,7 @@ class OrderController extends AbstractActionController
             $order = $orderserv->createOrder($cart);
 
             $this->getLogger()->info('New order was created.[' . $order->getGUID() . ']');
-            $redirect = $this->redirect()->toRoute('cart',array('lang' => 'en'));
+            $redirect = $this->redirect()->toRoute('order',array('lang' => 'en', 'action' => 'congrats', 'slug' => $order->getGUID()));
             return $redirect; 
             
         }
@@ -65,6 +68,17 @@ class OrderController extends AbstractActionController
      */
     public function congratsAction(){
         /* @TODO */
+        $orderserv = $this->getServiceLocator()->get('OrderService');    
+        
+        $guid = $this->params()->fromRoute('slug');
+                
+        $order = $orderserv->getByGUID($guid);
+        
+        return array(
+            'order' => $order   
+        );
+        
+        //exit('pagina de felicitari!');
     }
     
 }

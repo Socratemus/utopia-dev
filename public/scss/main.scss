@@ -30,6 +30,15 @@ body {
     font-family: "Pt Sans Narrow",Helvetica,sans-serif;
 } 
 
+.form-control {
+    height : 28px;
+    border-radius : 0;
+}
+
+.form-control:hover,.form-control:focus,.form-control:active{
+    box-shadow : none;
+}
+
 
 .title{
     font-family : Agency;
@@ -498,9 +507,15 @@ body {
 .label {font-size : 12px; font-family : Helvetica; border-radius : 0;}
 .btn{
     border-radius: 0;
-    height: 30px;
-    padding-top: 3px;
-    line-height: 0px;
+}
+.btn-primary{
+    background-color : $color-main;
+    border-color     : $color-main;
+}
+
+.btn-primary:hover{
+    background-color : $color-yellow;
+    border-color     : $color-yellow;
 }
 
 td, th{
@@ -574,4 +589,787 @@ td, th{
 
 .cp .price {
     color : $color-yellow;
+}
+
+.order-steps{
+    display : block;
+    list-style : none;
+    margin : 0;
+    padding : 0;
+    float : left;
+    width : 100%;
+    margin-bottom : 0px; 
+}
+.order-steps > li {
+    float : left;
+    width : 25%;
+}
+.order-steps > li > span {
+    display: block;
+    font-family: Agency;
+    font-size: 15px;
+    background-color: rgba(0,0,0,.035);
+    padding: 10px 5px; padding-left : 25px;
+    border-left: 0;
+    position : relative;
+    border-top : 1px solid rgba(206, 198, 198, 0.38);
+    border-bottom : 1px solid rgba(206, 198, 198, 0.38);
+}
+.order-steps > li.active > span {
+    background : $color-main;
+    color : $color-white;
+    text-shadow: .5px .1px;
+}
+.order-steps > li.done > span {
+    background : #A2A2A2;
+    color : $color-white;
+    text-shadow: .5px .1px;
+}
+.order-steps > li.active > span:after{
+    border-left-color :#3595BF;
+}
+.order-steps > li.done > span:after{
+    border-left-color : #A2A2A2;
+}
+.order-steps > li > span:before {
+    content : "";
+    position : absolute;
+    right : -19px; top : 0;
+    width: 0; 
+	height: 0; 
+	border-top: 19px solid transparent;
+	border-bottom: 20px solid transparent;
+    border-left: 19px solid rgb(212, 212, 212);
+    z-index : 1;
+}
+.order-steps > li > span:after {
+    content : "";
+    position : absolute;
+    right : -18px;top : 0;
+    width: 0; 
+	height: 0; 
+	border-top: 19px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 19px solid #EDEDED; //As background
+	z-index : 2;
+	
+}
+.order-steps > li:last-child span:after{display : none;}
+.order-steps > li:last-child span:before{display : none;}
+.order-steps > li:last-child > span{
+    border-right: 1px solid rgba(206, 198, 198, 0.38);
+}
+.order-steps > li:first-child > span{
+    border-left: 1px solid rgba(206, 198, 198, 0.38);
+}
+
+span.error {
+    font-size : 11px;
+    color : red;
+}@font-face {
+  font-family: AgencyBold;
+  src: local("Helvetica Neue Bold"),
+       local("HelveticaNeue-Bold"),
+       url(../fonts/AgencyFB-Bold.ttf);
+}
+@font-face {
+  font-family: Agency;
+  src: local("Helvetica Neue Bold"),
+       local("HelveticaNeue-Bold"),
+       url(../fonts/Agency_FB.ttf);
+}
+
+@import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+
+@import "bootstrap-sass-3.3.5/assets/stylesheets/_bootstrap";
+@import "font-awesome-4.4.0/scss/font-awesome"; 
+
+@import "vars"; 
+@import "general";
+@import "media-queries";
+
+body {
+    min-width: 320px;
+    height: 100%;
+    line-height: 18px;
+    font-size: 13px;
+    color: $color-dark;
+    background-color : $color-lightgray;
+    font-family: "Pt Sans Narrow",Helvetica,sans-serif;
+} 
+
+.form-control {
+    height : 28px;
+    border-radius : 0;
+}
+
+.form-control:hover,.form-control:focus,.form-control:active{
+    box-shadow : none;
+}
+
+
+.title{
+    font-family : Agency;
+    text-transform : uppercase;
+} 
+
+.top-header-nav{
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px #fff;
+    height : 31px; /* to be removed*/
+}
+.top-header-nav .sctrl{
+    padding : 0;
+    margin:0; 
+    list-style : none;
+}
+
+.top-header-nav .sctrl > li {
+    display : inline-block;
+    padding : 6px 0px;
+}
+.top-header-nav .sctrl > li:last-child a {
+    border-right : 0;
+    box-shadow : none;
+}
+
+.top-header-nav .sctrl > li > a {
+    color : $color-top-header;
+    padding : 0px 15px ;display : block;
+    border-right : 1px solid $color-white;
+    box-shadow: 1px 0px 0px 0px rgba(0,0,0,0.2);
+    font-family : Agency; font-size : 14px;
+}
+.top-header-nav .sctrl > li > a:hover{
+    color : $color-yellow;
+}
+
+.middle-header-nav{
+    height :135px;
+} 
+ 
+.header-menu-wp{
+    // height : 48px;
+    position : relative;
+    background-color : $color-main;
+    margin-bottom : 36px;
+}
+.header-menu-wp .nav > li > a {
+    color : $color-white;
+    padding : 0 20px;
+    font-family : Agency; 
+}
+.header-menu-wp .nav>li>a:hover{
+    background-color : $color-yellow
+} 
+.header-menu-wp .nav > li{
+    font-size : 20px;
+    line-height: 48px;
+    position : inherit;
+}
+.header-menu-shadow{
+    background : url(../images/shadow-top-menu.png) no-repeat scroll 50% 0;;
+    position : absolute;
+    width : 100%;
+    height : 36px;
+    bottom : -36px;
+} 
+
+#Main{
+    margin-bottom : 30px;
+}
+#Footer{
+    background-color : $color-darkgray;
+}
+#Footer .footer-top h4 {
+    border-color: rgba(0,0,0,1);
+    border-style: solid;
+    border-width: 0 0 1px;
+    box-shadow: 0 1px rgba(255,255,255,0.2);
+    font-size: 23px;
+    margin: 66px 0 20px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: $color-white;
+}
+#Footer .footer-top p {
+    font-size: 14px;
+    color: $color-white;
+    line-height: 25px;
+}
+#Footer .footer-top{
+    border-color: rgba(0,0,0,1);
+    border-style: solid;
+    border-width: 0 0 1px;
+    box-shadow: 0 1px rgba(255,255,255,0.2);
+}
+#Footer .footer-bottom .footer-bottom-inner{
+    margin: 15px 0px;
+    //background-color: red;
+    height: 30px;
+   
+}
+
+#Header .logo-wp{}
+#Header .logo-wp .logo{
+    display : block;
+    padding : 15px 0px;
+} 
+
+#Wrapper {
+    min-height : 500px;
+    
+    padding-bottom : 10px;
+} 
+
+#SC{}
+#SC .side-menu header{
+    background-color : $color-main;
+    padding: 10px 17px
+}
+#SC .side-menu header i{
+    font-size: 22px;
+    margin-right: 5px;
+    color: $color-white;
+}
+#SC .side-menu header h3{
+    display : inline-block; margin : 0;
+    color : $color-white;
+    text-transform : uppercase;
+}
+#SC .side-menu section{}
+#SC .side-menu section.menu-content {
+    border: 1px solid $color-lightborder;
+    box-shadow: 0 0 0 1px $color-white inset;
+}
+#SC .side-menu section.menu-content > ul {
+    margin :0; padding : 0;list-style : none;
+}
+#SC .side-menu section.menu-content > ul > li > a {
+    display : block;
+    color: $color-darkgray;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 11px 0;
+    margin: 0 15px;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px $color-white;
+    text-transform : uppercase;
+    font-family: Agency;
+}
+#SC .side-menu section.menu-content > ul > li:last-child > a{
+    border-bottom: 0;
+    box-shadow: none;
+}
+#SC .side-menu section.menu-content > ul > li > a:hover{
+    text-decoration : none;
+}
+#SC .side-menu section.menu-content > ul > li > a:active{
+    text-decoration : none;
+}
+#SC .side-menu section.menu-content > ul > li > a:focus{
+    text-decoration : none;
+}
+#SC .side-menu section.menu-content > ul > li > a.has-many:after{
+    display : inline-block;
+    font-family: fontawesome;
+    content: "\f105";
+    float : right;
+}
+#SC .side-menu section.menu-content > ul > li:hover{
+    background-color : $color-main;
+}
+#SC .side-menu section.menu-content > ul > li:hover > a{
+    border-bottom-color : transparent;
+    color : $color-white;
+    
+}
+#SC .side-menu section .submenu {
+    position: absolute;
+    width: 720px;
+    min-height: 220px;
+    background-color : $color-white;
+    top: 46px;
+    left: 100%;
+    z-index : 3;
+} 
+#SC .side-menu section .submenu ul {
+    margin : 0; padding : 0;
+    list-style : none;
+}
+#SC .side-menu section .submenu ul li a {
+    display : block; 
+    padding : 5px;
+    font-size: 15px;
+    text-transform: none;
+}
+#SC .side-menu section .submenu ul li a:before {
+    content: "\f111";
+    display: block;
+    font-family: FontAwesome;
+    margin-right: 10px;
+    font-size: 10px;
+    float: left;
+}
+#SC .side-menu section ul li:hover .submenu{
+    display : block !important;
+}
+#SC .side-menu section .submenu:hover{
+    display : block !important;
+}
+
+.product-wp > .product-inner{
+    position : relative;
+    min-height : 340px;
+    background : $color-white;
+    box-shadow : 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
+.product-wp > .product-inner .pr-img{ 
+    height : 270px; 
+    display : table-cell;
+    vertical-align : middle;
+    text-align: center;
+    padding: 25px;
+}
+.product-wp > .product-inner .pr-img img{
+    width : 100%;
+} 
+.product-wp > .product-inner .pr-details{
+    height : 70px;
+    text-align : center;
+    font-size: 15px;
+}
+.product-wp > .product-inner .pr-details h5{
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 0 2px;
+    text-transform: capitalize;
+}
+.product-wp > .product-inner .pr-details .price {
+    color: $color-yellow;  
+    font-weight : bold;
+}
+.product-wp > .product-inner .pr-details .old-price{
+    text-decoration: line-through;
+    color : $color-gray;
+}
+.product-wp > .product-inner .pr-details .discount{
+    color : $color-white;
+    background-color : $color-yellow;
+    padding: 0px 6px;
+}
+.product-wp > .product-inner .pr-details .product-price-wp{
+    margin-top : 8px;
+}
+.product-wp .box-label{
+    top : 10px;
+    position : absolute; left :0;
+    padding: 2px 8px;
+    background : $color-yellow;
+    color : $color-white;
+    width :40px; text-align : center;
+}
+.product-wp .box-label.sale-box{
+    top  : 35px;
+    background : $color-blue;
+}   
+ 
+.menu-cat-wp{
+    position: absolute;
+    background-color: $color-white;
+    width: 100%;
+    min-height: 150px;
+    left: 0;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.25),inset 0 1px 1px rgba(0,0,0,0.35);
+    z-index: 1;
+    top : calc(100%);
+    border-radius : 0;
+    border :0 ;
+    margin-top : 0;
+} 
+.menu-cat-wp .mc-wp {
+    padding-top : 10px;
+    padding-bottom : 20px;
+}
+.menu-cat-wp .mc-wp h4 {
+    color : $color-black;
+    margin: 8px 0 10px 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #c0c0c0;
+    font-size: 18px;
+}
+.menu-cat-wp .mc-wp ul {
+    list-style : none;
+    padding : 0; margin : 0;
+}
+.menu-cat-wp .mc-wp ul > li {
+    line-height : 25px;
+    padding-left : 5px;
+}
+.menu-cat-wp .mc-wp ul > li > a {
+    font-family: Pt Sans Narrow, Arial, sans-serif;
+    font-size : 14px;
+    color : $color-dark;
+    text-transform : none;
+}
+.menu-cat-wp .mc-wp ul > li > a:before{
+    content : '>';
+    margin-right : 8px;
+}
+
+/* Products wrapper */
+.prds{}
+.prds .product-wp{margin-bottom : 15px;}
+
+/***************************************/
+/* SIDEBAR */
+#SC .widget content{
+    display :block;
+    min-height : 100px;
+    background-color : rgba(255,255,255, .38); //@TESTING
+}
+#SC .widget content.bordered{
+    box-sizing : border-box;
+    border: 1px solid $color-lightborder;
+    box-shadow: 0 0 0 1px $color-white inset;
+}
+
+#SC .widget content .filter-wp h4{
+    // margin : 0;
+    text-transform : uppercase;
+}
+
+#SC .widget content .filter-wp ul{
+    margin : 0; padding : 0; list-style : none;
+}
+
+#SC .widget content .filter-wp ul li label{
+    font-weight : 300;
+    display : block;
+    margin : 0;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"]{
+    visibility : hidden;
+    opacity : 0;
+    display : none;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"] + span{
+    display : block;
+    padding : 3px 10px;
+    padding-left : 15px;
+    
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"] + span:before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid $color-lightborder;
+    background-color : $color-white;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+#SC .widget content .filter-wp:last-child hr{
+    display : none;
+}
+
+#SC .widget content .filter-wp ul li input[type="checkbox"]:checked + span:before{
+    content : "\f00c";
+    font-family : fontawesome;
+    line-height: 13px;
+    text-align: center;
+    font-size: 14px;
+}
+/***************************************/
+
+
+/**************************************/
+/* category widget */
+.cat-widget{
+    height : 420px;
+    background-color : $color-white;
+    border-top : 4px solid $color-yellow;
+}
+.cat-widget .cat-cover{
+    overflow : hidden;
+    height : 416px;
+}
+.cat-widget .child-overview h2 {
+    text-transform : uppercase;
+}
+.cat-widget .child-overview ul {
+    margin : 0;
+    padding : 0;
+    list-style : none;
+    text-align : center;
+}
+.cat-widget .child-overview ul > li {
+    display : block;
+}
+.cat-widget .child-overview ul > li > a {
+    font-size : 14px;
+    padding : 5px;
+    display : block;
+}
+.cat-widget .widget-item-wp{
+    height : 208px;
+    min-height : 100px;
+    //box-shadow :1px 1px 0px 0px rgba(0,0,0,.2);
+    // height : 50%;
+    position : relative;
+    transition : all .3s ease;
+    overflow : hidden;
+}
+
+
+.cat-widget .widget-item-wp header h6{
+    margin: 0;
+    padding-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+.cat-widget .widget-item-wp header h5{
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    color : $color-yellow ; font-weight : bold;
+}
+.cat-widget .widget-item-wp content{
+    display : block;
+    text-align : center;
+    overflow : hidden;
+    height : 160px;
+}
+.cat-widget .widget-item-wp content img{
+    width : 80%;
+}
+.cat-widget .widget-item-wp content span{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -30px;
+    background-color: #FFBB33;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    transition : all 0.3s ease-in-out;
+}
+.cat-widget .widget-item-wp:hover{
+    box-shadow :0px 0px 15px 3px rgba(0, 0, 0, 0.03);
+}
+.cat-widget .widget-item-wp:hover span{
+    bottom : 0;
+}
+
+/**************************************/
+
+/*************************************/
+.label {font-size : 12px; font-family : Helvetica; border-radius : 0;}
+.btn{
+    border-radius: 0;
+}
+.btn-primary{
+    background-color : $color-main;
+    border-color     : $color-main;
+}
+
+.btn-primary:hover{
+    background-color : $color-yellow;
+    border-color     : $color-yellow;
+}
+
+td, th{
+    font-weight : 400;
+}
+/* Product page */
+#specifications table th{
+    border : 0;
+}
+
+.pp {
+    // background-color : $color-white;
+    // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
+.pp ol {
+    // background-color : white;
+}
+
+.pp .pr-display{
+    // padding : 15px;
+}
+
+.pp .rating {
+    color : $color-black;
+}
+
+.pp .social-media a{
+    background : $color-lightborder;
+    padding : 5px 20px;
+}
+
+.pp hr{
+    border-top : 0;
+    border-bottom: 1px solid $color-lightborder;
+    box-shadow: 0 1px $color-white;
+}
+
+#PRQUA{
+    width: 30px;
+    padding: 4px 5px 5px 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+.cp tr:first-child th{
+    border-top : 1px solid $color-lightborder !important;
+    border-bottom-width : 1px !important;
+    box-shadow : 1px 1px rgba(255,255,255,1);
+}
+.cp th,td{
+    border-width : 1px;
+    background : rgba(255,255,255,.8);
+    box-shadow : 1px 1px rgba(255,255,255,1);
+    border : 1px solid $color-lightborder;
+}
+
+.cart-row td {
+    background-color : $color-lightgray;
+    box-shadow : 1px 1px rgba(255,255,255,1);
+}
+
+.cp thead{
+    color: #333;;
+    text-shadow: .4px .1px;
+}
+
+.cp tfoot{
+    text-align : right;
+    color: #333;;
+    text-shadow: .4px .1px;
+}
+
+.cp .price {
+    color : $color-yellow;
+}
+
+// .order-steps{
+//     display : block;
+//     list-style : none;
+//     margin : 0;
+//     padding : 0;
+//     float : left;
+//     width : 100%;
+// }
+.order-steps > li {
+    float : left;
+    width : 25%;
+}
+.order-steps > li > span {
+    display: block;
+    font-family: Agency;
+    font-size: 15px;
+    background-color: rgba(0,0,0,.035);
+    padding: 10px 5px; padding-left : 25px;
+    border-left: 0;
+    position : relative;
+    border-top : 1px solid rgba(206, 198, 198, 0.38);
+    border-bottom : 1px solid rgba(206, 198, 198, 0.38);
+}
+.order-steps > li.active > span {
+    background : $color-main;
+    color : $color-white;
+    text-shadow: .5px .1px;
+}
+.order-steps > li.done > span {
+    background : #A2A2A2;
+    color : $color-white;
+    text-shadow: .5px .1px;
+}
+.order-steps > li.active > span:after{
+    border-left-color :#3595BF;
+}
+.order-steps > li.done > span:after{
+    border-left-color : #A2A2A2;
+}
+.order-steps > li > span:before {
+    content : "";
+    position : absolute;
+    right : -19px; top : 0;
+    width: 0; 
+	height: 0; 
+	border-top: 19px solid transparent;
+	border-bottom: 20px solid transparent;
+    border-left: 19px solid rgb(212, 212, 212);
+    z-index : 1;
+}
+.order-steps > li > span:after {
+    content : "";
+    position : absolute;
+    right : -18px;top : 0;
+    width: 0; 
+	height: 0; 
+	border-top: 19px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 19px solid #EDEDED; //As background
+	z-index : 2;
+	
+}
+.order-steps > li:last-child span:after{display : none;}
+.order-steps > li:last-child span:before{display : none;}
+.order-steps > li:last-child > span{
+    border-right: 1px solid rgba(206, 198, 198, 0.38);
+}
+.order-steps > li:first-child > span{
+    border-left: 1px solid rgba(206, 198, 198, 0.38);
+}
+
+
+.cart-navigation {
+    border-top: 1px solid #E6E3E3;
+    padding: 3px;
+    float : left;
+    width : 100%;
+}
+
+#CartScreen{
+    // min-height : 250px; 
+    position : relative; 
+    overflow : hidden;
+    border : 1px solid rgba(206, 198, 198, 0.38);
+    border-top : 0;
+}
+
+#CartViewport {
+    padding : 10px;
+}
+
+span.error {
+    font-size : 11px;
+    color : red;
+}
+
+.table{
+    margin-bottom : 0;
+}
+
+button.btn.small {
+    padding: 0 5px;
+}
+
+.ui-payment-method {
+    border : 1px solid $color-lightborder;
+    background-color : $color-white;
+    padding : 10px; border-radius : 3px;
+}
+
+.ui-payment-method input[type="radio"]{
+    vertical-align : middle;
+    margin : 0;
 }

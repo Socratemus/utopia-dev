@@ -45,6 +45,8 @@ class CartItem extends Entity {
      */
     private $Item;
     
+    protected $Total = 0;
+    
     public function __construct()
     {
          parent::__construct();
@@ -64,6 +66,12 @@ class CartItem extends Entity {
     }
     public function getItem(){
          return $this->Item;
+    }
+    
+    public function getTotal(){
+        if(! $this->getItem())
+            return 0;
+        return $this->getItem()->getProduct()->getPrice() * $this->getQuantity();
     }
     
     public function setCartItemId($CartItemId){

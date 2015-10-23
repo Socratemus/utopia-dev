@@ -32,12 +32,14 @@
                 ]
             },
                 requests = {
+                    
                     openModal : function(){
                         $log.info('Toggle modal.');
                         
                     }
                 }
             ;
+            
             $scope.ViewVars = object,
             $scope.ViewMethods = requests;
             

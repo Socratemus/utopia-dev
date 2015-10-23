@@ -15,6 +15,7 @@
         </div>
     </div>
     <div class="col-md-12 extended listing-body">
+        
         <table class="table">
             
             <thead>
@@ -45,10 +46,9 @@
             </thead>
             
             <tbody>
-                <tr ng-repeat="category in categories" ng-class="{'hide' : category.Status == 500}" class="relative">
+                <tr ng-repeat="category in categories" ng-class="{'hide' : category.Status == 500}">
                     <td>
                         <input type="checkbox" />
-                        <div class="loading"></div>
                     </td>
                     <td>
                         <i class="fa fa-info-circle"></i>

@@ -13,12 +13,13 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\View\ViewEvent;
+use Zend\View\Model\JsonModel;
 
 class Module {
 
     public function onBootstrap(MvcEvent $e) {
         //Set default timezone
-        
+        //exit('fuuu');
         date_default_timezone_set('Europe/Bucharest');
         
         $eventManager = $e->getApplication()->getEventManager();
@@ -43,7 +44,7 @@ class Module {
         if(array_key_exists('app_listeners', $config))
         {   
             $applistners = $config['app_listeners'];
-           
+            
             foreach ($applistners as $subject => $cfg)
             {
                 
@@ -104,14 +105,20 @@ class Module {
         }
         
         $eventManager->getSharedManager()->attach('Zend\View\View', ViewEvent::EVENT_RENDERER_POST, function($event) {
-
-            $renderer = $event->getRenderer();
-            $translator = $renderer->plugin('translate');
-            $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en'; // SET TO DEFAULT LANG
-            $translator->getTranslator()->setLocale($lang);
-           
+            //var_dump($event->getModel());exit;
+            $model = $event->getModel();
+            if( ! $model instanceof JsonModel) {
+                $renderer = $event->getRenderer();
+                //JESSUS
+                
+                $translator = $renderer->plugin('translate');
+                $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en'; // SET TO DEFAULT LANG
+                $translator->getTranslator()->setLocale($lang);
+            }
         });
         
+        // var_dump($e->getRouteMatch());
+        // exit('zzz');
     }
 
     public function getConfig() {

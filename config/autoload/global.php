@@ -25,7 +25,7 @@ return array(
             'Application\Controller\Order'          =>      'Application\Controller\OrderController',
             
             /* Admin module */
-            'Admin\Controller\Index'          =>      'Admin\Controller\IndexController'
+            'Admin\Controller\Index'                 =>      'Admin\Controller\IndexController'
         ),
     ),
     
@@ -55,7 +55,7 @@ return array(
                 ),
             ),
             
-           'item'       => array(
+          'item'       => array(
                 'type'    => 'segment',
                 'options' => array(
                     'route'    => '/:lang/p/:slug',
@@ -83,25 +83,6 @@ return array(
                 ),
             ),
             
-            
-            'flight' => array(
-                'type' => 'segment',
-                'options' => array(
-                    'route' => '/:lang/flight[/:controller[/:action[/:id[/:name]]]]',
-                    'constraints' => array(
-                        'lang' => '[a-z]{2}',
-                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]*',
-                        'name' => '.*',
-                    ),
-                    'defaults' => array(
-                         //'lang' => 'ro',
-                        'controller' => 'flightSearch',
-                        'action' => 'index',
-                    ),
-                ),
-            ),
             
             'order'     => array(
                 'type'    => 'segment',
@@ -134,12 +115,25 @@ return array(
             'user'      => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/:lang/account',
+                    'route'    => '/:lang/user',
                     'defaults' => array(
                         'lang' => '[a-z]{2}',
                         'slug' => '.*',
                         '__NAMESPACE__' => 'User\Controller',
                         'controller'    => 'Index',
+                        'action'        => 'index',
+                    ),
+                ),    
+            ),
+            
+            'auth'      => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/auth[/:action]',
+                    'defaults' => array(
+                        'slug' => '.*',
+                        '__NAMESPACE__' => 'User\Controller',
+                        'controller'    => 'Auth',
                         'action'        => 'index',
                     ),
                 ),    

@@ -5,12 +5,13 @@ return array(
         'Admin',
         'Api',
         'Application',
-        
+        'Geoname',
         'Storage',
         'Cron',
         'Test',
         
         /****************/
+        'I18n',
         'Cache',
         'Log',
         'Utils',

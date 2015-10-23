@@ -1,0 +1,26 @@
+<section class="col-sm-12 col-xs-12" id="Wrapper">
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Comanda mea</a></li>
+    </ol>
+    
+    <h3 class=""><?php echo $this->translate('Comanda ta a fost plasata.');?></h3>
+    
+    <p>Un mail a fost trimis catre tine cu detaliile aferente acestei comenzi.</p>
+    
+    <p>Metoda de plata aleasa de tine este : <b>TRANSFER BANCAR</b></p>
+    
+    <p>Cont bancar : RO12 RAIFFAISEN 4324 4213 4322</p>
+    <p>Mentioneaza in tranzactie numarul comenzii pentru a putea valida plata.</p>
+    <p>Codul comenzii tale este : <strong><?php echo $order->getOrderNo()?></strong></p>
+    
+    
+    <br /><br />
+    
+    <p>Iti multumim ca ai ales Utopia.</p>
+    <pre class="hide"><?php var_dump($order->toArray());?></pre>
+    
+</section>
+
+
+<!--<h4>Comanda ta a fost     plasata.</h4>-->

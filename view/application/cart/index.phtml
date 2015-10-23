@@ -1,126 +1,111 @@
 <?php
-$lang = $this->viewModel()->getRoot()->lang;
-
+    $lang = $this->viewModel()->getRoot()->lang;
+    //var_dump($cart->toArray());
+    $cartdata = $cart->toArray();
+    $cartItems = $this->cart->getCartItems()->toArray();
+    foreach($cartItems as &$ci){
+        $item = $ci->getItem()->toArray();
+        $ci = $ci->toArray();
+        $ci['Item'] = $item;
+    }
+    
 ?>
 
-<section class="col-sm-12 col-xs-12 cp" id="Wrapper">
+
+<section class="col-sm-12 col-xs-12 cp" id="Wrapper" ng-app="CartApp">
     
-    <div class="col-md-12 col-xs-12">
-        <ol class="breadcrumb pl0 mb10">
-          
-          <li><a href="<?php echo $this->url('home' , array('lang' => $lang)); ?>">Home</a></li>
-          
-          <li><a href="javascript:void(0);"><?php echo $this->translate('Cosul tau de cumparaturi'); ?></a></li>
-          
-        </ol>
-    </div>
-    
-    <div class="col-md-12 col-xs-12 relative">
-        <h3 class="title pb5 mt5">Cos de cumparauri - Overview</h3>
-        <span class="pull-right" style="margin-top : -33px">
-            <?php echo $this->translate('Cosul tau de cumparaturi contine');?>: 12 <?php echo $this->translate('produse');?>
-        </span>
-    </div>
-    
-    <div class="col-sm-12 orprs pp">
-        ADD STEPS IN HERE
-        <hr class="mt10 mb5" />
-    </div>
-    
-    <div class="col-sm-12 cart-overview">
-       
-       <table class="table">
-           
-           <thead>
-               <tr>
-                   <th>
-                       <span><?php echo $this->translate('Product'); ?></span>
-                   </th>
-                   <th>
-                       <span><?php echo $this->translate('Description'); ?></span>
-                   </th>
-                   <th>
-                       <span><?php echo $this->translate('Stock'); ?></span>
-                   </th>
-                   <th>
-                       <span><?php echo $this->translate('Price'); ?></span>
-                   </th>
-                   <th>
-                       <span><?php echo $this->translate('Quantity'); ?></span>
-                   </th>
-                   <th>
-                       <span><?php echo $this->translate('Total'); ?></span>
-                   </th>
-               </tr>
-           </thead>
-           
-           <tbody>
-               <?php foreach($cart->getCartItems() as $cartItem) : ?>
-               <tr class="cart-row">
-                   
-                   <td align="center" width="60">
-                       <span> 
-                           <img src="<?php echo $cartItem->getItem()->getCover()->getSmall()?>" alt="" width="50" /> 
-                       </span>
-                   </td>
-                   
-                   <td>
-                       <span> <?php echo $cartItem->getItem()->getTitle();?> </span>
-                   </td>
-                   
-                   <td>
-                       <span> <label class="label label-success">in stock</label> </span>
-                   </td>
-                   
-                   <td>
-                       <span> 100 RON </span>
-                   </td>
-                   
-                   <td>
-                       <span> 1 </span>
-                   </td>
-                   
-                   <td>
-                       <span> 100 RON </span>
-                   </td>
-                   
-               </tr>
-               <?php endforeach; ?>
-           </tbody>
-           
-           <tfoot>
-               
-               <tr>
-                   <td colspan="3">
-                       <span></span>
-                   </td>   
-                   <td colspan="2" align="right">Total produse</td>
-                   <td class="price">100</td>
-                   
-               </tr>
-               
-               <tr>
-                   <td colspan="3">
-                       <span></span>
-                   </td>   
-                   <td colspan="2" align="right">Total transport</td>
-                   <td class="price">100</td>
-                   
-               </tr>
-               
-               <tr>
-                   <td colspan="3">
-                       <span></span>
-                   </td>   
-                   <td colspan="2" align="right">Total</td>
-                   <td class="price">100 RON</td>
-                   
-               </tr>
-               
-           </tfoot>
-           
-       </table> 
+    <div ng-controller="CartCtrl">
+        
+        <div class="steps">
+            <div class="col-sm-12 extended orprs pp">
+        
+                <ul class="order-steps mb0">
+                    <li ng-class="{active : Cart.Step.id == 1, done : Cart.Step.id > 1}" class="step setep-1">
+                        <span>{{'Summary' | translate }}</span>
+                    </li>
+                    
+                    <li ng-class="{active : Cart.Step.id == 2, done : Cart.Step.id > 2}" class="step setep-2">
+                        <span><?php echo $this->translate('Sign in');?></span>
+                    </li>
+                    
+                    <li ng-class="{active : Cart.Step.id == 3, done : Cart.Step.id > 3}" class="step setep-3">
+                        <span><?php echo $this->translate('Address');?></span>
+                    </li>
+                    
+                    <li ng-class="{active : Cart.Step.id == 4}" class="step setep-4">
+                        <span><?php echo $this->translate('Payment');?></span>
+                    </li>
+                    
+                </ul>
+                <span class="clearfix"></span>
+                <!--<hr class="mt10 mb5" />-->
+            </div>
+        </div>
+        
+        <div class="clearfix"></div>
+        
+        <div id="CartScreen" style="">
+            
+            <div class="slide" id="CartViewport" ng-view>
+        
+            </div>
+            
+            <div class="cart-navigation mt5">
+        
+                <button ng-hide="Cart.Step.hideNext" ng-disabled="Cart.Step.validate()" ng-click="Cart.Step.next()" class="btn btn-primary"><?php echo $this->translate('Continue')?></button>
+                
+                <button ng-hide="Cart.Step.hideBack" ng-click="Cart.Step.back()" class="btn btn-primary pull-right"><?php echo $this->translate('Back')?></button>
+                
+            </div>
+            
+            <div class="clearfix"></div>
+            
+        </div>
+        
         
     </div>
     
 </section>
+
+<?php 
+    
+/* LOAD ANGULAR APPLICATION */
+
+$this->headScript()->appendScript(  <<<START
+    App.CartItems = '{$this->json($cartItems)}';
+    App.Cart     = '{$this->json($cartdata)}';
+START
+);
+
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/angular.js');
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/angular-sanitize.js');    
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/angular-route.js');
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/angular-resource.js');
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/angular-animate.js');
+$this->inlineScript()->appendFile($this->basePath() . '/app/vendor/angular-1.4.2/addons/bower-angular-translate-2.5.0/angular-translate.js');
+
+$this->inlineScript()->appendFile($this->basePath() . '/cart/app.js');
+$this->inlineScript()->appendFile($this->basePath() . '/cart/controller/cart-controller.js');
+$this->inlineScript()->appendFile($this->basePath() . '/cart/controller/overview-controller.js');
+$this->inlineScript()->appendFile($this->basePath() . '/cart/controller/login-controller.js');
+$this->inlineScript()->appendFile($this->basePath() . '/cart/controller/address-controller.js');
+$this->inlineScript()->appendFile($this->basePath() . '/cart/controller/payment-controller.js');
+
+$this->headScript()->appendScript(  <<<START
+    var Translations = {
+        'Summary' : '{$this->translate('Summary_')}',
+        'Product' : '{$this->translate('Product_')}',
+        'Description' : '{$this->translate('Description_')}',
+        'Stock': '{$this->translate('Stock_')}',
+        'Price' : '{$this->translate('Price_')}',
+        'Quantity' : '{$this->translate('Quantity_')}',
+        'Total' : '{$this->translate('Total_')}',
+        'in stock' : '{$this->translate('in stock_')}',
+        'Total products' : '{$this->translate('Total products_')}',
+        'Transport' : '{$this->translate('Transport_')}'
+    }
+
+START
+);
+
+?>

@@ -7,21 +7,23 @@ use Zend\View\Model\ViewModel;
 
 class CartController extends AbstractActionController
 {
+    private $_step_algo       = 'md5' ;
+    private $_step_key_prefix = 'KHYSTEP' ;
     
-    public function IndexAction(){
-        /* @TODO */
+    public function indexAction(){
+        
         $cartsrv = $this->getServiceLocator()->get('CartService');
         $cart = $cartsrv->getCart();
-        // echo "<pre>";
-        // echo 'Items in cart : ' . $cart->getCartItems()->count();
-        // var_dump($cart->getGUID());
         
-        // $url = $this->url()->fromRoute('order', array('lang' => 'en' , 'action' => 'create'),array('force_canonical' => true));
+       
+        $cart->process();
+        if($this->getRequest()->isPost()){
+           
+            
+        } 
         
-        // echo '<a href="' . $url .'">Create order</a>';
-        // exit('');
         return array(
-            'cart' => $cart    
+            'cart' => $cart
         );
     }
     
@@ -30,7 +32,6 @@ class CartController extends AbstractActionController
     }
     
     public function addAction(){
-        /* @TODO */
         try
         {
             $redirectUrl = $this->getReferer();
@@ -74,6 +75,7 @@ class CartController extends AbstractActionController
     public function removeAllAction(){
         /* @TODO */
     }
+    
 }
 
 ?>

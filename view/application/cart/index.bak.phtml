@@ -1,0 +1,185 @@
+<?php
+    $lang = $this->viewModel()->getRoot()->lang;
+
+?>
+
+<section class="col-sm-12 col-xs-12 cp" id="Wrapper">
+    
+    <div class="col-md-12 col-xs-12">
+        <ol class="breadcrumb pl0 mb10">
+          
+          <li><a href="<?php echo $this->url('home' , array('lang' => $lang)); ?>">Home</a></li>
+          
+          <li><a href="javascript:void(0);"><?php echo $this->translate('Cosul tau de cumparaturi'); ?></a></li>
+          
+        </ol>
+    </div>
+    
+    <div class="col-md-12 col-xs-12 relative">
+        <h3 class="title pb5 mt5">Cos de cumparauri - Overview</h3>
+        <span class="pull-right" style="margin-top : -33px">
+            <?php echo $this->translate('Cosul tau de cumparaturi contine');?>: 12 <?php echo $this->translate('produse');?>
+        </span>
+    </div>
+    
+    <div class="col-sm-12 orprs pp">
+        
+        <ul class="order-steps">
+            <li class="step setep-1 <?php echo $step['step'] == 1 ? 'active' : ''?> <?php echo $step['step'] > 1 ? 'done' : ''?>">
+                <span><?php echo $this->translate('Summary');?></span>
+            </li>
+            
+            <li class="step setep-2 <?php echo $step['step'] == 2 ? 'active' : ''?> <?php echo $step['step'] > 2 ? 'done' : ''?>">
+                <span><?php echo $this->translate('Sign in');?></span>
+            </li>
+            
+            <li class="step setep-3 <?php echo $step['step'] == 3 ? 'active' : ''?> <?php echo $step['step'] > 3 ? 'done' : ''?>">
+                <span><?php echo $this->translate('Address');?></span>
+            </li>
+            
+            <li class="step setep-4 <?php echo $step['step'] == 4 ? 'active' : ''?> ">
+                <span><?php echo $this->translate('Payment');?></span>
+            </li>
+            
+        </ul>
+        
+        <hr class="mt10 mb5" />
+    </div>
+    
+    <?php if($step['step'] == 1) : ?> 
+    
+    <div class="col-sm-12 cart-overview">
+       
+       <table class="table">
+           
+           <thead>
+               <tr>
+                   <th>
+                       <span><?php echo $this->translate('Product'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Description'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Stock'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Price'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Quantity'); ?></span>
+                   </th>
+                   <th>
+                       <span><?php echo $this->translate('Total'); ?></span>
+                   </th>
+               </tr>
+           </thead>
+           
+           <tbody>
+               <?php foreach($cart->getCartItems() as $cartItem) : ?>
+               <tr class="cart-row">
+                   
+                   <td align="center" width="60">
+                       <span> 
+                           <img src="<?php echo $cartItem->getItem()->getCover()->getSmall()?>" alt="" width="50" /> 
+                       </span>
+                   </td>
+                   
+                   <td>
+                       <span> <?php echo $cartItem->getItem()->getTitle();?> </span>
+                   </td>
+                   
+                   <td>
+                       <span> <label class="label label-success">in stock</label> </span>
+                   </td>
+                   
+                   <td>
+                       <span> 100 RON </span>
+                   </td>
+                   
+                   <td>
+                       <span> 1 </span>
+                   </td>
+                   
+                   <td>
+                       <span> 100 RON </span>
+                   </td>
+                   
+               </tr>
+               <?php endforeach; ?>
+           </tbody>
+           
+           <tfoot>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right"><?php echo $this->translate('Total products') ; ?></td>
+                   <td class="price">100</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right"><?php echo $this->translate('Transport') ; ?></td>
+                   <td class="price">100</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right"><?php echo $this->translate('Total')?></td>
+                   <td class="price">100 RON</td>
+                   
+               </tr>
+               
+           </tfoot>
+           
+       </table> 
+        
+    </div>
+    
+    <?php elseif($step['step'] == 2) : ?>
+    
+    <div class="col-sm-12 cart-overview">
+        STEP 2
+    </div>
+    
+    <?php elseif($step['step'] == 3) : ?>
+    
+    <div class="col-sm-12 cart-overview">
+        STEP 3
+    </div>
+    
+    <?php elseif($step['step'] == 4) : ?>
+    
+    <div class="col-sm-12 cart-overview">
+        STEP 4
+    </div>
+    
+    <?php else : ?>
+    
+    <div class="col-sm-12 cart-overview">
+        ON ERROR
+    </div>
+    
+    <?php endif;?>
+    
+    <form action="" method="POST" class="col-sm-12">
+        
+        <button class="btn"><?php echo $this->translate('Back to shopping')?></button>
+        
+        <button class="btn pull-right"><?php echo $this->translate('Continue to checkout')?></button>
+        
+        <input type="hidden" name="Step" value="1">
+        
+    </form>
+        
+    
+    
+</section>

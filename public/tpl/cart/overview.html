@@ -1,0 +1,101 @@
+<section>
+    
+    <table class="table" ng-hide="vars.cartItems.length == 0">
+           
+           <thead>
+               <tr>
+                   <th>
+                       <span>{{'Product' | translate}}</span>
+                   </th>
+                   <th>
+                       <span>{{'Description' | translate}}</span>
+                   </th>
+                   <th>
+                       <span>{{'Stock' | translate}}</span>
+                   </th>
+                   <th>
+                       <span>{{'Price' | translate}}</span>
+                   </th>
+                   <th>
+                       <span>{{'Quantity' | translate}}</span>
+                   </th>
+                   <th>
+                       <span>{{'Total' | translate}}</span>
+                   </th>
+               </tr>
+           </thead>
+           
+           <tbody>
+              
+               <tr class="cart-row" ng-repeat="cartItem in vars.cartItems">
+                   
+                   <td align="center" width="60">
+                       <span> 
+                           <img ng-src="{{cartItem.Item.Cover.Small}}" alt="cart item" width="50" /> 
+                       </span>
+                   </td>
+                   
+                   <td>
+                       <span> {{cartItem.Item.Title}} </span>
+                   </td>
+                   
+                   <td>
+                       <span> <label class="label label-success">{{'in stock' | translate}}</label> </span>
+                   </td>
+                   
+                   <td>
+                       <span> {{cartItem.Item.Product.Price}} RON </span>
+                   </td>
+                   
+                   <td>
+                       <span> {{cartItem.Quantity}} </span>
+                   </td>
+                   
+                   <td>
+                       <span> {{cartItem.Item.Product.Price * cartItem.Quantity}} RON </span>
+                   </td>
+                   
+               </tr>
+              
+           </tbody>
+           
+           <tfoot>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">{{'Total products' | translate}}</td>
+                   <td class="price">{{vars.cart.TOTAL_ITEMS}} RON</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">{{'Transport' | translate}}</td>
+                   <td class="price">{{vars.cart.TRANSPORT}} RON</td>
+                   
+               </tr>
+               
+               <tr>
+                   <td colspan="3">
+                       <span></span>
+                   </td>   
+                   <td colspan="2" align="right">{{'Total' | translate}}</td>
+                   <td class="price">{{vars.cart.TOTAL}} RON</td>
+                   
+               </tr>
+               
+           </tfoot>
+           
+   </table> 
+    
+    <h4 ng-show="vars.cartItems.length == 0">
+        {{'There are no items in your cart.' | translate}}
+    </h4>
+    
+    <span class="clearfix"></span>
+    
+</section>

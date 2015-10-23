@@ -50,7 +50,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'User\Controller\Index' => 'User\Controller\IndexController',
-            'User\Controller\Address' => 'User\Controller\AddressController',
+            'User\Controller\Auth' => 'User\Controller\AuthController',
         ),
     ),
                     

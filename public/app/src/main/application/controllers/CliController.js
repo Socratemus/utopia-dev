@@ -35,12 +35,19 @@
             };
             methods.getCommands();
             
-            $interval(function(){
+            var interval = $interval(function(){
                 methods.getCommands();
             },5000);
             
+            
+            
             $scope.ViewVars = object;
             $scope.ViewMethods = methods;
+            
+             $scope.$on("$destroy", function(){
+                //console.log(interval);
+                $interval.cancel(interval);
+            });
             
             $log = $log.getInstance("CliController");
             $log.info("constructor() ");

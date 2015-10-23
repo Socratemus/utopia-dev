@@ -25,11 +25,18 @@ $this->headScript()
         ->appendFile($this->basePath() . '/javascript/_.js')
     ;
     
+$this->headScript()->prependScript(        <<<START
+    var App = {};
+    App.BasePath = '{$this->basePath()}';
+    App.Lang     = '{$this->lang}';
+START
+);
 $this->headScript()->appendScript(      <<<START
     $(function(){
         _.init();
     });
 START
 );
+
 ?>
       

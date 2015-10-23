@@ -31,36 +31,38 @@
                         $('panel').removeClass('open');
                     }));
                     
-                    // $(document).mouseup(function (e)
-                    // {
-                    //     var container = $("panel"),
-                    //         btn = $('.toggle-panel')
-                    //     ;
-                    
-                    //     if (!container.is(e.target) // if the target of the click isn't the container...
-                    //         && !btn.is(e.target) 
-                    //         && container.has(e.target).length === 0
-                    //         && btn.has(e.target).length === 0
-                    //         ) 
-                            
-                    //     {
-                    //         container.removeClass('open');
-                    //         $('.content').toggleClass('disable-scroll');
-                    //     }
-                    // });
                     
                 },
-                disableBodyScroll : function(){
-                   $(window).on('scroll' , '.content' , (function(e){
-                       console.log(e);
-                   }));
+                
+                enableAside : function(){
+                    $(document).on('click' , '[aside-toggle]' , function(e){
+                        var el = $(e.target);
+                        var target = el.attr('aside-target'); 
+                        if(target){
+                            var $target = $(target);
+                            console.log($target)
+                            $target.addClass('open');
+                        } else {
+                            $log.error('Aside not properly constructed.[Missing aside target]');
+                        }
+                        
+                    });
+                    
+                    $(document).on('click', '[close-aside]' , function(e){
+                        var el = $(e.target);
+                        var aside = el.closest('aside');
+                        aside.removeClass('open');
+                    });
                 },
+                
+               
                 // enableBodyScroll : function(){
                    
                 // },
                 init : function(){
-                    this.disableBodyScroll();
+                    
                     this.enablePanels();
+                    this.enableAside();
                     $log.info('initialize DomService ');
                 }
                 

@@ -18,9 +18,10 @@ return array(
                         'lang' => '[a-z]{2}',
                     ),
                     'defaults' => array(
+                        'lang'       => 'en',
                         'controller' => 'Application\Controller\Index',
-                        'action'     => 'index',
-                        'lang'       => 'en'
+                        'action'     => 'index'
+                        
                     ),
                 ),
             ),
@@ -63,7 +64,9 @@ return array(
             'entitymanager' => 'doctrine.entitymanager.orm_default'
         ),
         'invokables' => array(
-            'ImageFactory'  => 'Application\Service\ImageFactory'
+            /* all invokable services whould be placed in this array.*/
+            'ImageFactory'  => 'Application\Service\ImageFactory',
+            'AccountService' => 'Application\Service\AccountService',
         )
     ),
     'translator' => array(

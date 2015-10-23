@@ -229,4 +229,18 @@ class User implements UserInterface, ProviderInterface
         ;
     }
     
+    /************************************************************************/
+    public function toArray(){
+        
+        $data = array(
+            'email' => $this->getEmail(),
+            'firstname' => $this->getFirstName(),
+            'lastname' => $this->getLastName(),
+            'username' => $this->getUsername(),
+            'displayName' => $this->getDisplayName(),
+            'state'     => $this->getState()
+        );
+        
+        return $data;
+    }
 }

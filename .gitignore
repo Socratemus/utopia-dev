@@ -10,6 +10,7 @@ nbproject
 .tmb
 composer.lock
 data/cache
+data/.tmb
 data/DoctrineORMModule
 data/uploads
 data/logs
